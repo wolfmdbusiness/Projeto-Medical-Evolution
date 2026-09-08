@@ -3,7 +3,7 @@ from __future__ import annotations
 from datetime import datetime
 from typing import Optional
 
-from models.medical_state import ClinicalField, TemporalValue
+from models.medical_state import ClinicalField, LabObservation, TemporalValue
 
 # Single, predictable list of datetime shapes the Medical State can carry.
 # Both format_date and format_datetime funnel through parse_clinical_datetime
@@ -79,3 +79,16 @@ def format_temporal(tv: Optional[TemporalValue], with_year: bool = False, paren_
         return ""
     value = tv.normalized or tv.raw
     return format_datetime(value, with_year=with_year, paren_time=paren_time)
+
+
+def analyte_readings_order_is_ambiguous(observations: list[LabObservation]) -> bool:
+    """Milestone 1.2, item 33: the explicit answer to "which of these same-
+    analyte, same-day readings is the latest?".
+
+    True means the system has determined it CANNOT know — at least one
+    reading lacks a time-of-day, so no confident chronological order exists
+    between them. Shared by the renderer (`_group_latest_by_day`) and
+    Milestone 2.0A's exam normalizer so this determination is made in
+    exactly one place rather than reimplemented per consumer.
+    """
+    return len(observations) > 1 and not all(has_time_component(o.collection_datetime) for o in observations)

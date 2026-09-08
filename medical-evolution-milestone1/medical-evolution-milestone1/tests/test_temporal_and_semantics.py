@@ -397,7 +397,7 @@ def test_ambiguity_is_an_explicit_determination_not_an_accident():
     # The "could the latest reading be determined?" answer is a named,
     # independently testable function -- not just an implicit side effect
     # of `_group_latest_by_day` skipping deduplication.
-    from rendering.medical_note_renderer import _analyte_readings_order_is_ambiguous
+    from rendering.text_utils import analyte_readings_order_is_ambiguous as _analyte_readings_order_is_ambiguous
 
     timed = LabObservation(
         observation_id="L1", analyte=Analyte(canonical_id="NA", raw_name="NA"),
