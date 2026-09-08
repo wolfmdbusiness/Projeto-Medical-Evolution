@@ -55,12 +55,15 @@ def _item_key(item) -> str:
     prefixes it with `source_id`/`category` itself — so only the
     occurrence-specific part belongs here.
 
-    When the item has been through evidence grounding (its evidence
-    carries a resolved character span), that span is used directly: two
-    equal spans always produce the same key regardless of what order an
-    LLM happened to return the items in (item 15). See
+    When the item has been through evidence grounding, its evidence
+    carries one or more resolved matching spans (Milestone 2.0C.1, item
+    6): the same *set* of spans always produces the same key regardless
+    of what order an LLM happened to return the items in (item 15), and
+    regardless of how many legitimate spans support the item (a finding
+    restated in a report's body and its conclusion still gets one stable
+    identity from both spans together, not just the first one). See
     `exam_normalization.occurrence_identity.compute_occurrence_key` for
-    the fully-qualified (source_id + category + span) form of this same
+    the fully-qualified (source_id + category + spans) form of this same
     identity, used where the key needs to stand on its own outside the
     idempotency-key builder.
 
@@ -68,8 +71,9 @@ def _item_key(item) -> str:
     fixtures normalized directly, unchanged since Milestone 2.0A) fall
     back to `source_order`, preserving all pre-2.0B behavior exactly."""
     evidence = getattr(item, "evidence", None)
-    if evidence is not None and evidence.char_start is not None and evidence.char_end is not None:
-        return f"{evidence.char_start}:{evidence.char_end}"
+    if evidence is not None and evidence.matching_spans:
+        ordered = sorted((s.start, s.end) for s in evidence.matching_spans)
+        return ",".join(f"{start}-{end}" for start, end in ordered)
     return str(item.source_order)
 
 

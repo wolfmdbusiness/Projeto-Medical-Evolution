@@ -136,3 +136,66 @@ def test_no_unsafe_normalization_when_value_is_in_its_own_evidence():
     expectation = {"must_capture_current_values": [["HB", "13,1"]]}
     score = score_source("SRC-1", candidate, batch, expectation)
     assert score.unsafe_normalization_hits == []
+
+
+# --- label matching: canonical_id first, raw-name/value as explicit
+# fallbacks, never a bare substring check as the primary method
+# (Milestone 2.0C.1, item 10) --------------------------------------------
+
+def test_tp_matches_via_unique_value_fallback_not_substring():
+    # "TP" is not a substring of "TEMPO DE ATIVIDADE DE PROTROMBINA", and
+    # neither label is a registered production alias/canonical id (see
+    # exam_normalization/aliases.py -- deliberately not touched here).
+    # The old (pre-2.0C.1) harness reported this as missing even when the
+    # value was captured correctly; the unique-value fallback fixes the
+    # harness only, per item 10.
+    candidate = ExamExtractionCandidate(source_id="SRC-1", general_labs=[
+        _cand("Tempo de Atividade de Protrombina", "12,90", "Tempo de Atividade de Protrombina: 12,90 segundos"),
+    ])
+    batch = NormalizedExamBatch(source_id="SRC-1", laboratory_observations=[
+        _obs("Tempo de Atividade de Protrombina", "12,90"),
+    ])
+    score = score_source("SRC-1", candidate, batch, {"must_capture_current_values": [["TP", "12,90"]]})
+    assert score.captured_current == 1
+    assert score.missing_current == []
+
+
+def test_tfg_matches_via_unique_value_fallback_not_substring():
+    candidate = ExamExtractionCandidate(source_id="SRC-1", general_labs=[
+        _cand("Taxa de Filtração Glomerular", "77", "Taxa de Filtração Glomerular 77 mL/min/1,73"),
+    ])
+    batch = NormalizedExamBatch(source_id="SRC-1", laboratory_observations=[
+        _obs("Taxa de Filtração Glomerular", "77"),
+    ])
+    score = score_source("SRC-1", candidate, batch, {"must_capture_current_values": [["TFG", "77"]]})
+    assert score.captured_current == 1
+
+
+def test_unique_value_fallback_never_guesses_when_ambiguous():
+    # Two different observations share the same value -- the fallback
+    # must not arbitrarily credit either one.
+    candidate = ExamExtractionCandidate(source_id="SRC-1", general_labs=[])
+    batch = NormalizedExamBatch(source_id="SRC-1", laboratory_observations=[
+        _obs("Algum Outro Exame", "12,90"),
+        _obs("Mais Um Exame Diferente", "12,90"),
+    ])
+    score = score_source("SRC-1", candidate, batch, {"must_capture_current_values": [["TP", "12,90"]]})
+    assert score.captured_current == 0
+    assert score.missing_current == ["TP=12,90"]
+
+
+def test_canonical_id_based_match_takes_priority_over_raw_name_spelling():
+    # "RNI" is an existing, unmodified production alias for canonical id
+    # "INR" (exam_normalization/aliases.py) -- matching through
+    # canonical_id correctly credits an observation even though the
+    # extractor spelled raw_name differently ("INR", not "RNI").
+    candidate = ExamExtractionCandidate(source_id="SRC-1", general_labs=[
+        _cand("INR", "1,00", "INR 1,00"),
+    ])
+    obs = LabObservation(
+        observation_id="OBS-INR", analyte=Analyte(raw_name="INR", canonical_id="INR", display_name="INR"),
+        value=ObservationValue(raw_value="1,00"), unit=UnitValue(),
+    )
+    batch = NormalizedExamBatch(source_id="SRC-1", laboratory_observations=[obs])
+    score = score_source("SRC-1", candidate, batch, {"must_capture_current_values": [["RNI", "1,00"]]})
+    assert score.captured_current == 1

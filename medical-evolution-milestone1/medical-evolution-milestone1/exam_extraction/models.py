@@ -29,26 +29,58 @@ from pydantic import Field
 from models.medical_state import SourceType, StrictModel, TemporalValue
 
 
-class GroundingStatus(str, Enum):
-    """Result of checking a candidate item's `evidence_text` against its
-    source document (Milestone 2.0B, item 9). Set by
-    `exam_extraction.grounding.ground_candidate`, never by an extractor —
-    an LLM is never the authority on whether its own claim is grounded.
+class SupportStatus(str, Enum):
+    """Does `evidence_text` exist, literally, anywhere in the source
+    (Milestone 2.0C.1, item 3)? This is deliberately independent of
+    *where* it exists or how many times: a value restated twice in one
+    document (e.g. a radiology report's body and its own conclusion) is
+    just as much "supported" as a value stated once. Conflating "the text
+    exists" with "the text's location is unambiguous" was Milestone
+    2.0B's `AMBIGUOUS` status — mislabeling a pure localization problem
+    as if it were a hallucination-adjacent failure. `LocalizationStatus`
+    now carries that second, genuinely distinct question.
 
-    - GROUNDED: `evidence_text` matches exactly one location in
-      `ExamSourceEnvelope.raw_text` (directly, or unambiguously resolved
-      via `source_order` when the same text repeats — item 14).
-    - UNGROUNDED: `evidence_text` was not found in `raw_text` at all.
-    - AMBIGUOUS: `evidence_text` matches more than one location and
-      `source_order` does not resolve which one is meant.
-
-    Only GROUNDED items may become normalized clinical facts; UNGROUNDED
-    and AMBIGUOUS items are redirected to `unmapped` (item 10).
+    - GROUNDED: `evidence_text` matches one or more locations in
+      `ExamSourceEnvelope.raw_text`.
+    - UNGROUNDED: `evidence_text` was not found in `raw_text` at all —
+      this is the only status that means "no textual support exists."
     """
 
     GROUNDED = "GROUNDED"
     UNGROUNDED = "UNGROUNDED"
-    AMBIGUOUS = "AMBIGUOUS"
+
+
+class LocalizationStatus(str, Enum):
+    """Given `support_status=GROUNDED`, can this item's supporting span(s)
+    be pinned down deterministically (Milestone 2.0C.1, item 3)?
+
+    - UNIQUE: exactly one matching span applies to this item (either the
+      text occurs once in its search scope, or multiple items/occurrences
+      were cleanly paired one-to-one).
+    - MULTIPLE: the text has more than one matching span, all of which
+      legitimately support this one item (e.g. the same finding restated
+      in a report's body and its conclusion) — item 4/6: every matching
+      span is preserved, none is silently discarded, and the item's
+      occurrence identity is derived from the full, ordered set of spans.
+    - UNRESOLVED: more than one item competes for a set of occurrences
+      that cannot be cleanly paired (count mismatch, or no ordering
+      signal to pair them) — clinical identity genuinely cannot be
+      determined, so (item 7) this stays blocked from `MedicalState`
+      exactly like before, even though `support_status` is GROUNDED.
+    """
+
+    UNIQUE = "UNIQUE"
+    MULTIPLE = "MULTIPLE"
+    UNRESOLVED = "UNRESOLVED"
+
+
+class CharSpan(StrictModel):
+    """One literal character span in `ExamSourceEnvelope.raw_text`
+    (post line-ending normalization). Always computed by
+    `exam_extraction.grounding`, never supplied by an extractor."""
+
+    start: int
+    end: int
 
 
 class ExamSourceEnvelope(StrictModel):
@@ -78,10 +110,18 @@ class Evidence(StrictModel):
     simply left unset today — adding a real value to one of them later
     requires no change to this contract.
 
-    `char_start`/`char_end` and `grounding_status` are populated by
-    `exam_extraction.grounding.ground_candidate`, never by an extractor: the
-    LLM is never the authority on its own offsets (item 11) or on whether
-    its own claim is grounded (item 9).
+    `char_start`/`char_end`, `matching_spans`, `support_status`, and
+    `localization_status` are populated by
+    `exam_extraction.grounding.ground_candidate`, never by an extractor:
+    the LLM is never the authority on its own offsets (item 11) or on
+    whether its own claim is grounded (item 9).
+
+    `char_start`/`char_end` is the first (or only) span in
+    `matching_spans`, kept as a simple, always-present shortcut for the
+    common `LocalizationStatus.UNIQUE` case; `matching_spans` is the
+    complete, authoritative list -- every legitimate supporting
+    occurrence, in document order, never silently narrowed to one
+    (Milestone 2.0C.1, item 4).
     """
 
     evidence_text: str
@@ -89,8 +129,10 @@ class Evidence(StrictModel):
     line: Optional[int] = None
     char_start: Optional[int] = None
     char_end: Optional[int] = None
+    matching_spans: list[CharSpan] = Field(default_factory=list)
     bounding_box: Optional[dict[str, float]] = None
-    grounding_status: Optional[GroundingStatus] = None
+    support_status: Optional[SupportStatus] = None
+    localization_status: Optional[LocalizationStatus] = None
 
 
 class ExtractionWarning(StrictModel):

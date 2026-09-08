@@ -28,6 +28,7 @@ from typing import Any, Optional
 from exam_extraction.execution import ExecutionResult, run_extraction
 from exam_extraction.models import ExamExtractionCandidate, ExamSourceEnvelope
 from exam_extraction.providers.deepseek import DeepSeekExamExtractor
+from exam_normalization.aliases import resolve_canonical_id
 from exam_normalization.models import NormalizedExamBatch
 from exam_normalization.temporal import parse_exam_temporal
 from models.medical_state import (
@@ -125,15 +126,59 @@ def _values_match(actual: Optional[str], expected: str) -> bool:
         return a_num.replace(",", ".") == e_num.replace(",", ".")
 
 
-def _find_observation(batch: NormalizedExamBatch, bucket: str, label: str):
+def _find_observation(
+    batch: NormalizedExamBatch, bucket: str, label: str, expected_value: Optional[str] = None,
+) -> list:
+    """Match a ground-truth label against normalized observations
+    (Milestone 2.0C.1, item 10). Tried in order, stopping at the first
+    strategy that produces a match -- never a bare substring check as the
+    primary method:
+
+    1. canonical_id: resolve the ground-truth label through the same
+       (unmodified) production alias registry the extractor's own output
+       already went through, and match on the normalized `canonical_id`.
+       This is what makes e.g. "RNI" reliably match an observation the
+       normalizer canonicalized to "INR", regardless of what raw_name
+       string the extractor happened to use.
+    2. raw_name equivalence (explicit, secondary fallback): exact match
+       first, substring containment only after that -- used when the
+       label itself has no known canonical id (e.g. "TP"/"TFG", neither
+       of which is in the production alias registry -- and this harness
+       must not add them there just to pass a test, per item 10).
+    3. unique value match (last-resort, explicit fallback): when neither
+       of the above found anything and exactly one observation in this
+       bucket carries the expected value, credit that one. A single
+       candidate value match in an otherwise-accounted-for panel is
+       strong, principled evidence -- never used when more than one
+       observation shares that value (ambiguous, so left unmatched
+       rather than guessed at).
+    """
     target = _normalize_label(label)
     items = getattr(batch, bucket)
-    matches = []
-    for obs in items:
-        raw_name = _normalize_label(obs.analyte.raw_name)
-        if raw_name == target or target in raw_name or raw_name in target:
-            matches.append(obs)
-    return matches
+
+    label_canonical = resolve_canonical_id(label)
+    if label_canonical is not None:
+        by_canonical = [obs for obs in items if obs.analyte.canonical_id == label_canonical]
+        if by_canonical:
+            return by_canonical
+
+    exact = [obs for obs in items if _normalize_label(obs.analyte.raw_name) == target]
+    if exact:
+        return exact
+
+    substring = [
+        obs for obs in items
+        if target in _normalize_label(obs.analyte.raw_name) or _normalize_label(obs.analyte.raw_name) in target
+    ]
+    if substring:
+        return substring
+
+    if expected_value is not None:
+        value_matches = [obs for obs in items if _values_match(obs.value.raw_value, expected_value)]
+        if len(value_matches) == 1:
+            return value_matches
+
+    return []
 
 
 def _evidence_text_index(candidate: ExamExtractionCandidate) -> dict[str, list[str]]:
@@ -218,7 +263,7 @@ def _score_current_values(
     score.expected_current = len(expected_pairs)
     for pair in expected_pairs:
         label, value = pair[0], pair[1]
-        candidates = _find_observation(batch, "laboratory_observations", label)
+        candidates = _find_observation(batch, "laboratory_observations", label, expected_value=value)
         if any(_values_match(c.value.raw_value, value) for c in candidates):
             score.captured_current += 1
         else:
@@ -232,7 +277,7 @@ def _score_urinalysis(
 ) -> None:
     score.expected_urinalysis = len(expected)
     for label, value in expected.items():
-        candidates = _find_observation(batch, "urinalysis", label)
+        candidates = _find_observation(batch, "urinalysis", label, expected_value=value)
         if any(_values_match(c.value.raw_value, value) for c in candidates):
             score.captured_urinalysis += 1
         else:

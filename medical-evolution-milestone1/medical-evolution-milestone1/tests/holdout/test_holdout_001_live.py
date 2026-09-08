@@ -49,7 +49,9 @@ def test_holdout_source(source_id, live_extractor):
 
     print(  # noqa: T201
         f"[{source_id}] grounded={result.metadata.grounded_count} "
-        f"ungrounded={result.metadata.ungrounded_count} ambiguous={result.metadata.ambiguous_count} "
+        f"ungrounded={result.metadata.ungrounded_count} accepted={result.metadata.accepted_count} "
+        f"loc_multiple={result.metadata.localization_multiple_count} "
+        f"loc_unresolved={result.metadata.localization_unresolved_count} "
         f"captured_current={score.captured_current}/{score.expected_current} "
         f"missing={score.missing_current} historical_hits={score.historical_as_current_hits} "
         f"unsafe={score.unsafe_normalization_hits} "

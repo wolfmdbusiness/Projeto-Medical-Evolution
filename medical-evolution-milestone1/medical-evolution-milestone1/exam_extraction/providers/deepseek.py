@@ -59,10 +59,15 @@ DEEPSEEK_MODEL = "deepseek-v4-flash"
 DEEPSEEK_BASE_URL = "https://api.deepseek.com"
 DEEPSEEK_CHAT_COMPLETIONS_PATH = "/chat/completions"
 
-# Generous enough for a single clinical fragment's worth of structured
-# JSON; deliberately bounded rather than left unset (item 8: this is
-# extraction, not open-ended generation).
-_DEFAULT_MAX_TOKENS = 4096
+# Milestone 2.0C.1, item 2: HOLDOUT-001's two largest lab panels
+# (15+ analytes plus a full urinalysis) reproducibly truncated at the
+# previous 4096 ceiling (PROVIDER_FAILURE on every one of 3 runs each --
+# see docs/mod_exames_2_0c_holdout_findings.md). Raised to 16384;
+# deliberately still bounded rather than left unset (this is extraction,
+# not open-ended generation), and finish_reason != "stop" remains an
+# explicit failure regardless of the ceiling -- no automatic continuation
+# or truncated-JSON recovery was added.
+_DEFAULT_MAX_TOKENS = 16384
 
 _API_KEY_ENV_VAR = "DEEPSEEK_API_KEY"
 
@@ -109,6 +114,14 @@ class DeepSeekExamExtractor:
         # hardcoding a single prompt module's version.
         self.prompt_version = prompt_version
         self.last_call_info: Optional[ProviderCallInfo] = None
+        # Milestone 2.0C.1, item 8: the raw provider response content,
+        # exposed purely for the (deidentified-sources-only) observability
+        # harness to persist. Never contains a credential or header --
+        # this is exactly the JSON text the model returned, nothing else
+        # -- and is not read by any part of the extraction pipeline
+        # itself (extract() already returns the parsed, validated
+        # ExamExtractionCandidate; this is a side channel for audit only).
+        self.last_raw_content: Optional[str] = None
 
     def _headers(self) -> dict[str, str]:
         headers = {"Content-Type": "application/json"}
@@ -120,6 +133,7 @@ class DeepSeekExamExtractor:
         return headers
 
     def extract(self, source: ExamSourceEnvelope) -> ExamExtractionCandidate:
+        self.last_raw_content = None
         payload: dict[str, Any] = {
             "model": self._model,
             "stream": False,
@@ -159,6 +173,7 @@ class DeepSeekExamExtractor:
         message = choices[0].get("message") or {}
         content = message.get("content")
         finish_reason = choices[0].get("finish_reason")
+        self.last_raw_content = content
 
         self.last_call_info = ProviderCallInfo(
             latency_ms=latency_ms,

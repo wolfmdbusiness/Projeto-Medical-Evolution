@@ -1,7 +1,7 @@
-"""Milestone 2.0B, items 22-24: evaluation harness + the required
-snippet corpus, run offline against the recorded/synthetic fixtures under
-`exam_extraction/fixtures/recorded_responses/` (item 19) via
-`FakeExamExtractor` (item 18). No network call in this file.
+"""Milestone 2.0B, items 22-24; hardened in Milestone 2.0C.1, item 9:
+evaluation harness + the required snippet corpus, run offline against the
+recorded/synthetic fixtures under `exam_extraction/fixtures/recorded_responses/`
+(item 19) via `FakeExamExtractor` (item 18). No network call in this file.
 """
 
 import pytest
@@ -10,8 +10,8 @@ from exam_extraction.evaluation import EvaluationResult, ExpectedItem, evaluate_
 from exam_extraction.execution import ExecutionStatus, run_extraction
 from exam_extraction.fake import FakeExamExtractor, load_recorded_responses
 from exam_extraction.fixtures.snippets import EXPECTED_ITEMS, SNIPPETS
-from exam_extraction.grounding import GroundingReport, GroundingRecord, GroundingStatus
-from exam_extraction.models import ExamSourceEnvelope
+from exam_extraction.grounding import GroundingReport, GroundingRecord
+from exam_extraction.models import ExamSourceEnvelope, LocalizationStatus, SupportStatus
 from exam_normalization.models import NormalizedExamBatch
 from models.medical_state import SourceType
 
@@ -28,59 +28,90 @@ def recorded_extractor() -> FakeExamExtractor:
     return FakeExamExtractor(load_recorded_responses())
 
 
+def _grounded(category: str, label: str, start: int, end: int, localization=LocalizationStatus.UNIQUE) -> GroundingRecord:
+    return GroundingRecord(category, label, SupportStatus.GROUNDED, localization, ((start, end),))
+
+
+def _ungrounded(category: str, label: str) -> GroundingRecord:
+    return GroundingRecord(category, label, SupportStatus.UNGROUNDED, None, ())
+
+
+def _unresolved(category: str, label: str) -> GroundingRecord:
+    return GroundingRecord(category, label, SupportStatus.GROUNDED, LocalizationStatus.UNRESOLVED, ())
+
+
 # --- harness math, on synthetic inputs (no dependency on real fixtures) --
 
 def test_perfect_match_yields_precision_and_recall_of_one():
     report = GroundingReport(records=[
-        GroundingRecord("general_lab", "HB", GroundingStatus.GROUNDED, 0, 7),
-        GroundingRecord("general_lab", "HT", GroundingStatus.GROUNDED, 8, 15),
+        _grounded("general_lab", "HB", 0, 7),
+        _grounded("general_lab", "HT", 8, 15),
     ])
     batch = NormalizedExamBatch(source_id="SRC-EVAL")
     expected = [ExpectedItem("general_lab", "HB"), ExpectedItem("general_lab", "HT")]
     result = evaluate_extraction("SYN-1", expected, report, batch)
     assert result.precision == 1.0
     assert result.recall == 1.0
-    assert result.true_hallucination_rate == 0.0
-    assert result.ambiguity_rate == 0.0
+    assert result.ungrounded_rate == 0.0
+    assert result.localization_unresolved_rate == 0.0
     assert result.missed_items == 0
     assert result.false_positive_items == 0
+    assert result.semantic_hallucination_status == "NOT_ADJUDICATED"
+    assert result.semantic_hallucination_rate is None
 
 
-def test_ungrounded_item_counts_toward_true_hallucination_rate_not_correctness():
+def test_ungrounded_item_counts_toward_ungrounded_rate_not_correctness():
     report = GroundingReport(records=[
-        GroundingRecord("general_lab", "HB", GroundingStatus.GROUNDED, 0, 7),
-        GroundingRecord("general_lab", "GLICOSE", GroundingStatus.UNGROUNDED, None, None),
+        _grounded("general_lab", "HB", 0, 7),
+        _ungrounded("general_lab", "GLICOSE"),
     ])
     batch = NormalizedExamBatch(source_id="SRC-EVAL")
     expected = [ExpectedItem("general_lab", "HB")]
     result = evaluate_extraction("SYN-2", expected, report, batch)
     assert result.extracted_items == 2
     assert result.correct_items == 1
-    assert result.true_hallucination_rate == 0.5  # 1 ungrounded / 2 extracted
-    assert result.ambiguity_rate == 0.0
+    assert result.ungrounded_rate == 0.5  # 1 ungrounded / 2 extracted
+    assert result.localization_unresolved_rate == 0.0
     assert result.false_positive_items == 0  # ungrounded is not a "grounded but wrong" false positive
 
 
-def test_ambiguous_item_counts_toward_ambiguity_rate_never_hallucination():
-    # Milestone 2.0B.2, item 5: AMBIGUOUS is a localization problem (the
-    # evidence text is real, just not attributable to one item), never
-    # conflated with a true hallucination (text that never existed at all).
+def test_localization_unresolved_item_counts_toward_its_own_rate_never_ungrounded():
+    # Milestone 2.0C.1, item 9: localization=UNRESOLVED is a real-support,
+    # can't-attribute-it problem, never conflated with a true "the text
+    # never existed" hallucination signal.
     report = GroundingReport(records=[
-        GroundingRecord("general_lab", "HB", GroundingStatus.GROUNDED, 0, 7),
-        GroundingRecord("general_lab", "NA", GroundingStatus.AMBIGUOUS, None, None),
-        GroundingRecord("general_lab", "K", GroundingStatus.AMBIGUOUS, None, None),
+        _grounded("general_lab", "HB", 0, 7),
+        _unresolved("general_lab", "NA"),
+        _unresolved("general_lab", "K"),
     ])
     batch = NormalizedExamBatch(source_id="SRC-EVAL")
     expected = [ExpectedItem("general_lab", "HB")]
     result = evaluate_extraction("SYN-2B", expected, report, batch)
     assert result.extracted_items == 3
-    assert result.ambiguous_items == 2
-    assert result.true_hallucination_rate == 0.0  # 0 ungrounded / 3 extracted -- AMBIGUOUS never counted here
-    assert result.ambiguity_rate == pytest.approx(2 / 3)
+    assert result.localization_unresolved_items == 2
+    assert result.ungrounded_rate == 0.0  # 0 ungrounded / 3 extracted -- UNRESOLVED never counted here
+    assert result.localization_unresolved_rate == pytest.approx(2 / 3)
+
+
+def test_localization_multiple_is_accepted_and_reported_separately_never_a_failure():
+    # item 6: a legitimately multiply-supported item is accepted -- its
+    # rate is purely informational, never folded into ungrounded/unresolved.
+    report = GroundingReport(records=[
+        GroundingRecord("diagnostic_study_finding", "ACHADO", SupportStatus.GROUNDED, LocalizationStatus.MULTIPLE, ((0, 5), (40, 45))),
+    ])
+    batch = NormalizedExamBatch(source_id="SRC-EVAL")
+    expected = [ExpectedItem("diagnostic_study_finding", "ACHADO")]
+    result = evaluate_extraction("SYN-2C", expected, report, batch)
+    assert result.localization_multiple_items == 1
+    assert result.localization_multiple_rate == 1.0
+    assert result.ungrounded_rate == 0.0
+    assert result.localization_unresolved_rate == 0.0
+    assert result.recall == 1.0
+    assert result.precision == 1.0
 
 
 def test_missing_expected_item_is_a_miss_not_a_crash():
-    report = GroundingReport(records=[GroundingRecord("general_lab", "HB", GroundingStatus.GROUNDED, 0, 7)])
+    report = GroundingReport(records=[_grounded("general_lab", "HB", 0, 7)])
     batch = NormalizedExamBatch(source_id="SRC-EVAL")
     expected = [ExpectedItem("general_lab", "HB"), ExpectedItem("general_lab", "NEVER-EXTRACTED")]
     result = evaluate_extraction("SYN-3", expected, report, batch)
@@ -90,8 +121,8 @@ def test_missing_expected_item_is_a_miss_not_a_crash():
 
 def test_extra_grounded_item_not_in_expected_is_a_false_positive():
     report = GroundingReport(records=[
-        GroundingRecord("general_lab", "HB", GroundingStatus.GROUNDED, 0, 7),
-        GroundingRecord("general_lab", "SURPRISE_ANALYTE", GroundingStatus.GROUNDED, 8, 25),
+        _grounded("general_lab", "HB", 0, 7),
+        _grounded("general_lab", "SURPRISE_ANALYTE", 8, 25),
     ])
     batch = NormalizedExamBatch(source_id="SRC-EVAL")
     expected = [ExpectedItem("general_lab", "HB")]
@@ -100,12 +131,34 @@ def test_extra_grounded_item_not_in_expected_is_a_false_positive():
     assert result.precision == 0.5  # 1 correct / 2 extracted
 
 
+# --- semantic hallucination stays adjudicated, never presumed (item 9) ---
+
+def test_semantic_hallucination_defaults_to_not_adjudicated():
+    report = GroundingReport(records=[_grounded("general_lab", "HB", 0, 7)])
+    batch = NormalizedExamBatch(source_id="SRC-EVAL")
+    result = evaluate_extraction("SYN-ADJ-1", [ExpectedItem("general_lab", "HB")], report, batch)
+    assert result.semantic_hallucination_status == "NOT_ADJUDICATED"
+    assert result.semantic_hallucination_rate is None
+
+
+def test_semantic_hallucination_rate_computed_only_when_explicitly_adjudicated():
+    report = GroundingReport(records=[
+        _grounded("general_lab", "HB", 0, 7),
+        _grounded("general_lab", "HT", 8, 15),
+    ])
+    batch = NormalizedExamBatch(source_id="SRC-EVAL")
+    expected = [ExpectedItem("general_lab", "HB"), ExpectedItem("general_lab", "HT")]
+    result = evaluate_extraction("SYN-ADJ-2", expected, report, batch, adjudicated_semantic_hallucinations=1)
+    assert result.semantic_hallucination_status == "ADJUDICATED"
+    assert result.semantic_hallucination_rate == pytest.approx(0.5)
+
+
 # --- optional expected items (Milestone 2.0B.2, item 4) -------------------
 
 def test_optional_item_present_is_credited_never_a_false_positive():
     report = GroundingReport(records=[
-        GroundingRecord("diagnostic_study", "COLONOSCOPIA", GroundingStatus.GROUNDED, 0, 20),
-        GroundingRecord("diagnostic_study_finding", "COLONOSCOPIA", GroundingStatus.GROUNDED, 21, 31),
+        _grounded("diagnostic_study", "COLONOSCOPIA", 0, 20),
+        _grounded("diagnostic_study_finding", "COLONOSCOPIA", 21, 31),
     ])
     batch = NormalizedExamBatch(source_id="SRC-EVAL")
     expected = [
@@ -120,9 +173,7 @@ def test_optional_item_present_is_credited_never_a_false_positive():
 
 
 def test_optional_item_absent_never_counts_as_missed_or_hurts_recall():
-    report = GroundingReport(records=[
-        GroundingRecord("diagnostic_study", "COLONOSCOPIA", GroundingStatus.GROUNDED, 0, 20),
-    ])
+    report = GroundingReport(records=[_grounded("diagnostic_study", "COLONOSCOPIA", 0, 20)])
     batch = NormalizedExamBatch(source_id="SRC-EVAL")
     expected = [
         ExpectedItem("diagnostic_study", "COLONOSCOPIA"),
@@ -146,8 +197,8 @@ def test_every_required_snippet_extracts_and_grounds_cleanly(source_id, recorded
     assert isinstance(evaluation, EvaluationResult)
     assert evaluation.precision == 1.0
     assert evaluation.recall == 1.0
-    assert evaluation.true_hallucination_rate == 0.0
-    assert evaluation.ambiguity_rate == 0.0
+    assert evaluation.ungrounded_rate == 0.0
+    assert evaluation.localization_unresolved_rate == 0.0
 
 
 def test_unknown_analyte_snippet_is_unresolved_not_a_silent_pass(recorded_extractor):

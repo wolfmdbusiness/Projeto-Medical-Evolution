@@ -53,9 +53,21 @@ class ExecutionStatus(str, Enum):
 
 @dataclass(frozen=True)
 class ExecutionMetadata:
-    """Milestone 2.0B, item 26. Deliberately excludes chain-of-thought, any
-    credential, and the full raw document (item 30) — only counts, ids,
-    timing, and a short error code."""
+    """Milestone 2.0B, item 26; extended in Milestone 2.0C.1, item 9.
+    Deliberately excludes chain-of-thought, any credential, and the full
+    raw document (item 30) — only counts, ids, timing, and a short error
+    code.
+
+    `grounded_count`/`ungrounded_count` mirror
+    `GroundingReport.grounded_count`/`ungrounded_count` (item 3: does the
+    evidence exist at all). `localization_multiple_count` and
+    `localization_unresolved_count` replace Milestone 2.0B's single
+    `ambiguous_count` — the former is accepted (a legitimately
+    multiply-supported item), the latter is blocked (item 7). Neither is
+    a semantic-hallucination count on its own; see
+    `exam_extraction.evaluation` for why that stays a separate,
+    adjudicated concept rather than an automatic one (item 9).
+    """
 
     run_id: str
     source_id: str
@@ -70,10 +82,13 @@ class ExecutionMetadata:
     latency_ms: Optional[float]
     input_tokens: Optional[int]
     output_tokens: Optional[int]
+    finish_reason: Optional[str]
     schema_validation_status: str
     grounded_count: int
     ungrounded_count: int
-    ambiguous_count: int
+    accepted_count: int
+    localization_multiple_count: int
+    localization_unresolved_count: int
     error_code: Optional[str]
 
 
@@ -123,8 +138,10 @@ def run_extraction(
             status=ExecutionStatus(exc.error_code), latency_ms=call_info.latency_ms if call_info else None,
             input_tokens=call_info.input_tokens if call_info else None,
             output_tokens=call_info.output_tokens if call_info else None,
+            finish_reason=call_info.finish_reason if call_info else None,
             schema_validation_status="NOT_ATTEMPTED" if exc.error_code != "EXTRACTION_SCHEMA_FAILURE" else "FAILED",
-            grounded_count=0, ungrounded_count=0, ambiguous_count=0, error_code=exc.error_code,
+            grounded_count=0, ungrounded_count=0, accepted_count=0,
+            localization_multiple_count=0, localization_unresolved_count=0, error_code=exc.error_code,
         )
         logger.warning(
             "run_extraction failed run_id=%s source_id=%s error_code=%s", run_id, source.source_id, exc.error_code,
@@ -144,15 +161,19 @@ def run_extraction(
         status=ExecutionStatus.SUCCESS, latency_ms=call_info.latency_ms if call_info else None,
         input_tokens=call_info.input_tokens if call_info else None,
         output_tokens=call_info.output_tokens if call_info else None,
+        finish_reason=call_info.finish_reason if call_info else None,
         schema_validation_status="OK",
         grounded_count=grounding_report.grounded_count,
         ungrounded_count=grounding_report.ungrounded_count,
-        ambiguous_count=grounding_report.ambiguous_count,
+        accepted_count=grounding_report.accepted_count,
+        localization_multiple_count=grounding_report.localization_multiple_count,
+        localization_unresolved_count=grounding_report.localization_unresolved_count,
         error_code=None,
     )
     logger.info(
-        "run_extraction success run_id=%s source_id=%s grounded=%d ungrounded=%d ambiguous=%d",
+        "run_extraction success run_id=%s source_id=%s grounded=%d ungrounded=%d accepted=%d loc_multiple=%d loc_unresolved=%d",
         run_id, source.source_id, grounding_report.grounded_count,
-        grounding_report.ungrounded_count, grounding_report.ambiguous_count,
+        grounding_report.ungrounded_count, grounding_report.accepted_count,
+        grounding_report.localization_multiple_count, grounding_report.localization_unresolved_count,
     )
     return ExecutionResult(metadata=metadata, batch=batch, candidate=grounded_candidate, grounding_report=grounding_report)

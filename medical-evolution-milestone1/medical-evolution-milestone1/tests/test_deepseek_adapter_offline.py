@@ -79,6 +79,22 @@ def test_request_sets_temperature_zero_and_never_sets_top_p():
     assert "top_p" not in captured["body"]
 
 
+def test_request_sets_max_tokens_16384():
+    # Milestone 2.0C.1, item 2: HOLDOUT-001's two largest lab panels
+    # reproducibly truncated at the previous 4096 ceiling.
+    captured = {}
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        captured["body"] = json.loads(request.content)
+        body = _ok_response(json.dumps({"source_id": "SRC-DS", "general_labs": []}))
+        return httpx.Response(200, json=body)
+
+    extractor = _extractor_with(handler)
+    extractor.extract(_envelope())
+
+    assert captured["body"]["max_tokens"] == 16384
+
+
 # --- authentication modes (item 2) -----------------------------------------
 
 def test_no_authorization_header_when_no_api_key_env_var(monkeypatch):

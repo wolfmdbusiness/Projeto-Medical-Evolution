@@ -28,7 +28,17 @@ from exam_extraction.models import ExamExtractionCandidate
 # uniformly to whatever fields the schema actually has -- it does not
 # describe bucket shapes (that stays 100% schema-derived) and cannot drift
 # into a parallel taxonomy of its own.
-_SYSTEM_POPULATED_FIELDS = frozenset({"char_start", "char_end", "grounding_status"})
+#
+# Milestone 2.0C.1 replaced char_start/char_end + grounding_status with a
+# richer support/localization model (matching_spans, support_status,
+# localization_status) -- all still system-populated, so the excluded set
+# grows with them. This keeps render_schema_guide()'s output, and
+# therefore Prompt 003's literal text, byte-identical across that change:
+# the prompt was never supposed to ask the model to fill in grounding
+# results in the first place.
+_SYSTEM_POPULATED_FIELDS = frozenset({
+    "char_start", "char_end", "matching_spans", "support_status", "localization_status",
+})
 
 
 def _resolve_ref(ref: str, defs: dict[str, Any]) -> dict[str, Any]:
