@@ -4,7 +4,7 @@
     {
       "raw_name": "COLONOSCOPIA",
       "raw_temporal": "31/09",
-      "procedure_status_hint": null,
+      "procedure_status_hint": "ORDERED",
       "result_status_hint": null,
       "source_order": 1,
       "evidence": {

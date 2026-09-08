@@ -79,7 +79,8 @@ def test_live_snippet_evaluation(source_id, live_extractor):
     print(  # noqa: T201 -- intentional: `pytest -m live -s` is how a human reads these numbers (item 25).
         f"[{source_id}] status={result.metadata.status.value} "
         f"precision={evaluation.precision:.2f} recall={evaluation.recall:.2f} "
-        f"hallucination_rate={evaluation.hallucination_rate:.2f} unmapped_rate={evaluation.unmapped_rate:.2f} "
+        f"true_hallucination_rate={evaluation.true_hallucination_rate:.2f} "
+        f"ambiguity_rate={evaluation.ambiguity_rate:.2f} unmapped_rate={evaluation.unmapped_rate:.2f} "
         f"grounded={evaluation.grounded_items} ungrounded={evaluation.ungrounded_items} ambiguous={evaluation.ambiguous_items} "
         f"latency_ms={result.metadata.latency_ms} input_tokens={result.metadata.input_tokens} "
         f"output_tokens={result.metadata.output_tokens}"
@@ -87,7 +88,8 @@ def test_live_snippet_evaluation(source_id, live_extractor):
     # A live LLM is not held to perfect recall/precision in this milestone
     # -- the point is to observe and report (item 25), not to gate CI on
     # a live model's output. Only structural invariants are asserted.
-    assert evaluation.expected_items == len(EXPECTED_ITEMS[source_id])
+    required_expected_count = sum(1 for item in EXPECTED_ITEMS[source_id] if not item.optional)
+    assert evaluation.expected_items == required_expected_count
 
 
 def test_unauthenticated_or_malformed_auth_fails_explicitly(monkeypatch):

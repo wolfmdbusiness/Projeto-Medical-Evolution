@@ -278,3 +278,37 @@ com campos incompatíveis (`microbiology`, `diagnostic_studies`,
   `docs/mod_exames_2_0b_1_live_findings.md` para a tabela completa e os
   dois casos restantes documentados (não corrigidos por retry ou
   afrouxamento de schema, conforme vedado nesta etapa).
+
+## Milestone 2.0B.2 — DeepSeek Extraction Stability Calibration
+
+Mede e melhora a estabilidade do `deepseek-v4-flash` como extrator, sem
+afrouxar nenhum contrato.
+
+- `DeepSeekExamExtractor` agora envia `temperature=0` explicitamente
+  (`thinking` continua `disabled`; `top_p` não é tocado).
+- `exam_extraction/prompts/mod_exames_2_0b_003.py`
+  (`MOD_EXAMES_EXTRACTION_PROMPT_VERSION = "2.0b-prompt-003"`): mesma
+  base do prompt 002 (schema guide + um exemplo por bucket), com uma
+  regra nova — `evidence_text` deve ser o menor trecho literal contínuo
+  que sustenta exclusivamente aquele item, nunca a linha inteira
+  compartilhada entre vários itens. Prompts 001 e 002 preservados
+  inalterados.
+- `exam_extraction/evaluation.py`: `hallucination_rate` foi separado em
+  `true_hallucination_rate` (só itens UNGROUNDED — texto que nunca
+  existiu na fonte) e `ambiguity_rate` (só itens AMBIGUOUS — evidência
+  real, porém não atribuível com segurança a um item). Nenhum dos dois
+  muda o que acontece com o item: ambos continuam bloqueados de entrar em
+  qualquer bucket clínico (`exam_extraction/grounding.py`, inalterado
+  nesta etapa). `ExpectedItem` ganhou `optional=True`, usado para
+  corrigir a ground truth de `SNIPPET-INVALID-DATE` — um
+  `diagnostic_study_finding` para "SOLICITADO" passa a ser creditável se
+  presente, mas nunca obrigatório.
+- Benchmark de estabilidade: 10 snippets × 5 execuções independentes = 50
+  chamadas ao vivo. Resultado: schema success 50/50 (100%), grounded rate
+  dos itens aceitos 100%, true hallucination rate 0%, precision média e
+  mínima 100%, recall médio e mínimo 100% — todas as seis metas do item
+  14 atingidas com folga. `CA1` nunca promovido a `CAI` (mesmo com
+  `canonical_hint="CAI"`), `ESBL 04` sempre sem resultado, `31/09` nunca
+  corrigido — confirmado nas 5 execuções. Ver
+  `docs/mod_exames_2_0b_2_stability_benchmark.md` para a tabela completa
+  por execução.

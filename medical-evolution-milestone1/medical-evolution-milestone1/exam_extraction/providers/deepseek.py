@@ -8,11 +8,12 @@ writing a new file here, never touching the normalizer.
 
 Fixed for this milestone (item 1) -- no other provider, no fallback:
 
-    provider  = DeepSeek
-    model     = deepseek-v4-flash
-    base_url  = https://api.deepseek.com
-    thinking  = disabled
-    stream    = False
+    provider    = DeepSeek
+    model       = deepseek-v4-flash
+    base_url    = https://api.deepseek.com
+    thinking    = disabled
+    stream      = False
+    temperature = 0   (Milestone 2.0B.2, item 1 -- top_p left untouched)
     response_format = {"type": "json_object"}
 
 Authentication (item 2) has two modes, and this adapter never tries to
@@ -48,7 +49,7 @@ from exam_extraction.base import (
     ProviderFailure,
 )
 from exam_extraction.models import ExamExtractionCandidate, ExamSourceEnvelope
-from exam_extraction.prompts.mod_exames_2_0b_002 import (
+from exam_extraction.prompts.mod_exames_2_0b_003 import (
     MOD_EXAMES_EXTRACTION_PROMPT_VERSION as _DEFAULT_PROMPT_VERSION,
     build_messages as _default_build_messages,
 )
@@ -123,6 +124,7 @@ class DeepSeekExamExtractor:
             "model": self._model,
             "stream": False,
             "thinking": {"type": "disabled"},
+            "temperature": 0,
             "response_format": {"type": "json_object"},
             "max_tokens": self._max_tokens,
             "messages": self._build_messages(source.raw_text, source.source_id),

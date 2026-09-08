@@ -40,12 +40,13 @@ def test_perfect_match_yields_precision_and_recall_of_one():
     result = evaluate_extraction("SYN-1", expected, report, batch)
     assert result.precision == 1.0
     assert result.recall == 1.0
-    assert result.hallucination_rate == 0.0
+    assert result.true_hallucination_rate == 0.0
+    assert result.ambiguity_rate == 0.0
     assert result.missed_items == 0
     assert result.false_positive_items == 0
 
 
-def test_ungrounded_item_counts_toward_hallucination_rate_not_correctness():
+def test_ungrounded_item_counts_toward_true_hallucination_rate_not_correctness():
     report = GroundingReport(records=[
         GroundingRecord("general_lab", "HB", GroundingStatus.GROUNDED, 0, 7),
         GroundingRecord("general_lab", "GLICOSE", GroundingStatus.UNGROUNDED, None, None),
@@ -55,8 +56,27 @@ def test_ungrounded_item_counts_toward_hallucination_rate_not_correctness():
     result = evaluate_extraction("SYN-2", expected, report, batch)
     assert result.extracted_items == 2
     assert result.correct_items == 1
-    assert result.hallucination_rate == 0.5  # 1 ungrounded / 2 extracted
+    assert result.true_hallucination_rate == 0.5  # 1 ungrounded / 2 extracted
+    assert result.ambiguity_rate == 0.0
     assert result.false_positive_items == 0  # ungrounded is not a "grounded but wrong" false positive
+
+
+def test_ambiguous_item_counts_toward_ambiguity_rate_never_hallucination():
+    # Milestone 2.0B.2, item 5: AMBIGUOUS is a localization problem (the
+    # evidence text is real, just not attributable to one item), never
+    # conflated with a true hallucination (text that never existed at all).
+    report = GroundingReport(records=[
+        GroundingRecord("general_lab", "HB", GroundingStatus.GROUNDED, 0, 7),
+        GroundingRecord("general_lab", "NA", GroundingStatus.AMBIGUOUS, None, None),
+        GroundingRecord("general_lab", "K", GroundingStatus.AMBIGUOUS, None, None),
+    ])
+    batch = NormalizedExamBatch(source_id="SRC-EVAL")
+    expected = [ExpectedItem("general_lab", "HB")]
+    result = evaluate_extraction("SYN-2B", expected, report, batch)
+    assert result.extracted_items == 3
+    assert result.ambiguous_items == 2
+    assert result.true_hallucination_rate == 0.0  # 0 ungrounded / 3 extracted -- AMBIGUOUS never counted here
+    assert result.ambiguity_rate == pytest.approx(2 / 3)
 
 
 def test_missing_expected_item_is_a_miss_not_a_crash():
@@ -80,6 +100,42 @@ def test_extra_grounded_item_not_in_expected_is_a_false_positive():
     assert result.precision == 0.5  # 1 correct / 2 extracted
 
 
+# --- optional expected items (Milestone 2.0B.2, item 4) -------------------
+
+def test_optional_item_present_is_credited_never_a_false_positive():
+    report = GroundingReport(records=[
+        GroundingRecord("diagnostic_study", "COLONOSCOPIA", GroundingStatus.GROUNDED, 0, 20),
+        GroundingRecord("diagnostic_study_finding", "COLONOSCOPIA", GroundingStatus.GROUNDED, 21, 31),
+    ])
+    batch = NormalizedExamBatch(source_id="SRC-EVAL")
+    expected = [
+        ExpectedItem("diagnostic_study", "COLONOSCOPIA"),
+        ExpectedItem("diagnostic_study_finding", "COLONOSCOPIA", optional=True),
+    ]
+    result = evaluate_extraction("SYN-5", expected, report, batch)
+    assert result.precision == 1.0  # both grounded records credited, neither a false positive
+    assert result.recall == 1.0  # the one required item was found
+    assert result.optional_matched_items == 1
+    assert result.missed_items == 0
+
+
+def test_optional_item_absent_never_counts_as_missed_or_hurts_recall():
+    report = GroundingReport(records=[
+        GroundingRecord("diagnostic_study", "COLONOSCOPIA", GroundingStatus.GROUNDED, 0, 20),
+    ])
+    batch = NormalizedExamBatch(source_id="SRC-EVAL")
+    expected = [
+        ExpectedItem("diagnostic_study", "COLONOSCOPIA"),
+        ExpectedItem("diagnostic_study_finding", "COLONOSCOPIA", optional=True),
+    ]
+    result = evaluate_extraction("SYN-6", expected, report, batch)
+    assert result.recall == 1.0  # denominator excludes the optional item entirely
+    assert result.precision == 1.0
+    assert result.missed_items == 0
+    assert result.optional_matched_items == 0
+    assert result.expected_items == 1  # only the required item is counted
+
+
 # --- the required snippet corpus, run through the full offline pipeline -
 
 @pytest.mark.parametrize("source_id", list(SNIPPETS.keys()))
@@ -90,7 +146,8 @@ def test_every_required_snippet_extracts_and_grounds_cleanly(source_id, recorded
     assert isinstance(evaluation, EvaluationResult)
     assert evaluation.precision == 1.0
     assert evaluation.recall == 1.0
-    assert evaluation.hallucination_rate == 0.0
+    assert evaluation.true_hallucination_rate == 0.0
+    assert evaluation.ambiguity_rate == 0.0
 
 
 def test_unknown_analyte_snippet_is_unresolved_not_a_silent_pass(recorded_extractor):

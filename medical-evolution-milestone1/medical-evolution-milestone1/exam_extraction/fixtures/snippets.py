@@ -90,7 +90,15 @@ EXPECTED_ITEMS: dict[str, list[ExpectedItem]] = {
         ExpectedItem("diagnostic_study_finding", "ENDOSCOPIA DIGESTIVA ALTA"),
     ],
     "SNIPPET-INVALID-DATE": [
+        # Milestone 2.0B.2, item 4: "SOLICITADO" reads as a procedure
+        # status ("requested"), not a clinical finding in the same sense
+        # as e.g. "GASTRITE ANTRAL ENANTEMATOSA LEVE" above -- so a
+        # `diagnostic_study_finding` here is a defensible extraction
+        # choice, never a required one. The DiagnosticStudy itself, with
+        # `raw_temporal="31/09"` preserved verbatim (never corrected here
+        # -- that stays the deterministic temporal parser's job), is what
+        # is actually required.
         ExpectedItem("diagnostic_study", "COLONOSCOPIA"),
-        ExpectedItem("diagnostic_study_finding", "COLONOSCOPIA"),
+        ExpectedItem("diagnostic_study_finding", "COLONOSCOPIA", optional=True),
     ],
 }

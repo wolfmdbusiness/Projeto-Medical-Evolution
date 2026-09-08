@@ -1,8 +1,8 @@
 """Milestone 2.0B.1: `prompt_version` in `ExecutionMetadata` reflects
 whichever prompt module actually built the request -- read from the
 extractor, never hardcoded to a single prompt module inside
-`exam_extraction.execution`. This is what makes a 001-vs-002 benchmark
-possible without touching `run_extraction` itself."""
+`exam_extraction.execution`. This is what makes a 001-vs-002-vs-003
+benchmark possible without touching `run_extraction` itself."""
 
 import json
 
@@ -11,7 +11,7 @@ import httpx
 from exam_extraction.execution import run_extraction
 from exam_extraction.fake import FakeExamExtractor
 from exam_extraction.models import ExamExtractionCandidate, ExamSourceEnvelope
-from exam_extraction.prompts import mod_exames_2_0b_001, mod_exames_2_0b_002
+from exam_extraction.prompts import mod_exames_2_0b_001, mod_exames_2_0b_003
 from exam_extraction.providers.deepseek import DeepSeekExamExtractor
 from models.medical_state import SourceType
 
@@ -23,9 +23,9 @@ def _envelope() -> ExamSourceEnvelope:
     )
 
 
-def test_deepseek_extractor_defaults_to_prompt_002():
+def test_deepseek_extractor_defaults_to_prompt_003():
     extractor = DeepSeekExamExtractor()
-    assert extractor.prompt_version == mod_exames_2_0b_002.MOD_EXAMES_EXTRACTION_PROMPT_VERSION
+    assert extractor.prompt_version == mod_exames_2_0b_003.MOD_EXAMES_EXTRACTION_PROMPT_VERSION
     extractor.close()
 
 
