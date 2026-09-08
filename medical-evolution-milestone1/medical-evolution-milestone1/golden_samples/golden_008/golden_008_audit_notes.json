@@ -1,0 +1,11 @@
+{
+  "case_id": "GOLDEN-008",
+  "role": "AUDIT_CASE",
+  "known_issues": [
+    {
+      "category": "STALE_DOCUMENTATION",
+      "summary": "A evolução mais recente sugere ausência de critério de UTI, mas a justificativa formal de internação ainda descreve necessidade de permanência.",
+      "detail": "icu_context.requirement_status_history registra REQUIRED em 27/08 e, mais tarde, NO_LONGER_REQUIRED em 01/09 ('AUSÊNCIA DE CRITÉRIOS QUE JUSTIFIQUEM MONITORIZAÇÃO INTENSIVA CONTÍNUA... INDICA-SE ALTA PARA ENFERMARIA'). Apesar disso, icu_context.explicit_justifications[0] (datada de 27/08) permanece intocada, afirmando que 'permanece indicada a manutenção em ambiente de terapia intensiva'. Isso não é um CONTRADICTED (as duas afirmações eram verdadeiras em seus respectivos momentos) nem um POTENTIAL_TEMPORAL_CONFLICT (a ordem cronológica dos dois registros é conhecida e inequívoca) -- é documentação desatualizada (STALE_DOCUMENTATION): um fato antigo, correto quando escrito, que uma decisão automática não deve tratar como ainda vigente sem revisão humana."
+    }
+  ]
+}

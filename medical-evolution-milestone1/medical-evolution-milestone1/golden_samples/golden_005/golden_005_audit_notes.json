@@ -1,0 +1,11 @@
+{
+  "case_id": "GOLDEN-005",
+  "role": "AUDIT_CASE",
+  "known_issues": [
+    {
+      "category": "POTENTIAL_TEMPORAL_CONFLICT",
+      "summary": "Múltiplas hipóteses neurológicas concorrentes, com níveis de certeza distintos, sem marcador explícito de qual está ativa em cada momento.",
+      "detail": "A lista de diagnoses inclui, entre outras, 'AIT? / AVEI?' (UNCERTAIN), 'ACIDENTE VASCULAR CEREBRAL ISQUÊMICO EM TERRITÓRIO DA ARTÉRIA CEREBRAL POSTERIOR DIREITA' e 'TROMBOSE VENOSA CEREBRAL COM APRESENTAÇÃO ATÍPICA - SEIO CAVERNOSO? TRANSVERSO?' (UNCERTAIN). O registro não deixa explícito se alguma dessas hipóteses foi promovida/rebaixada ao longo do tempo em relação às demais; sem essa marcação temporal, não é seguro inferir qual é a hipótese corrente em cada evolução."
+    }
+  ]
+}

@@ -12,16 +12,28 @@ class UTIHospitalisV1:
     show_empty_complementary_exams: bool = False
     show_empty_diagnosis_specification: bool = False
 
-    # Diagnosis visibility policy (Milestone 1.1, item 8).
-    # Conservative default: every status is shown, preserving the exact
-    # Milestone 1 behaviour (which never filtered diagnoses by status).
-    # A profile can narrow this set (e.g. hide RULED_OUT) without the
-    # renderer having to make that clinical decision on its own.
+    # Diagnosis visibility policy (Milestone 1.1, item 8; extended in 1.2
+    # item 26 with UNCERTAIN). Conservative default: every status is shown,
+    # preserving the exact Milestone 1 behaviour (which never filtered
+    # diagnoses by status). A profile can narrow this set (e.g. hide
+    # RULED_OUT) without the renderer having to make that clinical decision
+    # on its own.
     diagnosis_visible_statuses: frozenset = field(default_factory=lambda: frozenset({
         DiagnosisStatus.ACTIVE,
+        DiagnosisStatus.UNCERTAIN,
         DiagnosisStatus.RESOLVED,
         DiagnosisStatus.RULED_OUT,
     }))
+
+    # Milestone 1.2, item 5: whether a NIGHT-period evolution entry gets an
+    # explicit "(NOTURNO)" suffix after its date. Defaults to False so
+    # GOLDEN-001 (which already has a NIGHT-period entry) stays byte-for-byte
+    # identical; a profile that wants the suffix visible can opt in.
+    show_evolution_period_suffix: bool = False
+    evolution_period_labels: dict[str, str] = field(default_factory=lambda: {
+        "NIGHT": "NOTURNO",
+        "DAY": "DIURNO",
+    })
 
     # --- Section titles ----------------------------------------------
     main_title: str = "## EVOLUÇÃO CLINICA MEDICA ADULTO - UTI HOSPITALIS ##"
@@ -32,12 +44,15 @@ class UTIHospitalisV1:
     history_title: str = "## ANTECEDENTES PESSOAIS:"
     antibiotics_title: str = "## ANTIBIOTICOTERAPIA:"
     antibiotics_not_applicable_text: str = "NÃO SE APLICA"
+    current_medications_title: str = "## EM USO DE:"
     therapies_title: str = "## TERAPIAS:"
     controls_title: str = "## CONTROLES:"
     complementary_exams_title: str = "## EXAMES COMPLEMENTARES"
     icu_justification_title: str = "## JUSTIFICATIVA DE INTERNAÇÃO EM UTI:"
     consultations_title: str = "## INTERCONSULTA DE ESPECIALIDADES:"
+    consultations_not_requested_text: str = "NÃO SOLICITADO"
     consultations_conduct_label: str = "CONDUTAS"
+    consultations_conclusion_label: str = "CONCLUSÃO"
     pending_title: str = "## AGUARDO:"
     care_actions_title: str = "## CONDUTA:"
 
@@ -104,12 +119,29 @@ class UTIHospitalisV1:
     gasometry_title: str = "GASOMETRIAS"
     troponin_title: str = "TROPONINAS"
     imaging_title: str = "EXAMES DE IMAGEM"
+    # Milestone 1.2, item 10: the internal concept is neutral
+    # ("microbiology_serology"); only the visual title is a template concern.
+    microbiology_title: str = "MICROBIOLOGIA E SOROLOGIA"
 
-    study_status_labels: dict[str, str] = field(default_factory=lambda: {
+    gas_specimen_labels: dict[str, str] = field(default_factory=lambda: {
+        "ARTERIAL": "ARTERIAL",
+        "VENOUS": "VENOSA",
+        "CAPILLARY": "CAPILAR",
+    })
+
+    # Milestone 1.2, item 11: procedure vs. result are two independent axes.
+    # A study whose procedure was PERFORMED derives its display text from
+    # result_status instead (see study_performed_result_labels); the labels
+    # below only apply while the procedure itself hasn't been performed yet.
+    study_procedure_status_labels: dict[str, str] = field(default_factory=lambda: {
         "ORDERED": "SOLICITADO",
         "SCHEDULED": "AGENDADO",
-        "PENDING": "PENDENTE",
         "CANCELLED": "CANCELADO",
+    })
+    study_performed_result_labels: dict[str, str] = field(default_factory=lambda: {
+        "PENDING": "REALIZADO, LAUDO PENDENTE",
+        "PRELIMINARY": "REALIZADO, LAUDO PRELIMINAR",
+        "NOT_AVAILABLE": "REALIZADO",
     })
 
     general_lab_order: list[str] = field(default_factory=lambda: [

@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from models.medical_state import (
     MedicalState,
-    ClinicalField,
     ValidationStatus,
     GlobalStatus,
     MedicationStatus,
@@ -46,9 +45,13 @@ def _is_active_issue(item: object) -> bool:
     return True
 
 
-def _check_field(path: str, field: ClinicalField, reasons: list[str]) -> None:
-    if field.validation_status in BLOCKING_FIELD_STATUSES:
-        reasons.append(f"campo '{path}' possui validation_status={field.validation_status.value}")
+def _check_status(path: str, obj, reasons: list[str]) -> None:
+    """Duck-typed check: works for anything carrying `.validation_status`
+    (ClinicalField and TemporalValue alike)."""
+    if obj is None:
+        return
+    if obj.validation_status in BLOCKING_FIELD_STATUSES:
+        reasons.append(f"campo '{path}' possui validation_status={obj.validation_status.value}")
 
 
 def check_renderable(state: MedicalState, template: UTIHospitalisV1) -> None:
@@ -73,49 +76,51 @@ def check_renderable(state: MedicalState, template: UTIHospitalisV1) -> None:
         if _is_active_issue(item):
             reasons.append(f"item unresolved ativo em validation.unresolved[{idx}]: {item!r}")
 
-    _check_field("display_identification", state.display_identification, reasons)
-    _check_field("admission.hospital_admission_date", state.admission.hospital_admission_date, reasons)
-    _check_field("admission.icu_admission_date", state.admission.icu_admission_date, reasons)
-    _check_field("admission.origin", state.admission.origin, reasons)
+    _check_status("display_identification", state.display_identification, reasons)
+    _check_status("admission.hospital_admission_date", state.admission.hospital_admission_date, reasons)
+    _check_status("admission.icu_admission_date", state.admission.icu_admission_date, reasons)
+    _check_status("admission.origin", state.admission.origin, reasons)
 
     for idx, dx in enumerate(state.diagnoses):
         if dx.status not in template.diagnosis_visible_statuses:
             continue
-        _check_field(f"diagnoses[{idx}].main", dx.main, reasons)
+        _check_status(f"diagnoses[{idx}].main", dx.main, reasons)
         for sidx, spec in enumerate(dx.specifications):
             if has_value(spec):
-                _check_field(f"diagnoses[{idx}].specifications[{sidx}]", spec, reasons)
+                _check_status(f"diagnoses[{idx}].specifications[{sidx}]", spec, reasons)
 
-    _check_field("hpma.text", state.hpma.text, reasons)
+    _check_status("hpma.text", state.hpma.text, reasons)
 
     for idx, ev in enumerate(state.evolution_history):
-        _check_field(f"evolution_history[{idx}].text", ev.text, reasons)
+        _check_status(f"evolution_history[{idx}].text", ev.text, reasons)
+        _check_status(f"evolution_history[{idx}].temporal_value", ev.temporal_value, reasons)
 
     for attr in template.physical_exam_order:
-        _check_field(f"physical_exam.{attr}", getattr(state.physical_exam, attr), reasons)
+        _check_status(f"physical_exam.{attr}", getattr(state.physical_exam, attr), reasons)
 
     for attr in template.history_order:
-        _check_field(f"history.{attr}", getattr(state.history, attr), reasons)
+        _check_status(f"history.{attr}", getattr(state.history, attr), reasons)
 
     for med in state.medications:
-        is_rendered_antibiotic = (
-            med.status == MedicationStatus.ACTIVE
-            and "ANTIBIOTIC" in {c.upper() for c in med.classifications}
-        )
-        if is_rendered_antibiotic and med.validation_status in BLOCKING_FIELD_STATUSES:
+        is_active = med.status == MedicationStatus.ACTIVE
+        is_antibiotic = "ANTIBIOTIC" in {c.upper() for c in med.classifications}
+        # Consumed either by ANTIBIOTICOTERAPIA or by EM USO DE (item 24).
+        if is_active and med.validation_status in BLOCKING_FIELD_STATUSES:
             reasons.append(
                 f"medication '{med.medication_id}' possui validation_status={med.validation_status.value}"
             )
+        if is_active and is_antibiotic:
+            _check_status(f"medication[{med.medication_id}].started_at", med.started_at, reasons)
 
     if has_value(state.therapies.hemotransfusion):
-        _check_field("therapies.hemotransfusion", state.therapies.hemotransfusion, reasons)
+        _check_status("therapies.hemotransfusion", state.therapies.hemotransfusion, reasons)
     if has_value(state.therapies.niv):
-        _check_field("therapies.niv", state.therapies.niv, reasons)
+        _check_status("therapies.niv", state.therapies.niv, reasons)
 
     for attr in template.controls_order:
         field = getattr(state.controls, attr)
         if has_value(field):
-            _check_field(f"controls.{attr}", field, reasons)
+            _check_status(f"controls.{attr}", field, reasons)
 
     excluded = template.excluded_lab_ids
     for obs in state.complementary_exams.laboratory_observations:
@@ -148,23 +153,31 @@ def check_renderable(state: MedicalState, template: UTIHospitalisV1) -> None:
                 f"troponin '{obs.observation_id}' possui validation_status={obs.validation_status.value}"
             )
 
+    for exam in state.complementary_exams.microbiology_serology:
+        _check_status(f"microbiology_serology[{exam.exam_id}].result", exam.result, reasons)
+
     for idx, study in enumerate(state.complementary_exams.diagnostic_studies):
         for fidx, finding in enumerate(study.findings):
             if has_value(finding):
-                _check_field(
+                _check_status(
                     f"complementary_exams.diagnostic_studies[{idx}].findings[{fidx}]", finding, reasons
                 )
 
-    for idx, consultation in enumerate(state.consultations):
-        _check_field(f"consultations[{idx}].specialty", consultation.specialty, reasons)
-        _check_field(f"consultations[{idx}].assessment", consultation.assessment, reasons)
-        for ridx, rec in enumerate(consultation.recommendations):
-            _check_field(f"consultations[{idx}].recommendations[{ridx}]", rec, reasons)
+    if state.consultations_section_state.value != "NOT_REQUESTED":
+        for idx, consultation in enumerate(state.consultations):
+            _check_status(f"consultations[{idx}].specialty", consultation.specialty, reasons)
+            _check_status(f"consultations[{idx}].assessment", consultation.assessment, reasons)
+            _check_status(f"consultations[{idx}].temporal_value", consultation.temporal_value, reasons)
+            for cidx, conclusion in enumerate(consultation.conclusions):
+                _check_status(f"consultations[{idx}].conclusions[{cidx}]", conclusion, reasons)
+            for ridx, rec in enumerate(consultation.recommendations):
+                _check_status(f"consultations[{idx}].recommendations[{ridx}]", rec, reasons)
 
-    _check_field("icu_context.explicit_justification", state.icu_context.explicit_justification, reasons)
+    for entry in state.icu_context.explicit_justifications:
+        _check_status("icu_context.explicit_justifications[]", entry.text, reasons)
 
     for idx, action in enumerate(state.care_actions):
-        _check_field(f"care_actions[{idx}].description", action.description, reasons)
+        _check_status(f"care_actions[{idx}].description", action.description, reasons)
 
     if reasons:
         raise RenderNotAllowedError(reasons)

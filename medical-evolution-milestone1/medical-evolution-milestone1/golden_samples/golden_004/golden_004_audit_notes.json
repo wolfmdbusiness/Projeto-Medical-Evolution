@@ -1,0 +1,21 @@
+{
+  "case_id": "GOLDEN-004",
+  "role": "AUDIT_CASE",
+  "known_issues": [
+    {
+      "category": "CONTRADICTED",
+      "summary": "Aciclovir (conduta de Ginecologia) vs. Valaciclovir (texto de evolução) para o mesmo evento de lesões vesiculares genitais.",
+      "detail": "A recomendação da consulta de GINECOLOGIA | OBSTETRICIA (G004-C4) registra 'PRESCREVO ACICLOVIR 400MG DE 4/4H POR 7 DIAS', enquanto a evolução clínica (EVOL-004-1) registra 'INICIADO TRATAMENTO COM VALACICLOVIR V.O.' para a mesma lesão. Ambos os textos foram preservados verbatim, sem tentativa de unificação automática -- não há Medication estruturada criada a partir de nenhum dos dois, exatamente para não fingir uma reconciliação que os dados não sustentam."
+    },
+    {
+      "category": "POTENTIAL_TEMPORAL_CONFLICT",
+      "summary": "Déficit motor descrito de forma divergente em momentos/fontes distintas.",
+      "detail": "A evolução principal descreve 'incapacidade de mobilização de membros superiores e inferiores, predominando à esquerda' ao longo de vários dias, enquanto a consulta de NEUROCIRURGIA (G004-C5, 01/09) registra 'AGORA SEM DEFICIT MOTOR' / 'SEM DEFICIT MOTOR' no exame físico da mesma data. Não é possível, sem revisão humana, determinar se houve melhora real entre as duas observações do mesmo dia ou se as fontes descrevem achados incompatíveis."
+    },
+    {
+      "category": "CONTRADICTED",
+      "summary": "Diagnóstico de TEP mantido na lista de hipóteses apesar de imagem negativa.",
+      "detail": "diagnoses[1] ('TEP') permanece com status UNCERTAIN na lista de hipóteses diagnósticas, mas a ANGIOTOMOGRAFIA ARTERIAL DE TORAX (G004-ST4) tem finding 'NEGATIVO PARA TEP'. O sistema não resolve essa tensão automaticamente (não promove TEP a RULED_OUT a partir do achado de imagem); a decisão permanece com o time clínico."
+    }
+  ]
+}

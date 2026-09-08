@@ -36,16 +36,6 @@ def test_intentionally_unrendered_fields_do_not_change_output_or_leak(golden_sta
         "validation_status": "CONFIRMED",
     }
 
-    augmented["complementary_exams"]["microbiology_serology"] = [{
-        "exam_id": "MICRO-001",
-        "exam_type": "HEMOCULTURA",
-        "result": {
-            "value": "RESULTADO_DE_MICRO_NAO_DEVE_APARECER",
-            "clinical_state": "PRESENT",
-            "validation_status": "CONFIRMED",
-        },
-    }]
-
     augmented_state = MedicalState.model_validate(augmented)
     augmented_rendered = render_medical_note(augmented_state)
 
@@ -58,6 +48,27 @@ def test_intentionally_unrendered_fields_do_not_change_output_or_leak(golden_sta
         "BLEEDING_DE_TESTE",
         "MODO_VCV_DE_TESTE",
         "HEMODIALISE_INTERMITENTE_DE_TESTE",
-        "RESULTADO_DE_MICRO_NAO_DEVE_APARECER",
     ):
         assert leaked_text not in augmented_rendered
+
+
+def test_microbiology_serology_is_now_directly_rendered(golden_state_dict):
+    # Milestone 1.2, item 10: microbiology/serology moved from
+    # NOT_RENDERED_IN_THIS_PROFILE to DIRECTLY_RENDERED, under a neutral,
+    # template-owned title.
+    augmented = copy.deepcopy(golden_state_dict)
+    augmented["complementary_exams"]["microbiology_serology"] = [{
+        "exam_id": "MICRO-001",
+        "exam_type": "HEMOCULTURA",
+        "result": {
+            "value": "RESULTADO_DE_MICRO_DEVE_APARECER",
+            "clinical_state": "PRESENT",
+            "validation_status": "CONFIRMED",
+        },
+    }]
+
+    augmented_state = MedicalState.model_validate(augmented)
+    augmented_rendered = render_medical_note(augmented_state)
+
+    assert "MICROBIOLOGIA E SOROLOGIA" in augmented_rendered
+    assert "RESULTADO_DE_MICRO_DEVE_APARECER" in augmented_rendered

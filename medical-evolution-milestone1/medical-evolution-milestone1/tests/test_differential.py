@@ -25,7 +25,7 @@ def test_differential_component_preserves_order_raw_and_display_values():
     obs = LabObservation.model_validate({
         "observation_id": "LAB-X",
         "analyte": {"canonical_id": "LC", "raw_name": "LC", "display_name": "LC"},
-        "value": {"raw": "9090", "display": "9090"},
+        "value": {"raw_value": "9090", "display_value": "9090"},
         "differential": [
             {"display_name": "SEG%", "raw_value": "60,7"},
             {"display_name": "EOS%", "raw_value": "1,8", "display_value": "1,8 (revisado)"},

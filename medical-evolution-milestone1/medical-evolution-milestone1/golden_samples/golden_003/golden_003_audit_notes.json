@@ -1,0 +1,21 @@
+{
+  "case_id": "GOLDEN-003",
+  "role": "AUDIT_CASE",
+  "known_issues": [
+    {
+      "category": "CONTRADICTED",
+      "summary": "Justificativa de UTI afirma queda hematimétrica incompatível com a série laboratorial apresentada.",
+      "detail": "icu_context.explicit_justifications[0] descreve 'queda hematimétrica documentada' e risco iminente de choque hemorrágico, mas a série de laboratoriais_observations (31/08 -> 01/09 -> 02/09) mostra HB/HT em curva de MELHORA (14,0/39,8 -> 15,4/44,3 -> 15,5/43,8), não de queda. O texto e o dado estruturado descrevem fatos opostos para a mesma janela temporal."
+    },
+    {
+      "category": "CONTRADICTED",
+      "summary": "'Plaquetopenia progressiva' referida na justificativa é incompatível com a série de plaquetas apresentada.",
+      "detail": "A mesma justificativa cita 'plaquetopenia progressiva com suspeita de microangiopatia trombótica', mas a série de PLAQ (187000 -> 223000 -> 231000) é ascendente, não descendente."
+    },
+    {
+      "category": "POTENTIAL_TEMPORAL_CONFLICT",
+      "summary": "Colonoscopia documentada com data de agendamento impossível (31/09).",
+      "detail": "DiagnosticStudy 'COLONOSCOPIA COM BIOPSIA E/OU CITOLOGIA' tem ordered_at='31/09', uma data de calendário inexistente. O valor bruto foi preservado (não corrigido para 30/09 ou qualquer outra data); a posição real desse evento na linha do tempo do caso permanece indeterminada até revisão humana."
+    }
+  ]
+}

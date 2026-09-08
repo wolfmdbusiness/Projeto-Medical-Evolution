@@ -19,20 +19,18 @@
   },
   "admission": {
     "hospital_admission_date": {
-      "value": "2026-09-02",
-      "clinical_state": "PRESENT",
-      "validation_status": "CONFIRMED",
-      "source_refs": [
-        "SRC-GOLDEN-001"
-      ]
+      "raw": "2026-09-02",
+      "normalized": "2026-09-02",
+      "precision": "DATE",
+      "period": "UNSPECIFIED",
+      "validation_status": "CONFIRMED"
     },
     "icu_admission_date": {
-      "value": "2026-09-02",
-      "clinical_state": "PRESENT",
-      "validation_status": "CONFIRMED",
-      "source_refs": [
-        "SRC-GOLDEN-001"
-      ]
+      "raw": "2026-09-02",
+      "normalized": "2026-09-02",
+      "precision": "DATE",
+      "period": "UNSPECIFIED",
+      "validation_status": "CONFIRMED"
     },
     "origin": {
       "value": "PRONTO SOCORRO",
@@ -79,8 +77,13 @@
   "evolution_history": [
     {
       "evolution_id": "EVOL-HIST-001",
-      "datetime": "2026-09-03",
-      "period": "UNSPECIFIED",
+      "temporal_value": {
+        "raw": "2026-09-03",
+        "normalized": "2026-09-03",
+        "precision": "DATE",
+        "period": "UNSPECIFIED",
+        "validation_status": "CONFIRMED"
+      },
       "text": {
         "value": "AVALIO PACIENTE EM LEITO DE UTI, PACIENTE TESTE, 41 ANOS, ADMITIDA EM PROTOCOLO DE DOR TORACICA COM PA DE ADMISSAO 191X110 MMHG E PALPITAÇÕES. AO EXAME, PACIENTE PALIDA E DESIDRATADA, DEMAIS SISTEMAS SEM ALTERAÇÕES. TROPONINAS SERIADAS EM CURVA ASCENDENTE (0,13 E 0,15), DEMAIS LABORATORIAIS DE 02/09 SEM ALTERAÇÕES SIGNIFICATIVAS. EM PROGRAMAÇÃO PARA REALIZAÇÃO DE ECOCARDIOGRAMA TRANSTORACICO, HOLTER 24H E ECODOPPLER DE CAROTIDAS E VERTEBRAIS, COM INTERCONSULTA DE CARDIOLOGIA SOLICITADA. MANTIDO DAPT, ANTICOAGULAÇÃO PLENA, BETABLOQUEADOR E ESTATINA. MANTÉM NECESSIDADE DE UTI POR PROTOCOLO DE DOR TORACICA COM SERIAÇÃO DE MARCADORES DE NECROSE MIOCARDICA EM CURVA ASCENDENTE, SOB VIGILANCIA HEMODINAMICA E MONITORIZAÇÃO MULTIPARAMETRICA CONTINUA, AGUARDANDO CONCLUSÃO DE PROPEDEUTICA CARDIOLOGICA. SEM INTERCORRENCIAS NO PERIODO AVALIADO.",
         "clinical_state": "PRESENT",
@@ -96,8 +99,13 @@
     },
     {
       "evolution_id": "EVOL-HIST-002",
-      "datetime": "2026-09-04",
-      "period": "UNSPECIFIED",
+      "temporal_value": {
+        "raw": "2026-09-04",
+        "normalized": "2026-09-04",
+        "precision": "DATE",
+        "period": "UNSPECIFIED",
+        "validation_status": "CONFIRMED"
+      },
       "text": {
         "value": "ENCONTRO PACIENTE EM LEITO DE UTI, PACIENTE TESTE, 41 ANOS, ADMITIDA POR PROTOCOLO DE DOR TORACICA. TROPONINAS SERIADAS COM QUEDA PARA <0,1 NAS DUAS ULTIMAS COLETAS, AFASTANDO SCA. EAS COM LEUCOCITURIA (32.000) E BACTERIURIA (+++), A ESCLARECER. AVALIADA POR CARDIOLOGIA EM 04/09: PRIMEIRO EPISODIO DE HAS, CEFALEIA E DOR TORACICA TIPICA, COM ECG E LABORATORIO SEM ALTERAÇÕES; CONDUTA DE SOLICITAR ECOCARDIOGRAMA E ANGIOTC DE CORONARIAS ANTES DA ALTA DE UTI, COM ALTA PARA ENFERMARIA SE EXAMES NORMAIS OU CATETERISMO SE ALTERADOS. EM PROGRAMAÇÃO PARA REALIZAÇÃO DE ECOCARDIOGRAMA TRANSTORACICO, HOLTER 24H, ECODOPPLER DE CAROTIDAS E VERTEBRAIS E ANGIOTC DE CORONARIAS. MANTIDO DAPT, ANTICOAGULAÇÃO PLENA, BETABLOQUEADOR E ESTATINA. MANTÉM NECESSIDADE DE UTI POR PROTOCOLO DE DOR TORACICA EM FASE DE CONCLUSÃO DE PROPEDEUTICA CARDIOLOGICA, SOB VIGILANCIA HEMODINAMICA E MONITORIZAÇÃO MULTIPARAMETRICA CONTINUA. SEM MAIS COMEMORATIVOS.",
         "clinical_state": "PRESENT",
@@ -113,8 +121,13 @@
     },
     {
       "evolution_id": "EVOL-HIST-003",
-      "datetime": "2026-09-04",
-      "period": "NIGHT",
+      "temporal_value": {
+        "raw": "2026-09-04",
+        "normalized": "2026-09-04",
+        "precision": "DATE",
+        "period": "NIGHT",
+        "validation_status": "CONFIRMED"
+      },
       "text": {
         "value": "AVALIO PACIENTE EM LEITO DE UTI, CONSCIENTE, ORIENTADO E COLABORATIVO, ADMITIDA POR PROTOCOLO DE DOR TORACICA JA COM SCA AFASTADA PELA QUEDA DAS TROPONINAS SERIADAS PARA VALORES INFERIORES A 0,1. MANTÉM INVESTIGAÇÃO DE LEUCOCITURIA E BACTERIURIA IDENTIFICADAS EM EAS, A ESCLARECER. SEGUE EM PROPEDEUTICA CARDIOLOGICA COMPLEMENTAR COM ECOCARDIOGRAMA, HOLTER 24H, ECODOPPLER DE CAROTIDAS E VERTEBRAIS E ANGIOTC DE CORONARIAS PENDENTES, CONFORME CONDUTA DEFINIDA POR CARDIOLOGIA PARA DEFINIÇÃO DE ALTA DE UTI OU NECESSIDADE DE CATETERISMO. MANTIDOS DAPT, ANTICOAGULAÇÃO PLENA, BETABLOQUEADOR E ESTATINA. PERMANECE NECESSIDADE DE UTI PARA CONCLUSÃO DE PROPEDEUTICA CARDIOLOGICA E VIGILANCIA HEMODINAMICA COM MONITORIZAÇÃO MULTIPARAMETRICA CONTINUA. SEM NOVOS EVENTOS NO PERIODO NOTURNO.",
         "clinical_state": "PRESENT",
@@ -276,9 +289,10 @@
           "display_name": "HB"
         },
         "value": {
-          "raw": "14,9",
-          "normalized": null,
-          "display": "14,9"
+          "raw_value": "14,9",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "14,9"
         },
         "unit": {
           "raw": null,
@@ -301,9 +315,10 @@
           "display_name": "HT"
         },
         "value": {
-          "raw": "44,5",
-          "normalized": null,
-          "display": "44,5"
+          "raw_value": "44,5",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "44,5"
         },
         "unit": {
           "raw": null,
@@ -326,9 +341,10 @@
           "display_name": "LC"
         },
         "value": {
-          "raw": "9090",
-          "normalized": null,
-          "display": "9090"
+          "raw_value": "9090",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "9090"
         },
         "unit": {
           "raw": null,
@@ -337,11 +353,36 @@
         "collection_datetime": "2026-09-02T13:34:00-03:00",
         "reference_range": null,
         "differential": [
-          {"canonical_id": null, "display_name": "SEG%", "raw_value": "60,7", "display_value": "60,7"},
-          {"canonical_id": null, "display_name": "EOS%", "raw_value": "1,8", "display_value": "1,8"},
-          {"canonical_id": null, "display_name": "BASO%", "raw_value": "0,2", "display_value": "0,2"},
-          {"canonical_id": null, "display_name": "LINF T%", "raw_value": "30,6", "display_value": "30,6"},
-          {"canonical_id": null, "display_name": "MONO%", "raw_value": "6,7", "display_value": "6,7"}
+          {
+            "canonical_id": null,
+            "display_name": "SEG%",
+            "raw_value": "60,7",
+            "display_value": "60,7"
+          },
+          {
+            "canonical_id": null,
+            "display_name": "EOS%",
+            "raw_value": "1,8",
+            "display_value": "1,8"
+          },
+          {
+            "canonical_id": null,
+            "display_name": "BASO%",
+            "raw_value": "0,2",
+            "display_value": "0,2"
+          },
+          {
+            "canonical_id": null,
+            "display_name": "LINF T%",
+            "raw_value": "30,6",
+            "display_value": "30,6"
+          },
+          {
+            "canonical_id": null,
+            "display_name": "MONO%",
+            "raw_value": "6,7",
+            "display_value": "6,7"
+          }
         ],
         "abnormal_flag": "UNKNOWN",
         "source_order": 3,
@@ -358,9 +399,10 @@
           "display_name": "PLAQ"
         },
         "value": {
-          "raw": "327",
-          "normalized": null,
-          "display": "327"
+          "raw_value": "327",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "327"
         },
         "unit": {
           "raw": null,
@@ -383,9 +425,10 @@
           "display_name": "NA"
         },
         "value": {
-          "raw": "140",
-          "normalized": null,
-          "display": "140"
+          "raw_value": "140",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "140"
         },
         "unit": {
           "raw": null,
@@ -408,9 +451,10 @@
           "display_name": "K"
         },
         "value": {
-          "raw": "3,7",
-          "normalized": null,
-          "display": "3,7"
+          "raw_value": "3,7",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "3,7"
         },
         "unit": {
           "raw": null,
@@ -433,9 +477,10 @@
           "display_name": "CR"
         },
         "value": {
-          "raw": "0,72",
-          "normalized": null,
-          "display": "0,72"
+          "raw_value": "0,72",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "0,72"
         },
         "unit": {
           "raw": null,
@@ -458,9 +503,10 @@
           "display_name": "UR"
         },
         "value": {
-          "raw": "28",
-          "normalized": null,
-          "display": "28"
+          "raw_value": "28",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "28"
         },
         "unit": {
           "raw": null,
@@ -483,9 +529,10 @@
           "display_name": "CPK"
         },
         "value": {
-          "raw": "96",
-          "normalized": null,
-          "display": "96"
+          "raw_value": "96",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "96"
         },
         "unit": {
           "raw": null,
@@ -508,9 +555,10 @@
           "display_name": "CKMB"
         },
         "value": {
-          "raw": "18",
-          "normalized": null,
-          "display": "18"
+          "raw_value": "18",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "18"
         },
         "unit": {
           "raw": null,
@@ -533,9 +581,10 @@
           "display_name": "PCR"
         },
         "value": {
-          "raw": "0,49",
-          "normalized": null,
-          "display": "0,49"
+          "raw_value": "0,49",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "0,49"
         },
         "unit": {
           "raw": null,
@@ -558,9 +607,10 @@
           "display_name": "GLICOSE"
         },
         "value": {
-          "raw": "98",
-          "normalized": null,
-          "display": "98"
+          "raw_value": "98",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "98"
         },
         "unit": {
           "raw": null,
@@ -583,9 +633,10 @@
           "display_name": "HB"
         },
         "value": {
-          "raw": "13,9",
-          "normalized": null,
-          "display": "13,9"
+          "raw_value": "13,9",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "13,9"
         },
         "unit": {
           "raw": null,
@@ -608,9 +659,10 @@
           "display_name": "HT"
         },
         "value": {
-          "raw": "41,4",
-          "normalized": null,
-          "display": "41,4"
+          "raw_value": "41,4",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "41,4"
         },
         "unit": {
           "raw": null,
@@ -633,9 +685,10 @@
           "display_name": "LC"
         },
         "value": {
-          "raw": "9480",
-          "normalized": null,
-          "display": "9480"
+          "raw_value": "9480",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "9480"
         },
         "unit": {
           "raw": null,
@@ -644,11 +697,36 @@
         "collection_datetime": "2026-09-03T19:56:00-03:00",
         "reference_range": null,
         "differential": [
-          {"canonical_id": null, "display_name": "SEG%", "raw_value": "56,5", "display_value": "56,5"},
-          {"canonical_id": null, "display_name": "EOS%", "raw_value": "2,3", "display_value": "2,3"},
-          {"canonical_id": null, "display_name": "BASO%", "raw_value": "0,4", "display_value": "0,4"},
-          {"canonical_id": null, "display_name": "LINF T%", "raw_value": "32,3", "display_value": "32,3"},
-          {"canonical_id": null, "display_name": "MONO%", "raw_value": "8,5", "display_value": "8,5"}
+          {
+            "canonical_id": null,
+            "display_name": "SEG%",
+            "raw_value": "56,5",
+            "display_value": "56,5"
+          },
+          {
+            "canonical_id": null,
+            "display_name": "EOS%",
+            "raw_value": "2,3",
+            "display_value": "2,3"
+          },
+          {
+            "canonical_id": null,
+            "display_name": "BASO%",
+            "raw_value": "0,4",
+            "display_value": "0,4"
+          },
+          {
+            "canonical_id": null,
+            "display_name": "LINF T%",
+            "raw_value": "32,3",
+            "display_value": "32,3"
+          },
+          {
+            "canonical_id": null,
+            "display_name": "MONO%",
+            "raw_value": "8,5",
+            "display_value": "8,5"
+          }
         ],
         "abnormal_flag": "UNKNOWN",
         "source_order": 3,
@@ -665,9 +743,10 @@
           "display_name": "PLAQ"
         },
         "value": {
-          "raw": "304",
-          "normalized": null,
-          "display": "304"
+          "raw_value": "304",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "304"
         },
         "unit": {
           "raw": null,
@@ -690,9 +769,10 @@
           "display_name": "NA"
         },
         "value": {
-          "raw": "136",
-          "normalized": null,
-          "display": "136"
+          "raw_value": "136",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "136"
         },
         "unit": {
           "raw": null,
@@ -715,9 +795,10 @@
           "display_name": "K"
         },
         "value": {
-          "raw": "4,0",
-          "normalized": null,
-          "display": "4,0"
+          "raw_value": "4,0",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "4,0"
         },
         "unit": {
           "raw": null,
@@ -740,9 +821,10 @@
           "display_name": "MG"
         },
         "value": {
-          "raw": "2,5",
-          "normalized": null,
-          "display": "2,5"
+          "raw_value": "2,5",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "2,5"
         },
         "unit": {
           "raw": null,
@@ -765,9 +847,10 @@
           "display_name": "CAI"
         },
         "value": {
-          "raw": "1,29",
-          "normalized": null,
-          "display": "1,29"
+          "raw_value": "1,29",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "1,29"
         },
         "unit": {
           "raw": null,
@@ -790,9 +873,10 @@
           "display_name": "CR"
         },
         "value": {
-          "raw": "0,80",
-          "normalized": null,
-          "display": "0,80"
+          "raw_value": "0,80",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "0,80"
         },
         "unit": {
           "raw": null,
@@ -815,9 +899,10 @@
           "display_name": "UR"
         },
         "value": {
-          "raw": "34",
-          "normalized": null,
-          "display": "34"
+          "raw_value": "34",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "34"
         },
         "unit": {
           "raw": null,
@@ -842,9 +927,10 @@
           "display_name": "ASPECTO"
         },
         "value": {
-          "raw": "LIGEIRAMENTE TURVO",
-          "normalized": null,
-          "display": "LIGEIRAMENTE TURVO"
+          "raw_value": "LIGEIRAMENTE TURVO",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "LIGEIRAMENTE TURVO"
         },
         "unit": {
           "raw": null,
@@ -867,9 +953,10 @@
           "display_name": "COR"
         },
         "value": {
-          "raw": "AMARELO(A) CLARO(A)",
-          "normalized": null,
-          "display": "AMARELO(A) CLARO(A)"
+          "raw_value": "AMARELO(A) CLARO(A)",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "AMARELO(A) CLARO(A)"
         },
         "unit": {
           "raw": null,
@@ -892,9 +979,10 @@
           "display_name": "DENSIDADE"
         },
         "value": {
-          "raw": "1015",
-          "normalized": null,
-          "display": "1015"
+          "raw_value": "1015",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "1015"
         },
         "unit": {
           "raw": null,
@@ -917,9 +1005,10 @@
           "display_name": "PH"
         },
         "value": {
-          "raw": "6,0",
-          "normalized": null,
-          "display": "6,0"
+          "raw_value": "6,0",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "6,0"
         },
         "unit": {
           "raw": null,
@@ -942,9 +1031,10 @@
           "display_name": "PROTEÍNAS"
         },
         "value": {
-          "raw": "INDETECTÁVEL",
-          "normalized": null,
-          "display": "INDETECTÁVEL"
+          "raw_value": "INDETECTÁVEL",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "INDETECTÁVEL"
         },
         "unit": {
           "raw": null,
@@ -967,9 +1057,10 @@
           "display_name": "GLICOSE"
         },
         "value": {
-          "raw": "AUSENTE",
-          "normalized": null,
-          "display": "AUSENTE"
+          "raw_value": "AUSENTE",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "AUSENTE"
         },
         "unit": {
           "raw": null,
@@ -992,9 +1083,10 @@
           "display_name": "CETONA"
         },
         "value": {
-          "raw": "AUSENTE",
-          "normalized": null,
-          "display": "AUSENTE"
+          "raw_value": "AUSENTE",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "AUSENTE"
         },
         "unit": {
           "raw": null,
@@ -1017,9 +1109,10 @@
           "display_name": "BILIRRUBINA"
         },
         "value": {
-          "raw": "AUSENTE",
-          "normalized": null,
-          "display": "AUSENTE"
+          "raw_value": "AUSENTE",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "AUSENTE"
         },
         "unit": {
           "raw": null,
@@ -1042,9 +1135,10 @@
           "display_name": "UROBILINOGENIO"
         },
         "value": {
-          "raw": "INFERIOR A 1",
-          "normalized": null,
-          "display": "INFERIOR A 1"
+          "raw_value": "INFERIOR A 1",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "INFERIOR A 1"
         },
         "unit": {
           "raw": null,
@@ -1067,9 +1161,10 @@
           "display_name": "HEMOGLOBINA"
         },
         "value": {
-          "raw": "AUSENTE",
-          "normalized": null,
-          "display": "AUSENTE"
+          "raw_value": "AUSENTE",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "AUSENTE"
         },
         "unit": {
           "raw": null,
@@ -1092,9 +1187,10 @@
           "display_name": "LEUCÓCITOS"
         },
         "value": {
-          "raw": "32.000",
-          "normalized": null,
-          "display": "32.000"
+          "raw_value": "32.000",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "32.000"
         },
         "unit": {
           "raw": null,
@@ -1117,9 +1213,10 @@
           "display_name": "HEMACIAS"
         },
         "value": {
-          "raw": "2.000",
-          "normalized": null,
-          "display": "2.000"
+          "raw_value": "2.000",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "2.000"
         },
         "unit": {
           "raw": null,
@@ -1142,9 +1239,10 @@
           "display_name": "CILINDROS"
         },
         "value": {
-          "raw": "AUSENTE",
-          "normalized": null,
-          "display": "AUSENTE"
+          "raw_value": "AUSENTE",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "AUSENTE"
         },
         "unit": {
           "raw": null,
@@ -1167,9 +1265,10 @@
           "display_name": "CÉLULAS EPITELIAIS"
         },
         "value": {
-          "raw": "++",
-          "normalized": null,
-          "display": "++"
+          "raw_value": "++",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "++"
         },
         "unit": {
           "raw": null,
@@ -1192,9 +1291,10 @@
           "display_name": "CRISTAIS"
         },
         "value": {
-          "raw": "AUSENTES",
-          "normalized": null,
-          "display": "AUSENTES"
+          "raw_value": "AUSENTES",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "AUSENTES"
         },
         "unit": {
           "raw": null,
@@ -1217,9 +1317,10 @@
           "display_name": "BACTÉRIAS"
         },
         "value": {
-          "raw": "+++",
-          "normalized": null,
-          "display": "+++"
+          "raw_value": "+++",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "+++"
         },
         "unit": {
           "raw": null,
@@ -1242,9 +1343,10 @@
           "display_name": "FILAMENTOS DE MUCO"
         },
         "value": {
-          "raw": "AUSENTE",
-          "normalized": null,
-          "display": "AUSENTE"
+          "raw_value": "AUSENTE",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "AUSENTE"
         },
         "unit": {
           "raw": null,
@@ -1264,7 +1366,6 @@
       {
         "gas_id": "GAS-001",
         "collection_datetime": "2026-09-03T01:30:00-03:00",
-        "sample_type": null,
         "observations": [
           {
             "observation_id": "GASO-001",
@@ -1274,9 +1375,10 @@
               "display_name": "PH"
             },
             "value": {
-              "raw": "7,410",
-              "normalized": null,
-              "display": "7,410"
+              "raw_value": "7,410",
+              "operator": null,
+              "normalized_numeric_value": null,
+              "display_value": "7,410"
             },
             "unit": {
               "raw": null,
@@ -1299,9 +1401,10 @@
               "display_name": "PCO2"
             },
             "value": {
-              "raw": "42,0",
-              "normalized": null,
-              "display": "42,0"
+              "raw_value": "42,0",
+              "operator": null,
+              "normalized_numeric_value": null,
+              "display_value": "42,0"
             },
             "unit": {
               "raw": null,
@@ -1324,9 +1427,10 @@
               "display_name": "PO2"
             },
             "value": {
-              "raw": "40,0",
-              "normalized": null,
-              "display": "40,0"
+              "raw_value": "40,0",
+              "operator": null,
+              "normalized_numeric_value": null,
+              "display_value": "40,0"
             },
             "unit": {
               "raw": null,
@@ -1349,9 +1453,10 @@
               "display_name": "SATO2"
             },
             "value": {
-              "raw": "76,0",
-              "normalized": null,
-              "display": "76,0"
+              "raw_value": "76,0",
+              "operator": null,
+              "normalized_numeric_value": null,
+              "display_value": "76,0"
             },
             "unit": {
               "raw": null,
@@ -1374,9 +1479,10 @@
               "display_name": "HCO3"
             },
             "value": {
-              "raw": "26,6",
-              "normalized": null,
-              "display": "26,6"
+              "raw_value": "26,6",
+              "operator": null,
+              "normalized_numeric_value": null,
+              "display_value": "26,6"
             },
             "unit": {
               "raw": null,
@@ -1399,9 +1505,10 @@
               "display_name": "BE"
             },
             "value": {
-              "raw": "1,7",
-              "normalized": null,
-              "display": "1,7"
+              "raw_value": "1,7",
+              "operator": null,
+              "normalized_numeric_value": null,
+              "display_value": "1,7"
             },
             "unit": {
               "raw": null,
@@ -1424,9 +1531,10 @@
               "display_name": "CO2 TOTAL"
             },
             "value": {
-              "raw": "27,9",
-              "normalized": null,
-              "display": "27,9"
+              "raw_value": "27,9",
+              "operator": null,
+              "normalized_numeric_value": null,
+              "display_value": "27,9"
             },
             "unit": {
               "raw": null,
@@ -1457,9 +1565,10 @@
           "display_name": "TROPONINA"
         },
         "value": {
-          "raw": "0,13",
-          "normalized": null,
-          "display": "0,13"
+          "raw_value": "0,13",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "0,13"
         },
         "unit": {
           "raw": null,
@@ -1482,9 +1591,10 @@
           "display_name": "TROPONINA"
         },
         "value": {
-          "raw": "0,15",
-          "normalized": null,
-          "display": "0,15"
+          "raw_value": "0,15",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "0,15"
         },
         "unit": {
           "raw": null,
@@ -1507,9 +1617,10 @@
           "display_name": "TROPONINA"
         },
         "value": {
-          "raw": "<0,1",
-          "normalized": null,
-          "display": "<0,1"
+          "raw_value": "<0,1",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "<0,1"
         },
         "unit": {
           "raw": null,
@@ -1532,9 +1643,10 @@
           "display_name": "TROPONINA"
         },
         "value": {
-          "raw": "<0,1",
-          "normalized": null,
-          "display": "<0,1"
+          "raw_value": "<0,1",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "<0,1"
         },
         "unit": {
           "raw": null,
@@ -1555,7 +1667,6 @@
       {
         "study_id": "STUDY-001",
         "study_name": "HOLTER DE 24 HORAS",
-        "status": "ORDERED",
         "ordered_at": "2026-09-03",
         "scheduled_at": null,
         "performed_at": null,
@@ -1563,12 +1674,13 @@
         "findings": [],
         "source_refs": [
           "SRC-GOLDEN-001"
-        ]
+        ],
+        "procedure_status": "ORDERED",
+        "result_status": "NOT_AVAILABLE"
       },
       {
         "study_id": "STUDY-002",
         "study_name": "ECOCARDIOGRAMA BIDIMENSIONAL COM DOPPLER",
-        "status": "ORDERED",
         "ordered_at": "2026-09-03",
         "scheduled_at": null,
         "performed_at": null,
@@ -1576,12 +1688,13 @@
         "findings": [],
         "source_refs": [
           "SRC-GOLDEN-001"
-        ]
+        ],
+        "procedure_status": "ORDERED",
+        "result_status": "NOT_AVAILABLE"
       },
       {
         "study_id": "STUDY-003",
         "study_name": "ECODOPPLER DE CAROTIDAS E VERTEBRAIS",
-        "status": "ORDERED",
         "ordered_at": "2026-09-03",
         "scheduled_at": null,
         "performed_at": null,
@@ -1589,11 +1702,14 @@
         "findings": [],
         "source_refs": [
           "SRC-GOLDEN-001"
-        ]
+        ],
+        "procedure_status": "ORDERED",
+        "result_status": "NOT_AVAILABLE"
       }
     ],
     "unmapped": []
   },
+  "consultations_section_state": "PRESENT",
   "consultations": [
     {
       "consultation_id": "CONS-001",
@@ -1605,8 +1721,13 @@
           "SRC-GOLDEN-001"
         ]
       },
-      "request_datetime": null,
-      "response_datetime": "2026-09-04",
+      "temporal_value": {
+        "raw": "2026-09-04",
+        "normalized": "2026-09-04",
+        "precision": "DATE",
+        "period": "UNSPECIFIED",
+        "validation_status": "CONFIRMED"
+      },
       "assessment": {
         "value": "41A; HAS PRIMEIRO EPISODIO; CEFALEIA; DOR TORACICA TIPICA; ECG LAB NL",
         "clinical_state": "PRESENT",
@@ -1615,6 +1736,7 @@
           "SRC-GOLDEN-001"
         ]
       },
+      "conclusions": [],
       "recommendations": [
         {
           "value": "SOL ECO E ANGIOTC DE CORONARIAS ANTES DA ALTA UTI, SE NORMAIS ALTA P ENFERMARIA",
@@ -1945,14 +2067,18 @@
     }
   ],
   "icu_context": {
-    "explicit_justification": {
-      "value": "PACIENTE ADMITIDO EM LEITO DE UTI PARA MANEJO E SUPORTE AVANÇADO CONFORME PROTOCOLO DE DOR TORACICA, SERIANDO MARCADORES DE NECROSE MIOCARDICA, SOB ESTRITA VIGILANCIA HEMODINAMICA E MONITORIZAÇAO MULTIPARAMETRICA CONTINUA",
-      "clinical_state": "PRESENT",
-      "validation_status": "CONFIRMED",
-      "source_refs": [
-        "SRC-GOLDEN-001"
-      ]
-    },
+    "explicit_justifications": [
+      {
+        "text": {
+          "value": "PACIENTE ADMITIDO EM LEITO DE UTI PARA MANEJO E SUPORTE AVANÇADO CONFORME PROTOCOLO DE DOR TORACICA, SERIANDO MARCADORES DE NECROSE MIOCARDICA, SOB ESTRITA VIGILANCIA HEMODINAMICA E MONITORIZAÇAO MULTIPARAMETRICA CONTINUA",
+          "clinical_state": "PRESENT",
+          "validation_status": "CONFIRMED",
+          "source_refs": [
+            "SRC-GOLDEN-001"
+          ]
+        }
+      }
+    ],
     "active_supports": [],
     "monitoring_requirements": [
       "SERIAL_CARDIAC_MARKERS",

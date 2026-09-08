@@ -7,11 +7,15 @@ from models.medical_state import (
     MedicalState,
     LabObservation,
     DiagnosticStudy,
+    DiagnosticStudyProcedureStatus,
     MedicationStatus,
+    ConsultationSectionState,
+    ClinicalField,
+    TemporalPeriod,
 )
 from templates.uti_hospitalis_v1 import DEFAULT_TEMPLATE, UTIHospitalisV1
 from templates.registry import get_template_profile, TemplateProfileMismatchError
-from rendering.text_utils import text, has_value, format_date, format_datetime
+from rendering.text_utils import text, has_value, format_date, format_datetime, format_temporal, has_time_component
 from rendering.renderability_gate import check_renderable
 
 __all__ = [
@@ -38,10 +42,20 @@ def _resolve_template(state: MedicalState, template: Optional[UTIHospitalisV1]) 
 
 
 def _display_observation_value(obs: LabObservation) -> str:
-    return obs.value.display or obs.value.raw
+    return obs.value.display_value or obs.value.raw_value
 
 
 def _group_latest_by_day(observations: Iterable[LabObservation]) -> list[tuple[str, list[LabObservation]]]:
+    """Group observations by collection day and collapse same-analyte
+    duplicates to the single latest value for that day.
+
+    Milestone 1.2, item 33: collapsing is only safe when every observation
+    of that analyte on that day carries an explicit time-of-day, so the
+    "latest" pick is unambiguous. When any of them lacks a time (or the
+    group has more than one candidate that could be "the" latest), we
+    cannot silently choose — all of them are kept and shown, deterministic
+    and honest about the ambiguity rather than picking one arbitrarily.
+    """
     groups: dict[str, list[LabObservation]] = defaultdict(list)
     for obs in observations:
         day = (obs.collection_datetime or "SEM_DATA")[:10]
@@ -49,15 +63,28 @@ def _group_latest_by_day(observations: Iterable[LabObservation]) -> list[tuple[s
 
     result = []
     for day, items in sorted(groups.items(), key=lambda kv: kv[0]):
-        by_analyte: dict[str, LabObservation] = {}
+        per_analyte: dict[str, list[LabObservation]] = {}
         extras: list[LabObservation] = []
-        for obs in sorted(items, key=lambda x: x.collection_datetime or ""):
+        for obs in items:
             cid = (obs.analyte.canonical_id or obs.analyte.display_name or obs.analyte.raw_name).upper()
             if cid:
-                by_analyte[cid] = obs
+                per_analyte.setdefault(cid, []).append(obs)
             else:
                 extras.append(obs)
-        chosen = list(by_analyte.values()) + extras
+
+        chosen: list[LabObservation] = []
+        for cid, obs_list in per_analyte.items():
+            if len(obs_list) == 1:
+                chosen.append(obs_list[0])
+                continue
+            if all(has_time_component(o.collection_datetime) for o in obs_list):
+                chosen.append(max(obs_list, key=lambda o: o.collection_datetime))
+            else:
+                # Ambiguous ordering: never guess. Keep every reading.
+                chosen.extend(
+                    sorted(obs_list, key=lambda o: o.source_order if o.source_order is not None else 10_000)
+                )
+        chosen.extend(extras)
         result.append((day, chosen))
     return result
 
@@ -104,7 +131,8 @@ def _render_general_labs(state: MedicalState, template: UTIHospitalisV1) -> list
                 label = obs.analyte.display_name or cid or obs.analyte.raw_name
                 parts.append(f"{label} {_display_observation_value(obs)}")
         dt = format_datetime(items[-1].collection_datetime if items else day)
-        lines.append(f"- {dt}: " + "; ".join(parts))
+        prefix = f"- {dt}: " if dt else "- "
+        lines.append(prefix + "; ".join(parts))
     return lines
 
 
@@ -120,7 +148,8 @@ def _render_urinalysis(state: MedicalState, template: UTIHospitalisV1) -> list[s
             label = x.analyte.display_name or x.analyte.canonical_id or x.analyte.raw_name
             parts.append(f"{label} {_display_observation_value(x)}")
         dt = format_datetime(items[-1].collection_datetime if items else day)
-        lines.append(f"- {dt}: " + "; ".join(parts))
+        prefix = f"- {dt}: " if dt else "- "
+        lines.append(prefix + "; ".join(parts))
     return lines
 
 
@@ -135,7 +164,9 @@ def _render_gases(state: MedicalState, template: UTIHospitalisV1) -> list[str]:
         for obs in items:
             label = obs.analyte.display_name or obs.analyte.canonical_id or obs.analyte.raw_name
             parts.append(f"{label} {_display_observation_value(obs)}")
-        lines.append(f"- {format_datetime(gas.collection_datetime)}: " + "; ".join(parts))
+        specimen_label = template.gas_specimen_labels.get(gas.specimen_type.value)
+        specimen_suffix = f" ({specimen_label})" if specimen_label else ""
+        lines.append(f"- {format_datetime(gas.collection_datetime)}{specimen_suffix}: " + "; ".join(parts))
     return lines
 
 
@@ -149,13 +180,35 @@ def _render_troponins(state: MedicalState, template: UTIHospitalisV1) -> list[st
     return lines
 
 
+def _render_microbiology(state: MedicalState, template: UTIHospitalisV1) -> list[str]:
+    # Milestone 1.2, item 10/32: no dedup by name/date — every exam entry
+    # (e.g. "ESBL", "ESBL 02", "ESBL 03") is an independent occurrence and
+    # is rendered as such. A missing result stays empty; it is never
+    # copied from a previous entry.
+    exams = state.complementary_exams.microbiology_serology
+    if not exams:
+        return []
+    lines = [f"> {template.microbiology_title}"]
+    for exam in exams:
+        date = format_date(exam.collection_datetime)
+        prefix = f"- {date}: " if date else "- "
+        lines.append(f"{prefix}{exam.exam_type}: {text(exam.result)}")
+    return lines
+
+
 def _study_date(study: DiagnosticStudy) -> str:
     value = study.resulted_at or study.performed_at or study.scheduled_at or study.ordered_at
     return format_date(value)
 
 
 def _study_status_text(study: DiagnosticStudy, template: UTIHospitalisV1) -> str:
-    return template.study_status_labels.get(study.status.value, "")
+    # Milestone 1.2, item 11: procedure_status and result_status are two
+    # independent axes. Once the procedure was actually PERFORMED, the
+    # displayed text is driven by result_status (e.g. "REALIZADO, LAUDO
+    # PENDENTE"); before that, it is driven by procedure_status alone.
+    if study.procedure_status == DiagnosticStudyProcedureStatus.PERFORMED:
+        return template.study_performed_result_labels.get(study.result_status.value, "")
+    return template.study_procedure_status_labels.get(study.procedure_status.value, "")
 
 
 def _render_studies(state: MedicalState, template: UTIHospitalisV1) -> list[str]:
@@ -204,12 +257,58 @@ def _render_antibiotics(state: MedicalState, template: UTIHospitalisV1) -> list[
 
     antibiotics.sort(key=lambda x: x.source_order if x.source_order is not None else 10_000)
     for med in antibiotics:
-        bits = [med.generic_name or med.raw_name or "NÃO LEGÍVEL"]
+        name = med.generic_name or med.raw_name or "NÃO LEGÍVEL"
+        if med.documented_therapy_day:
+            # Milestone 1.2, item 22: Dn is whatever the source documented,
+            # never computed from started_at here.
+            date = format_temporal(med.started_at)
+            lines.append(f"- {name} {med.documented_therapy_day}: {date}")
+            continue
+        bits = [name]
         if med.dosage:
             bits.append(med.dosage)
         if med.route:
             bits.append(med.route)
         lines.append("- " + " ".join(bits))
+    return lines
+
+
+def _render_current_medications(state: MedicalState, template: UTIHospitalisV1) -> list[str]:
+    # Milestone 1.2, item 24: derived from medications[], never a second
+    # source of truth. Antibiotics are excluded here since they already have
+    # their own section (no duplication).
+    meds = [
+        m for m in state.medications
+        if m.status == MedicationStatus.ACTIVE and "ANTIBIOTIC" not in {c.upper() for c in m.classifications}
+    ]
+    if not meds:
+        return []
+    meds = sorted(meds, key=lambda m: m.source_order if m.source_order is not None else 10_000)
+    lines = [template.current_medications_title]
+    for med in meds:
+        bits = [med.generic_name or med.raw_name or "NÃO LEGÍVEL"]
+        if med.presentation:
+            bits.append(f"({med.presentation})")
+        if med.dosage:
+            bits.append(f"[{med.dosage}]")
+        if med.route:
+            bits.append(med.route)
+        lines.append("- " + " ".join(bits))
+    return lines
+
+
+def _render_numbered_block(label: str, items: list[ClinicalField]) -> list[str]:
+    """Shared numbering for consultation conclusions/recommendations.
+    Padding is computed from the label itself so alignment stays correct
+    regardless of label length (Milestone 1.2, item 8)."""
+    if not items:
+        return []
+    prefix = f"  >> {label}: "
+    padding = " " * len(prefix)
+    lines = []
+    for idx, item in enumerate(items, 1):
+        bullet = f"{idx:02d}) {text(item)}"
+        lines.append(f"{prefix if idx == 1 else padding}{bullet}")
     return lines
 
 
@@ -226,11 +325,11 @@ def render_medical_note(
     lines.append(f"- {template.identification_label}: {text(state.display_identification)}")
     lines.append(
         f"- {template.hospital_admission_label}: "
-        f"{format_date(text(state.admission.hospital_admission_date), with_year=True)}"
+        f"{format_temporal(state.admission.hospital_admission_date, with_year=True, paren_time=False)}"
     )
     lines.append(
         f"- {template.icu_admission_label}: "
-        f"{format_date(text(state.admission.icu_admission_date), with_year=True)}"
+        f"{format_temporal(state.admission.icu_admission_date, with_year=True, paren_time=False)}"
     )
     lines.append(f"- {template.origin_label}: {text(state.admission.origin)}")
     lines.append("")
@@ -255,8 +354,14 @@ def render_medical_note(
     lines.append(template.evolution_title)
     if state.evolution_history:
         for ev in state.evolution_history:
-            date = format_date(ev.datetime, with_year=True)
-            prefix = f"{date} - " if date else ""
+            date = format_temporal(ev.temporal_value, with_year=True)
+            suffix = ""
+            period = ev.temporal_value.period
+            if template.show_evolution_period_suffix and period != TemporalPeriod.UNSPECIFIED:
+                label = template.evolution_period_labels.get(period.value)
+                if label:
+                    suffix = f" ({label})"
+            prefix = f"{date}{suffix} - " if date else ""
             lines.append(f"- {prefix}{text(ev.text)}")
             lines.append("")
         if lines[-1] == "":
@@ -280,6 +385,11 @@ def render_medical_note(
     lines.extend(_render_antibiotics(state, template))
     lines.append("")
 
+    current_medication_lines = _render_current_medications(state, template)
+    if current_medication_lines:
+        lines.extend(current_medication_lines)
+        lines.append("")
+
     therapy_entries = []
     if has_value(state.therapies.hemotransfusion):
         therapy_entries.append(f"> {template.hemotransfusion_label}: {text(state.therapies.hemotransfusion)}")
@@ -301,6 +411,7 @@ def render_medical_note(
         _render_urinalysis(state, template),
         _render_gases(state, template),
         _render_troponins(state, template),
+        _render_microbiology(state, template),
         _render_studies(state, template),
     ):
         if section:
@@ -315,28 +426,37 @@ def render_medical_note(
         lines.append("")
 
     lines.append(template.icu_justification_title)
-    lines.append(f"- {text(state.icu_context.explicit_justification)}")
+    if state.icu_context.explicit_justifications:
+        for entry in state.icu_context.explicit_justifications:
+            lines.append(f"- {text(entry.text)}")
+    else:
+        lines.append("- ")
     lines.append("")
 
     lines.append(template.consultations_title)
-    if state.consultations:
+    if state.consultations_section_state == ConsultationSectionState.NOT_REQUESTED:
+        lines.append(f"- {template.consultations_not_requested_text}")
+    elif state.consultations:
+        # Milestone 1.2, item 9: group adjacent entries of the same
+        # specialty under a single header, preserving source order and
+        # never mixing entries from different specialties.
+        groups: list[tuple[str, list]] = []
         for consultation in state.consultations:
-            lines.append(f"> {text(consultation.specialty)}")
-            date = format_date(consultation.response_datetime or consultation.request_datetime)
-            assessment = text(consultation.assessment)
-            prefix = f"- {date}: " if date else "- "
-            lines.append(prefix + assessment)
-            if consultation.recommendations:
-                if len(consultation.recommendations) == 1:
-                    lines.append(f"  >> {template.consultations_conduct_label}: 01) {text(consultation.recommendations[0])}")
-                else:
-                    first = True
-                    for idx, recommendation in enumerate(consultation.recommendations, 1):
-                        if first:
-                            lines.append(f"  >> {template.consultations_conduct_label}: {idx:02d}) {text(recommendation)}")
-                            first = False
-                        else:
-                            lines.append(f"               {idx:02d}) {text(recommendation)}")
+            specialty_text = text(consultation.specialty)
+            if groups and groups[-1][0] == specialty_text:
+                groups[-1][1].append(consultation)
+            else:
+                groups.append((specialty_text, [consultation]))
+
+        for specialty_text, entries in groups:
+            lines.append(f"> {specialty_text}")
+            for consultation in entries:
+                date = format_temporal(consultation.temporal_value)
+                assessment = text(consultation.assessment)
+                prefix = f"- {date}: " if date else "- "
+                lines.append(prefix + assessment)
+                lines.extend(_render_numbered_block(template.consultations_conclusion_label, consultation.conclusions))
+                lines.extend(_render_numbered_block(template.consultations_conduct_label, consultation.recommendations))
     else:
         lines.append("- ")
     lines.append("")

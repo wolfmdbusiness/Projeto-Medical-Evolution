@@ -23,3 +23,11 @@ def golden_state_dict() -> dict:
     gate or strict-model validation) without touching the file on disk or
     leaking state between tests."""
     return load_golden_state_dict()
+
+
+def load_golden_state_number(number: str) -> dict:
+    """Load golden_samples/golden_0XX/golden_0XX_state.json by number
+    ("002".."008"). Used by the SEMANTIC_RENDER_REFERENCE test suites
+    (Milestone 1.2) which never compare a whole document byte-for-byte."""
+    path = ROOT / "golden_samples" / f"golden_{number}" / f"golden_{number}_state.json"
+    return json.loads(path.read_text(encoding="utf-8"))

@@ -3,7 +3,7 @@ from __future__ import annotations
 from datetime import datetime
 from typing import Optional
 
-from models.medical_state import ClinicalField
+from models.medical_state import ClinicalField, TemporalValue
 
 # Single, predictable list of datetime shapes the Medical State can carry.
 # Both format_date and format_datetime funnel through parse_clinical_datetime
@@ -35,6 +35,14 @@ def parse_clinical_datetime(raw: str) -> Optional[datetime]:
     return None
 
 
+def has_time_component(value: Optional[str]) -> bool:
+    """True only when `value` is an ISO-ish string that also carries a
+    time-of-day. A bare date ("2026-09-02") or an empty/None value both
+    return False — used to tell "this timestamp lets us order events" apart
+    from "we only know the day" (Milestone 1.2, item 33)."""
+    return bool(value) and "T" in value and len(value) >= 16
+
+
 def format_date(value: Optional[str], with_year: bool = False) -> str:
     if not value:
         return ""
@@ -51,11 +59,23 @@ def format_date(value: Optional[str], with_year: bool = False) -> str:
     return raw
 
 
-def format_datetime(value: Optional[str], with_year: bool = False) -> str:
+def format_datetime(value: Optional[str], with_year: bool = False, paren_time: bool = True) -> str:
     if not value:
         return ""
     raw = value.strip()
     date_part = format_date(raw, with_year=with_year)
-    if "T" in raw and len(raw) >= 16:
-        return f"{date_part} ({raw[11:16]})"
+    if has_time_component(raw):
+        time_part = raw[11:16]
+        return f"{date_part} ({time_part})" if paren_time else f"{date_part} {time_part}"
     return date_part
+
+
+def format_temporal(tv: Optional[TemporalValue], with_year: bool = False, paren_time: bool = True) -> str:
+    """Render a TemporalValue the same way a plain ISO string was rendered
+    before Milestone 1.2: prefer `normalized` (falls back to `raw` when the
+    value could not be normalized, e.g. an invalid date) and never invents a
+    missing time."""
+    if tv is None:
+        return ""
+    value = tv.normalized or tv.raw
+    return format_datetime(value, with_year=with_year, paren_time=paren_time)

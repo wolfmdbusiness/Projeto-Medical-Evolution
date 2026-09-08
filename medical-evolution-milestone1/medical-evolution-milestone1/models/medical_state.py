@@ -47,6 +47,7 @@ class GlobalStatus(str, Enum):
 
 class DiagnosisStatus(str, Enum):
     ACTIVE = "ACTIVE"
+    UNCERTAIN = "UNCERTAIN"
     RESOLVED = "RESOLVED"
     RULED_OUT = "RULED_OUT"
 
@@ -71,8 +72,20 @@ class ClinicalEventSeverity(str, Enum):
 
 class ConsultationStatus(str, Enum):
     REQUESTED = "REQUESTED"
+    PENDING = "PENDING"
     ANSWERED = "ANSWERED"
+    COMPLETED = "COMPLETED"
     CANCELLED = "CANCELLED"
+    UNKNOWN = "UNKNOWN"
+
+
+class ConsultationSectionState(str, Enum):
+    """Distinguishes "no consultation data captured" from an explicit
+    clinical statement that none was requested (Milestone 1.2, item 6)."""
+
+    PRESENT = "PRESENT"
+    NOT_REQUESTED = "NOT_REQUESTED"
+    UNKNOWN = "UNKNOWN"
 
 
 class PendingItemType(str, Enum):
@@ -102,24 +115,84 @@ class CareActionStatus(str, Enum):
     CANCELLED = "CANCELLED"
 
 
-class DiagnosticStudyStatus(str, Enum):
+class DiagnosticStudyProcedureStatus(str, Enum):
     ORDERED = "ORDERED"
     SCHEDULED = "SCHEDULED"
     PERFORMED = "PERFORMED"
-    RESULTED = "RESULTED"
-    PENDING = "PENDING"
     CANCELLED = "CANCELLED"
+    UNKNOWN = "UNKNOWN"
+
+
+class DiagnosticStudyResultStatus(str, Enum):
+    NOT_AVAILABLE = "NOT_AVAILABLE"
+    PENDING = "PENDING"
+    PRELIMINARY = "PRELIMINARY"
+    FINAL = "FINAL"
     UNKNOWN = "UNKNOWN"
 
 
 class SourceType(str, Enum):
     MEDICAL_EVOLUTION = "MEDICAL_EVOLUTION"
+    EXTERNAL_LAB_REPORT = "EXTERNAL_LAB_REPORT"
+    EXTERNAL_MEDICAL_DOCUMENT = "EXTERNAL_MEDICAL_DOCUMENT"
     OTHER = "OTHER"
 
 
 class SourceModality(str, Enum):
     TEXT = "TEXT"
     OTHER = "OTHER"
+
+
+class TemporalPrecision(str, Enum):
+    DATE = "DATE"
+    DATE_TIME = "DATE_TIME"
+    PARTIAL_DATE = "PARTIAL_DATE"
+    UNKNOWN = "UNKNOWN"
+
+
+class TemporalPeriod(str, Enum):
+    DAY = "DAY"
+    NIGHT = "NIGHT"
+    UNSPECIFIED = "UNSPECIFIED"
+
+
+class ComparisonOperator(str, Enum):
+    LT = "<"
+    GT = ">"
+    LTE = "<="
+    GTE = ">="
+    EQ = "="
+
+
+class GasSpecimenType(str, Enum):
+    ARTERIAL = "ARTERIAL"
+    VENOUS = "VENOUS"
+    CAPILLARY = "CAPILLARY"
+    UNKNOWN = "UNKNOWN"
+
+
+class IcuRequirementStatus(str, Enum):
+    REQUIRED = "REQUIRED"
+    NO_LONGER_REQUIRED = "NO_LONGER_REQUIRED"
+    UNKNOWN = "UNKNOWN"
+
+
+class TemporalValue(StrictModel):
+    """Reusable, typed clinical date/time (Milestone 1.2, item 2).
+
+    `raw` is always preserved verbatim. `normalized` is only ever an ISO-8601
+    string derived from `raw` when that derivation is unambiguous; an
+    impossible or partial date (e.g. "31/09", "31.08") keeps `normalized`
+    unset rather than being silently corrected (item 3) — validation_status
+    reflects that (e.g. UNRESOLVED/CONFLICT), which the renderability gate
+    already treats as "needs review" wherever a TemporalValue is consumed.
+    """
+
+    raw: Optional[str] = None
+    normalized: Optional[str] = None
+    precision: TemporalPrecision = TemporalPrecision.UNKNOWN
+    period: TemporalPeriod = TemporalPeriod.UNSPECIFIED
+    validation_status: ValidationStatus = ValidationStatus.MISSING
 
 
 class ClinicalField(StrictModel):
@@ -139,8 +212,8 @@ class Meta(StrictModel):
 
 
 class Admission(StrictModel):
-    hospital_admission_date: ClinicalField = Field(default_factory=ClinicalField)
-    icu_admission_date: ClinicalField = Field(default_factory=ClinicalField)
+    hospital_admission_date: TemporalValue = Field(default_factory=TemporalValue)
+    icu_admission_date: TemporalValue = Field(default_factory=TemporalValue)
     origin: ClinicalField = Field(default_factory=ClinicalField)
 
 
@@ -161,8 +234,7 @@ class Hpma(StrictModel):
 
 class EvolutionHistoryEntry(StrictModel):
     evolution_id: str
-    datetime: Optional[str] = None
-    period: Optional[str] = "UNSPECIFIED"
+    temporal_value: TemporalValue = Field(default_factory=TemporalValue)
     text: ClinicalField
     author_type: str = "HUMAN"
     source_refs: list[str] = Field(default_factory=list)
@@ -207,6 +279,10 @@ class Medication(StrictModel):
     source_order: Optional[int] = None
     classifications: list[str] = Field(default_factory=list)
     status: MedicationStatus = MedicationStatus.ACTIVE
+    # Course tracking (Milestone 1.2, item 22) — raw/documented values only.
+    # Dn is whatever the source documented ("D1"), never computed here.
+    started_at: Optional[TemporalValue] = None
+    documented_therapy_day: Optional[str] = None
     validation_status: ValidationStatus = ValidationStatus.CONFIRMED
     source_refs: list[str] = Field(default_factory=list)
 
@@ -239,9 +315,15 @@ class Analyte(StrictModel):
 
 
 class ObservationValue(StrictModel):
-    raw: str
-    normalized: Optional[Union[float, int, str]] = None
-    display: Optional[str] = None
+    """Lab value with an optional comparison operator (Milestone 1.2, item
+    17). `>4000` is never collapsed into `4000`: raw_value keeps the exact
+    source text, operator/normalized_numeric_value hold the parsed pieces
+    when derivable, and display_value is what the renderer prints."""
+
+    raw_value: str
+    operator: Optional[ComparisonOperator] = None
+    normalized_numeric_value: Optional[float] = None
+    display_value: Optional[str] = None
 
 
 class UnitValue(StrictModel):
@@ -262,13 +344,26 @@ class DifferentialComponent(StrictModel):
     display_value: Optional[str] = None
 
 
+class ReferenceRange(StrictModel):
+    """Reference range for a lab observation (Milestone 1.2, item 18).
+
+    A one-sided range like "VR<500" is valid on its own: `reference_raw`
+    always preserves the source text, `lower`/`upper` are filled in only
+    when unambiguously derivable and a bilateral range is never required.
+    """
+
+    lower: Optional[float] = None
+    upper: Optional[float] = None
+    reference_raw: Optional[str] = None
+
+
 class LabObservation(StrictModel):
     observation_id: str
     analyte: Analyte
     value: ObservationValue
     unit: UnitValue = Field(default_factory=UnitValue)
     collection_datetime: Optional[str] = None
-    reference_range: Optional[dict[str, Any]] = None
+    reference_range: Optional[ReferenceRange] = None
     differential: list[DifferentialComponent] = Field(default_factory=list)
     abnormal_flag: Optional[str] = None
     source_order: Optional[int] = None
@@ -279,16 +374,21 @@ class LabObservation(StrictModel):
 class BloodGas(StrictModel):
     gas_id: str
     collection_datetime: Optional[str] = None
-    sample_type: Optional[str] = None
+    specimen_type: GasSpecimenType = GasSpecimenType.UNKNOWN
     observations: list[LabObservation] = Field(default_factory=list)
     validation_status: ValidationStatus = ValidationStatus.CONFIRMED
     source_refs: list[str] = Field(default_factory=list)
 
 
 class DiagnosticStudy(StrictModel):
+    """Procedure vs. result are two independent axes (Milestone 1.2, item
+    11): a study can be PERFORMED with its result still PENDING, which a
+    single status enum could never express without collapsing information."""
+
     study_id: str
     study_name: str
-    status: DiagnosticStudyStatus = DiagnosticStudyStatus.UNKNOWN
+    procedure_status: DiagnosticStudyProcedureStatus = DiagnosticStudyProcedureStatus.UNKNOWN
+    result_status: DiagnosticStudyResultStatus = DiagnosticStudyResultStatus.NOT_AVAILABLE
     ordered_at: Optional[str] = None
     scheduled_at: Optional[str] = None
     performed_at: Optional[str] = None
@@ -321,9 +421,9 @@ class ComplementaryExams(StrictModel):
 class Consultation(StrictModel):
     consultation_id: str
     specialty: ClinicalField
-    request_datetime: Optional[str] = None
-    response_datetime: Optional[str] = None
+    temporal_value: TemporalValue = Field(default_factory=TemporalValue)
     assessment: ClinicalField = Field(default_factory=ClinicalField)
+    conclusions: list[ClinicalField] = Field(default_factory=list)
     recommendations: list[ClinicalField] = Field(default_factory=list)
     status: ConsultationStatus = ConsultationStatus.ANSWERED
     source_refs: list[str] = Field(default_factory=list)
@@ -347,8 +447,26 @@ class CareAction(StrictModel):
     source_refs: list[str] = Field(default_factory=list)
 
 
+class IcuJustificationEntry(StrictModel):
+    text: ClinicalField
+    temporal_value: Optional[TemporalValue] = None
+
+
+class IcuRequirementStatusEntry(StrictModel):
+    """A point-in-time statement about ongoing ICU need (Milestone 1.2, item
+    15). This is an append-only history, distinct from
+    `explicit_justifications`: recording NO_LONGER_REQUIRED never erases an
+    earlier REQUIRED entry, and no discharge decision is made here."""
+
+    status: IcuRequirementStatus
+    text: Optional[ClinicalField] = None
+    temporal_value: Optional[TemporalValue] = None
+    source_refs: list[str] = Field(default_factory=list)
+
+
 class IcuContext(StrictModel):
-    explicit_justification: ClinicalField = Field(default_factory=ClinicalField)
+    explicit_justifications: list[IcuJustificationEntry] = Field(default_factory=list)
+    requirement_status_history: list[IcuRequirementStatusEntry] = Field(default_factory=list)
     active_supports: list[str] = Field(default_factory=list)
     monitoring_requirements: list[str] = Field(default_factory=list)
     instabilities: list[str] = Field(default_factory=list)
@@ -392,6 +510,7 @@ class MedicalState(StrictModel):
     therapies: Therapies = Field(default_factory=Therapies)
     controls: Controls = Field(default_factory=Controls)
     complementary_exams: ComplementaryExams = Field(default_factory=ComplementaryExams)
+    consultations_section_state: ConsultationSectionState = ConsultationSectionState.UNKNOWN
     consultations: list[Consultation] = Field(default_factory=list)
     pending: list[PendingItem] = Field(default_factory=list)
     care_actions: list[CareAction] = Field(default_factory=list)
