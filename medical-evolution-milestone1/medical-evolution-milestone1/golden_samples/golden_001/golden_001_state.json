@@ -335,15 +335,14 @@
           "normalized": null
         },
         "collection_datetime": "2026-09-02T13:34:00-03:00",
-        "reference_range": {
-          "differential": {
-            "SEG%": "60,7",
-            "EOS%": "1,8",
-            "BASO%": "0,2",
-            "LINF T%": "30,6",
-            "MONO%": "6,7"
-          }
-        },
+        "reference_range": null,
+        "differential": [
+          {"canonical_id": null, "display_name": "SEG%", "raw_value": "60,7", "display_value": "60,7"},
+          {"canonical_id": null, "display_name": "EOS%", "raw_value": "1,8", "display_value": "1,8"},
+          {"canonical_id": null, "display_name": "BASO%", "raw_value": "0,2", "display_value": "0,2"},
+          {"canonical_id": null, "display_name": "LINF T%", "raw_value": "30,6", "display_value": "30,6"},
+          {"canonical_id": null, "display_name": "MONO%", "raw_value": "6,7", "display_value": "6,7"}
+        ],
         "abnormal_flag": "UNKNOWN",
         "source_order": 3,
         "validation_status": "CONFIRMED",
@@ -643,15 +642,14 @@
           "normalized": null
         },
         "collection_datetime": "2026-09-03T19:56:00-03:00",
-        "reference_range": {
-          "differential": {
-            "SEG%": "56,5",
-            "EOS%": "2,3",
-            "BASO%": "0,4",
-            "LINF T%": "32,3",
-            "MONO%": "8,5"
-          }
-        },
+        "reference_range": null,
+        "differential": [
+          {"canonical_id": null, "display_name": "SEG%", "raw_value": "56,5", "display_value": "56,5"},
+          {"canonical_id": null, "display_name": "EOS%", "raw_value": "2,3", "display_value": "2,3"},
+          {"canonical_id": null, "display_name": "BASO%", "raw_value": "0,4", "display_value": "0,4"},
+          {"canonical_id": null, "display_name": "LINF T%", "raw_value": "32,3", "display_value": "32,3"},
+          {"canonical_id": null, "display_name": "MONO%", "raw_value": "8,5", "display_value": "8,5"}
+        ],
         "abnormal_flag": "UNKNOWN",
         "source_order": 3,
         "validation_status": "CONFIRMED",

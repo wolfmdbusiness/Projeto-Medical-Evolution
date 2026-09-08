@@ -2,10 +2,21 @@ from __future__ import annotations
 
 from enum import Enum
 from typing import Any, Optional, Union
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 
 Scalar = Union[str, int, float, bool]
+
+
+class StrictModel(BaseModel):
+    """Base model for the whole Medical State schema.
+
+    Milestone 1.1: unknown/mistyped fields must fail validation instead of
+    being silently dropped, since "DADOS ESTRUTURADOS CORRETOS" is the first
+    gate of the whole pipeline.
+    """
+
+    model_config = ConfigDict(extra="forbid")
 
 
 class ClinicalState(str, Enum):
@@ -34,14 +45,91 @@ class GlobalStatus(str, Enum):
     FAILED = "FAILED"
 
 
-class ClinicalField(BaseModel):
+class DiagnosisStatus(str, Enum):
+    ACTIVE = "ACTIVE"
+    RESOLVED = "RESOLVED"
+    RULED_OUT = "RULED_OUT"
+
+
+class MedicationStatus(str, Enum):
+    ACTIVE = "ACTIVE"
+    SUSPENDED = "SUSPENDED"
+    DISCONTINUED = "DISCONTINUED"
+
+
+class ClinicalEventStatus(str, Enum):
+    ACTIVE = "ACTIVE"
+    RESOLVED = "RESOLVED"
+
+
+class ClinicalEventSeverity(str, Enum):
+    MILD = "MILD"
+    MODERATE = "MODERATE"
+    SEVERE = "SEVERE"
+    UNKNOWN = "UNKNOWN"
+
+
+class ConsultationStatus(str, Enum):
+    REQUESTED = "REQUESTED"
+    ANSWERED = "ANSWERED"
+    CANCELLED = "CANCELLED"
+
+
+class PendingItemType(str, Enum):
+    EXAM = "EXAM"
+    CONSULTATION = "CONSULTATION"
+    PROCEDURE = "PROCEDURE"
+    OTHER = "OTHER"
+
+
+class PendingStatus(str, Enum):
+    PENDING = "PENDING"
+    COMPLETED = "COMPLETED"
+    CANCELLED = "CANCELLED"
+
+
+class CareActionType(str, Enum):
+    MEDICATION = "MEDICATION"
+    PROCEDURE = "PROCEDURE"
+    MONITORING = "MONITORING"
+    OTHER = "OTHER"
+
+
+class CareActionStatus(str, Enum):
+    PLANNED = "PLANNED"
+    IN_PROGRESS = "IN_PROGRESS"
+    COMPLETED = "COMPLETED"
+    CANCELLED = "CANCELLED"
+
+
+class DiagnosticStudyStatus(str, Enum):
+    ORDERED = "ORDERED"
+    SCHEDULED = "SCHEDULED"
+    PERFORMED = "PERFORMED"
+    RESULTED = "RESULTED"
+    PENDING = "PENDING"
+    CANCELLED = "CANCELLED"
+    UNKNOWN = "UNKNOWN"
+
+
+class SourceType(str, Enum):
+    MEDICAL_EVOLUTION = "MEDICAL_EVOLUTION"
+    OTHER = "OTHER"
+
+
+class SourceModality(str, Enum):
+    TEXT = "TEXT"
+    OTHER = "OTHER"
+
+
+class ClinicalField(StrictModel):
     value: Optional[Scalar] = None
     clinical_state: ClinicalState = ClinicalState.UNKNOWN
     validation_status: ValidationStatus = ValidationStatus.MISSING
     source_refs: list[str] = Field(default_factory=list)
 
 
-class Meta(BaseModel):
+class Meta(StrictModel):
     state_id: str
     state_revision: int = 1
     created_at: Optional[str] = None
@@ -50,28 +138,28 @@ class Meta(BaseModel):
     template_profile_id: Optional[str] = "UTI_HOSPITALIS_V1"
 
 
-class Admission(BaseModel):
+class Admission(StrictModel):
     hospital_admission_date: ClinicalField = Field(default_factory=ClinicalField)
     icu_admission_date: ClinicalField = Field(default_factory=ClinicalField)
     origin: ClinicalField = Field(default_factory=ClinicalField)
 
 
-class Diagnosis(BaseModel):
+class Diagnosis(StrictModel):
     diagnosis_id: str
     main: ClinicalField
     specifications: list[ClinicalField] = Field(default_factory=list)
-    status: str = "ACTIVE"
+    status: DiagnosisStatus = DiagnosisStatus.ACTIVE
     source_refs: list[str] = Field(default_factory=list)
 
 
-class Hpma(BaseModel):
+class Hpma(StrictModel):
     text: ClinicalField = Field(default_factory=ClinicalField)
     source_type: Optional[str] = None
     source_datetime: Optional[str] = None
     source_refs: list[str] = Field(default_factory=list)
 
 
-class EvolutionHistoryEntry(BaseModel):
+class EvolutionHistoryEntry(StrictModel):
     evolution_id: str
     datetime: Optional[str] = None
     period: Optional[str] = "UNSPECIFIED"
@@ -80,18 +168,18 @@ class EvolutionHistoryEntry(BaseModel):
     source_refs: list[str] = Field(default_factory=list)
 
 
-class ClinicalEvent(BaseModel):
+class ClinicalEvent(StrictModel):
     event_id: str
     datetime: Optional[str] = None
     event_type: str
     description: ClinicalField
-    severity: Optional[str] = "UNKNOWN"
-    status: str = "ACTIVE"
+    severity: Optional[ClinicalEventSeverity] = ClinicalEventSeverity.UNKNOWN
+    status: ClinicalEventStatus = ClinicalEventStatus.ACTIVE
     related_entities: list[str] = Field(default_factory=list)
     source_refs: list[str] = Field(default_factory=list)
 
 
-class PhysicalExam(BaseModel):
+class PhysicalExam(StrictModel):
     general: ClinicalField = Field(default_factory=ClinicalField)
     neurologic: ClinicalField = Field(default_factory=ClinicalField)
     cardiovascular: ClinicalField = Field(default_factory=ClinicalField)
@@ -100,7 +188,7 @@ class PhysicalExam(BaseModel):
     extremities: ClinicalField = Field(default_factory=ClinicalField)
 
 
-class History(BaseModel):
+class History(StrictModel):
     allergies: ClinicalField = Field(default_factory=ClinicalField)
     past_medical_history: ClinicalField = Field(default_factory=ClinicalField)
     previous_surgeries: ClinicalField = Field(default_factory=ClinicalField)
@@ -109,7 +197,7 @@ class History(BaseModel):
     family_history: ClinicalField = Field(default_factory=ClinicalField)
 
 
-class Medication(BaseModel):
+class Medication(StrictModel):
     medication_id: str
     raw_name: Optional[str] = None
     generic_name: Optional[str] = None
@@ -118,19 +206,19 @@ class Medication(BaseModel):
     route: Optional[str] = None
     source_order: Optional[int] = None
     classifications: list[str] = Field(default_factory=list)
-    status: str = "ACTIVE"
+    status: MedicationStatus = MedicationStatus.ACTIVE
     validation_status: ValidationStatus = ValidationStatus.CONFIRMED
     source_refs: list[str] = Field(default_factory=list)
 
 
-class Therapies(BaseModel):
+class Therapies(StrictModel):
     hemotransfusion: ClinicalField = Field(default_factory=ClinicalField)
     niv: ClinicalField = Field(default_factory=ClinicalField)
     invasive_mechanical_ventilation: ClinicalField = Field(default_factory=ClinicalField)
     renal_replacement_therapy: ClinicalField = Field(default_factory=ClinicalField)
 
 
-class Controls(BaseModel):
+class Controls(StrictModel):
     heart_rate: ClinicalField = Field(default_factory=ClinicalField)
     respiratory_rate: ClinicalField = Field(default_factory=ClinicalField)
     systolic_bp: ClinicalField = Field(default_factory=ClinicalField)
@@ -144,37 +232,51 @@ class Controls(BaseModel):
     urine_output_24h: ClinicalField = Field(default_factory=ClinicalField)
 
 
-class Analyte(BaseModel):
+class Analyte(StrictModel):
     canonical_id: Optional[str] = None
     raw_name: str
     display_name: Optional[str] = None
 
 
-class ObservationValue(BaseModel):
+class ObservationValue(StrictModel):
     raw: str
     normalized: Optional[Union[float, int, str]] = None
     display: Optional[str] = None
 
 
-class UnitValue(BaseModel):
+class UnitValue(StrictModel):
     raw: Optional[str] = None
     normalized: Optional[str] = None
 
 
-class LabObservation(BaseModel):
+class DifferentialComponent(StrictModel):
+    """One component of a differential count (e.g. leukogram SEG%/EOS%/...).
+
+    Kept as its own typed structure instead of being smuggled inside
+    ``reference_range``, which must only ever describe a reference range.
+    """
+
+    canonical_id: Optional[str] = None
+    display_name: str
+    raw_value: str
+    display_value: Optional[str] = None
+
+
+class LabObservation(StrictModel):
     observation_id: str
     analyte: Analyte
     value: ObservationValue
     unit: UnitValue = Field(default_factory=UnitValue)
     collection_datetime: Optional[str] = None
     reference_range: Optional[dict[str, Any]] = None
+    differential: list[DifferentialComponent] = Field(default_factory=list)
     abnormal_flag: Optional[str] = None
     source_order: Optional[int] = None
     validation_status: ValidationStatus = ValidationStatus.CONFIRMED
     source_refs: list[str] = Field(default_factory=list)
 
 
-class BloodGas(BaseModel):
+class BloodGas(StrictModel):
     gas_id: str
     collection_datetime: Optional[str] = None
     sample_type: Optional[str] = None
@@ -183,10 +285,10 @@ class BloodGas(BaseModel):
     source_refs: list[str] = Field(default_factory=list)
 
 
-class DiagnosticStudy(BaseModel):
+class DiagnosticStudy(StrictModel):
     study_id: str
     study_name: str
-    status: str = "UNKNOWN"
+    status: DiagnosticStudyStatus = DiagnosticStudyStatus.UNKNOWN
     ordered_at: Optional[str] = None
     scheduled_at: Optional[str] = None
     performed_at: Optional[str] = None
@@ -195,7 +297,7 @@ class DiagnosticStudy(BaseModel):
     source_refs: list[str] = Field(default_factory=list)
 
 
-class MicrobiologySerology(BaseModel):
+class MicrobiologySerology(StrictModel):
     exam_id: str
     exam_type: str
     collection_datetime: Optional[str] = None
@@ -206,7 +308,7 @@ class MicrobiologySerology(BaseModel):
     source_refs: list[str] = Field(default_factory=list)
 
 
-class ComplementaryExams(BaseModel):
+class ComplementaryExams(StrictModel):
     laboratory_observations: list[LabObservation] = Field(default_factory=list)
     urinalysis: list[LabObservation] = Field(default_factory=list)
     blood_gases: list[BloodGas] = Field(default_factory=list)
@@ -216,36 +318,36 @@ class ComplementaryExams(BaseModel):
     unmapped: list[Any] = Field(default_factory=list)
 
 
-class Consultation(BaseModel):
+class Consultation(StrictModel):
     consultation_id: str
     specialty: ClinicalField
     request_datetime: Optional[str] = None
     response_datetime: Optional[str] = None
     assessment: ClinicalField = Field(default_factory=ClinicalField)
     recommendations: list[ClinicalField] = Field(default_factory=list)
-    status: str = "ANSWERED"
+    status: ConsultationStatus = ConsultationStatus.ANSWERED
     source_refs: list[str] = Field(default_factory=list)
 
 
-class PendingItem(BaseModel):
+class PendingItem(StrictModel):
     pending_id: str
-    type: str
+    type: PendingItemType
     label: str
     linked_entity_id: Optional[str] = None
-    status: str = "PENDING"
+    status: PendingStatus = PendingStatus.PENDING
     source_refs: list[str] = Field(default_factory=list)
 
 
-class CareAction(BaseModel):
+class CareAction(StrictModel):
     action_id: str
     description: ClinicalField
-    action_type: str = "OTHER"
-    status: str = "PLANNED"
+    action_type: CareActionType = CareActionType.OTHER
+    status: CareActionStatus = CareActionStatus.PLANNED
     responsible_team: Optional[str] = None
     source_refs: list[str] = Field(default_factory=list)
 
 
-class IcuContext(BaseModel):
+class IcuContext(StrictModel):
     explicit_justification: ClinicalField = Field(default_factory=ClinicalField)
     active_supports: list[str] = Field(default_factory=list)
     monitoring_requirements: list[str] = Field(default_factory=list)
@@ -253,27 +355,27 @@ class IcuContext(BaseModel):
     risk_factors: list[str] = Field(default_factory=list)
 
 
-class GlobalValidation(BaseModel):
+class GlobalValidation(StrictModel):
     overall_status: GlobalStatus = GlobalStatus.READY
     conflicts: list[Any] = Field(default_factory=list)
     unresolved: list[Any] = Field(default_factory=list)
     warnings: list[Any] = Field(default_factory=list)
 
 
-class Source(BaseModel):
+class Source(StrictModel):
     source_id: str
-    source_type: str
-    modality: Optional[str] = None
+    source_type: SourceType
+    modality: Optional[SourceModality] = None
     author_type: str = "HUMAN"
     deidentified: bool = True
     created_at: Optional[str] = None
 
 
-class Provenance(BaseModel):
+class Provenance(StrictModel):
     sources: list[Source] = Field(default_factory=list)
 
 
-class MedicalState(BaseModel):
+class MedicalState(StrictModel):
     schema_version: str = "0.3"
     meta: Meta
     patient_ref: str
