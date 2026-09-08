@@ -14,7 +14,8 @@ test = [
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "-q -m \"not live\""
+addopts = "-q -m \"not live and not holdout_live\""
 markers = [
   "live: requires live network access to the DeepSeek API (deselected by default; run with `pytest -m live`).",
+  "holdout_live: requires live network access to run the M2.0C held-out clinical validation (deselected by default; run with `pytest -m holdout_live`).",
 ]

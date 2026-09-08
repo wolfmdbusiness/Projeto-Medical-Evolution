@@ -1,0 +1,493 @@
+{
+  "holdout_id": "HOLDOUT-001",
+  "patient_ref": "PACIENTE HOLDOUT 001",
+  "rules": {
+    "all_source_texts_are_deidentified": true,
+    "prompt_version_must_remain": "2.0b-prompt-003",
+    "model_must_remain": "deepseek-v4-flash",
+    "temperature_must_remain": 0,
+    "historical_result_columns_are_not_current_results": true,
+    "pending_exam_is_not_performed_exam": true,
+    "duplicate_source_must_not_be_treated_as_new_clinical_fact_when_aggregated": true,
+    "no_prompt_or_schema_tuning_before_all_holdout_runs_finish": true
+  },
+  "source_expectations": {
+    "H001-LAB-20260726": {
+      "must_capture_current_values": [
+        [
+          "Hemoglobina",
+          "13,1"
+        ],
+        [
+          "Hematócrito",
+          "37,8"
+        ],
+        [
+          "Leucócitos",
+          "9,22"
+        ],
+        [
+          "PLAQUETAS",
+          "312"
+        ],
+        [
+          "PCR",
+          "<0.6"
+        ],
+        [
+          "CPK",
+          "89"
+        ],
+        [
+          "UREIA",
+          "33"
+        ],
+        [
+          "CREATININA",
+          "0,83"
+        ],
+        [
+          "TFG",
+          "86"
+        ],
+        [
+          "AMILASE",
+          "88"
+        ],
+        [
+          "Bilirrubina Total",
+          "0,2"
+        ],
+        [
+          "Bilirrubina Direta",
+          "0,0"
+        ],
+        [
+          "Bilirrubina Indireta",
+          "0,20"
+        ],
+        [
+          "LACTATO VENOSO",
+          "1,4"
+        ],
+        [
+          "FOSFATASE ALCALINA",
+          "70"
+        ]
+      ],
+      "must_capture_urinalysis": {
+        "ASPECTO": "LIGEIRAMENTE TURVO",
+        "DENSIDADE": "1005",
+        "pH": "6,5",
+        "PROTEÍNA": "INDETECTÁVEL",
+        "LEUCÓCITOS": "INFERIOR A 10000",
+        "HEMACIAS": "INFERIOR A 8000",
+        "BACTÉRIAS": "AUSENTE"
+      }
+    },
+    "H001-DDIMER-20260727": {
+      "must_capture_current_values": [
+        [
+          "DÍMERO D",
+          "0,3",
+          "mg/L"
+        ]
+      ]
+    },
+    "H001-LAB-20260727": {
+      "must_capture_blood_gas": {
+        "specimen": "VENOUS",
+        "observations": [
+          [
+            "pH",
+            "7,350"
+          ],
+          [
+            "PCO2",
+            "51,0"
+          ],
+          [
+            "PO2",
+            "35,0"
+          ],
+          [
+            "SO2",
+            "64,0"
+          ],
+          [
+            "HCO3",
+            "28,2"
+          ],
+          [
+            "TCO2",
+            "29,8"
+          ],
+          [
+            "BE",
+            "1,8"
+          ]
+        ]
+      },
+      "must_capture_current_values": [
+        [
+          "Hemoglobina",
+          "12,6"
+        ],
+        [
+          "Hematócrito",
+          "35,8"
+        ],
+        [
+          "Leucócitos",
+          "13,3"
+        ],
+        [
+          "PLAQUETAS",
+          "309"
+        ],
+        [
+          "TP",
+          "13,30"
+        ],
+        [
+          "RNI",
+          "1,00"
+        ],
+        [
+          "TTPa",
+          "35,1"
+        ],
+        [
+          "VHS",
+          "21"
+        ],
+        [
+          "PCR",
+          "0,13"
+        ],
+        [
+          "LDH",
+          "192"
+        ],
+        [
+          "CPK",
+          "66"
+        ],
+        [
+          "CK-MB",
+          "10"
+        ],
+        [
+          "UREIA",
+          "43"
+        ],
+        [
+          "CREATININA",
+          "1,07"
+        ],
+        [
+          "TFG",
+          "63"
+        ],
+        [
+          "SÓDIO",
+          "142"
+        ],
+        [
+          "POTÁSSIO",
+          "4,7"
+        ],
+        [
+          "MAGNÉSIO",
+          "2,1"
+        ],
+        [
+          "CALCIO IONIZADO",
+          "1,32"
+        ],
+        [
+          "TGO",
+          "16"
+        ],
+        [
+          "TGP",
+          "13"
+        ],
+        [
+          "Bilirrubina Total",
+          "0,2"
+        ],
+        [
+          "Bilirrubina Direta",
+          "0,1"
+        ],
+        [
+          "Bilirrubina Indireta",
+          "0,10"
+        ]
+      ],
+      "must_capture_urinalysis": {
+        "DENSIDADE": "1020",
+        "pH": "5,0",
+        "PROTEÍNA": "PRESENTES +",
+        "BILIRRUBINA": "PRESENTES +",
+        "LEUCÓCITOS": "42.000",
+        "BACTÉRIAS": "PRESENTES +"
+      }
+    },
+    "H001-LAB-20260728": {
+      "must_capture_current_values": [
+        [
+          "Hemoglobina",
+          "13,3"
+        ],
+        [
+          "Hematócrito",
+          "38,5"
+        ],
+        [
+          "Leucócitos",
+          "8,87"
+        ],
+        [
+          "PLAQUETAS",
+          "317"
+        ],
+        [
+          "TP",
+          "12,70"
+        ],
+        [
+          "RNI",
+          "1,00"
+        ],
+        [
+          "TTPa",
+          "39,1"
+        ],
+        [
+          "PCR",
+          "0,09"
+        ],
+        [
+          "LDH",
+          "192"
+        ],
+        [
+          "UREIA",
+          "38"
+        ],
+        [
+          "CREATININA",
+          "0,91"
+        ],
+        [
+          "TFG",
+          "77"
+        ],
+        [
+          "SÓDIO",
+          "142"
+        ],
+        [
+          "POTÁSSIO",
+          "4,7"
+        ],
+        [
+          "MAGNÉSIO",
+          "2,2"
+        ],
+        [
+          "CALCIO IONIZADO",
+          "1,34"
+        ]
+      ],
+      "must_not_promote_previous_as_current": [
+        [
+          "Hemoglobina",
+          "12.6"
+        ],
+        [
+          "Leucócitos",
+          "13300"
+        ],
+        [
+          "TTPa",
+          "35.1"
+        ],
+        [
+          "UREIA",
+          "43"
+        ],
+        [
+          "CREATININA",
+          "1.07"
+        ]
+      ]
+    },
+    "H001-COAG-20260729": {
+      "must_capture_current_values": [
+        [
+          "TP",
+          "12,90"
+        ],
+        [
+          "RNI",
+          "1,00"
+        ],
+        [
+          "TTPa",
+          "37,5"
+        ]
+      ],
+      "must_not_promote_previous_as_current": [
+        [
+          "TP",
+          "12.70"
+        ],
+        [
+          "TP",
+          "13.30"
+        ],
+        [
+          "TTPa",
+          "39.1"
+        ],
+        [
+          "TTPa",
+          "35.1"
+        ]
+      ]
+    },
+    "H001-LAB-20260729": {
+      "must_capture_current_values": [
+        [
+          "Hemoglobina",
+          "12,8"
+        ],
+        [
+          "Hematócrito",
+          "36,5"
+        ],
+        [
+          "Leucócitos",
+          "7,36"
+        ],
+        [
+          "PLAQUETAS",
+          "292"
+        ],
+        [
+          "PCR",
+          "0,07"
+        ],
+        [
+          "UREIA",
+          "35"
+        ],
+        [
+          "CREATININA",
+          "1,00"
+        ],
+        [
+          "TFG",
+          "69"
+        ],
+        [
+          "SÓDIO",
+          "141"
+        ],
+        [
+          "POTÁSSIO",
+          "4,4"
+        ],
+        [
+          "CALCIO IONIZADO",
+          "1,32"
+        ]
+      ],
+      "must_not_promote_previous_as_current": [
+        [
+          "Hemoglobina",
+          "13.3"
+        ],
+        [
+          "Hemoglobina",
+          "12.6"
+        ],
+        [
+          "Leucócitos",
+          "8870"
+        ],
+        [
+          "Leucócitos",
+          "13300"
+        ],
+        [
+          "PCR",
+          "0.09"
+        ],
+        [
+          "PCR",
+          "0.13"
+        ],
+        [
+          "UREIA",
+          "38"
+        ],
+        [
+          "UREIA",
+          "43"
+        ]
+      ]
+    },
+    "H001-DOPPLER-MMII-20260728-A": {
+      "must_capture_study": true,
+      "core_findings": [
+        "Sem sinais de TVP no membro inferior esquerdo",
+        "Sem sinais de TVP no membro inferior direito"
+      ],
+      "acceptable_representation": "one bilateral study or two laterality-specific studies"
+    },
+    "H001-ECHO-20260728": {
+      "must_capture_study": true,
+      "core_findings": [
+        "Ecodopplercardiograma normal",
+        "Fração de Ejeção 66.85 %"
+      ],
+      "note": "quantitative measurements beyond FE may be captured but are not mandatory for holdout pass"
+    },
+    "H001-DOPPLER-CAROTIDAS-20260728": {
+      "must_capture_study": true,
+      "core_findings": [
+        "sem estreitamentos ou obstruções carotídeas",
+        "fluxo vertebral anterógrado bilateral"
+      ]
+    },
+    "H001-TC-CRANIO-20260728": {
+      "must_capture_study": true,
+      "core_findings": [
+        "Tomografia computadorizada crânio-encefálica sem alterações significativas"
+      ]
+    },
+    "H001-TC-ABDOME-PELVE-20260728": {
+      "must_capture_study": true,
+      "core_findings": [
+        "Microcálculo no grupamento caliciano superior do rim direito, não obstrutivo",
+        "Leve aumento do conteúdo aerofecal dos cólons",
+        "Dispositivo metálico intrauterino"
+      ]
+    },
+    "H001-DOPPLER-MMII-20260728-B-DUPLICATE": {
+      "must_match_clinical_content_of": "H001-DOPPLER-MMII-20260728-A",
+      "must_remain_distinct_source_identity": true,
+      "aggregation_rule": "same clinical facts from duplicated source must not become duplicated final facts"
+    },
+    "H001-PENDING-HOLTER-20260724": {
+      "must_capture_study_or_pending_item": true,
+      "status": "REQUESTED/PENDING",
+      "must_not_mark_as_performed": true,
+      "must_preserve_text": "SOLICITADO (VERIFICAR SE REALIZADO)"
+    }
+  }
+}
