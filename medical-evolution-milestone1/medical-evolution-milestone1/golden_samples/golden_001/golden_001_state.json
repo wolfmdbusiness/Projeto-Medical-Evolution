@@ -1667,7 +1667,13 @@
       {
         "study_id": "STUDY-001",
         "study_name": "HOLTER DE 24 HORAS",
-        "ordered_at": "2026-09-03",
+        "ordered_at": {
+          "raw": "2026-09-03",
+          "normalized": "2026-09-03",
+          "precision": "DATE",
+          "period": "UNSPECIFIED",
+          "validation_status": "CONFIRMED"
+        },
         "scheduled_at": null,
         "performed_at": null,
         "resulted_at": null,
@@ -1681,7 +1687,13 @@
       {
         "study_id": "STUDY-002",
         "study_name": "ECOCARDIOGRAMA BIDIMENSIONAL COM DOPPLER",
-        "ordered_at": "2026-09-03",
+        "ordered_at": {
+          "raw": "2026-09-03",
+          "normalized": "2026-09-03",
+          "precision": "DATE",
+          "period": "UNSPECIFIED",
+          "validation_status": "CONFIRMED"
+        },
         "scheduled_at": null,
         "performed_at": null,
         "resulted_at": null,
@@ -1695,7 +1707,13 @@
       {
         "study_id": "STUDY-003",
         "study_name": "ECODOPPLER DE CAROTIDAS E VERTEBRAIS",
-        "ordered_at": "2026-09-03",
+        "ordered_at": {
+          "raw": "2026-09-03",
+          "normalized": "2026-09-03",
+          "precision": "DATE",
+          "period": "UNSPECIFIED",
+          "validation_status": "CONFIRMED"
+        },
         "scheduled_at": null,
         "performed_at": null,
         "resulted_at": null,

@@ -607,7 +607,13 @@
         "study_name": "ECOTT",
         "procedure_status": "ORDERED",
         "result_status": "NOT_AVAILABLE",
-        "ordered_at": "2026-09-03",
+        "ordered_at": {
+          "raw": "2026-09-03",
+          "normalized": "2026-09-03",
+          "precision": "DATE",
+          "period": "UNSPECIFIED",
+          "validation_status": "CONFIRMED"
+        },
         "scheduled_at": null,
         "performed_at": null,
         "resulted_at": null,
@@ -621,7 +627,13 @@
         "study_name": "HOLTER 24H",
         "procedure_status": "ORDERED",
         "result_status": "NOT_AVAILABLE",
-        "ordered_at": "2026-09-03",
+        "ordered_at": {
+          "raw": "2026-09-03",
+          "normalized": "2026-09-03",
+          "precision": "DATE",
+          "period": "UNSPECIFIED",
+          "validation_status": "CONFIRMED"
+        },
         "scheduled_at": null,
         "performed_at": null,
         "resulted_at": null,
@@ -635,7 +647,13 @@
         "study_name": "DOPPLER CAROTIDAS E VERTEBRAIS",
         "procedure_status": "ORDERED",
         "result_status": "NOT_AVAILABLE",
-        "ordered_at": "2026-09-03",
+        "ordered_at": {
+          "raw": "2026-09-03",
+          "normalized": "2026-09-03",
+          "precision": "DATE",
+          "period": "UNSPECIFIED",
+          "validation_status": "CONFIRMED"
+        },
         "scheduled_at": null,
         "performed_at": null,
         "resulted_at": null,
@@ -649,7 +667,13 @@
         "study_name": "TC DE CRANIO",
         "procedure_status": "ORDERED",
         "result_status": "NOT_AVAILABLE",
-        "ordered_at": "2026-09-03",
+        "ordered_at": {
+          "raw": "2026-09-03",
+          "normalized": "2026-09-03",
+          "precision": "DATE",
+          "period": "UNSPECIFIED",
+          "validation_status": "CONFIRMED"
+        },
         "scheduled_at": null,
         "performed_at": null,
         "resulted_at": null,

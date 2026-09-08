@@ -223,3 +223,97 @@ def test_display_excluded_analytes_are_still_normalized_and_stored():
     assert {"VCM", "HCM"} <= canonical_ids
     # Normalization never consults a display policy -- that's the Template
     # Profile's job, applied only later, at render time.
+
+
+# --- unresolved alias -> UNRESOLVED, never silently accepted (Milestone
+# 2.0A.1, item 2) -------------------------------------------------------
+
+def test_unknown_analyte_alias_is_unresolved_not_silently_accepted():
+    # CA1 is not "CAI" (calcium, ionized) and not any other known canonical
+    # id -- it must come out with canonical_id=None and validation_status
+    # UNRESOLVED, never with canonical_id="CA1" treated as if valid.
+    candidate = ExamExtractionCandidate(
+        source_id="SRC-CA1",
+        general_labs=[
+            GeneralLabCandidate(raw_name="CA1", raw_value="1,10", source_order=1, evidence=_ev("CA1 1,10"), source_ref="SRC-CA1"),
+        ],
+    )
+    from models.medical_state import ValidationStatus
+
+    batch = normalize_extraction_candidate(candidate, _envelope("SRC-CA1"))
+    obs = batch.laboratory_observations[0]
+    assert obs.analyte.raw_name == "CA1"
+    assert obs.analyte.canonical_id is None
+    assert obs.validation_status == ValidationStatus.UNRESOLVED
+
+
+def test_known_canonical_id_cai_is_confirmed_and_distinct_from_ca1():
+    candidate = ExamExtractionCandidate(
+        source_id="SRC-CAI",
+        general_labs=[
+            GeneralLabCandidate(raw_name="CAI", raw_value="1,15", source_order=1, evidence=_ev("CAI 1,15"), source_ref="SRC-CAI"),
+        ],
+    )
+    from models.medical_state import ValidationStatus
+
+    batch = normalize_extraction_candidate(candidate, _envelope("SRC-CAI"))
+    obs = batch.laboratory_observations[0]
+    assert obs.analyte.canonical_id == "CAI"
+    assert obs.validation_status == ValidationStatus.CONFIRMED
+
+
+# --- blood gas: raw_unit / raw_reference_range / operator (Milestone
+# 2.0A.1, item 5) --------------------------------------------------------
+
+def test_blood_gas_observation_preserves_unit_and_reference_range():
+    candidate = ExamExtractionCandidate(
+        source_id="SRC-GAS-UNIT",
+        blood_gases=[
+            BloodGasCandidate(
+                raw_specimen_type="ARTERIAL", raw_temporal="28/08 (07:00)", source_order=1,
+                evidence=_ev("28/08 (07:00) (ARTERIAL): PO2 90,0 mmHg (VR 80-100)"),
+                source_ref="SRC-GAS-UNIT",
+                observations=[
+                    BloodGasObservationCandidate(
+                        raw_name="PO2", raw_value="90,0", raw_unit="mmHg", raw_reference_range="80-100",
+                        source_order=1, evidence=_ev("PO2 90,0 mmHg"), source_ref="SRC-GAS-UNIT",
+                    ),
+                ],
+            ),
+        ],
+    )
+    batch = normalize_extraction_candidate(candidate, _envelope("SRC-GAS-UNIT", reference_year=2026))
+    gas = batch.blood_gases[0]
+    obs = gas.observations[0]
+    assert obs.unit.raw == "mmHg"
+    assert obs.reference_range.reference_raw == "80-100"
+
+
+def test_blood_gas_observation_preserves_operator_value():
+    # An out-of-range blood gas reading reported with a comparison operator
+    # (e.g. lactate below the assay's detection floor) must keep that
+    # operator through normalization, exactly like general labs (item 7).
+    candidate = ExamExtractionCandidate(
+        source_id="SRC-GAS-OP",
+        blood_gases=[
+            BloodGasCandidate(
+                raw_specimen_type="ARTERIAL", raw_temporal="28/08 (07:00)", source_order=1,
+                evidence=_ev("28/08 (07:00) (ARTERIAL): LACTATO <0,5 (VR <2,0)"),
+                source_ref="SRC-GAS-OP",
+                observations=[
+                    BloodGasObservationCandidate(
+                        raw_name="LACTATO", raw_value="<0,5", raw_unit="mmol/L", raw_reference_range="VR <2,0",
+                        source_order=1, evidence=_ev("LACTATO <0,5"), source_ref="SRC-GAS-OP",
+                    ),
+                ],
+            ),
+        ],
+    )
+    batch = normalize_extraction_candidate(candidate, _envelope("SRC-GAS-OP", reference_year=2026))
+    obs = batch.blood_gases[0].observations[0]
+    assert obs.value.operator.value == "<"
+    assert obs.value.normalized_numeric_value == 0.5
+    assert obs.value.raw_value == "<0,5"  # never collapsed to "0,5"
+    assert obs.unit.raw == "mmol/L"
+    assert obs.reference_range.reference_raw == "VR <2,0"
+    assert obs.reference_range.upper == 2.0

@@ -34,14 +34,23 @@ def test_known_aliases_resolve_to_canonical_id(raw_name, expected_canonical):
     assert resolve_canonical_id(raw_name) == expected_canonical
 
 
+def test_cai_is_a_known_canonical_id_and_resolves_to_itself():
+    # CAI (ionized calcium) is a legitimate standalone canonical id -- never
+    # aliased from anything else -- so it must resolve to itself.
+    assert resolve_canonical_id("CAI") == "CAI"
+
+
 def test_ca1_is_never_silently_corrected_to_cai():
-    # CA1 has no safe, evidenced alias to CAI -- it must resolve to itself.
-    assert resolve_canonical_id("CA1") == "CA1"
+    # CA1 has no safe, evidenced alias to CAI, and is not itself a known
+    # canonical id -- it must resolve to None (unresolved), never to "CA1"
+    # (which would look valid) and never to "CAI" (Milestone 2.0A.1, item 2).
+    assert resolve_canonical_id("CA1") is None
     assert resolve_canonical_id("CA1") != "CAI"
+    assert resolve_canonical_id("CA1") != "CA1"
 
 
-def test_unlisted_alias_passes_through_unchanged():
-    assert resolve_canonical_id("SOME_UNSEEN_ANALYTE") == "SOME_UNSEEN_ANALYTE"
+def test_unlisted_alias_resolves_to_none_not_to_itself():
+    assert resolve_canonical_id("SOME_UNSEEN_ANALYTE") is None
 
 
 # --- numeric parsing (item 7) -------------------------------------------

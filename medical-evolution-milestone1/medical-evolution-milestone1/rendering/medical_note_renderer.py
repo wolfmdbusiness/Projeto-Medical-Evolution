@@ -202,8 +202,8 @@ def _render_microbiology(state: MedicalState, template: UTIHospitalisV1) -> list
 
 
 def _study_date(study: DiagnosticStudy) -> str:
-    value = study.resulted_at or study.performed_at or study.scheduled_at or study.ordered_at
-    return format_date(value)
+    tv = study.resulted_at or study.performed_at or study.scheduled_at or study.ordered_at
+    return format_temporal(tv)
 
 
 def _study_status_text(study: DiagnosticStudy, template: UTIHospitalisV1) -> str:

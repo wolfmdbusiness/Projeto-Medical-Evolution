@@ -369,6 +369,7 @@ class LabObservation(StrictModel):
     source_order: Optional[int] = None
     validation_status: ValidationStatus = ValidationStatus.CONFIRMED
     source_refs: list[str] = Field(default_factory=list)
+    processing_key: Optional[str] = None
 
 
 class BloodGas(StrictModel):
@@ -378,6 +379,7 @@ class BloodGas(StrictModel):
     observations: list[LabObservation] = Field(default_factory=list)
     validation_status: ValidationStatus = ValidationStatus.CONFIRMED
     source_refs: list[str] = Field(default_factory=list)
+    processing_key: Optional[str] = None
 
 
 class DiagnosticStudy(StrictModel):
@@ -389,12 +391,13 @@ class DiagnosticStudy(StrictModel):
     study_name: str
     procedure_status: DiagnosticStudyProcedureStatus = DiagnosticStudyProcedureStatus.UNKNOWN
     result_status: DiagnosticStudyResultStatus = DiagnosticStudyResultStatus.NOT_AVAILABLE
-    ordered_at: Optional[str] = None
-    scheduled_at: Optional[str] = None
-    performed_at: Optional[str] = None
-    resulted_at: Optional[str] = None
+    ordered_at: Optional[TemporalValue] = None
+    scheduled_at: Optional[TemporalValue] = None
+    performed_at: Optional[TemporalValue] = None
+    resulted_at: Optional[TemporalValue] = None
     findings: list[ClinicalField] = Field(default_factory=list)
     source_refs: list[str] = Field(default_factory=list)
+    processing_key: Optional[str] = None
 
 
 class MicrobiologySerology(StrictModel):
@@ -406,6 +409,7 @@ class MicrobiologySerology(StrictModel):
     susceptibility: Optional[Any] = None
     validation_status: ValidationStatus = ValidationStatus.CONFIRMED
     source_refs: list[str] = Field(default_factory=list)
+    processing_key: Optional[str] = None
 
 
 class ComplementaryExams(StrictModel):
@@ -489,8 +493,20 @@ class Source(StrictModel):
     created_at: Optional[str] = None
 
 
+class ProcessingMetadataEntry(StrictModel):
+    """Idempotency/processing bookkeeping, kept out of `source_refs` on
+    purpose (Milestone 2.0A.1, item 1): `source_refs` names clinical/document
+    sources only, never pipeline-internal markers."""
+
+    processing_key: str
+    source_id: str
+    module: str
+    module_version: str
+
+
 class Provenance(StrictModel):
     sources: list[Source] = Field(default_factory=list)
+    processing_metadata: list[ProcessingMetadataEntry] = Field(default_factory=list)
 
 
 class MedicalState(StrictModel):

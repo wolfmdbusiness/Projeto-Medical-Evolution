@@ -538,7 +538,13 @@
         "result_status": "FINAL",
         "ordered_at": null,
         "scheduled_at": null,
-        "performed_at": "2026-08-31",
+        "performed_at": {
+          "raw": "2026-08-31",
+          "normalized": "2026-08-31",
+          "precision": "DATE",
+          "period": "UNSPECIFIED",
+          "validation_status": "CONFIRMED"
+        },
         "resulted_at": null,
         "findings": [
           {

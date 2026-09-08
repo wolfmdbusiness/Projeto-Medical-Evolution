@@ -44,11 +44,13 @@ def test_microbiology_urease_positive_is_rendered():
 def test_invalid_scheduled_date_is_preserved_raw_on_the_study():
     # The colonoscopy in this record is documented as scheduled for "31/09"
     # -- an impossible calendar date. It is preserved verbatim on the study
-    # (ordered_at, a plain string) rather than silently fixed to 30/09,
-    # 31/08, or any other date (item 3).
+    # (ordered_at, a TemporalValue) rather than silently fixed to 30/09,
+    # 31/08, or any other date (item 3, hardened in Milestone 2.0A.1).
     state = _state()
     colonoscopy = next(s for s in state.complementary_exams.diagnostic_studies if "COLONOSCOPIA" in s.study_name)
-    assert colonoscopy.ordered_at == "31/09"
+    assert colonoscopy.ordered_at.raw == "31/09"
+    assert colonoscopy.ordered_at.normalized is None
+    assert colonoscopy.ordered_at.validation_status == ValidationStatus.UNRESOLVED
 
 
 def test_invalid_temporal_value_is_flagged_not_auto_corrected():

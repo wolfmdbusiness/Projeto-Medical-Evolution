@@ -138,3 +138,84 @@ def test_apply_exam_batch_does_not_mutate_the_original_state():
     assert len(state.complementary_exams.laboratory_observations) == 0
     assert len(new_state.complementary_exams.laboratory_observations) == 1
     assert state is not new_state
+
+
+# --- idempotency vs. legitimate repeated occurrences (Milestone 2.0A.1,
+# item 4): reapplying the same batch never duplicates, but two genuinely
+# distinct occurrences sharing identical name/date/result are still both
+# preserved -- identity comes from source_order/processing_key, never from
+# content equality. --------------------------------------------------------
+
+def test_reapplying_the_identical_batch_never_duplicates_processing_metadata():
+    candidate = ExamExtractionCandidate(
+        source_id="SRC-IDEMP-META",
+        general_labs=[
+            GeneralLabCandidate(raw_name="NA", raw_value="140", raw_temporal="31/08", source_order=1, evidence=_ev("NA 140"), source_ref="SRC-IDEMP-META"),
+        ],
+    )
+    batch = normalize_extraction_candidate(candidate, _envelope("SRC-IDEMP-META"))
+
+    state = _state()
+    once = apply_exam_batch(state, batch)
+    twice = apply_exam_batch(once, batch)
+
+    assert len(once.complementary_exams.laboratory_observations) == 1
+    assert len(twice.complementary_exams.laboratory_observations) == 1
+    # processing_metadata itself must not grow on reprocessing either.
+    assert len(once.provenance.processing_metadata) == 1
+    assert len(twice.provenance.processing_metadata) == 1
+    key = twice.complementary_exams.laboratory_observations[0].processing_key
+    assert key is not None
+    assert twice.provenance.processing_metadata[0].processing_key == key
+
+
+def test_two_distinct_occurrences_with_identical_name_date_and_result_are_both_preserved():
+    # Two lines in the *same* source document, same analyte, same raw date,
+    # same raw value -- but genuinely two separate readings (e.g. a repeat
+    # draw reported twice verbatim). They must never be collapsed into one
+    # just because their content is identical: identity is source_order,
+    # not content.
+    candidate = ExamExtractionCandidate(
+        source_id="SRC-REPEAT",
+        general_labs=[
+            GeneralLabCandidate(raw_name="K", raw_value="4,2", raw_temporal="31/08 (08:00)", source_order=1, evidence=_ev("K 4,2 (1a coleta)"), source_ref="SRC-REPEAT"),
+            GeneralLabCandidate(raw_name="K", raw_value="4,2", raw_temporal="31/08 (08:00)", source_order=2, evidence=_ev("K 4,2 (repetido)"), source_ref="SRC-REPEAT"),
+        ],
+    )
+    batch = normalize_extraction_candidate(candidate, _envelope("SRC-REPEAT"))
+    assert len(batch.laboratory_observations) == 2  # never deduplicated by content
+    keys = {obs.processing_key for obs in batch.laboratory_observations}
+    assert len(keys) == 2  # distinct processing_key per source_order
+
+    state = _state()
+    applied = apply_exam_batch(state, batch)
+    assert len(applied.complementary_exams.laboratory_observations) == 2
+    assert len(applied.provenance.processing_metadata) == 2
+
+    # Reapplying the same batch again still does not duplicate either one.
+    reapplied = apply_exam_batch(applied, batch)
+    assert len(reapplied.complementary_exams.laboratory_observations) == 2
+    assert len(reapplied.provenance.processing_metadata) == 2
+
+
+# --- source_refs stays purely clinical (Milestone 2.0A.1, item 1) --------
+
+def test_source_refs_never_carries_a_processing_or_idempotency_marker():
+    candidate = ExamExtractionCandidate(
+        source_id="SRC-CLEAN-REFS",
+        general_labs=[
+            GeneralLabCandidate(raw_name="HB", raw_value="14,9", source_order=1, evidence=_ev("HB 14,9"), source_ref="SRC-CLEAN-REFS"),
+        ],
+    )
+    batch = normalize_extraction_candidate(candidate, _envelope("SRC-CLEAN-REFS"))
+    obs = batch.laboratory_observations[0]
+    assert obs.source_refs == ["SRC-CLEAN-REFS"]
+    assert obs.processing_key is not None
+    assert all("MOD-EXAMES" not in ref and "IDEMP" not in ref for ref in obs.source_refs)
+
+    state = _state()
+    applied = apply_exam_batch(state, batch)
+    entry = applied.provenance.processing_metadata[0]
+    assert entry.processing_key == obs.processing_key
+    assert entry.source_id == "SRC-CLEAN-REFS"
+    assert entry.module == "MOD-EXAMES"

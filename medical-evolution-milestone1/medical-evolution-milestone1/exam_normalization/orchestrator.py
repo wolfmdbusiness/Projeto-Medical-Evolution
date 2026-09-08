@@ -27,7 +27,7 @@ from exam_extraction.models import (
     ObservationCandidate,
 )
 from exam_normalization.aliases import resolve_canonical_id
-from exam_normalization.idempotency import build_idempotency_key, idempotency_marker
+from exam_normalization.idempotency import build_idempotency_key
 from exam_normalization.numeric_parsing import parse_numeric_value
 from exam_normalization.reference_range import parse_reference_range
 from exam_normalization.specimen import resolve_specimen_type
@@ -79,6 +79,10 @@ def _normalize_observation(
     value = parse_numeric_value(item.raw_value, canonical_id=canonical_id)
     temporal = parse_exam_temporal(item.raw_temporal, reference_year=reference_year)
     key = build_idempotency_key(envelope.source_id, category, str(item.source_order))
+    # item 2: an unresolved alias (canonical_id is None) is never silently
+    # treated as valid -- it is explicitly flagged UNRESOLVED rather than
+    # defaulting to CONFIRMED.
+    validation_status = ValidationStatus.CONFIRMED if canonical_id is not None else ValidationStatus.UNRESOLVED
 
     return LabObservation(
         observation_id=f"{envelope.source_id}:{category}:{item.source_order}",
@@ -88,8 +92,9 @@ def _normalize_observation(
         collection_datetime=temporal.normalized or temporal.raw,
         reference_range=parse_reference_range(item.raw_reference_range),
         source_order=item.source_order,
-        validation_status=ValidationStatus.CONFIRMED,
-        source_refs=[item.source_ref, idempotency_marker(key)],
+        validation_status=validation_status,
+        source_refs=[item.source_ref],
+        processing_key=key,
     )
 
 
@@ -133,7 +138,8 @@ def _normalize_blood_gas(
         specimen_type=resolve_specimen_type(item.raw_specimen_type),
         observations=observations,
         validation_status=ValidationStatus.CONFIRMED,
-        source_refs=[item.source_ref, idempotency_marker(key)],
+        source_refs=[item.source_ref],
+        processing_key=key,
     )
 
 
@@ -161,7 +167,8 @@ def _normalize_microbiology(
         result=result,
         organism=item.organism_hint,
         validation_status=ValidationStatus.CONFIRMED,
-        source_refs=[item.source_ref, idempotency_marker(key)],
+        source_refs=[item.source_ref],
+        processing_key=key,
     )
 
 
@@ -198,15 +205,19 @@ def _normalize_diagnostic_study(
         )
         for f in item.findings
     ]
+    has_raw_temporal = bool(item.raw_temporal and item.raw_temporal.strip())
     temporal = parse_exam_temporal(item.raw_temporal, reference_year=reference_year)
     # The raw temporal is not attributed to any one of ordered/scheduled/
     # performed/resulted without real evidence of which it is; it is kept
     # on `ordered_at` as the least presumptive slot when a procedure status
-    # is not confirmed PERFORMED, and on `performed_at` otherwise.
+    # is not confirmed PERFORMED, and on `performed_at` otherwise. The
+    # TemporalValue object itself (raw preserved, no invented time, invalid
+    # dates never corrected) is carried through unchanged (item 3); when
+    # there is no raw temporal at all, the field stays plain None rather
+    # than an empty TemporalValue shell.
     procedure_status = _resolve_procedure_status_hint(item.procedure_status_hint)
-    normalized_date = temporal.normalized or temporal.raw
-    ordered_at = normalized_date if procedure_status != DiagnosticStudyProcedureStatus.PERFORMED else None
-    performed_at = normalized_date if procedure_status == DiagnosticStudyProcedureStatus.PERFORMED else None
+    ordered_at = temporal if (has_raw_temporal and procedure_status != DiagnosticStudyProcedureStatus.PERFORMED) else None
+    performed_at = temporal if (has_raw_temporal and procedure_status == DiagnosticStudyProcedureStatus.PERFORMED) else None
 
     return DiagnosticStudy(
         study_id=f"{envelope.source_id}:diagnostic_study:{item.source_order}",
@@ -216,7 +227,8 @@ def _normalize_diagnostic_study(
         ordered_at=ordered_at,
         performed_at=performed_at,
         findings=findings,
-        source_refs=[item.source_ref, idempotency_marker(key)],
+        source_refs=[item.source_ref],
+        processing_key=key,
     )
 
 
