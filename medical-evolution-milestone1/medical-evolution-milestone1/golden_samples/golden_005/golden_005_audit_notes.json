@@ -1,0 +1,6 @@
+{
+  "case_id": "GOLDEN-005",
+  "role": "AUDIT_CASE",
+  "known_issues": [],
+  "note": "Revisado no follow-up do Milestone 1.2 (item 1): um candidato a finding POTENTIAL_TEMPORAL_CONFLICT sobre hipóteses neurológicas concorrentes foi removido. Diagnóstico diferencial por si só não é conflito temporal nem contradição -- ver DIAGNOSTIC_UNCERTAINTY em docs/audit_findings_v0_1.md. Não foi substituído por outro finding inventado; zero findings confirmados é um resultado válido para um AUDIT_CASE."
+}

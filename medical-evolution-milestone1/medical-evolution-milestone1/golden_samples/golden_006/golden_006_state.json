@@ -1,0 +1,508 @@
+{
+  "schema_version": "0.3",
+  "meta": {
+    "state_id": "STATE-GOLDEN-006",
+    "state_revision": 1,
+    "created_at": null,
+    "updated_at": null,
+    "language": "pt-BR",
+    "template_profile_id": "UTI_HOSPITALIS_V1"
+  },
+  "patient_ref": "PATIENT-GOLDEN-006",
+  "display_identification": {
+    "value": "PACIENTE TESTE 006, 46 ANOS",
+    "clinical_state": "PRESENT",
+    "validation_status": "CONFIRMED",
+    "source_refs": [
+      "SRC-GOLDEN"
+    ]
+  },
+  "admission": {
+    "hospital_admission_date": {
+      "raw": "2026-09-02",
+      "normalized": "2026-09-02",
+      "precision": "DATE",
+      "period": "UNSPECIFIED",
+      "validation_status": "CONFIRMED"
+    },
+    "icu_admission_date": {
+      "raw": "2026-09-02",
+      "normalized": "2026-09-02",
+      "precision": "DATE",
+      "period": "UNSPECIFIED",
+      "validation_status": "CONFIRMED"
+    },
+    "origin": {
+      "value": "PRONTO SOCORRO",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    }
+  },
+  "diagnoses": [
+    {
+      "diagnosis_id": "DX-006-1",
+      "main": {
+        "value": "PROTOCOLO SEPSE DE FOCO URINARIO",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "specifications": [],
+      "status": "ACTIVE",
+      "source_refs": []
+    },
+    {
+      "diagnosis_id": "DX-006-2",
+      "main": {
+        "value": "NEFROLITIASE",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "specifications": [],
+      "status": "ACTIVE",
+      "source_refs": []
+    },
+    {
+      "diagnosis_id": "DX-006-3",
+      "main": {
+        "value": "PIELONEFRITE?",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "specifications": [],
+      "status": "UNCERTAIN",
+      "source_refs": []
+    }
+  ],
+  "hpma": {
+    "text": {
+      "value": "ADMITO PACIENTE EM UNIDADE DE TERAPIA INTENSIVA, PARA MANEJO E SUPORTE AVANÇADO CONFORME PROTOCOLO DE SEPSE, DADO O ALTO RISCO DE EVOLUIR COM CHOQUE SEPTICO, IRPA COM NECESSIDADE DE IOT + VM OU NECESSIDADE DVA POR CHOQUE REFRATARIO A EXPANSAO VOLEMICA. DEIXO SOB ESTRITA VIGILANCIA HEMODINAMICA E INFECCIOSA.",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "source_type": "EMERGENCY_INITIAL_HISTORY",
+    "source_datetime": "2026-09-02",
+    "source_refs": [
+      "SRC-GOLDEN"
+    ]
+  },
+  "evolution_history": [
+    {
+      "evolution_id": "EVOL-006-1",
+      "temporal_value": {
+        "raw": "2026-09-02",
+        "normalized": "2026-09-02",
+        "precision": "DATE",
+        "period": "NIGHT",
+        "validation_status": "CONFIRMED"
+      },
+      "text": {
+        "value": "EVOLUO PACIENTE EM UTI, 46 ANOS, D1 DE INTERNAÇÃO POR PROTOCOLO DE SEPSE DE FOCO URINARIO (NEFROLITIASE / PIELONEFRITE EM INVESTIGAÇÃO). PERIODO NOTURNO SEM INTERCORRENCIAS. MANTEM CEFTRIAXONE D1, SOB VIGILANCIA HEMODINAMICA E INFECCIOSA.",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "author_type": "HUMAN",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    }
+  ],
+  "clinical_events": [],
+  "physical_exam": {
+    "general": {
+      "value": "REG/PALIDA/DESIDRATADA",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "neurologic": {
+      "value": "LOTE/ PIFR/ SEM SINAIS MENINGEOS. KERNIG E BRUDZINSKI NEGATIVOS",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "cardiovascular": {
+      "value": "BCRR2TSS",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "respiratory": {
+      "value": "MV + S/RA",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "abdominal": {
+      "value": "GLOBOSO, RH+, INDOLOR, SEM SINAIS DE PERITONISMO",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "extremities": {
+      "value": "SEM EDEMAS, SEM SINAIS DE TVP, AQUECIDAS, ENCHIMENTO CAPILAR -2 SEG",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    }
+  },
+  "history": {
+    "allergies": {
+      "value": "NEGA",
+      "clinical_state": "NEGATED",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "past_medical_history": {
+      "value": "NEGA",
+      "clinical_state": "NEGATED",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "previous_surgeries": {
+      "value": "NEGA",
+      "clinical_state": "NEGATED",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "chronic_medications": {
+      "value": "LOSARTANA 50MG 12/12H",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "habits": {
+      "value": "NEGA",
+      "clinical_state": "NEGATED",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "family_history": {
+      "value": "NEGA",
+      "clinical_state": "NEGATED",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    }
+  },
+  "medications": [
+    {
+      "medication_id": "G006-MED1",
+      "raw_name": null,
+      "generic_name": "CEFTRIAXONE",
+      "presentation": null,
+      "dosage": null,
+      "route": null,
+      "source_order": 1,
+      "classifications": [
+        "ANTIBIOTIC"
+      ],
+      "status": "ACTIVE",
+      "started_at": {
+        "raw": "02/09",
+        "normalized": "2026-09-02",
+        "precision": "DATE",
+        "period": "UNSPECIFIED",
+        "validation_status": "CONFIRMED"
+      },
+      "documented_therapy_day": "D1",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    }
+  ],
+  "therapies": {
+    "hemotransfusion": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "niv": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "invasive_mechanical_ventilation": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "renal_replacement_therapy": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    }
+  },
+  "controls": {
+    "heart_rate": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "respiratory_rate": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "systolic_bp": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "diastolic_bp": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "mean_arterial_pressure": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "spo2": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "temperature": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "glucose": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "fluid_balance_total": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "fluid_balance_24h": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "urine_output_24h": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    }
+  },
+  "complementary_exams": {
+    "laboratory_observations": [],
+    "urinalysis": [],
+    "blood_gases": [],
+    "troponins": [],
+    "microbiology_serology": [],
+    "diagnostic_studies": [],
+    "unmapped": []
+  },
+  "consultations_section_state": "PRESENT",
+  "consultations": [
+    {
+      "consultation_id": "G006-C1",
+      "specialty": {
+        "value": "UROLOGIA",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "temporal_value": {
+        "raw": "2026-09-02",
+        "normalized": "2026-09-02",
+        "precision": "DATE",
+        "period": "UNSPECIFIED",
+        "validation_status": "CONFIRMED"
+      },
+      "assessment": {
+        "value": "SOLICITADA AVALIAÇÃO",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "conclusions": [],
+      "recommendations": [],
+      "status": "REQUESTED",
+      "source_refs": []
+    }
+  ],
+  "pending": [
+    {
+      "pending_id": "G006-PEND1",
+      "type": "EXAM",
+      "label": "CULTURAS",
+      "linked_entity_id": null,
+      "status": "PENDING",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    {
+      "pending_id": "G006-PEND2",
+      "type": "CONSULTATION",
+      "label": "AVALIAÇÃO DA UROLOGIA",
+      "linked_entity_id": null,
+      "status": "PENDING",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    }
+  ],
+  "care_actions": [
+    {
+      "action_id": "G006-A1",
+      "description": {
+        "value": "VIGILANCIA HEMODINAMICA E INFECCIOSA",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "action_type": "MONITORING",
+      "status": "PLANNED",
+      "responsible_team": null,
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    {
+      "action_id": "G006-A2",
+      "description": {
+        "value": "SOL CRISTALOIDE",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "action_type": "OTHER",
+      "status": "PLANNED",
+      "responsible_team": null,
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    {
+      "action_id": "G006-A3",
+      "description": {
+        "value": "ESQUEMA ATB",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "action_type": "MEDICATION",
+      "status": "PLANNED",
+      "responsible_team": null,
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    }
+  ],
+  "icu_context": {
+    "explicit_justifications": [
+      {
+        "text": {
+          "value": "PROTOCOLO DE SEPSE, DADO O ALTO RISCO DE EVOLUIR COM CHOQUE SEPTICO, IRPA COM NECESSIDADE DE IOT + VM OU NECESSIDADE DVA POR CHOQUE REFRATARIO A EXPANSAO VOLEMICA",
+          "clinical_state": "PRESENT",
+          "validation_status": "CONFIRMED",
+          "source_refs": [
+            "SRC-GOLDEN"
+          ]
+        },
+        "temporal_value": null
+      }
+    ],
+    "requirement_status_history": [],
+    "active_supports": [],
+    "monitoring_requirements": [],
+    "instabilities": [],
+    "risk_factors": [
+      "RISK_OF_SEPTIC_SHOCK",
+      "RISK_OF_IOT_AND_MECHANICAL_VENTILATION",
+      "RISK_OF_VASOACTIVE_SUPPORT"
+    ]
+  },
+  "validation": {
+    "overall_status": "READY",
+    "conflicts": [],
+    "unresolved": [],
+    "warnings": []
+  },
+  "provenance": {
+    "sources": [
+      {
+        "source_id": "SRC-GOLDEN",
+        "source_type": "MEDICAL_EVOLUTION",
+        "modality": "TEXT",
+        "author_type": "HUMAN",
+        "deidentified": true,
+        "created_at": null
+      }
+    ]
+  }
+}

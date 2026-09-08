@@ -1,0 +1,893 @@
+{
+  "schema_version": "0.3",
+  "meta": {
+    "state_id": "STATE-GOLDEN-004",
+    "state_revision": 1,
+    "created_at": null,
+    "updated_at": null,
+    "language": "pt-BR",
+    "template_profile_id": "UTI_HOSPITALIS_V1"
+  },
+  "patient_ref": "PATIENT-GOLDEN-004",
+  "display_identification": {
+    "value": "PACIENTE TESTE 004, 36 ANOS",
+    "clinical_state": "PRESENT",
+    "validation_status": "CONFIRMED",
+    "source_refs": [
+      "SRC-GOLDEN"
+    ]
+  },
+  "admission": {
+    "hospital_admission_date": {
+      "raw": "2026-08-28",
+      "normalized": "2026-08-28",
+      "precision": "DATE",
+      "period": "UNSPECIFIED",
+      "validation_status": "CONFIRMED"
+    },
+    "icu_admission_date": {
+      "raw": "2026-08-28",
+      "normalized": "2026-08-28",
+      "precision": "DATE",
+      "period": "UNSPECIFIED",
+      "validation_status": "CONFIRMED"
+    },
+    "origin": {
+      "value": "PRONTO SOCORRO",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    }
+  },
+  "diagnoses": [
+    {
+      "diagnosis_id": "DX-004-1",
+      "main": {
+        "value": "DEFICIT FOCAL NAO ELUCIDADO",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "specifications": [
+        {
+          "value": "AVCI",
+          "clinical_state": "PRESENT",
+          "validation_status": "CONFIRMED",
+          "source_refs": [
+            "SRC-GOLDEN"
+          ]
+        },
+        {
+          "value": "AIT",
+          "clinical_state": "PRESENT",
+          "validation_status": "CONFIRMED",
+          "source_refs": [
+            "SRC-GOLDEN"
+          ]
+        }
+      ],
+      "status": "UNCERTAIN",
+      "source_refs": []
+    },
+    {
+      "diagnosis_id": "DX-004-2",
+      "main": {
+        "value": "TEP",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "specifications": [],
+      "status": "UNCERTAIN",
+      "source_refs": []
+    },
+    {
+      "diagnosis_id": "DX-004-3",
+      "main": {
+        "value": "TVP (DESCARTADO)",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "specifications": [],
+      "status": "RULED_OUT",
+      "source_refs": []
+    },
+    {
+      "diagnosis_id": "DX-004-4",
+      "main": {
+        "value": "HERPES GENITAL",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "specifications": [],
+      "status": "ACTIVE",
+      "source_refs": []
+    }
+  ],
+  "hpma": {
+    "text": {
+      "value": "PACIENTE, 36 ANOS, NOVA ADMISSÃO EM UTI PROCEDENTE DO PRONTO SOCORRO. REFERE INTERNAÇÃO RECENTE COM DISPNEIA E TAQUICARDIA, SUBMETIDA A ANGIOPLASTIA DE MEMBRO INFERIOR DIREITO. NA ADMISSÃO ATUAL REFERE INCAPACIDADE DE MOVIMENTAÇÃO DE MEMBROS INFERIORES, DISPNEIA, DORSALGIA E PALPITAÇÕES. EM INVESTIGAÇÃO PARA DÉFICIT FOCAL NÃO ELUCIDADO (AVCI X AIT) E TEP/TVP.",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "source_type": "EMERGENCY_INITIAL_HISTORY",
+    "source_datetime": "2026-08-29",
+    "source_refs": [
+      "SRC-GOLDEN"
+    ]
+  },
+  "evolution_history": [
+    {
+      "evolution_id": "EVOL-004-1",
+      "temporal_value": {
+        "raw": "2026-09-02",
+        "normalized": "2026-09-02",
+        "precision": "DATE",
+        "period": "UNSPECIFIED",
+        "validation_status": "CONFIRMED"
+      },
+      "text": {
+        "value": "PACIENTE SEGUE EM LEITO DE UTI, COM DISCRETA MELHORA DO DÉFICIT MOTOR EM MEMBROS INFERIORES. APRESENTOU LESÕES VESICULARES EM REGIÃO GENITAL, AVALIADA PELA G.O, INICIADO TRATAMENTO COM VALACICLOVIR V.O. RM DE PERNA, ANGIOTC VENOSA DE ABDOME TOTAL: SEM ALTERAÇÕES DE URGÊNCIA.",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "author_type": "HUMAN",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    }
+  ],
+  "clinical_events": [],
+  "physical_exam": {
+    "general": {
+      "value": "REG, DESIDRATADA, DESCORADA",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "neurologic": {
+      "value": "GLASGOW 14/15 PIFR COM INCAPACIDADE DE MOVILIZAÇÃO DOS MEMBROS SUPERIORES E INFERIORES PRINCIPALMENTE LADO ESQUERDO",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "cardiovascular": {
+      "value": "BNF, RDR, S/ SOPROS",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "respiratory": {
+      "value": "MV+ GLOB, CREPTOS BIBASAIS - PIOR A DIREITA",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "abdominal": {
+      "value": "PLANO, NMT, RHA+, S/ VMG, S/ HÉRNIAS, INDOLOR",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "extremities": {
+      "value": "PULSOS +, SIMÉTRICOS",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    }
+  },
+  "history": {
+    "allergies": {
+      "value": "NEGA",
+      "clinical_state": "NEGATED",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "past_medical_history": {
+      "value": "OBESIDADE; TVP PREVIA",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "previous_surgeries": {
+      "value": "ANGIOPLASTIA EM INTERNAÇÃO PREVIA",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "chronic_medications": {
+      "value": "XARELTO, ASPIRINA (USO IRREGULAR ?)",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "habits": {
+      "value": "NEGA ETILISMO; NEGA TABAGISMO",
+      "clinical_state": "NEGATED",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "family_history": {
+      "value": "NEGA",
+      "clinical_state": "NEGATED",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    }
+  },
+  "medications": [],
+  "therapies": {
+    "hemotransfusion": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "niv": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "invasive_mechanical_ventilation": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "renal_replacement_therapy": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    }
+  },
+  "controls": {
+    "heart_rate": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "respiratory_rate": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "systolic_bp": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "diastolic_bp": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "mean_arterial_pressure": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "spo2": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "temperature": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "glucose": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "fluid_balance_total": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "fluid_balance_24h": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "urine_output_24h": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    }
+  },
+  "complementary_exams": {
+    "laboratory_observations": [],
+    "urinalysis": [],
+    "blood_gases": [],
+    "troponins": [],
+    "microbiology_serology": [
+      {
+        "exam_id": "G004-MICRO1",
+        "exam_type": "CULTURA DE VIGILANCIA PARA ESBL",
+        "collection_datetime": "2026-08-29",
+        "result": {
+          "value": "RESULTADO NEGATIVO",
+          "clinical_state": "PRESENT",
+          "validation_status": "CONFIRMED",
+          "source_refs": [
+            "SRC-GOLDEN"
+          ]
+        },
+        "organism": null,
+        "susceptibility": null,
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      {
+        "exam_id": "G004-MICRO2",
+        "exam_type": "CULTURA DE VIGILANCIA PARA ESBL 02",
+        "collection_datetime": "2026-08-29",
+        "result": {
+          "value": "RESULTADO NEGATIVO",
+          "clinical_state": "PRESENT",
+          "validation_status": "CONFIRMED",
+          "source_refs": [
+            "SRC-GOLDEN"
+          ]
+        },
+        "organism": null,
+        "susceptibility": null,
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      {
+        "exam_id": "G004-MICRO3",
+        "exam_type": "CULTURA DE VIGILANCIA PARA ESBL 03",
+        "collection_datetime": "2026-08-29",
+        "result": {
+          "value": "RESULTADO NEGATIVO",
+          "clinical_state": "PRESENT",
+          "validation_status": "CONFIRMED",
+          "source_refs": [
+            "SRC-GOLDEN"
+          ]
+        },
+        "organism": null,
+        "susceptibility": null,
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      {
+        "exam_id": "G004-MICRO4",
+        "exam_type": "CULTURA DE VIGILANCIA PARA ESBL 04",
+        "collection_datetime": "2026-08-29",
+        "result": {
+          "value": "RESULTADO NEGATIVO",
+          "clinical_state": "PRESENT",
+          "validation_status": "CONFIRMED",
+          "source_refs": [
+            "SRC-GOLDEN"
+          ]
+        },
+        "organism": null,
+        "susceptibility": null,
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      {
+        "exam_id": "G004-MICRO5",
+        "exam_type": "CULTURA PARA ENTEROCOCCUS SPP RESISTENTES À VANCOMICINA 04",
+        "collection_datetime": "2026-08-29",
+        "result": {
+          "value": null,
+          "clinical_state": "UNKNOWN",
+          "validation_status": "MISSING",
+          "source_refs": []
+        },
+        "organism": null,
+        "susceptibility": null,
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      }
+    ],
+    "diagnostic_studies": [
+      {
+        "study_id": "G004-ST1",
+        "study_name": "TC DE CRANIO",
+        "procedure_status": "PERFORMED",
+        "result_status": "FINAL",
+        "ordered_at": null,
+        "scheduled_at": null,
+        "performed_at": "2026-08-29",
+        "resulted_at": null,
+        "findings": [
+          {
+            "value": "SEM ALTERAÇÕES",
+            "clinical_state": "PRESENT",
+            "validation_status": "CONFIRMED",
+            "source_refs": [
+              "SRC-GOLDEN"
+            ]
+          }
+        ],
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      {
+        "study_id": "G004-ST2",
+        "study_name": "ECOCOLORDOPPLER VENOSO DO MEMBRO INFERIOR ESQUERDO",
+        "procedure_status": "PERFORMED",
+        "result_status": "FINAL",
+        "ordered_at": null,
+        "scheduled_at": null,
+        "performed_at": "2026-08-29",
+        "resulted_at": null,
+        "findings": [
+          {
+            "value": "SEM SINAIS DE TVP",
+            "clinical_state": "PRESENT",
+            "validation_status": "CONFIRMED",
+            "source_refs": [
+              "SRC-GOLDEN"
+            ]
+          }
+        ],
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      {
+        "study_id": "G004-ST3",
+        "study_name": "ECOCOLORDOPPLER VENOSO DO MEMBRO INFERIOR DIREITO",
+        "procedure_status": "PERFORMED",
+        "result_status": "FINAL",
+        "ordered_at": null,
+        "scheduled_at": null,
+        "performed_at": "2026-08-29",
+        "resulted_at": null,
+        "findings": [
+          {
+            "value": "SEM SINAIS DE TVP",
+            "clinical_state": "PRESENT",
+            "validation_status": "CONFIRMED",
+            "source_refs": [
+              "SRC-GOLDEN"
+            ]
+          }
+        ],
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      {
+        "study_id": "G004-ST4",
+        "study_name": "ANGIOTOMOGRAFIA ARTERIAL DE TORAX",
+        "procedure_status": "PERFORMED",
+        "result_status": "FINAL",
+        "ordered_at": null,
+        "scheduled_at": null,
+        "performed_at": "2026-08-29",
+        "resulted_at": null,
+        "findings": [
+          {
+            "value": "NEGATIVO PARA TEP",
+            "clinical_state": "PRESENT",
+            "validation_status": "CONFIRMED",
+            "source_refs": [
+              "SRC-GOLDEN"
+            ]
+          }
+        ],
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      }
+    ],
+    "unmapped": []
+  },
+  "consultations_section_state": "PRESENT",
+  "consultations": [
+    {
+      "consultation_id": "G004-C1",
+      "specialty": {
+        "value": "CIRURGIA VASCULAR",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "temporal_value": {
+        "raw": "2026-08-29",
+        "normalized": "2026-08-29",
+        "precision": "DATE",
+        "period": "UNSPECIFIED",
+        "validation_status": "CONFIRMED"
+      },
+      "assessment": {
+        "value": "EXAME VASCULAR: PP + BILATERALMENTE, SEM EDEMAS. DOPPLER VENOSO SEM SINAIS DE TVP.",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "conclusions": [],
+      "recommendations": [
+        {
+          "value": "PROVAS PARA INVESTIGAÇÃO DE TROMBOFILIA",
+          "clinical_state": "PRESENT",
+          "validation_status": "CONFIRMED",
+          "source_refs": [
+            "SRC-GOLDEN"
+          ]
+        },
+        {
+          "value": "TC DE ABDOME E RNM DE PERNA ESQUERDA - APRESENTA MASSA",
+          "clinical_state": "PRESENT",
+          "validation_status": "CONFIRMED",
+          "source_refs": [
+            "SRC-GOLDEN"
+          ]
+        },
+        {
+          "value": "REAVALIAÇÃO APOS EXAMES",
+          "clinical_state": "PRESENT",
+          "validation_status": "CONFIRMED",
+          "source_refs": [
+            "SRC-GOLDEN"
+          ]
+        }
+      ],
+      "status": "ANSWERED",
+      "source_refs": []
+    },
+    {
+      "consultation_id": "G004-C2",
+      "specialty": {
+        "value": "CIRURGIA VASCULAR",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "temporal_value": {
+        "raw": "2026-08-30",
+        "normalized": "2026-08-30",
+        "precision": "DATE",
+        "period": "UNSPECIFIED",
+        "validation_status": "CONFIRMED"
+      },
+      "assessment": {
+        "value": "AGUARDA RESULTADO DE EXAMES",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "conclusions": [],
+      "recommendations": [
+        {
+          "value": "AGUARDA RESULTADO DE EXAMES PARA INVESTIGAÇÃO DE TROMBOFILIA",
+          "clinical_state": "PRESENT",
+          "validation_status": "CONFIRMED",
+          "source_refs": [
+            "SRC-GOLDEN"
+          ]
+        },
+        {
+          "value": "AGUARDA TC DE ABDOME E RNM DE PERNA ESQUERDA",
+          "clinical_state": "PRESENT",
+          "validation_status": "CONFIRMED",
+          "source_refs": [
+            "SRC-GOLDEN"
+          ]
+        },
+        {
+          "value": "REAVALIAÇÃO APOS EXAMES",
+          "clinical_state": "PRESENT",
+          "validation_status": "CONFIRMED",
+          "source_refs": [
+            "SRC-GOLDEN"
+          ]
+        }
+      ],
+      "status": "ANSWERED",
+      "source_refs": []
+    },
+    {
+      "consultation_id": "G004-C3",
+      "specialty": {
+        "value": "CIRURGIA VASCULAR",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "temporal_value": {
+        "raw": "2026-09-01",
+        "normalized": "2026-09-01",
+        "precision": "DATE",
+        "period": "UNSPECIFIED",
+        "validation_status": "CONFIRMED"
+      },
+      "assessment": {
+        "value": "PACIENTE AINDA SEM LAUDO DE EXAMES",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "conclusions": [],
+      "recommendations": [
+        {
+          "value": "AGUARDA RESULTADO DE EXAMES PARA INVESTIGAÇÃO DE TROMBOFILIA",
+          "clinical_state": "PRESENT",
+          "validation_status": "CONFIRMED",
+          "source_refs": [
+            "SRC-GOLDEN"
+          ]
+        },
+        {
+          "value": "AGUARDA TC DE ABDOME E RNM DE PERNA ESQUERDA",
+          "clinical_state": "PRESENT",
+          "validation_status": "CONFIRMED",
+          "source_refs": [
+            "SRC-GOLDEN"
+          ]
+        },
+        {
+          "value": "REAVALIAÇÃO APOS EXAMES",
+          "clinical_state": "PRESENT",
+          "validation_status": "CONFIRMED",
+          "source_refs": [
+            "SRC-GOLDEN"
+          ]
+        }
+      ],
+      "status": "ANSWERED",
+      "source_refs": []
+    },
+    {
+      "consultation_id": "G004-C4",
+      "specialty": {
+        "value": "GINECOLOGIA | OBSTETRICIA",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "temporal_value": {
+        "raw": "2026-08-31",
+        "normalized": "2026-08-31",
+        "precision": "DATE",
+        "period": "UNSPECIFIED",
+        "validation_status": "CONFIRMED"
+      },
+      "assessment": {
+        "value": "AVALIO PACIENTE EM LEITO DE UTI ESTAVEL HEMODINAMICAMENTE E COM QUEIXA DE VESICULAS PRURIGINOSAS EM VULVA",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "conclusions": [],
+      "recommendations": [
+        {
+          "value": "PRESCREVO ACICLOVIR 400MG DE 4/4H POR 7 DIAS",
+          "clinical_state": "PRESENT",
+          "validation_status": "CONFIRMED",
+          "source_refs": [
+            "SRC-GOLDEN"
+          ]
+        }
+      ],
+      "status": "ANSWERED",
+      "source_refs": []
+    },
+    {
+      "consultation_id": "G004-C5",
+      "specialty": {
+        "value": "NEUROCIRURGIA",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "temporal_value": {
+        "raw": "2026-09-01",
+        "normalized": "2026-09-01",
+        "precision": "DATE",
+        "period": "UNSPECIFIED",
+        "validation_status": "CONFIRMED"
+      },
+      "assessment": {
+        "value": "SEM DEFICIT MOTOR. EF: GCS 15, PIFR, SEM SINAIS MENINGEOS",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "conclusions": [],
+      "recommendations": [
+        {
+          "value": "ALTA DA NEURO",
+          "clinical_state": "PRESENT",
+          "validation_status": "CONFIRMED",
+          "source_refs": [
+            "SRC-GOLDEN"
+          ]
+        },
+        {
+          "value": "SUPORTE CLINICO",
+          "clinical_state": "PRESENT",
+          "validation_status": "CONFIRMED",
+          "source_refs": [
+            "SRC-GOLDEN"
+          ]
+        }
+      ],
+      "status": "ANSWERED",
+      "source_refs": []
+    }
+  ],
+  "pending": [
+    {
+      "pending_id": "G004-PEND1",
+      "type": "EXAM",
+      "label": "RECOMENDADO SOLICITAR USG DOPPLER DE SISTEMA PORTA + VCI PARA MELHOR AVALIAÇAO E COMPLEMENTAÇÃO DA ESTRATIFICAÇÃO ETIOLÓGICA",
+      "linked_entity_id": null,
+      "status": "PENDING",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    }
+  ],
+  "care_actions": [
+    {
+      "action_id": "G004-A1",
+      "description": {
+        "value": "SUPORTE HEMODINÂMICO E RESPIRATÓRIO",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "action_type": "OTHER",
+      "status": "PLANNED",
+      "responsible_team": null,
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    {
+      "action_id": "G004-A2",
+      "description": {
+        "value": "VIGILÂNCIA NEUROLOGICA/ NEUROCHECK 2/2H",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "action_type": "MONITORING",
+      "status": "PLANNED",
+      "responsible_team": null,
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    }
+  ],
+  "icu_context": {
+    "explicit_justifications": [
+      {
+        "text": {
+          "value": "QUADRO COMPATÍVEL COM AIT, COM DESSATURAÇÃO E TAQUIPNEIA EM SALA DE EMERGÊNCIA APÓS ANGIOPLASTIA, SOB RISCO DE DEPRESSÃO RESPIRATÓRIA E IOT, NECESSITANDO MONITORIZAÇÃO CONTÍNUA E VIGILÂNCIA NEUROLÓGICA SERIADA.",
+          "clinical_state": "PRESENT",
+          "validation_status": "CONFIRMED",
+          "source_refs": [
+            "SRC-GOLDEN"
+          ]
+        },
+        "temporal_value": null
+      }
+    ],
+    "requirement_status_history": [],
+    "active_supports": [],
+    "monitoring_requirements": [],
+    "instabilities": [],
+    "risk_factors": [
+      "RISK_OF_RESPIRATORY_DEPRESSION",
+      "RISK_OF_IOT"
+    ]
+  },
+  "validation": {
+    "overall_status": "READY",
+    "conflicts": [],
+    "unresolved": [],
+    "warnings": []
+  },
+  "provenance": {
+    "sources": [
+      {
+        "source_id": "SRC-GOLDEN",
+        "source_type": "MEDICAL_EVOLUTION",
+        "modality": "TEXT",
+        "author_type": "HUMAN",
+        "deidentified": true,
+        "created_at": null
+      }
+    ]
+  }
+}

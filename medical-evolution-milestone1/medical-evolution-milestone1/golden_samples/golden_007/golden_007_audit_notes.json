@@ -1,0 +1,11 @@
+{
+  "case_id": "GOLDEN-007",
+  "role": "AUDIT_CASE",
+  "known_issues": [
+    {
+      "category": "CONTRADICTED",
+      "summary": "TEP é apresentado com graus de certeza diferentes em partes distintas do mesmo registro.",
+      "detail": "diagnoses[0].main descreve 'DISPNEIA SÚBITA SECUNDÁRIO A TROMBOEMBOLISMO PULMONAR' (redação assertiva, como se já confirmado) com uma especificação de codificação CID (I26), enquanto o texto de evolução e a HPMA tratam o quadro como suspeita ('COM SUSPEITA DE TROMBOEMBOLISMO PULMONAR', 'EM PROGRAMAÇÃO PARA REALIZAÇÃO DE ANGIOTC... PARA CONFIRMAÇÃO DIAGNÓSTICA'). O status estrutural foi mantido como UNCERTAIN e o texto de cada campo foi preservado verbatim, sem tentar fazer as duas redações concordarem entre si."
+    }
+  ]
+}

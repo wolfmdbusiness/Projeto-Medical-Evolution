@@ -1,5 +1,7 @@
 from dataclasses import dataclass, field
 
+from models.medical_state import DiagnosisStatus
+
 
 @dataclass(frozen=True)
 class UTIHospitalisV1:
@@ -10,11 +12,137 @@ class UTIHospitalisV1:
     show_empty_complementary_exams: bool = False
     show_empty_diagnosis_specification: bool = False
 
+    # Diagnosis visibility policy (Milestone 1.1, item 8; extended in 1.2
+    # item 26 with UNCERTAIN). Conservative default: every status is shown,
+    # preserving the exact Milestone 1 behaviour (which never filtered
+    # diagnoses by status). A profile can narrow this set (e.g. hide
+    # RULED_OUT) without the renderer having to make that clinical decision
+    # on its own.
+    diagnosis_visible_statuses: frozenset = field(default_factory=lambda: frozenset({
+        DiagnosisStatus.ACTIVE,
+        DiagnosisStatus.UNCERTAIN,
+        DiagnosisStatus.RESOLVED,
+        DiagnosisStatus.RULED_OUT,
+    }))
+
+    # Milestone 1.2, item 5: whether a NIGHT-period evolution entry gets an
+    # explicit "(NOTURNO)" suffix after its date. Defaults to False so
+    # GOLDEN-001 (which already has a NIGHT-period entry) stays byte-for-byte
+    # identical; a profile that wants the suffix visible can opt in.
+    show_evolution_period_suffix: bool = False
+    evolution_period_labels: dict[str, str] = field(default_factory=lambda: {
+        "NIGHT": "NOTURNO",
+        "DAY": "DIURNO",
+    })
+
+    # --- Section titles ----------------------------------------------
+    main_title: str = "## EVOLUÇÃO CLINICA MEDICA ADULTO - UTI HOSPITALIS ##"
+    diagnoses_title: str = "## HIPÓTESES DIAGNÓSTICAS:"
+    hpma_title: str = "## HPMA:"
+    evolution_title: str = "## EVOLUÇÃO:"
+    physical_exam_title: str = "## EXAME FÍSICO:"
+    history_title: str = "## ANTECEDENTES PESSOAIS:"
+    antibiotics_title: str = "## ANTIBIOTICOTERAPIA:"
+    antibiotics_not_applicable_text: str = "NÃO SE APLICA"
+    current_medications_title: str = "## EM USO DE:"
+    therapies_title: str = "## TERAPIAS:"
+    controls_title: str = "## CONTROLES:"
+    complementary_exams_title: str = "## EXAMES COMPLEMENTARES"
+    icu_justification_title: str = "## JUSTIFICATIVA DE INTERNAÇÃO EM UTI:"
+    consultations_title: str = "## INTERCONSULTA DE ESPECIALIDADES:"
+    consultations_not_requested_text: str = "NÃO SOLICITADO"
+    consultations_conduct_label: str = "CONDUTAS"
+    consultations_conclusion_label: str = "CONCLUSÃO"
+    pending_title: str = "## AGUARDO:"
+    care_actions_title: str = "## CONDUTA:"
+
+    # --- Identification / admission labels ----------------------------
+    identification_label: str = "IDENTIFICAÇÃO DO PACIENTE"
+    hospital_admission_label: str = "DATA DE INTERNAÇÃO HOSPITALAR"
+    icu_admission_label: str = "DATA DE INTERNAÇÃO EM UTI"
+    origin_label: str = "ORIGEM DO PACIENTE"
+
+    # --- Physical exam --------------------------------------------------
+    physical_exam_order: tuple[str, ...] = (
+        "general", "neurologic", "cardiovascular", "respiratory", "abdominal", "extremities",
+    )
+    physical_exam_labels: dict[str, str] = field(default_factory=lambda: {
+        "general": "GERAL",
+        "neurologic": "NEURO",
+        "cardiovascular": "CARDIOVASCULAR",
+        "respiratory": "RESPIRATORIO",
+        "abdominal": "ABDOMINAL",
+        "extremities": "EXTREMIDADES",
+    })
+
+    # --- Personal history -------------------------------------------------
+    history_order: tuple[str, ...] = (
+        "allergies", "past_medical_history", "previous_surgeries",
+        "chronic_medications", "habits", "family_history",
+    )
+    history_labels: dict[str, str] = field(default_factory=lambda: {
+        "allergies": "ALERGIAS",
+        "past_medical_history": "ANTECEDENTES PATOLOGICOS PREGRESSOS",
+        "previous_surgeries": "CIRURGIAS PREVIAS",
+        "chronic_medications": "MEDICAMENTO DE USO CONTINUO",
+        "habits": "HABITOS E VICIOS",
+        "family_history": "HISTORICO FAMILIAR",
+    })
+
+    # --- Therapies (only these two are part of this profile's layout) ---
+    hemotransfusion_label: str = "HEMOTRASFUSÃO"
+    niv_label: str = "VNI"
+
+    # --- Vital sign controls ---------------------------------------------
+    controls_order: tuple[str, ...] = (
+        "heart_rate", "respiratory_rate", "systolic_bp", "diastolic_bp",
+        "mean_arterial_pressure", "spo2", "temperature", "glucose",
+        "fluid_balance_total", "fluid_balance_24h", "urine_output_24h",
+    )
+    control_labels: dict[str, str] = field(default_factory=lambda: {
+        "heart_rate": "FC",
+        "respiratory_rate": "FR",
+        "systolic_bp": "PAS",
+        "diastolic_bp": "PAD",
+        "mean_arterial_pressure": "PAM",
+        "spo2": "SPO2",
+        "temperature": "TX",
+        "glucose": "DX",
+        "fluid_balance_total": "BALANÇO HIDRICO TOTAL",
+        "fluid_balance_24h": "BALANÇO HIDRICO ULTIMAS 24H",
+        "urine_output_24h": "DIURESE ULTIMAS 24H",
+    })
+
+    # --- Complementary exams subsection titles ---------------------------
     laboratory_title: str = "LABORATORIAIS GERAIS"
     urinalysis_title: str = "URINA 1"
     gasometry_title: str = "GASOMETRIAS"
     troponin_title: str = "TROPONINAS"
     imaging_title: str = "EXAMES DE IMAGEM"
+    # Milestone 1.2, item 10: the internal concept is neutral
+    # ("microbiology_serology"); only the visual title is a template concern.
+    microbiology_title: str = "MICROBIOLOGIA E SOROLOGIA"
+
+    gas_specimen_labels: dict[str, str] = field(default_factory=lambda: {
+        "ARTERIAL": "ARTERIAL",
+        "VENOUS": "VENOSA",
+        "CAPILLARY": "CAPILAR",
+    })
+
+    # Milestone 1.2, item 11: procedure vs. result are two independent axes.
+    # A study whose procedure was PERFORMED derives its display text from
+    # result_status instead (see study_performed_result_labels); the labels
+    # below only apply while the procedure itself hasn't been performed yet.
+    study_procedure_status_labels: dict[str, str] = field(default_factory=lambda: {
+        "ORDERED": "SOLICITADO",
+        "SCHEDULED": "AGENDADO",
+        "CANCELLED": "CANCELADO",
+    })
+    study_performed_result_labels: dict[str, str] = field(default_factory=lambda: {
+        "PENDING": "REALIZADO, LAUDO PENDENTE",
+        "PRELIMINARY": "REALIZADO, LAUDO PRELIMINAR",
+        "NOT_AVAILABLE": "REALIZADO",
+    })
 
     general_lab_order: list[str] = field(default_factory=lambda: [
         "HB", "HT", "LC", "PLAQ", "NA", "K", "MG", "P", "CL", "CA", "CAI",

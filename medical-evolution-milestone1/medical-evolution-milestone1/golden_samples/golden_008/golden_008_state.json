@@ -1,0 +1,980 @@
+{
+  "schema_version": "0.3",
+  "meta": {
+    "state_id": "STATE-GOLDEN-008",
+    "state_revision": 1,
+    "created_at": null,
+    "updated_at": null,
+    "language": "pt-BR",
+    "template_profile_id": "UTI_HOSPITALIS_V1"
+  },
+  "patient_ref": "PATIENT-GOLDEN-008",
+  "display_identification": {
+    "value": "PACIENTE TESTE 008, 34 ANOS",
+    "clinical_state": "PRESENT",
+    "validation_status": "CONFIRMED",
+    "source_refs": [
+      "SRC-GOLDEN"
+    ]
+  },
+  "admission": {
+    "hospital_admission_date": {
+      "raw": "2026-08-27",
+      "normalized": "2026-08-27",
+      "precision": "DATE",
+      "period": "UNSPECIFIED",
+      "validation_status": "CONFIRMED"
+    },
+    "icu_admission_date": {
+      "raw": "2026-08-27",
+      "normalized": "2026-08-27",
+      "precision": "DATE",
+      "period": "UNSPECIFIED",
+      "validation_status": "CONFIRMED"
+    },
+    "origin": {
+      "value": "PRONTO SOCORRO",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    }
+  },
+  "diagnoses": [
+    {
+      "diagnosis_id": "DX-008-1",
+      "main": {
+        "value": "QUADRO SINCOPAL A/E",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "specifications": [
+        {
+          "value": "CARDIOPATIA ESTRUTURAL?",
+          "clinical_state": "PRESENT",
+          "validation_status": "CONFIRMED",
+          "source_refs": [
+            "SRC-GOLDEN"
+          ]
+        },
+        {
+          "value": "EFEITO SECUNDÁRIO À NEUROPATIA?",
+          "clinical_state": "PRESENT",
+          "validation_status": "CONFIRMED",
+          "source_refs": [
+            "SRC-GOLDEN"
+          ]
+        }
+      ],
+      "status": "UNCERTAIN",
+      "source_refs": []
+    },
+    {
+      "diagnosis_id": "DX-008-2",
+      "main": {
+        "value": "OBESIDADE",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "specifications": [],
+      "status": "ACTIVE",
+      "source_refs": []
+    }
+  ],
+  "hpma": {
+    "text": {
+      "value": "CLIENTE ADMITIDA DO PRONTO ATENDIMENTO POR QUADRO DE SÍNCOPES DE REPETIÇÃO. REFERE APRESENTAÇÕES DE PERDA DE CONSCIÊNCIA SÚBITA, SEGUIDOS DE CEFALEIA HOLOCRANIANA. NEGA FEBRE, RIGIDEZ DE NUCA, DÉFICITS MOTORES FOCAIS.",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "source_type": "EMERGENCY_INITIAL_HISTORY",
+    "source_datetime": "2026-08-27",
+    "source_refs": [
+      "SRC-GOLDEN"
+    ]
+  },
+  "evolution_history": [
+    {
+      "evolution_id": "EVOL-008-1",
+      "temporal_value": {
+        "raw": "2026-08-31",
+        "normalized": "2026-08-31",
+        "precision": "DATE",
+        "period": "UNSPECIFIED",
+        "validation_status": "CONFIRMED"
+      },
+      "text": {
+        "value": "PACIENTE SEGUE INTERNADA EM LEITO DE UTI POR SÍNCOPE RECORRENTE A ESCLARECER. PERMANECE AGUARDANDO LAUDO DO HOLTER E AVALIAÇÃO DA CARDIOLOGIA.",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "author_type": "HUMAN",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    {
+      "evolution_id": "EVOL-008-2",
+      "temporal_value": {
+        "raw": "2026-09-01",
+        "normalized": "2026-09-01",
+        "precision": "DATE",
+        "period": "UNSPECIFIED",
+        "validation_status": "CONFIRMED"
+      },
+      "text": {
+        "value": "PACIENTE SEGUE EM LEITO DE UTI, EVOLUINDO COM MELHORA CLÍNICA E HEMODINAMICAMENTE ESTÁVEL, SEM NOVOS EPISÓDIOS DE SÍNCOPE. DIANTE DA RESOLUÇÃO DO QUADRO AGUDO E DA AUSÊNCIA DE CRITÉRIOS QUE JUSTIFIQUEM MONITORIZAÇÃO INTENSIVA CONTÍNUA, INDICA-SE ALTA PARA ENFERMARIA.",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "author_type": "HUMAN",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    }
+  ],
+  "clinical_events": [],
+  "physical_exam": {
+    "general": {
+      "value": "REG, LUCIDO E ORIENTADO, CORADO HIDRATADO",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "neurologic": {
+      "value": "GLASGOW 15, NUCA LIVRE, PFIR 15",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "cardiovascular": {
+      "value": "BRNF 2 TEMPOS SEM SOPROS",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "respiratory": {
+      "value": "MVA + SRA",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "abdominal": {
+      "value": "INDOLOR, SEM TIMPANISMO E SEM SINAIS DE IRRITACAO PERITONEAL",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "extremities": {
+      "value": "TEC<3S",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    }
+  },
+  "history": {
+    "allergies": {
+      "value": "NEGA",
+      "clinical_state": "NEGATED",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "past_medical_history": {
+      "value": "NEGA COMORBIDADES",
+      "clinical_state": "NEGATED",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "previous_surgeries": {
+      "value": "CESARIANA, COLECISTECTOMIA VLP",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "chronic_medications": {
+      "value": "NEGA",
+      "clinical_state": "NEGATED",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "habits": {
+      "value": "NEGA",
+      "clinical_state": "NEGATED",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "family_history": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    }
+  },
+  "medications": [
+    {
+      "medication_id": "G008-MED1",
+      "raw_name": null,
+      "generic_name": "ENOXAPARINA",
+      "presentation": "40MG SER C/40MG",
+      "dosage": "1 SER TARDE-TARDE 14H",
+      "route": "SC",
+      "source_order": 1,
+      "classifications": [
+        "ANTICOAGULANT"
+      ],
+      "status": "ACTIVE",
+      "started_at": null,
+      "documented_therapy_day": null,
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    {
+      "medication_id": "G008-MED2",
+      "raw_name": null,
+      "generic_name": "DIPIRONA",
+      "presentation": "1G AMP C/2ML",
+      "dosage": "1 AMP 6/6H SE DOR OU FEBRE",
+      "route": "IV",
+      "source_order": 2,
+      "classifications": [
+        "ANALGESIC"
+      ],
+      "status": "ACTIVE",
+      "started_at": null,
+      "documented_therapy_day": null,
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    {
+      "medication_id": "G008-MED3",
+      "raw_name": null,
+      "generic_name": "ONDANSETRONA",
+      "presentation": "2MG/ML AMP C/4MG",
+      "dosage": "1 AMP 6/6H SE NÁUSEA OU VÔMITOS",
+      "route": "IV",
+      "source_order": 3,
+      "classifications": [
+        "ANTIEMETIC"
+      ],
+      "status": "ACTIVE",
+      "started_at": null,
+      "documented_therapy_day": null,
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    {
+      "medication_id": "G008-MED4",
+      "raw_name": null,
+      "generic_name": "GLICOSE",
+      "presentation": "50% AMP C/10ML",
+      "dosage": "4 AMP ACM SE DX<80MG/DL",
+      "route": "IV",
+      "source_order": 4,
+      "classifications": [
+        "OTHER"
+      ],
+      "status": "ACTIVE",
+      "started_at": null,
+      "documented_therapy_day": null,
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    }
+  ],
+  "therapies": {
+    "hemotransfusion": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "niv": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "invasive_mechanical_ventilation": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "renal_replacement_therapy": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    }
+  },
+  "controls": {
+    "heart_rate": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "respiratory_rate": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "systolic_bp": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "diastolic_bp": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "mean_arterial_pressure": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "spo2": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "temperature": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "glucose": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "fluid_balance_total": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "fluid_balance_24h": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "urine_output_24h": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    }
+  },
+  "complementary_exams": {
+    "laboratory_observations": [
+      {
+        "observation_id": "G008-L1",
+        "analyte": {
+          "canonical_id": "PCR",
+          "raw_name": "PCR",
+          "display_name": "PCR"
+        },
+        "value": {
+          "raw_value": "2,33",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "2,33"
+        },
+        "unit": {
+          "raw": null,
+          "normalized": null
+        },
+        "collection_datetime": "2026-08-31",
+        "reference_range": null,
+        "differential": [],
+        "abnormal_flag": null,
+        "source_order": 1,
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      {
+        "observation_id": "G008-L2",
+        "analyte": {
+          "canonical_id": "K",
+          "raw_name": "K",
+          "display_name": "K"
+        },
+        "value": {
+          "raw_value": "4,4",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "4,4"
+        },
+        "unit": {
+          "raw": null,
+          "normalized": null
+        },
+        "collection_datetime": "2026-08-31",
+        "reference_range": null,
+        "differential": [],
+        "abnormal_flag": null,
+        "source_order": 2,
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      {
+        "observation_id": "G008-L3",
+        "analyte": {
+          "canonical_id": "BETA_HCG",
+          "raw_name": "BETA_HCG",
+          "display_name": "BETA_HCG"
+        },
+        "value": {
+          "raw_value": "<2,0",
+          "operator": "<",
+          "normalized_numeric_value": 2.0,
+          "display_value": "<2,0"
+        },
+        "unit": {
+          "raw": null,
+          "normalized": null
+        },
+        "collection_datetime": "2026-08-31",
+        "reference_range": null,
+        "differential": [],
+        "abnormal_flag": null,
+        "source_order": 3,
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      }
+    ],
+    "urinalysis": [],
+    "blood_gases": [
+      {
+        "gas_id": "G008-GAS1",
+        "collection_datetime": "2026-08-28",
+        "specimen_type": "VENOUS",
+        "observations": [
+          {
+            "observation_id": "G008-GAS1-PH",
+            "analyte": {
+              "canonical_id": "PH",
+              "raw_name": "PH",
+              "display_name": "PH"
+            },
+            "value": {
+              "raw_value": "7,360",
+              "operator": null,
+              "normalized_numeric_value": null,
+              "display_value": "7,360"
+            },
+            "unit": {
+              "raw": null,
+              "normalized": null
+            },
+            "collection_datetime": "2026-08-28",
+            "reference_range": null,
+            "differential": [],
+            "abnormal_flag": null,
+            "source_order": 1,
+            "validation_status": "CONFIRMED",
+            "source_refs": [
+              "SRC-GOLDEN"
+            ]
+          },
+          {
+            "observation_id": "G008-GAS1-PCO2",
+            "analyte": {
+              "canonical_id": "PCO2",
+              "raw_name": "PCO2",
+              "display_name": "PCO2"
+            },
+            "value": {
+              "raw_value": "48,0",
+              "operator": null,
+              "normalized_numeric_value": null,
+              "display_value": "48,0"
+            },
+            "unit": {
+              "raw": null,
+              "normalized": null
+            },
+            "collection_datetime": "2026-08-28",
+            "reference_range": null,
+            "differential": [],
+            "abnormal_flag": null,
+            "source_order": 2,
+            "validation_status": "CONFIRMED",
+            "source_refs": [
+              "SRC-GOLDEN"
+            ]
+          },
+          {
+            "observation_id": "G008-GAS1-SATO2",
+            "analyte": {
+              "canonical_id": "SATO2",
+              "raw_name": "SATO2",
+              "display_name": "SATO2"
+            },
+            "value": {
+              "raw_value": "81,0",
+              "operator": null,
+              "normalized_numeric_value": null,
+              "display_value": "81,0"
+            },
+            "unit": {
+              "raw": null,
+              "normalized": null
+            },
+            "collection_datetime": "2026-08-28",
+            "reference_range": null,
+            "differential": [],
+            "abnormal_flag": null,
+            "source_order": 3,
+            "validation_status": "CONFIRMED",
+            "source_refs": [
+              "SRC-GOLDEN"
+            ]
+          }
+        ],
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      {
+        "gas_id": "G008-GAS2",
+        "collection_datetime": "2026-08-31",
+        "specimen_type": "VENOUS",
+        "observations": [
+          {
+            "observation_id": "G008-GAS2-PH",
+            "analyte": {
+              "canonical_id": "PH",
+              "raw_name": "PH",
+              "display_name": "PH"
+            },
+            "value": {
+              "raw_value": "7,430",
+              "operator": null,
+              "normalized_numeric_value": null,
+              "display_value": "7,430"
+            },
+            "unit": {
+              "raw": null,
+              "normalized": null
+            },
+            "collection_datetime": "2026-08-31",
+            "reference_range": null,
+            "differential": [],
+            "abnormal_flag": null,
+            "source_order": 1,
+            "validation_status": "CONFIRMED",
+            "source_refs": [
+              "SRC-GOLDEN"
+            ]
+          },
+          {
+            "observation_id": "G008-GAS2-SATO2",
+            "analyte": {
+              "canonical_id": "SATO2",
+              "raw_name": "SATO2",
+              "display_name": "SATO2"
+            },
+            "value": {
+              "raw_value": "85,0",
+              "operator": null,
+              "normalized_numeric_value": null,
+              "display_value": "85,0"
+            },
+            "unit": {
+              "raw": null,
+              "normalized": null
+            },
+            "collection_datetime": "2026-08-31",
+            "reference_range": null,
+            "differential": [],
+            "abnormal_flag": null,
+            "source_order": 2,
+            "validation_status": "CONFIRMED",
+            "source_refs": [
+              "SRC-GOLDEN"
+            ]
+          }
+        ],
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      }
+    ],
+    "troponins": [],
+    "microbiology_serology": [],
+    "diagnostic_studies": [
+      {
+        "study_id": "G008-ST1",
+        "study_name": "ECO TT",
+        "procedure_status": "PERFORMED",
+        "result_status": "FINAL",
+        "ordered_at": null,
+        "scheduled_at": null,
+        "performed_at": null,
+        "resulted_at": null,
+        "findings": [
+          {
+            "value": "FEVE PRESERVADA",
+            "clinical_state": "PRESENT",
+            "validation_status": "CONFIRMED",
+            "source_refs": [
+              "SRC-GOLDEN"
+            ]
+          }
+        ],
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      {
+        "study_id": "G008-ST2",
+        "study_name": "TC DE CRANIO",
+        "procedure_status": "PERFORMED",
+        "result_status": "FINAL",
+        "ordered_at": null,
+        "scheduled_at": null,
+        "performed_at": null,
+        "resulted_at": null,
+        "findings": [
+          {
+            "value": "SEM ALTERAÇÕES",
+            "clinical_state": "PRESENT",
+            "validation_status": "CONFIRMED",
+            "source_refs": [
+              "SRC-GOLDEN"
+            ]
+          }
+        ],
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      {
+        "study_id": "G008-ST3",
+        "study_name": "USG TRANSVAGINAL",
+        "procedure_status": "PERFORMED",
+        "result_status": "FINAL",
+        "ordered_at": null,
+        "scheduled_at": null,
+        "performed_at": "2026-08-31",
+        "resulted_at": null,
+        "findings": [
+          {
+            "value": "PRESENÇA DE VOLUMOSA MASSA CISTICA EM TOPOGRAFIA ANEXIAL DIREITA, MEDINDO 98 X 49 X 45MM DE ETIOLOGIA A ESCLARECER (HIDROSSALPINGE?)",
+            "clinical_state": "PRESENT",
+            "validation_status": "CONFIRMED",
+            "source_refs": [
+              "SRC-GOLDEN"
+            ]
+          }
+        ],
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      {
+        "study_id": "G008-ST4",
+        "study_name": "USG DE RINS E VIAS URINARIAS",
+        "procedure_status": "PERFORMED",
+        "result_status": "FINAL",
+        "ordered_at": null,
+        "scheduled_at": null,
+        "performed_at": "2026-08-31",
+        "resulted_at": null,
+        "findings": [
+          {
+            "value": "IMAGENS PUNTIFORMES SUGESTIVAS DE MICROCALCULOS E/OU CRISTAIS URINARIOS BILATERALMENTE",
+            "clinical_state": "PRESENT",
+            "validation_status": "CONFIRMED",
+            "source_refs": [
+              "SRC-GOLDEN"
+            ]
+          },
+          {
+            "value": "PRESENÇA DE VOLUMOSA MASSA CISTICA EM TOPOGRAFIA ANEXIAL DIREITA, MEDINDO 98 X 49 X 45MM DE ETIOLOGIA A ESCLARECER (HIDROSSALPINGE?)",
+            "clinical_state": "PRESENT",
+            "validation_status": "CONFIRMED",
+            "source_refs": [
+              "SRC-GOLDEN"
+            ]
+          }
+        ],
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      }
+    ],
+    "unmapped": []
+  },
+  "consultations_section_state": "PRESENT",
+  "consultations": [
+    {
+      "consultation_id": "G008-C1",
+      "specialty": {
+        "value": "CARDIOLOGIA",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "temporal_value": {
+        "raw": "2026-08-31",
+        "normalized": "2026-08-31",
+        "precision": "DATE",
+        "period": "UNSPECIFIED",
+        "validation_status": "CONFIRMED"
+      },
+      "assessment": {
+        "value": "PROVÁVEL SINCOPE VASO-VAGAL EM PACIENTE SEM DOENÇA CARDIOVASCULAR SIGNIFICATIVA.",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "conclusions": [],
+      "recommendations": [
+        {
+          "value": "REALIZOU HOLTER NESSA INTERNAÇÃO QUE DEVE TER O RESULTADO AMANHÃ",
+          "clinical_state": "PRESENT",
+          "validation_status": "CONFIRMED",
+          "source_refs": [
+            "SRC-GOLDEN"
+          ]
+        }
+      ],
+      "status": "ANSWERED",
+      "source_refs": []
+    },
+    {
+      "consultation_id": "G008-C2",
+      "specialty": {
+        "value": "NEUROCIRURGIA",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "temporal_value": {
+        "raw": "2026-08-29",
+        "normalized": "2026-08-29",
+        "precision": "DATE",
+        "period": "UNSPECIFIED",
+        "validation_status": "CONFIRMED"
+      },
+      "assessment": {
+        "value": "SEM CONDUTA NEUROCIRURGICA OPERATORIA.",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "conclusions": [],
+      "recommendations": [
+        {
+          "value": "ALTA DA ESPECIALIDADE",
+          "clinical_state": "PRESENT",
+          "validation_status": "CONFIRMED",
+          "source_refs": [
+            "SRC-GOLDEN"
+          ]
+        }
+      ],
+      "status": "ANSWERED",
+      "source_refs": []
+    }
+  ],
+  "pending": [
+    {
+      "pending_id": "G008-PEND1",
+      "type": "EXAM",
+      "label": "AG. LAUDO HOLTER",
+      "linked_entity_id": null,
+      "status": "PENDING",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    }
+  ],
+  "care_actions": [
+    {
+      "action_id": "G008-A1",
+      "description": {
+        "value": "CUIDADOS INTENSIVOS",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "action_type": "OTHER",
+      "status": "PLANNED",
+      "responsible_team": null,
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    {
+      "action_id": "G008-A2",
+      "description": {
+        "value": "VIGILÂNCIA DE SISITEMAS",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "action_type": "MONITORING",
+      "status": "PLANNED",
+      "responsible_team": null,
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    }
+  ],
+  "icu_context": {
+    "explicit_justifications": [
+      {
+        "text": {
+          "value": "PACIENTE COM SÍNCOPE DE REPETIÇÃO E PERDA SÚBITA DE CONSCIÊNCIA SEM PRÓDROMOS, ASSOCIADA A SINTOMAS NEUROLÓGICOS E MANTENDO HIPOTENSÃO, COM ETIOLOGIA AINDA NÃO DEFINIDA. PERMANECE INDICADA A MANUTENÇÃO EM AMBIENTE DE TERAPIA INTENSIVA ATÉ MAIOR ESCLARECIMENTO DIAGNÓSTICO E ESTABILIDADE HEMODINÂMICA.",
+          "clinical_state": "PRESENT",
+          "validation_status": "CONFIRMED",
+          "source_refs": [
+            "SRC-GOLDEN"
+          ]
+        },
+        "temporal_value": {
+          "raw": "2026-08-27",
+          "normalized": "2026-08-27",
+          "precision": "DATE",
+          "period": "UNSPECIFIED",
+          "validation_status": "CONFIRMED"
+        }
+      }
+    ],
+    "requirement_status_history": [
+      {
+        "status": "REQUIRED",
+        "text": null,
+        "temporal_value": {
+          "raw": "2026-08-27",
+          "normalized": "2026-08-27",
+          "precision": "DATE",
+          "period": "UNSPECIFIED",
+          "validation_status": "CONFIRMED"
+        },
+        "source_refs": []
+      },
+      {
+        "status": "NO_LONGER_REQUIRED",
+        "text": {
+          "value": "DIANTE DA RESOLUÇÃO DO QUADRO AGUDO E DA AUSÊNCIA DE CRITÉRIOS QUE JUSTIFIQUEM MONITORIZAÇÃO INTENSIVA CONTÍNUA, INDICA-SE ALTA PARA ENFERMARIA",
+          "clinical_state": "PRESENT",
+          "validation_status": "CONFIRMED",
+          "source_refs": [
+            "SRC-GOLDEN"
+          ]
+        },
+        "temporal_value": {
+          "raw": "2026-09-01",
+          "normalized": "2026-09-01",
+          "precision": "DATE",
+          "period": "UNSPECIFIED",
+          "validation_status": "CONFIRMED"
+        },
+        "source_refs": []
+      }
+    ],
+    "active_supports": [],
+    "monitoring_requirements": [],
+    "instabilities": [],
+    "risk_factors": []
+  },
+  "validation": {
+    "overall_status": "READY",
+    "conflicts": [],
+    "unresolved": [],
+    "warnings": []
+  },
+  "provenance": {
+    "sources": [
+      {
+        "source_id": "SRC-GOLDEN",
+        "source_type": "MEDICAL_EVOLUTION",
+        "modality": "TEXT",
+        "author_type": "HUMAN",
+        "deidentified": true,
+        "created_at": null
+      }
+    ]
+  }
+}

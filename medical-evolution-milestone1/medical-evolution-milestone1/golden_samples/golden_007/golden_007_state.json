@@ -1,0 +1,461 @@
+{
+  "schema_version": "0.3",
+  "meta": {
+    "state_id": "STATE-GOLDEN-007",
+    "state_revision": 1,
+    "created_at": null,
+    "updated_at": null,
+    "language": "pt-BR",
+    "template_profile_id": "UTI_HOSPITALIS_V1"
+  },
+  "patient_ref": "PATIENT-GOLDEN-007",
+  "display_identification": {
+    "value": "PACIENTE TESTE 007, 33 ANOS",
+    "clinical_state": "PRESENT",
+    "validation_status": "CONFIRMED",
+    "source_refs": [
+      "SRC-GOLDEN"
+    ]
+  },
+  "admission": {
+    "hospital_admission_date": {
+      "raw": "2026-09-02",
+      "normalized": "2026-09-02",
+      "precision": "DATE",
+      "period": "UNSPECIFIED",
+      "validation_status": "CONFIRMED"
+    },
+    "icu_admission_date": {
+      "raw": "2026-09-02",
+      "normalized": "2026-09-02",
+      "precision": "DATE",
+      "period": "UNSPECIFIED",
+      "validation_status": "CONFIRMED"
+    },
+    "origin": {
+      "value": "PRONTO SOCORRO",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    }
+  },
+  "diagnoses": [
+    {
+      "diagnosis_id": "DX-007-1",
+      "main": {
+        "value": "DISPNEIA SÚBITA SECUNDÁRIO A TROMBOEMBOLISMO PULMONAR",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "specifications": [
+        {
+          "value": "CID: I26-EMBOLIA PULMONAR",
+          "clinical_state": "PRESENT",
+          "validation_status": "CONFIRMED",
+          "source_refs": [
+            "SRC-GOLDEN"
+          ]
+        }
+      ],
+      "status": "UNCERTAIN",
+      "source_refs": []
+    }
+  ],
+  "hpma": {
+    "text": {
+      "value": "DISPNEIA SÚBITA COM INÍCIO HA 24 HORAS, EVOLUINDO COM 2 EPISÓDIOS DE SÍNCOPE NO PERÍODO. D DÍMERO REALIZADO EM SERVIÇO EXTERNO >4000 (VR<500) ONDE FOI INICIADO ENOXAPARINA 80 MG. ADMITIDA TAQUIPNEICA E TAQUICARDICA.",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "source_type": "EMERGENCY_INITIAL_HISTORY",
+    "source_datetime": "2026-09-02",
+    "source_refs": [
+      "SRC-GOLDEN"
+    ]
+  },
+  "evolution_history": [
+    {
+      "evolution_id": "EVOL-007-1",
+      "temporal_value": {
+        "raw": "2026-09-02",
+        "normalized": "2026-09-02",
+        "precision": "DATE",
+        "period": "UNSPECIFIED",
+        "validation_status": "CONFIRMED"
+      },
+      "text": {
+        "value": "EVOLUO PACIENTE EM UTI, NOVA ADMISSÃO PROCEDENTE DO PRONTO SOCORRO POR QUADRO DE DISPNEIA SÚBITA HÁ 24H COM 2 EPISÓDIOS DE SÍNCOPE ASSOCIADOS, D-DÍMERO EXTERNO >4000 (VR<500), COM SUSPEITA DE TROMBOEMBOLISMO PULMONAR, JÁ EM USO DE ENOXAPARINA 80MG EM SERVIÇO DE ORIGEM. EM PROGRAMAÇÃO PARA REALIZAÇÃO DE ANGIOTC DE ARTÉRIAS PULMONARES PARA CONFIRMAÇÃO DIAGNÓSTICA.",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "author_type": "HUMAN",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    }
+  ],
+  "clinical_events": [],
+  "physical_exam": {
+    "general": {
+      "value": "REG, CORADO, HIDRATADO, EUPNEICO, ACIANÓTICO, AFEBRIL, ANICTÉRICO",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "neurologic": {
+      "value": "GLASGOW 15, PIFR, SEM DÉFICITS FOCAIS, SEM SINAIS DE IRRITAÇÃO MENÍNGEA",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "cardiovascular": {
+      "value": "BNF, RDR, S/ SOPROS",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "respiratory": {
+      "value": "MV+ GLOB, S/ RA, FR 22 IPM SAT 92%",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "abdominal": {
+      "value": "PLANO, NMT, RHA+, S/ VMG, S/ HÉRNIAS, INDOLOR",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "extremities": {
+      "value": "PULSOS +, SIMÉTRICOS",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    }
+  },
+  "history": {
+    "allergies": {
+      "value": "NEGA",
+      "clinical_state": "NEGATED",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "past_medical_history": {
+      "value": "NEGA",
+      "clinical_state": "NEGATED",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "previous_surgeries": {
+      "value": "NEGA",
+      "clinical_state": "NEGATED",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "chronic_medications": {
+      "value": "USO DE ACO HÁ 8 ANOS",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "habits": {
+      "value": "NEGA",
+      "clinical_state": "NEGATED",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "family_history": {
+      "value": "NEGA",
+      "clinical_state": "NEGATED",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    }
+  },
+  "medications": [
+    {
+      "medication_id": "G007-MED1",
+      "raw_name": null,
+      "generic_name": "ENOXAPARINA",
+      "presentation": null,
+      "dosage": "80 MG",
+      "route": null,
+      "source_order": 1,
+      "classifications": [
+        "ANTICOAGULANT"
+      ],
+      "status": "ACTIVE",
+      "started_at": null,
+      "documented_therapy_day": null,
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN-EXT"
+      ]
+    }
+  ],
+  "therapies": {
+    "hemotransfusion": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "niv": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "invasive_mechanical_ventilation": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "renal_replacement_therapy": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    }
+  },
+  "controls": {
+    "heart_rate": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "respiratory_rate": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "systolic_bp": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "diastolic_bp": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "mean_arterial_pressure": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "spo2": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "temperature": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "glucose": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "fluid_balance_total": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "fluid_balance_24h": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "urine_output_24h": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    }
+  },
+  "complementary_exams": {
+    "laboratory_observations": [
+      {
+        "observation_id": "G007-L1",
+        "analyte": {
+          "canonical_id": "DDIMERO",
+          "raw_name": "DDIMERO",
+          "display_name": "DDIMERO"
+        },
+        "value": {
+          "raw_value": ">4000",
+          "operator": ">",
+          "normalized_numeric_value": 4000.0,
+          "display_value": ">4000"
+        },
+        "unit": {
+          "raw": null,
+          "normalized": null
+        },
+        "collection_datetime": "2026-09-02",
+        "reference_range": {
+          "lower": null,
+          "upper": 500.0,
+          "reference_raw": "VR<500"
+        },
+        "differential": [],
+        "abnormal_flag": null,
+        "source_order": 1,
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN-EXT"
+        ]
+      }
+    ],
+    "urinalysis": [],
+    "blood_gases": [],
+    "troponins": [],
+    "microbiology_serology": [],
+    "diagnostic_studies": [],
+    "unmapped": []
+  },
+  "consultations_section_state": "NOT_REQUESTED",
+  "consultations": [],
+  "pending": [
+    {
+      "pending_id": "G007-PEND1",
+      "type": "EXAM",
+      "label": "ANGIOTC DE ARTERIAS PULMONARES",
+      "linked_entity_id": null,
+      "status": "PENDING",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    }
+  ],
+  "care_actions": [
+    {
+      "action_id": "G007-A1",
+      "description": {
+        "value": "MANTENHO EM ANTICOAGULAÇÃO EM DOSE PLENA",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "action_type": "MEDICATION",
+      "status": "PLANNED",
+      "responsible_team": null,
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    {
+      "action_id": "G007-A2",
+      "description": {
+        "value": "SUPORTE HEMODINÂMICO E RESPIRATÓRIO",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "action_type": "OTHER",
+      "status": "PLANNED",
+      "responsible_team": null,
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    }
+  ],
+  "icu_context": {
+    "explicit_justifications": [
+      {
+        "text": {
+          "value": "LEITO MONITORIZADO / SOLICITO LEITO TERAPIA INTENSIVA PARA MONITORIZAÇÃO CARDIORRESPIRATÓRIA CONTÍNUA / RISCO DE DETERIORAÇÃO CLÍNICA",
+          "clinical_state": "PRESENT",
+          "validation_status": "CONFIRMED",
+          "source_refs": [
+            "SRC-GOLDEN"
+          ]
+        },
+        "temporal_value": null
+      }
+    ],
+    "requirement_status_history": [],
+    "active_supports": [],
+    "monitoring_requirements": [],
+    "instabilities": [],
+    "risk_factors": []
+  },
+  "validation": {
+    "overall_status": "READY",
+    "conflicts": [],
+    "unresolved": [],
+    "warnings": []
+  },
+  "provenance": {
+    "sources": [
+      {
+        "source_id": "SRC-GOLDEN",
+        "source_type": "MEDICAL_EVOLUTION",
+        "modality": "TEXT",
+        "author_type": "HUMAN",
+        "deidentified": true,
+        "created_at": null
+      },
+      {
+        "source_id": "SRC-GOLDEN-EXT",
+        "source_type": "EXTERNAL_LAB_REPORT",
+        "modality": "TEXT",
+        "author_type": "EXTERNAL_SERVICE",
+        "deidentified": true,
+        "created_at": null
+      }
+    ]
+  }
+}

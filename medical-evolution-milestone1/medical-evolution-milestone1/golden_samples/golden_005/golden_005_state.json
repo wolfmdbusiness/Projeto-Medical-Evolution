@@ -1,0 +1,723 @@
+{
+  "schema_version": "0.3",
+  "meta": {
+    "state_id": "STATE-GOLDEN-005",
+    "state_revision": 1,
+    "created_at": null,
+    "updated_at": null,
+    "language": "pt-BR",
+    "template_profile_id": "UTI_HOSPITALIS_V1"
+  },
+  "patient_ref": "PATIENT-GOLDEN-005",
+  "display_identification": {
+    "value": "PACIENTE TESTE 005, 25 ANOS",
+    "clinical_state": "PRESENT",
+    "validation_status": "CONFIRMED",
+    "source_refs": [
+      "SRC-GOLDEN"
+    ]
+  },
+  "admission": {
+    "hospital_admission_date": {
+      "raw": "2026-08-31",
+      "normalized": "2026-08-31",
+      "precision": "DATE",
+      "period": "UNSPECIFIED",
+      "validation_status": "CONFIRMED"
+    },
+    "icu_admission_date": {
+      "raw": "2026-08-31",
+      "normalized": "2026-08-31",
+      "precision": "DATE",
+      "period": "UNSPECIFIED",
+      "validation_status": "CONFIRMED"
+    },
+    "origin": {
+      "value": "PRONTO SOCORRO",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    }
+  },
+  "diagnoses": [
+    {
+      "diagnosis_id": "DX-005-1",
+      "main": {
+        "value": "PERDA DE VISÃO SÚBITA - AMAUROSE D COM RECUPERAÇÃO PARCIAL",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "specifications": [],
+      "status": "ACTIVE",
+      "source_refs": []
+    },
+    {
+      "diagnosis_id": "DX-005-2",
+      "main": {
+        "value": "AIT? / AVEI?",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "specifications": [],
+      "status": "UNCERTAIN",
+      "source_refs": []
+    },
+    {
+      "diagnosis_id": "DX-005-3",
+      "main": {
+        "value": "TROMBOSE VENOSA CEREBRAL COM APRESENTAÇÃO ATÍPICA - SEIO CAVERNOSO? TRANSVERSO?",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "specifications": [],
+      "status": "UNCERTAIN",
+      "source_refs": []
+    },
+    {
+      "diagnosis_id": "DX-005-4",
+      "main": {
+        "value": "ENCEFALOPATIA POSTERIOR REVERSÍVEL",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "specifications": [],
+      "status": "UNCERTAIN",
+      "source_refs": []
+    }
+  ],
+  "hpma": {
+    "text": {
+      "value": "PACIENTE DO SEXO FEMININO, BARIÁTRICA HÁ 4 ANOS, ADMITIDA NA UNIDADE DE TERAPIA INTENSIVA COM QUADRO DE AMAUROSE INSTALADA HÁ APROXIMADAMENTE 24 HORAS, COM RECUPERAÇÃO PARCIAL DA HEMIVISÃO DIREITA. NUNCA REALIZOU REPOSIÇÃO DE COMPLEXO B. TC DE CRÂNIO INALTERADA.",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "source_type": "EMERGENCY_INITIAL_HISTORY",
+    "source_datetime": "2026-08-31",
+    "source_refs": [
+      "SRC-GOLDEN"
+    ]
+  },
+  "evolution_history": [
+    {
+      "evolution_id": "EVOL-005-1",
+      "temporal_value": {
+        "raw": "2026-09-02",
+        "normalized": "2026-09-02",
+        "precision": "DATE",
+        "period": "UNSPECIFIED",
+        "validation_status": "CONFIRMED"
+      },
+      "text": {
+        "value": "PACIENTE SEGUE EM LEITO DE UTI, POR QUADRO NEUROLOGICO AGUDO CARACTERIZADO POR AMAUROSE, CEFALEIA E TONTURA, MANTIDA SOB ESTRITA NEUROVIGILANCIA, AGUARDANDO LAUDOS DE RM E ANGIORM ART E VEN DE CRANIO.",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "author_type": "HUMAN",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    }
+  ],
+  "clinical_events": [],
+  "physical_exam": {
+    "general": {
+      "value": "REG, CORADO, ANICTÉRICO, ACIANÓTICO, AFEBRIL",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "neurologic": {
+      "value": "GLASGOW 15 PIFR E IC SEM SINAIS LOCALIZATÓRIOS E NUCA LIVRE",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "cardiovascular": {
+      "value": "BRNF 2T SEM SOPROS",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "respiratory": {
+      "value": "MVF SEM RA ESTRIDOR",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "abdominal": {
+      "value": "ABDOME INDOLOR RHA PRESENTES SEM VMG",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "extremities": {
+      "value": "RPP SEM SINAIS DE TVP",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    }
+  },
+  "history": {
+    "allergies": {
+      "value": "AMOXICILINA / NAUDECON / IODO",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "past_medical_history": {
+      "value": "OBESIDADE",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "previous_surgeries": {
+      "value": "BARIÁTRICA",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "chronic_medications": {
+      "value": "NORIPURUM IRREGULAR",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "habits": {
+      "value": "ETILISMO: NEGA; TABAGISMO: NEGA",
+      "clinical_state": "NEGATED",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    "family_history": {
+      "value": "NEOPLASIA",
+      "clinical_state": "PRESENT",
+      "validation_status": "CONFIRMED",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    }
+  },
+  "medications": [],
+  "therapies": {
+    "hemotransfusion": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "niv": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "invasive_mechanical_ventilation": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "renal_replacement_therapy": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    }
+  },
+  "controls": {
+    "heart_rate": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "respiratory_rate": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "systolic_bp": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "diastolic_bp": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "mean_arterial_pressure": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "spo2": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "temperature": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "glucose": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "fluid_balance_total": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "fluid_balance_24h": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    },
+    "urine_output_24h": {
+      "value": null,
+      "clinical_state": "UNKNOWN",
+      "validation_status": "MISSING",
+      "source_refs": []
+    }
+  },
+  "complementary_exams": {
+    "laboratory_observations": [
+      {
+        "observation_id": "G005-L1",
+        "analyte": {
+          "canonical_id": "HB",
+          "raw_name": "HB",
+          "display_name": "HB"
+        },
+        "value": {
+          "raw_value": "11,6",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "11,6"
+        },
+        "unit": {
+          "raw": null,
+          "normalized": null
+        },
+        "collection_datetime": "2026-09-01",
+        "reference_range": null,
+        "differential": [],
+        "abnormal_flag": null,
+        "source_order": 1,
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      {
+        "observation_id": "G005-L2",
+        "analyte": {
+          "canonical_id": "HT",
+          "raw_name": "HT",
+          "display_name": "HT"
+        },
+        "value": {
+          "raw_value": "35,7",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "35,7"
+        },
+        "unit": {
+          "raw": null,
+          "normalized": null
+        },
+        "collection_datetime": "2026-09-01",
+        "reference_range": null,
+        "differential": [],
+        "abnormal_flag": null,
+        "source_order": 2,
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      {
+        "observation_id": "G005-L3",
+        "analyte": {
+          "canonical_id": "VCM",
+          "raw_name": "VCM",
+          "display_name": "VCM"
+        },
+        "value": {
+          "raw_value": "79,5",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "79,5"
+        },
+        "unit": {
+          "raw": null,
+          "normalized": null
+        },
+        "collection_datetime": "2026-09-01",
+        "reference_range": null,
+        "differential": [],
+        "abnormal_flag": null,
+        "source_order": 3,
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      {
+        "observation_id": "G005-L4",
+        "analyte": {
+          "canonical_id": "HCM",
+          "raw_name": "HCM",
+          "display_name": "HCM"
+        },
+        "value": {
+          "raw_value": "25,8",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "25,8"
+        },
+        "unit": {
+          "raw": null,
+          "normalized": null
+        },
+        "collection_datetime": "2026-09-01",
+        "reference_range": null,
+        "differential": [],
+        "abnormal_flag": null,
+        "source_order": 4,
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      {
+        "observation_id": "G005-L5",
+        "analyte": {
+          "canonical_id": "PLAQ",
+          "raw_name": "PLAQ",
+          "display_name": "PLAQ"
+        },
+        "value": {
+          "raw_value": "270000",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "270000"
+        },
+        "unit": {
+          "raw": null,
+          "normalized": null
+        },
+        "collection_datetime": "2026-09-01",
+        "reference_range": null,
+        "differential": [],
+        "abnormal_flag": null,
+        "source_order": 5,
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      {
+        "observation_id": "G005-L6",
+        "analyte": {
+          "canonical_id": "NA",
+          "raw_name": "NA",
+          "display_name": "NA"
+        },
+        "value": {
+          "raw_value": "140",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "140"
+        },
+        "unit": {
+          "raw": null,
+          "normalized": null
+        },
+        "collection_datetime": "2026-09-01",
+        "reference_range": null,
+        "differential": [],
+        "abnormal_flag": null,
+        "source_order": 6,
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      {
+        "observation_id": "G005-L7",
+        "analyte": {
+          "canonical_id": "K",
+          "raw_name": "K",
+          "display_name": "K"
+        },
+        "value": {
+          "raw_value": "4,3",
+          "operator": null,
+          "normalized_numeric_value": null,
+          "display_value": "4,3"
+        },
+        "unit": {
+          "raw": null,
+          "normalized": null
+        },
+        "collection_datetime": "2026-09-01",
+        "reference_range": null,
+        "differential": [],
+        "abnormal_flag": null,
+        "source_order": 7,
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      }
+    ],
+    "urinalysis": [],
+    "blood_gases": [],
+    "troponins": [],
+    "microbiology_serology": [],
+    "diagnostic_studies": [
+      {
+        "study_id": "G005-ST1",
+        "study_name": "TC DE CRÂNIO",
+        "procedure_status": "PERFORMED",
+        "result_status": "FINAL",
+        "ordered_at": null,
+        "scheduled_at": null,
+        "performed_at": "2026-08-31",
+        "resulted_at": null,
+        "findings": [
+          {
+            "value": "SEM ALTERAÇÕES",
+            "clinical_state": "PRESENT",
+            "validation_status": "CONFIRMED",
+            "source_refs": [
+              "SRC-GOLDEN"
+            ]
+          }
+        ],
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      {
+        "study_id": "G005-ST2",
+        "study_name": "RM E ANGIORM ARTERIAL E VENOSA DE CRÂNIO",
+        "procedure_status": "PERFORMED",
+        "result_status": "PENDING",
+        "ordered_at": null,
+        "scheduled_at": null,
+        "performed_at": null,
+        "resulted_at": null,
+        "findings": [],
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      }
+    ],
+    "unmapped": []
+  },
+  "consultations_section_state": "PRESENT",
+  "consultations": [
+    {
+      "consultation_id": "G005-C1",
+      "specialty": {
+        "value": "OFTALMOLÓGICA",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "temporal_value": {
+        "raw": "2026-09-01",
+        "normalized": "2026-09-01",
+        "precision": "DATE",
+        "period": "UNSPECIFIED",
+        "validation_status": "CONFIRMED"
+      },
+      "assessment": {
+        "value": "AMAUROSE FUGAZ OD HA 2 DIAS. ESTRABISMO PRÉVIO +. 20/20 CC AO.",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "conclusions": [
+        {
+          "value": "EXAME DENTRO DA NORMALIDADE AO.",
+          "clinical_state": "PRESENT",
+          "validation_status": "CONFIRMED",
+          "source_refs": [
+            "SRC-GOLDEN"
+          ]
+        }
+      ],
+      "recommendations": [],
+      "status": "ANSWERED",
+      "source_refs": []
+    }
+  ],
+  "pending": [
+    {
+      "pending_id": "G005-PEND1",
+      "type": "EXAM",
+      "label": "LAUDO DE RM E ANGIORM ARTERIAL E VENOSA DE CRÂNIO",
+      "linked_entity_id": null,
+      "status": "PENDING",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    {
+      "pending_id": "G005-PEND2",
+      "type": "CONSULTATION",
+      "label": "REAVALIAÇÃO DA NEURO COM EXAMES DE IMAGEM",
+      "linked_entity_id": null,
+      "status": "PENDING",
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    }
+  ],
+  "care_actions": [
+    {
+      "action_id": "G005-A1",
+      "description": {
+        "value": "REPOSIÇÃO EMPÍRICA DE COMPLEXO B",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "action_type": "MEDICATION",
+      "status": "PLANNED",
+      "responsible_team": null,
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    },
+    {
+      "action_id": "G005-A2",
+      "description": {
+        "value": "NEUROCHECK 2/2H",
+        "clinical_state": "PRESENT",
+        "validation_status": "CONFIRMED",
+        "source_refs": [
+          "SRC-GOLDEN"
+        ]
+      },
+      "action_type": "MONITORING",
+      "status": "PLANNED",
+      "responsible_team": null,
+      "source_refs": [
+        "SRC-GOLDEN"
+      ]
+    }
+  ],
+  "icu_context": {
+    "explicit_justifications": [
+      {
+        "text": {
+          "value": "O QUADRO NEUROLÓGICO FOCAL AGUDO, COM ENVOLVIMENTO VISUAL E PADRÃO TEMPORAL SUGESTIVO DE FENÔMENO VASCULAR OU METABÓLICO, JUSTIFICA INTERNAÇÃO EM AMBIENTE INTENSIVO POR RISCO DE PROGRESSÃO, NECESSIDADE DE MONITORIZAÇÃO NEUROLÓGICA SERIAL E INVESTIGAÇÃO ETIOLÓGICA URGENTE.",
+          "clinical_state": "PRESENT",
+          "validation_status": "CONFIRMED",
+          "source_refs": [
+            "SRC-GOLDEN"
+          ]
+        },
+        "temporal_value": null
+      },
+      {
+        "text": {
+          "value": "MOTIVO PARA PERMANÊNCIA NA UNIDADE DE TERAPIA INTENSIVA: AIT? / AVE? / CEFALÉIA A/E? / TROMBOSE CENTRAL?",
+          "clinical_state": "PRESENT",
+          "validation_status": "CONFIRMED",
+          "source_refs": [
+            "SRC-GOLDEN"
+          ]
+        },
+        "temporal_value": null
+      }
+    ],
+    "requirement_status_history": [],
+    "active_supports": [],
+    "monitoring_requirements": [],
+    "instabilities": [],
+    "risk_factors": []
+  },
+  "validation": {
+    "overall_status": "READY",
+    "conflicts": [],
+    "unresolved": [],
+    "warnings": []
+  },
+  "provenance": {
+    "sources": [
+      {
+        "source_id": "SRC-GOLDEN",
+        "source_type": "MEDICAL_EVOLUTION",
+        "modality": "TEXT",
+        "author_type": "HUMAN",
+        "deidentified": true,
+        "created_at": null
+      }
+    ]
+  }
+}
