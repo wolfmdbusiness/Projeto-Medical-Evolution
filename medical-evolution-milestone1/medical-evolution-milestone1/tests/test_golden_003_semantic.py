@@ -7,8 +7,13 @@ Known audit findings are documented separately (see
 golden_samples/golden_003/golden_003_audit_notes.json).
 """
 
+import copy
+
+import pytest
+
 from models.medical_state import MedicalState, TemporalPrecision, TemporalValue, ValidationStatus
 from rendering.medical_note_renderer import render_medical_note
+from rendering.renderability_gate import RenderNotAllowedError
 from tests.conftest import load_golden_state_number
 
 
@@ -36,20 +41,48 @@ def test_microbiology_urease_positive_is_rendered():
     assert "TESTE UREASE: POSITIVO" in rendered
 
 
-def test_invalid_scheduled_date_is_detected_not_corrected():
+def test_invalid_scheduled_date_is_preserved_raw_on_the_study():
     # The colonoscopy in this record is documented as scheduled for "31/09"
     # -- an impossible calendar date. It is preserved verbatim on the study
-    # (ordered_at) rather than silently fixed; here we confirm the same raw
-    # value, run through TemporalValue, is flagged as needing review instead
-    # of being auto-corrected to some nearby valid date (item 3).
+    # (ordered_at, a plain string) rather than silently fixed to 30/09,
+    # 31/08, or any other date (item 3).
     state = _state()
     colonoscopy = next(s for s in state.complementary_exams.diagnostic_studies if "COLONOSCOPIA" in s.study_name)
     assert colonoscopy.ordered_at == "31/09"
 
+
+def test_invalid_temporal_value_is_flagged_not_auto_corrected():
+    # The same raw text ("31/09") run through TemporalValue -- the type
+    # every gate-checked date in the schema actually uses (admission dates,
+    # evolution entries, consultations, ...) -- must never normalize to a
+    # valid date and must be classified as needing review.
     tv = TemporalValue(raw="31/09", normalized=None, precision=TemporalPrecision.PARTIAL_DATE, validation_status=ValidationStatus.UNRESOLVED)
     assert tv.raw == "31/09"
     assert tv.normalized is None
+    assert tv.precision == TemporalPrecision.PARTIAL_DATE
     assert tv.validation_status == ValidationStatus.UNRESOLVED
+
+
+def test_invalid_temporal_value_is_never_silently_used_by_the_renderer():
+    # If GOLDEN-003's exact "31/09" value were captured as a gate-checked
+    # TemporalValue (rather than a plain, unchecked string on
+    # DiagnosticStudy.ordered_at), the renderability gate must refuse to
+    # render rather than silently treat it as a valid clinical date.
+    data = copy.deepcopy(load_golden_state_number("003"))
+    data["admission"]["hospital_admission_date"] = {
+        "raw": "31/09",
+        "normalized": None,
+        "precision": "PARTIAL_DATE",
+        "period": "UNSPECIFIED",
+        "validation_status": "UNRESOLVED",
+    }
+    state = MedicalState.model_validate(data)
+    assert state.admission.hospital_admission_date.raw == "31/09"
+    assert state.admission.hospital_admission_date.normalized is None
+
+    with pytest.raises(RenderNotAllowedError) as exc_info:
+        render_medical_note(state)
+    assert any("hospital_admission_date" in reason for reason in exc_info.value.reasons)
 
 
 def test_same_day_lab_ambiguity_is_not_silently_resolved():

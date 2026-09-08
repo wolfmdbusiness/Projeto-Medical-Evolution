@@ -48,6 +48,38 @@ an active need for intensive monitorization from 27/08, while
 justification is not deleted or rewritten — it is simply out of date next
 to newer information.
 
+## DIAGNOSTIC_UNCERTAINTY is not an audit category
+
+`DIAGNOSTIC_UNCERTAINTY != CONTRADICTION != TEMPORAL_CONFLICT`.
+
+A record holding several competing diagnostic hypotheses at once — some
+`ACTIVE`, some `UNCERTAIN`, phrased with "?" or "X" ("AIT? / AVEI?", "AVCI
+X AIT") — is a **normal differential diagnosis**, not a finding. Milestone
+1.2 already gives this its own, correct representation
+(`DiagnosisStatus.UNCERTAIN`, item 26) precisely so the system is not
+tempted to treat open clinical uncertainty as a defect in the record.
+
+This is not CONTRADICTED: the hypotheses are not asserted as simultaneously
+true facts, they are alternatives under active consideration — there is
+nothing for two of them to contradict.
+
+This is not POTENTIAL_TEMPORAL_CONFLICT either: that category is about two
+data points **for the same variable** whose chronological order cannot be
+determined (item 33's same-day, ambiguous-timestamp lab reading). A
+differential diagnosis is not "the same variable measured twice" — it is
+several distinct hypotheses about a single, still-open question, and having
+no explicit record of which was promoted or demoted over time is simply
+what "still being investigated" looks like, not an ambiguity about event
+order.
+
+A previous audit note for GOLDEN-005 classified exactly this situation as
+POTENTIAL_TEMPORAL_CONFLICT; it was removed on review (see
+`golden_005_audit_notes.json`) rather than kept or swapped for an invented
+replacement. An `AUDIT_CASE` fixture legitimately has **zero** confirmed
+findings when nothing in it actually contradicts itself or is temporally
+ambiguous — an empty `known_issues` list is a valid, honest outcome, not a
+gap to be filled.
+
 ## Why the distinction matters
 
 A future auditor that cannot tell these apart will either over-flag (every

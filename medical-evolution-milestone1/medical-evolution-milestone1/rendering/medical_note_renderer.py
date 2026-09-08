@@ -45,15 +45,28 @@ def _display_observation_value(obs: LabObservation) -> str:
     return obs.value.display_value or obs.value.raw_value
 
 
+def _analyte_readings_order_is_ambiguous(observations: list[LabObservation]) -> bool:
+    """Milestone 1.2, item 33: the explicit answer to "which of these same-
+    analyte, same-day readings is the latest?".
+
+    True means the system has determined it CANNOT know — at least one
+    reading lacks a time-of-day, so no confident chronological order
+    exists between them. This is a first-class, independently testable
+    determination, not an incidental side effect of skipping deduplication:
+    `_group_latest_by_day` keeps every reading exactly when this is True,
+    and picks the one with the latest timestamp only when this is False.
+    """
+    return len(observations) > 1 and not all(has_time_component(o.collection_datetime) for o in observations)
+
+
 def _group_latest_by_day(observations: Iterable[LabObservation]) -> list[tuple[str, list[LabObservation]]]:
     """Group observations by collection day and collapse same-analyte
     duplicates to the single latest value for that day.
 
-    Milestone 1.2, item 33: collapsing is only safe when every observation
-    of that analyte on that day carries an explicit time-of-day, so the
-    "latest" pick is unambiguous. When any of them lacks a time (or the
-    group has more than one candidate that could be "the" latest), we
-    cannot silently choose — all of them are kept and shown, deterministic
+    Collapsing to one reading only happens when
+    `_analyte_readings_order_is_ambiguous` says the order is NOT ambiguous
+    (every reading of that analyte on that day carries an explicit
+    time-of-day). Otherwise every reading is kept and shown — deterministic
     and honest about the ambiguity rather than picking one arbitrarily.
     """
     groups: dict[str, list[LabObservation]] = defaultdict(list)
@@ -76,14 +89,12 @@ def _group_latest_by_day(observations: Iterable[LabObservation]) -> list[tuple[s
         for cid, obs_list in per_analyte.items():
             if len(obs_list) == 1:
                 chosen.append(obs_list[0])
-                continue
-            if all(has_time_component(o.collection_datetime) for o in obs_list):
-                chosen.append(max(obs_list, key=lambda o: o.collection_datetime))
-            else:
-                # Ambiguous ordering: never guess. Keep every reading.
+            elif _analyte_readings_order_is_ambiguous(obs_list):
                 chosen.extend(
                     sorted(obs_list, key=lambda o: o.source_order if o.source_order is not None else 10_000)
                 )
+            else:
+                chosen.append(max(obs_list, key=lambda o: o.collection_datetime))
         chosen.extend(extras)
         result.append((day, chosen))
     return result

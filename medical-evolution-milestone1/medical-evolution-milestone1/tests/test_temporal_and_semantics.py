@@ -393,6 +393,33 @@ def test_uncertain_diagnosis_preserves_original_uncertain_text():
 
 # --- item 33: lab temporal ambiguity ----------------------------------------
 
+def test_ambiguity_is_an_explicit_determination_not_an_accident():
+    # The "could the latest reading be determined?" answer is a named,
+    # independently testable function -- not just an implicit side effect
+    # of `_group_latest_by_day` skipping deduplication.
+    from rendering.medical_note_renderer import _analyte_readings_order_is_ambiguous
+
+    timed = LabObservation(
+        observation_id="L1", analyte=Analyte(canonical_id="NA", raw_name="NA"),
+        value=ObservationValue(raw_value="140", display_value="140"),
+        collection_datetime="2026-08-31T13:20:00",
+    )
+    untimed = LabObservation(
+        observation_id="L2", analyte=Analyte(canonical_id="NA", raw_name="NA"),
+        value=ObservationValue(raw_value="141", display_value="141"),
+        collection_datetime="2026-08-31",
+    )
+    both_timed = LabObservation(
+        observation_id="L3", analyte=Analyte(canonical_id="NA", raw_name="NA"),
+        value=ObservationValue(raw_value="142", display_value="142"),
+        collection_datetime="2026-08-31T18:00:00",
+    )
+
+    assert _analyte_readings_order_is_ambiguous([timed, untimed]) is True
+    assert _analyte_readings_order_is_ambiguous([timed, both_timed]) is False
+    assert _analyte_readings_order_is_ambiguous([timed]) is False
+
+
 def test_same_analyte_same_day_without_clear_order_keeps_both_readings():
     obs1 = LabObservation(
         observation_id="L1", analyte=Analyte(canonical_id="NA", raw_name="NA"),

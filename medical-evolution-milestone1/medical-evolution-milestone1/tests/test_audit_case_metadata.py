@@ -24,11 +24,23 @@ def test_audit_notes_file_exists_and_is_well_formed(number):
     notes = _load_audit_notes(number)
     assert notes["case_id"] == f"GOLDEN-{number}"
     assert notes["role"] == "AUDIT_CASE"
-    assert notes["known_issues"], "an AUDIT_CASE must document at least one known issue"
+    # An AUDIT_CASE may legitimately have zero confirmed findings -- see
+    # docs/audit_findings_v0_1.md ("DIAGNOSTIC_UNCERTAINTY is not an audit
+    # category"). known_issues must be a list either way, never missing.
+    assert isinstance(notes["known_issues"], list)
     for issue in notes["known_issues"]:
         assert issue["category"] in VALID_CATEGORIES
         assert issue["summary"]
         assert issue["detail"]
+
+
+def test_golden_005_has_no_confirmed_findings_after_review():
+    # The only candidate finding for G005 (concurrent uncertain diagnoses
+    # classified as POTENTIAL_TEMPORAL_CONFLICT) was reviewed and removed:
+    # differential diagnosis alone is not a temporal conflict or a
+    # contradiction. It was not replaced by an invented finding.
+    notes = _load_audit_notes("005")
+    assert notes["known_issues"] == []
 
 
 def test_at_least_one_case_documents_each_audit_category():
