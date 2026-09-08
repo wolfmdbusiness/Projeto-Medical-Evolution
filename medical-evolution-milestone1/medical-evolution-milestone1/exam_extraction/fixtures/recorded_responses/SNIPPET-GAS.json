@@ -1,0 +1,43 @@
+{
+  "source_id": "SNIPPET-GAS",
+  "blood_gases": [
+    {
+      "raw_specimen_type": "VENOSA",
+      "raw_temporal": "28/08",
+      "source_order": 1,
+      "evidence": {
+        "evidence_text": "28/08 (VENOSA): PH 7,360; PCO2 48,0; PO2 47,0"
+      },
+      "source_ref": "SNIPPET-GAS",
+      "observations": [
+        {
+          "raw_name": "PH",
+          "raw_value": "7,360",
+          "source_order": 1,
+          "evidence": {
+            "evidence_text": "PH 7,360"
+          },
+          "source_ref": "SNIPPET-GAS"
+        },
+        {
+          "raw_name": "PCO2",
+          "raw_value": "48,0",
+          "source_order": 2,
+          "evidence": {
+            "evidence_text": "PCO2 48,0"
+          },
+          "source_ref": "SNIPPET-GAS"
+        },
+        {
+          "raw_name": "PO2",
+          "raw_value": "47,0",
+          "source_order": 3,
+          "evidence": {
+            "evidence_text": "PO2 47,0"
+          },
+          "source_ref": "SNIPPET-GAS"
+        }
+      ]
+    }
+  ]
+}

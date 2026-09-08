@@ -1,0 +1,15 @@
+{
+  "source_id": "SNIPPET-UNKNOWN-ANALYTE",
+  "general_labs": [
+    {
+      "raw_name": "CA1",
+      "raw_value": "1,33",
+      "source_order": 1,
+      "evidence": {
+        "evidence_text": "CA1 1,33"
+      },
+      "source_ref": "SNIPPET-UNKNOWN-ANALYTE",
+      "canonical_hint": "CAI"
+    }
+  ]
+}

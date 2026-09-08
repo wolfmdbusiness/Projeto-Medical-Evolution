@@ -49,6 +49,30 @@ from models.medical_state import (
 from rendering.text_utils import analyte_readings_order_is_ambiguous
 
 
+def _item_key(item) -> str:
+    """The per-item component passed as `item_key` into
+    `build_idempotency_key` (Milestone 2.0B, item 16), which already
+    prefixes it with `source_id`/`category` itself — so only the
+    occurrence-specific part belongs here.
+
+    When the item has been through evidence grounding (its evidence
+    carries a resolved character span), that span is used directly: two
+    equal spans always produce the same key regardless of what order an
+    LLM happened to return the items in (item 15). See
+    `exam_normalization.occurrence_identity.compute_occurrence_key` for
+    the fully-qualified (source_id + category + span) form of this same
+    identity, used where the key needs to stand on its own outside the
+    idempotency-key builder.
+
+    Candidates that never went through grounding (e.g. hand-authored
+    fixtures normalized directly, unchanged since Milestone 2.0A) fall
+    back to `source_order`, preserving all pre-2.0B behavior exactly."""
+    evidence = getattr(item, "evidence", None)
+    if evidence is not None and evidence.char_start is not None and evidence.char_end is not None:
+        return f"{evidence.char_start}:{evidence.char_end}"
+    return str(item.source_order)
+
+
 def _reference_year(envelope: ExamSourceEnvelope) -> Optional[int]:
     doc_tv = envelope.document_temporal_value
     if doc_tv is None or not doc_tv.normalized:
@@ -78,7 +102,7 @@ def _normalize_observation(
     canonical_id = resolve_canonical_id(item.raw_name)
     value = parse_numeric_value(item.raw_value, canonical_id=canonical_id)
     temporal = parse_exam_temporal(item.raw_temporal, reference_year=reference_year)
-    key = build_idempotency_key(envelope.source_id, category, str(item.source_order))
+    key = build_idempotency_key(envelope.source_id, category, _item_key(item))
     # item 2: an unresolved alias (canonical_id is None) is never silently
     # treated as valid -- it is explicitly flagged UNRESOLVED rather than
     # defaulting to CONFIRMED.
@@ -126,7 +150,7 @@ def _normalize_blood_gas(
     conflicts: list[NormalizationIssue],
 ) -> BloodGas:
     temporal = parse_exam_temporal(item.raw_temporal, reference_year=reference_year)
-    key = build_idempotency_key(envelope.source_id, "blood_gas", str(item.source_order))
+    key = build_idempotency_key(envelope.source_id, "blood_gas", _item_key(item))
     observations = []
     for obs_item in item.observations:
         normalized = _normalize_observation(obs_item, "blood_gas_observation", envelope, reference_year, conflicts)
@@ -149,7 +173,7 @@ def _normalize_microbiology(
     reference_year: Optional[int],
 ) -> MicrobiologySerology:
     temporal = parse_exam_temporal(item.raw_temporal, reference_year=reference_year)
-    key = build_idempotency_key(envelope.source_id, "microbiology", str(item.source_order))
+    key = build_idempotency_key(envelope.source_id, "microbiology", _item_key(item))
     # A missing result stays MISSING -- never copied from a previous entry
     # (item 15): each candidate is normalized independently, with no
     # visibility into any other item's result.
@@ -197,7 +221,7 @@ def _normalize_diagnostic_study(
     envelope: ExamSourceEnvelope,
     reference_year: Optional[int],
 ) -> DiagnosticStudy:
-    key = build_idempotency_key(envelope.source_id, "diagnostic_study", str(item.source_order))
+    key = build_idempotency_key(envelope.source_id, "diagnostic_study", _item_key(item))
     findings = [
         ClinicalField(
             value=f.raw_text, clinical_state=ClinicalState.PRESENT,

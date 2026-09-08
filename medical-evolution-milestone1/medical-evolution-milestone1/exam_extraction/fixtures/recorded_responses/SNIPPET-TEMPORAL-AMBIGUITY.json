@@ -1,0 +1,27 @@
+{
+  "source_id": "SNIPPET-TEMPORAL-AMBIGUITY",
+  "general_labs": [
+    {
+      "raw_name": "NA",
+      "raw_value": "140",
+      "raw_temporal": "31/08 (13:20)",
+      "source_order": 1,
+      "evidence": {
+        "evidence_text": "31/08 (13:20): NA 140"
+      },
+      "source_ref": "SNIPPET-TEMPORAL-AMBIGUITY",
+      "canonical_hint": "NA"
+    },
+    {
+      "raw_name": "NA",
+      "raw_value": "141",
+      "raw_temporal": "31/08",
+      "source_order": 2,
+      "evidence": {
+        "evidence_text": "31/08: NA 141"
+      },
+      "source_ref": "SNIPPET-TEMPORAL-AMBIGUITY",
+      "canonical_hint": "NA"
+    }
+  ]
+}

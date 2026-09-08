@@ -173,7 +173,7 @@ estável); os demais são `SEMANTIC_RENDER_REFERENCE` — ver
   `docs/audit_findings_v0_1.md`) para GOLDEN-003/004/005/007/008; nenhum
   auditor foi implementado.
 
-## Regra arquitetural
+## Regra arquitetural (Milestone 1)
 
 Não conectar APIs de IA neste milestone.
 
@@ -185,4 +185,68 @@ O objetivo desta fase é validar apenas:
 4. renderer;
 5. teste Golden.
 
-Quando este núcleo estiver estável, a próxima etapa será adicionar FastAPI e, depois, os módulos de IA.
+## Milestone 2.0A / 2.0A.1 — MOD-EXAMES extraction core (determinístico)
+
+Antes de qualquer LLM real: o contrato e o pipeline que uma extração real
+vai alimentar.
+
+```text
+RAW EXAM TEXT
+  -> ExamSourceEnvelope
+  -> ExamExtractionCandidate     (exam_extraction/)
+  -> validação Pydantic estrita
+  -> normalização determinística (exam_normalization/)
+  -> NormalizedExamBatch
+  -> apply_exam_batch()
+  -> MedicalState
+```
+
+- Um extrator nunca escreve em `MedicalState` diretamente.
+- `resolve_canonical_id` nunca aceita um `raw_name` desconhecido como se
+  fosse canônico: retorna `None` (⇒ `validation_status=UNRESOLVED`) salvo
+  quando o nome está no `ALIAS_REGISTRY` ou em `KNOWN_CANONICAL_IDS` — é
+  isso que impede `CA1` de ser silenciosamente tratado como `CAI`.
+- `DiagnosticStudy.ordered_at/scheduled_at/performed_at/resulted_at` são
+  `TemporalValue`, reaproveitando as mesmas regras temporais (data
+  impossível como `31/09` nunca é corrigida).
+- Idempotência vive em `processing_key` (por item) +
+  `Provenance.processing_metadata`, nunca como marcador dentro de
+  `source_refs` (que permanece só com ids de fonte clínica/documental).
+
+## Milestone 2.0B — Single Live Extractor (DeepSeek)
+
+Conecta exatamente um extrator LLM real (`DeepSeekExamExtractor`,
+`deepseek-v4-flash`, `thinking` desabilitado, `response_format` JSON) ao
+contrato `ExamExtractionCandidate`, com uma etapa determinística de
+*evidence grounding* entre a extração e a normalização:
+
+```text
+ExamSourceEnvelope
+  -> DeepSeekExamExtractor.extract()
+  -> ExamExtractionCandidate
+  -> validação Pydantic estrita
+  -> evidence grounding (exam_extraction/grounding.py)
+  -> normalização determinística
+  -> NormalizedExamBatch -> apply_exam_batch() -> MedicalState
+```
+
+- `exam_normalization` nunca importa nada de `exam_extraction.providers`
+  — só o `Protocol ExamExtractor` (`exam_extraction/base.py`).
+- Grounding classifica cada item como `GROUNDED` / `UNGROUNDED` /
+  `AMBIGUOUS` contra `ExamSourceEnvelope.raw_text`; só `GROUNDED` chega a
+  virar fato clínico — o resto vai para `unmapped`, nunca some
+  silenciosamente.
+- Identidade de ocorrência estável (`source_id` + categoria + span de
+  caracteres) alimenta o `processing_key` existente — reordenar a saída
+  do LLM não duplica nada; duas ocorrências idênticas em posições
+  distintas do texto continuam preservadas separadamente.
+- `canonical_hint` do extrator nunca é autoridade — só
+  `resolve_canonical_id(raw_name)` decide.
+- `FakeExamExtractor` + fixtures gravadas (`exam_extraction/fixtures/`)
+  mantêm `pytest -q` inteiramente offline; testes reais contra a DeepSeek
+  ficam em `pytest -m live` (nunca rodam por padrão).
+- Ver `docs/mod_exames_2_0b_live_findings.md` para os resultados da
+  avaliação ao vivo (precision/recall/hallucination por snippet).
+
+Não conectar Provider B, OCR, imagem, FastAPI, banco ou frontend nesta
+etapa — ver a especificação do Milestone 2.0B para a lista completa.

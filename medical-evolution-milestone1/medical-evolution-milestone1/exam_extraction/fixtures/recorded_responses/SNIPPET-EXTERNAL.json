@@ -1,0 +1,16 @@
+{
+  "source_id": "SNIPPET-EXTERNAL",
+  "general_labs": [
+    {
+      "raw_name": "D DÍMERO",
+      "raw_value": ">4000",
+      "raw_reference_range": "VR<500",
+      "source_order": 1,
+      "evidence": {
+        "evidence_text": "D DÍMERO >4000 (VR<500) - REALIZADO EM SERVIÇO EXTERNO"
+      },
+      "source_ref": "SNIPPET-EXTERNAL",
+      "canonical_hint": "DDIMERO"
+    }
+  ]
+}

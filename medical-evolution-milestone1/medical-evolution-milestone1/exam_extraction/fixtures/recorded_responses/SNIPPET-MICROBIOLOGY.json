@@ -1,0 +1,45 @@
+{
+  "source_id": "SNIPPET-MICROBIOLOGY",
+  "microbiology": [
+    {
+      "raw_name": "CULTURA DE VIGILANCIA PARA ESBL",
+      "raw_result": "NEGATIVO",
+      "raw_temporal": "31/08",
+      "source_order": 1,
+      "evidence": {
+        "evidence_text": "31/08: CULTURA DE VIGILANCIA PARA ESBL >> NEGATIVO"
+      },
+      "source_ref": "SNIPPET-MICROBIOLOGY"
+    },
+    {
+      "raw_name": "CULTURA DE VIGILANCIA PARA ESBL 02",
+      "raw_result": "NEGATIVO",
+      "raw_temporal": "31/08",
+      "source_order": 2,
+      "evidence": {
+        "evidence_text": "31/08: CULTURA DE VIGILANCIA PARA ESBL 02 >> NEGATIVO"
+      },
+      "source_ref": "SNIPPET-MICROBIOLOGY"
+    },
+    {
+      "raw_name": "CULTURA DE VIGILANCIA PARA ESBL 03",
+      "raw_result": "NEGATIVO",
+      "raw_temporal": "31/08",
+      "source_order": 3,
+      "evidence": {
+        "evidence_text": "31/08: CULTURA DE VIGILANCIA PARA ESBL 03 >> NEGATIVO"
+      },
+      "source_ref": "SNIPPET-MICROBIOLOGY"
+    },
+    {
+      "raw_name": "CULTURA DE VIGILANCIA PARA ESBL 04",
+      "raw_result": null,
+      "raw_temporal": "31/08",
+      "source_order": 4,
+      "evidence": {
+        "evidence_text": "31/08: CULTURA DE VIGILANCIA PARA ESBL 04 >>"
+      },
+      "source_ref": "SNIPPET-MICROBIOLOGY"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "source_id": "SNIPPET-OPERATORS",
+  "general_labs": [
+    {
+      "raw_name": "PCR",
+      "raw_value": "<0,6",
+      "source_order": 1,
+      "evidence": {
+        "evidence_text": "PCR <0,6"
+      },
+      "source_ref": "SNIPPET-OPERATORS",
+      "canonical_hint": "PCR"
+    },
+    {
+      "raw_name": "TFG",
+      "raw_value": ">90",
+      "source_order": 2,
+      "evidence": {
+        "evidence_text": "TFG >90"
+      },
+      "source_ref": "SNIPPET-OPERATORS",
+      "canonical_hint": "TFG"
+    },
+    {
+      "raw_name": "BETA HCG",
+      "raw_value": "<2,0",
+      "source_order": 3,
+      "evidence": {
+        "evidence_text": "BETA HCG <2,0"
+      },
+      "source_ref": "SNIPPET-OPERATORS",
+      "canonical_hint": "BETA_HCG"
+    }
+  ]
+}

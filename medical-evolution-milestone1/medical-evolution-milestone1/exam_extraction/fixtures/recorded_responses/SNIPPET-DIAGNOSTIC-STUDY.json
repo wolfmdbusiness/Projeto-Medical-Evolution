@@ -1,0 +1,24 @@
+{
+  "source_id": "SNIPPET-DIAGNOSTIC-STUDY",
+  "diagnostic_studies": [
+    {
+      "raw_name": "ENDOSCOPIA DIGESTIVA ALTA",
+      "raw_temporal": "02/09",
+      "procedure_status_hint": "PERFORMED",
+      "result_status_hint": "FINAL",
+      "source_order": 1,
+      "evidence": {
+        "evidence_text": "02/09: ENDOSCOPIA DIGESTIVA ALTA"
+      },
+      "source_ref": "SNIPPET-DIAGNOSTIC-STUDY",
+      "findings": [
+        {
+          "raw_text": "GASTRITE ANTRAL ENANTEMATOSA LEVE",
+          "evidence": {
+            "evidence_text": "GASTRITE ANTRAL ENANTEMATOSA LEVE"
+          }
+        }
+      ]
+    }
+  ]
+}

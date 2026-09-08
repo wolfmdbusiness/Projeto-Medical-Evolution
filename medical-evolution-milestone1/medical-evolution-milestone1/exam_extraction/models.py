@@ -21,11 +21,34 @@ An extractor never writes to MedicalState directly.
 
 from __future__ import annotations
 
+from enum import Enum
 from typing import Optional
 
 from pydantic import Field
 
 from models.medical_state import SourceType, StrictModel, TemporalValue
+
+
+class GroundingStatus(str, Enum):
+    """Result of checking a candidate item's `evidence_text` against its
+    source document (Milestone 2.0B, item 9). Set by
+    `exam_extraction.grounding.ground_candidate`, never by an extractor —
+    an LLM is never the authority on whether its own claim is grounded.
+
+    - GROUNDED: `evidence_text` matches exactly one location in
+      `ExamSourceEnvelope.raw_text` (directly, or unambiguously resolved
+      via `source_order` when the same text repeats — item 14).
+    - UNGROUNDED: `evidence_text` was not found in `raw_text` at all.
+    - AMBIGUOUS: `evidence_text` matches more than one location and
+      `source_order` does not resolve which one is meant.
+
+    Only GROUNDED items may become normalized clinical facts; UNGROUNDED
+    and AMBIGUOUS items are redirected to `unmapped` (item 10).
+    """
+
+    GROUNDED = "GROUNDED"
+    UNGROUNDED = "UNGROUNDED"
+    AMBIGUOUS = "AMBIGUOUS"
 
 
 class ExamSourceEnvelope(StrictModel):
@@ -47,12 +70,18 @@ class ExamSourceEnvelope(StrictModel):
 
 
 class Evidence(StrictModel):
-    """Provenance pointer back to the raw source text (item 3).
+    """Provenance pointer back to the raw source text (item 3; extended in
+    Milestone 2.0B, item 12, for deterministic evidence grounding).
 
-    `evidence_text` is sufficient for Milestone 2.0A. The extra fields are
-    reserved for future OCR/vision extractors (page, line, character span,
-    bounding box) and are simply left unset today — adding a real value to
-    one of them later requires no change to this contract.
+    `evidence_text` is sufficient for Milestone 2.0A. `page`, `line`, and
+    `bounding_box` are reserved for future OCR/vision extractors and are
+    simply left unset today — adding a real value to one of them later
+    requires no change to this contract.
+
+    `char_start`/`char_end` and `grounding_status` are populated by
+    `exam_extraction.grounding.ground_candidate`, never by an extractor: the
+    LLM is never the authority on its own offsets (item 11) or on whether
+    its own claim is grounded (item 9).
     """
 
     evidence_text: str
@@ -61,6 +90,7 @@ class Evidence(StrictModel):
     char_start: Optional[int] = None
     char_end: Optional[int] = None
     bounding_box: Optional[dict[str, float]] = None
+    grounding_status: Optional[GroundingStatus] = None
 
 
 class ExtractionWarning(StrictModel):

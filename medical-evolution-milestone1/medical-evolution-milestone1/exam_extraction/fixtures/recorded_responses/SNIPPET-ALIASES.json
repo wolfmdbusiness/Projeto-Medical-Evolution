@@ -1,0 +1,45 @@
+{
+  "source_id": "SNIPPET-ALIASES",
+  "general_labs": [
+    {
+      "raw_name": "LEUCO",
+      "raw_value": "8330",
+      "source_order": 1,
+      "evidence": {
+        "evidence_text": "LEUCO 8330"
+      },
+      "source_ref": "SNIPPET-ALIASES",
+      "canonical_hint": "LC"
+    },
+    {
+      "raw_name": "PLQ",
+      "raw_value": "270K",
+      "source_order": 2,
+      "evidence": {
+        "evidence_text": "PLQ 270K"
+      },
+      "source_ref": "SNIPPET-ALIASES",
+      "canonical_hint": "PLAQ"
+    },
+    {
+      "raw_name": "RNI",
+      "raw_value": "1,03",
+      "source_order": 3,
+      "evidence": {
+        "evidence_text": "RNI 1,03"
+      },
+      "source_ref": "SNIPPET-ALIASES",
+      "canonical_hint": "INR"
+    },
+    {
+      "raw_name": "U",
+      "raw_value": "25",
+      "source_order": 4,
+      "evidence": {
+        "evidence_text": "U 25"
+      },
+      "source_ref": "SNIPPET-ALIASES",
+      "canonical_hint": "UR"
+    }
+  ]
+}

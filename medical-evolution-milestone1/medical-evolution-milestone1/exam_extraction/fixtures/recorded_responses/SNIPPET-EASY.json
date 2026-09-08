@@ -1,0 +1,45 @@
+{
+  "source_id": "SNIPPET-EASY",
+  "general_labs": [
+    {
+      "raw_name": "HB",
+      "raw_value": "12,0",
+      "source_order": 1,
+      "evidence": {
+        "evidence_text": "HB 12,0"
+      },
+      "source_ref": "SNIPPET-EASY",
+      "canonical_hint": "HB"
+    },
+    {
+      "raw_name": "HT",
+      "raw_value": "36,0",
+      "source_order": 2,
+      "evidence": {
+        "evidence_text": "HT 36,0"
+      },
+      "source_ref": "SNIPPET-EASY",
+      "canonical_hint": "HT"
+    },
+    {
+      "raw_name": "NA",
+      "raw_value": "140",
+      "source_order": 3,
+      "evidence": {
+        "evidence_text": "NA 140"
+      },
+      "source_ref": "SNIPPET-EASY",
+      "canonical_hint": "NA"
+    },
+    {
+      "raw_name": "K",
+      "raw_value": "4,0",
+      "source_order": 4,
+      "evidence": {
+        "evidence_text": "K 4,0"
+      },
+      "source_ref": "SNIPPET-EASY",
+      "canonical_hint": "K"
+    }
+  ]
+}

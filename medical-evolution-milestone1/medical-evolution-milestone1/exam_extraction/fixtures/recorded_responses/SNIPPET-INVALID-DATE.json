@@ -1,0 +1,24 @@
+{
+  "source_id": "SNIPPET-INVALID-DATE",
+  "diagnostic_studies": [
+    {
+      "raw_name": "COLONOSCOPIA",
+      "raw_temporal": "31/09",
+      "procedure_status_hint": null,
+      "result_status_hint": null,
+      "source_order": 1,
+      "evidence": {
+        "evidence_text": "31/09: COLONOSCOPIA"
+      },
+      "source_ref": "SNIPPET-INVALID-DATE",
+      "findings": [
+        {
+          "raw_text": "SOLICITADO",
+          "evidence": {
+            "evidence_text": "SOLICITADO"
+          }
+        }
+      ]
+    }
+  ]
+}
