@@ -34,7 +34,7 @@ from __future__ import annotations
 import json
 import os
 import time
-from typing import Any, Optional
+from typing import Any, Callable, Optional
 
 from pydantic import ValidationError
 
@@ -48,7 +48,10 @@ from exam_extraction.base import (
     ProviderFailure,
 )
 from exam_extraction.models import ExamExtractionCandidate, ExamSourceEnvelope
-from exam_extraction.prompts.mod_exames_2_0b_001 import build_messages
+from exam_extraction.prompts.mod_exames_2_0b_002 import (
+    MOD_EXAMES_EXTRACTION_PROMPT_VERSION as _DEFAULT_PROMPT_VERSION,
+    build_messages as _default_build_messages,
+)
 
 DEEPSEEK_PROVIDER_NAME = "DEEPSEEK"
 DEEPSEEK_MODEL = "deepseek-v4-flash"
@@ -88,6 +91,8 @@ class DeepSeekExamExtractor:
         max_tokens: int = _DEFAULT_MAX_TOKENS,
         timeout: float = 60.0,
         client: Optional[httpx.Client] = None,
+        build_messages_fn: Callable[[str, str], list[dict[str, str]]] = _default_build_messages,
+        prompt_version: str = _DEFAULT_PROMPT_VERSION,
     ) -> None:
         # No API key is required in the constructor (item 3): Claude Code
         # Cloud never gives this process one, and the client must still be
@@ -95,6 +100,13 @@ class DeepSeekExamExtractor:
         self._model = model
         self._max_tokens = max_tokens
         self._client = client or httpx.Client(base_url=base_url, timeout=timeout)
+        self._build_messages = build_messages_fn
+        # Milestone 2.0B.1: which prompt module actually built the request
+        # -- overridable (e.g. to run prompt 001 for a side-by-side
+        # benchmark) without editing this file. `exam_extraction.execution`
+        # reads this to fill `ExecutionMetadata.prompt_version` instead of
+        # hardcoding a single prompt module's version.
+        self.prompt_version = prompt_version
         self.last_call_info: Optional[ProviderCallInfo] = None
 
     def _headers(self) -> dict[str, str]:
@@ -113,7 +125,7 @@ class DeepSeekExamExtractor:
             "thinking": {"type": "disabled"},
             "response_format": {"type": "json_object"},
             "max_tokens": self._max_tokens,
-            "messages": build_messages(source.raw_text, source.source_id),
+            "messages": self._build_messages(source.raw_text, source.source_id),
         }
 
         started = time.monotonic()

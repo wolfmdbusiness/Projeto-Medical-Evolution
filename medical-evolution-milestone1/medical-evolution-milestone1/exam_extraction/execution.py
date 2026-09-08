@@ -36,7 +36,6 @@ from typing import Optional
 from exam_extraction.base import ExamExtractor, ExtractionError
 from exam_extraction.grounding import GroundingReport, ground_candidate
 from exam_extraction.models import ExamExtractionCandidate, ExamSourceEnvelope
-from exam_extraction.prompts.mod_exames_2_0b_001 import MOD_EXAMES_EXTRACTION_PROMPT_VERSION
 from exam_normalization.idempotency import MOD_EXAMES_MODULE, MOD_EXAMES_MODULE_VERSION
 from exam_normalization.models import NormalizedExamBatch
 from exam_normalization.orchestrator import normalize_extraction_candidate
@@ -96,9 +95,17 @@ def run_extraction(
     *,
     provider: str,
     model: str,
+    prompt_version: Optional[str] = None,
 ) -> ExecutionResult:
     run_id = str(uuid.uuid4())
     started_at = _now_iso()
+    # Milestone 2.0B.1: the prompt version actually used is read from the
+    # extractor itself (set by whichever prompt module built its
+    # messages), never hardcoded to one prompt module here -- this is what
+    # lets a 001-vs-002 benchmark reuse this same function unchanged.
+    # FakeExamExtractor and any extractor with no such concept report
+    # "N/A" rather than a stale or invented version string.
+    resolved_prompt_version = prompt_version if prompt_version is not None else getattr(extractor, "prompt_version", "N/A")
 
     # item 30: only safe fields ever reach the logger -- no raw_text, no
     # patient identifier, no candidate content.
@@ -111,7 +118,7 @@ def run_extraction(
         call_info = getattr(extractor, "last_call_info", None)
         metadata = ExecutionMetadata(
             run_id=run_id, source_id=source.source_id, module=MOD_EXAMES_MODULE,
-            module_version=MOD_EXAMES_MODULE_VERSION, prompt_version=MOD_EXAMES_EXTRACTION_PROMPT_VERSION,
+            module_version=MOD_EXAMES_MODULE_VERSION, prompt_version=resolved_prompt_version,
             provider=provider, model=model, started_at=started_at, completed_at=completed_at,
             status=ExecutionStatus(exc.error_code), latency_ms=call_info.latency_ms if call_info else None,
             input_tokens=call_info.input_tokens if call_info else None,
@@ -132,7 +139,7 @@ def run_extraction(
 
     metadata = ExecutionMetadata(
         run_id=run_id, source_id=source.source_id, module=MOD_EXAMES_MODULE,
-        module_version=MOD_EXAMES_MODULE_VERSION, prompt_version=MOD_EXAMES_EXTRACTION_PROMPT_VERSION,
+        module_version=MOD_EXAMES_MODULE_VERSION, prompt_version=resolved_prompt_version,
         provider=provider, model=model, started_at=started_at, completed_at=completed_at,
         status=ExecutionStatus.SUCCESS, latency_ms=call_info.latency_ms if call_info else None,
         input_tokens=call_info.input_tokens if call_info else None,

@@ -250,3 +250,31 @@ ExamSourceEnvelope
 
 Não conectar Provider B, OCR, imagem, FastAPI, banco ou frontend nesta
 etapa — ver a especificação do Milestone 2.0B para a lista completa.
+
+## Milestone 2.0B.1 — Extraction Prompt 002
+
+Iteração estritamente limitada ao prompt: os 6 `EXTRACTION_SCHEMA_FAILURE`
+do prompt `2.0b-prompt-001` (ver findings acima) vinham de um único
+exemplo no prompt (`general_labs`) que o modelo generalizava para buckets
+com campos incompatíveis (`microbiology`, `diagnostic_studies`,
+`blood_gases`, `unmapped`, `extraction_warnings`).
+
+- `exam_extraction/schema_guide.py`: renderiza
+  `ExamExtractionCandidate.model_json_schema()` em texto compacto e
+  determinístico — fonte de verdade única, sem segunda taxonomia manual
+  que possa divergir dos modelos Pydantic.
+- `exam_extraction/prompts/mod_exames_2_0b_002.py`
+  (`MOD_EXAMES_EXTRACTION_PROMPT_VERSION = "2.0b-prompt-002"`): embute o
+  schema guide + um exemplo completo e schema-válido com um item em CADA
+  bucket (nunca só `general_labs`). Prompt 001 preservado inalterado no
+  repositório para auditoria.
+- Nenhum modelo Pydantic foi alterado; `extra="forbid"` permanece em
+  todos os modelos strict.
+- `DeepSeekExamExtractor` agora aponta para o prompt 002 por padrão, com
+  `build_messages_fn`/`prompt_version` sobrescrevíveis (usado para o
+  benchmark 001 vs 002 lado a lado).
+- Resultado ao vivo: schema success 10/10 em duas execuções independentes
+  (contra 6/10 e 4/10 do prompt 001 nas mesmas duas execuções) — ver
+  `docs/mod_exames_2_0b_1_live_findings.md` para a tabela completa e os
+  dois casos restantes documentados (não corrigidos por retry ou
+  afrouxamento de schema, conforme vedado nesta etapa).
