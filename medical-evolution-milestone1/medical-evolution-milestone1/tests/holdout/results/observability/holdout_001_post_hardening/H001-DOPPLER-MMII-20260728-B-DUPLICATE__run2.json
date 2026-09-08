@@ -1,0 +1,410 @@
+{
+  "completed_at": "2026-09-08T21:58:59.449179+00:00",
+  "config": {
+    "max_tokens": 16384,
+    "response_format": "json_object",
+    "temperature": 0,
+    "thinking": "disabled"
+  },
+  "error_code": null,
+  "evaluation_result": null,
+  "finish_reason": "stop",
+  "grounding_result": {
+    "accepted_count": 8,
+    "grounded_count": 8,
+    "localization_multiple_count": 0,
+    "localization_unique_count": 8,
+    "localization_unresolved_count": 0,
+    "records": [
+      {
+        "accepted": true,
+        "category": "diagnostic_study",
+        "label": "ECOCOLORDOPPLER VENOSO DO MEMBRO INFERIOR ESQUERDO",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            0,
+            50
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "ECOCOLORDOPPLER VENOSO DO MEMBRO INFERIOR ESQUERDO",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            70,
+            294
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "ECOCOLORDOPPLER VENOSO DO MEMBRO INFERIOR ESQUERDO",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            295,
+            347
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "ECOCOLORDOPPLER VENOSO DO MEMBRO INFERIOR ESQUERDO",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            359,
+            376
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study",
+        "label": "ECOCOLORDOPPLER VENOSO DO MEMBRO INFERIOR DIREITO",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            378,
+            427
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "ECOCOLORDOPPLER VENOSO DO MEMBRO INFERIOR DIREITO",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            447,
+            671
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "ECOCOLORDOPPLER VENOSO DO MEMBRO INFERIOR DIREITO",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            672,
+            724
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "ECOCOLORDOPPLER VENOSO DO MEMBRO INFERIOR DIREITO",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            736,
+            753
+          ]
+        ],
+        "support_status": "GROUNDED"
+      }
+    ],
+    "ungrounded_count": 0
+  },
+  "input_tokens": 4817,
+  "latency_ms": 4082.745525000007,
+  "model": "deepseek-v4-flash",
+  "normalized_batch": {
+    "blood_gases": [],
+    "conflicts": [],
+    "diagnostic_studies": [
+      {
+        "findings": [
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-DOPPLER-MMII-20260728-B-DUPLICATE"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Veias femorais comum, superficial, profunda, poplitea, solareas, gastrocnemias, tibiais anteriores e posteriores e fibulares pérvias, compressíveis, com fluxo fásico à respiração sem evidências trombos novos no seu interior."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-DOPPLER-MMII-20260728-B-DUPLICATE"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Veias safenas parva e magna pérvias e compressíveis."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-DOPPLER-MMII-20260728-B-DUPLICATE"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Sem sinais de TVP"
+          }
+        ],
+        "ordered_at": null,
+        "performed_at": null,
+        "procedure_status": "PERFORMED",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-DOPPLER-MMII-20260728-B-DUPLICATE:diagnostic_study:0-50",
+        "result_status": "FINAL",
+        "resulted_at": null,
+        "scheduled_at": null,
+        "source_refs": [
+          "H001-DOPPLER-MMII-20260728-B-DUPLICATE"
+        ],
+        "study_id": "H001-DOPPLER-MMII-20260728-B-DUPLICATE:diagnostic_study:1",
+        "study_name": "ECOCOLORDOPPLER VENOSO DO MEMBRO INFERIOR ESQUERDO"
+      },
+      {
+        "findings": [
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-DOPPLER-MMII-20260728-B-DUPLICATE"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Veias femorais comum, superficial, profunda, poplitea, solareas, gastrocnemias, tibiais anteriores e posteriores e fibulares pérvias, compressíveis, com fluxo fásico à respiração sem evidências trombos novos no seu interior."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-DOPPLER-MMII-20260728-B-DUPLICATE"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Veias safenas parva e magna pérvias e compressíveis."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-DOPPLER-MMII-20260728-B-DUPLICATE"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Sem sinais de TVP"
+          }
+        ],
+        "ordered_at": null,
+        "performed_at": null,
+        "procedure_status": "PERFORMED",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-DOPPLER-MMII-20260728-B-DUPLICATE:diagnostic_study:378-427",
+        "result_status": "FINAL",
+        "resulted_at": null,
+        "scheduled_at": null,
+        "source_refs": [
+          "H001-DOPPLER-MMII-20260728-B-DUPLICATE"
+        ],
+        "study_id": "H001-DOPPLER-MMII-20260728-B-DUPLICATE:diagnostic_study:2",
+        "study_name": "ECOCOLORDOPPLER VENOSO DO MEMBRO INFERIOR DIREITO"
+      }
+    ],
+    "laboratory_observations": [],
+    "microbiology_serology": [],
+    "source_id": "H001-DOPPLER-MMII-20260728-B-DUPLICATE",
+    "troponins": [],
+    "unmapped": [],
+    "urinalysis": [],
+    "warnings": []
+  },
+  "output_tokens": 804,
+  "parsed_candidate": {
+    "blood_gases": [],
+    "diagnostic_studies": [
+      {
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 50,
+          "char_start": 0,
+          "evidence_text": "ECOCOLORDOPPLER VENOSO DO MEMBRO INFERIOR ESQUERDO",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 50,
+              "start": 0
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "findings": [
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 294,
+              "char_start": 70,
+              "evidence_text": "Veias femorais comum, superficial, profunda, poplitea, solareas, gastrocnemias, tibiais anteriores e posteriores e fibulares pérvias, compressíveis, com fluxo fásico à respiração sem evidências trombos novos no seu interior.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 294,
+                  "start": 70
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Veias femorais comum, superficial, profunda, poplitea, solareas, gastrocnemias, tibiais anteriores e posteriores e fibulares pérvias, compressíveis, com fluxo fásico à respiração sem evidências trombos novos no seu interior."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 347,
+              "char_start": 295,
+              "evidence_text": "Veias safenas parva e magna pérvias e compressíveis.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 347,
+                  "start": 295
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Veias safenas parva e magna pérvias e compressíveis."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 376,
+              "char_start": 359,
+              "evidence_text": "Sem sinais de TVP",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 376,
+                  "start": 359
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Sem sinais de TVP"
+          }
+        ],
+        "procedure_status_hint": "PERFORMED",
+        "raw_name": "ECOCOLORDOPPLER VENOSO DO MEMBRO INFERIOR ESQUERDO",
+        "raw_temporal": null,
+        "result_status_hint": "FINAL",
+        "source_order": 1,
+        "source_ref": "H001-DOPPLER-MMII-20260728-B-DUPLICATE"
+      },
+      {
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 427,
+          "char_start": 378,
+          "evidence_text": "ECOCOLORDOPPLER VENOSO DO MEMBRO INFERIOR DIREITO",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 427,
+              "start": 378
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "findings": [
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 671,
+              "char_start": 447,
+              "evidence_text": "Veias femorais comum, superficial, profunda, poplitea, solareas, gastrocnemias, tibiais anteriores e posteriores e fibulares pérvias, compressíveis, com fluxo fásico à respiração sem evidências trombos novos no seu interior.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 671,
+                  "start": 447
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Veias femorais comum, superficial, profunda, poplitea, solareas, gastrocnemias, tibiais anteriores e posteriores e fibulares pérvias, compressíveis, com fluxo fásico à respiração sem evidências trombos novos no seu interior."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 724,
+              "char_start": 672,
+              "evidence_text": "Veias safenas parva e magna pérvias e compressíveis.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 724,
+                  "start": 672
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Veias safenas parva e magna pérvias e compressíveis."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 753,
+              "char_start": 736,
+              "evidence_text": "Sem sinais de TVP",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 753,
+                  "start": 736
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Sem sinais de TVP"
+          }
+        ],
+        "procedure_status_hint": "PERFORMED",
+        "raw_name": "ECOCOLORDOPPLER VENOSO DO MEMBRO INFERIOR DIREITO",
+        "raw_temporal": null,
+        "result_status_hint": "FINAL",
+        "source_order": 2,
+        "source_ref": "H001-DOPPLER-MMII-20260728-B-DUPLICATE"
+      }
+    ],
+    "extraction_warnings": [],
+    "general_labs": [],
+    "microbiology": [],
+    "source_id": "H001-DOPPLER-MMII-20260728-B-DUPLICATE",
+    "troponins": [],
+    "unmapped": [],
+    "urinalysis": []
+  },
+  "prompt_version": "2.0b-prompt-003",
+  "provider": "DEEPSEEK",
+  "provider_response_content": "{\n  \"source_id\": \"H001-DOPPLER-MMII-20260728-B-DUPLICATE\",\n  \"diagnostic_studies\": [\n    {\n      \"raw_name\": \"ECOCOLORDOPPLER VENOSO DO MEMBRO INFERIOR ESQUERDO\",\n      \"raw_temporal\": null,\n      \"procedure_status_hint\": \"PERFORMED\",\n      \"result_status_hint\": \"FINAL\",\n      \"findings\": [\n        {\n          \"raw_text\": \"Veias femorais comum, superficial, profunda, poplitea, solareas, gastrocnemias, tibiais anteriores e posteriores e fibulares pérvias, compressíveis, com fluxo fásico à respiração sem evidências trombos novos no seu interior.\",\n          \"evidence\": {\n            \"evidence_text\": \"Veias femorais comum, superficial, profunda, poplitea, solareas, gastrocnemias, tibiais anteriores e posteriores e fibulares pérvias, compressíveis, com fluxo fásico à respiração sem evidências trombos novos no seu interior.\"\n          }\n        },\n        {\n          \"raw_text\": \"Veias safenas parva e magna pérvias e compressíveis.\",\n          \"evidence\": {\n            \"evidence_text\": \"Veias safenas parva e magna pérvias e compressíveis.\"\n          }\n        },\n        {\n          \"raw_text\": \"Sem sinais de TVP\",\n          \"evidence\": {\n            \"evidence_text\": \"Sem sinais de TVP\"\n          }\n        }\n      ],\n      \"source_order\": 1,\n      \"evidence\": {\n        \"evidence_text\": \"ECOCOLORDOPPLER VENOSO DO MEMBRO INFERIOR ESQUERDO\"\n      },\n      \"source_ref\": \"H001-DOPPLER-MMII-20260728-B-DUPLICATE\"\n    },\n    {\n      \"raw_name\": \"ECOCOLORDOPPLER VENOSO DO MEMBRO INFERIOR DIREITO\",\n      \"raw_temporal\": null,\n      \"procedure_status_hint\": \"PERFORMED\",\n      \"result_status_hint\": \"FINAL\",\n      \"findings\": [\n        {\n          \"raw_text\": \"Veias femorais comum, superficial, profunda, poplitea, solareas, gastrocnemias, tibiais anteriores e posteriores e fibulares pérvias, compressíveis, com fluxo fásico à respiração sem evidências trombos novos no seu interior.\",\n          \"evidence\": {\n            \"evidence_text\": \"Veias femorais comum, superficial, profunda, poplitea, solareas, gastrocnemias, tibiais anteriores e posteriores e fibulares pérvias, compressíveis, com fluxo fásico à respiração sem evidências trombos novos no seu interior.\"\n          }\n        },\n        {\n          \"raw_text\": \"Veias safenas parva e magna pérvias e compressíveis.\",\n          \"evidence\": {\n            \"evidence_text\": \"Veias safenas parva e magna pérvias e compressíveis.\"\n          }\n        },\n        {\n          \"raw_text\": \"Sem sinais de TVP\",\n          \"evidence\": {\n            \"evidence_text\": \"Sem sinais de TVP\"\n          }\n        }\n      ],\n      \"source_order\": 2,\n      \"evidence\": {\n        \"evidence_text\": \"ECOCOLORDOPPLER VENOSO DO MEMBRO INFERIOR DIREITO\"\n      },\n      \"source_ref\": \"H001-DOPPLER-MMII-20260728-B-DUPLICATE\"\n    }\n  ],\n  \"extraction_warnings\": []\n}",
+  "run_id": "f45331e7-0cbe-4c18-b887-893b5b21b162",
+  "run_index": 2,
+  "schema_validation_status": "OK",
+  "source_id": "H001-DOPPLER-MMII-20260728-B-DUPLICATE",
+  "started_at": "2026-09-08T21:58:55.365968+00:00",
+  "status": "SUCCESS"
+}

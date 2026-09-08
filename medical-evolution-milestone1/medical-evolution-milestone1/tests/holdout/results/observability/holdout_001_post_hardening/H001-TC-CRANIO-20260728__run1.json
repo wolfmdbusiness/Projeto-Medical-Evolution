@@ -1,0 +1,395 @@
+{
+  "completed_at": "2026-09-08T21:57:07.146380+00:00",
+  "config": {
+    "max_tokens": 16384,
+    "response_format": "json_object",
+    "temperature": 0,
+    "thinking": "disabled"
+  },
+  "error_code": null,
+  "evaluation_result": null,
+  "finish_reason": "stop",
+  "grounding_result": {
+    "accepted_count": 8,
+    "grounded_count": 8,
+    "localization_multiple_count": 0,
+    "localization_unique_count": 8,
+    "localization_unresolved_count": 0,
+    "records": [
+      {
+        "accepted": true,
+        "category": "diagnostic_study",
+        "label": "TOMOGRAFIA COMPUTADORIZADA DO CRÂNIO",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            0,
+            36
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "TOMOGRAFIA COMPUTADORIZADA DO CRÂNIO",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            126,
+            203
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "TOMOGRAFIA COMPUTADORIZADA DO CRÂNIO",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            204,
+            350
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "TOMOGRAFIA COMPUTADORIZADA DO CRÂNIO",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            351,
+            387
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "TOMOGRAFIA COMPUTADORIZADA DO CRÂNIO",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            388,
+            464
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "TOMOGRAFIA COMPUTADORIZADA DO CRÂNIO",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            465,
+            514
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "TOMOGRAFIA COMPUTADORIZADA DO CRÂNIO",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            515,
+            567
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "TOMOGRAFIA COMPUTADORIZADA DO CRÂNIO",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            579,
+            654
+          ]
+        ],
+        "support_status": "GROUNDED"
+      }
+    ],
+    "ungrounded_count": 0
+  },
+  "input_tokens": 4757,
+  "latency_ms": 3013.8161909999894,
+  "model": "deepseek-v4-flash",
+  "normalized_batch": {
+    "blood_gases": [],
+    "conflicts": [],
+    "diagnostic_studies": [
+      {
+        "findings": [
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-TC-CRANIO-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "O parênquima cerebral apresenta forma, posição, dimensões e densidade usuais."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-TC-CRANIO-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Sulcos entre os giros corticais, cissuras de Sylvius, sistema ventricular supratentorial e cisternas da base de aspecto usual para a faixa etária."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-TC-CRANIO-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Estruturas da linha média centradas."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-TC-CRANIO-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Não há evidências de lesões focais detectáveis ao método na fossa posterior."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-TC-CRANIO-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "O IV ventrículo é tópico e tem dimensões normais."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-TC-CRANIO-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Estruturas ósseas da calota craniana sem alterações."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-TC-CRANIO-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Tomografia computadorizada crânio-encefálica sem alterações significativas."
+          }
+        ],
+        "ordered_at": null,
+        "performed_at": null,
+        "procedure_status": "PERFORMED",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-TC-CRANIO-20260728:diagnostic_study:0-36",
+        "result_status": "FINAL",
+        "resulted_at": null,
+        "scheduled_at": null,
+        "source_refs": [
+          "H001-TC-CRANIO-20260728"
+        ],
+        "study_id": "H001-TC-CRANIO-20260728:diagnostic_study:1",
+        "study_name": "TOMOGRAFIA COMPUTADORIZADA DO CRÂNIO"
+      }
+    ],
+    "laboratory_observations": [],
+    "microbiology_serology": [],
+    "source_id": "H001-TC-CRANIO-20260728",
+    "troponins": [],
+    "unmapped": [],
+    "urinalysis": [],
+    "warnings": []
+  },
+  "output_tokens": 600,
+  "parsed_candidate": {
+    "blood_gases": [],
+    "diagnostic_studies": [
+      {
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 36,
+          "char_start": 0,
+          "evidence_text": "TOMOGRAFIA COMPUTADORIZADA DO CRÂNIO",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 36,
+              "start": 0
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "findings": [
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 203,
+              "char_start": 126,
+              "evidence_text": "O parênquima cerebral apresenta forma, posição, dimensões e densidade usuais.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 203,
+                  "start": 126
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "O parênquima cerebral apresenta forma, posição, dimensões e densidade usuais."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 350,
+              "char_start": 204,
+              "evidence_text": "Sulcos entre os giros corticais, cissuras de Sylvius, sistema ventricular supratentorial e cisternas da base de aspecto usual para a faixa etária.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 350,
+                  "start": 204
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Sulcos entre os giros corticais, cissuras de Sylvius, sistema ventricular supratentorial e cisternas da base de aspecto usual para a faixa etária."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 387,
+              "char_start": 351,
+              "evidence_text": "Estruturas da linha média centradas.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 387,
+                  "start": 351
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Estruturas da linha média centradas."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 464,
+              "char_start": 388,
+              "evidence_text": "Não há evidências de lesões focais detectáveis ao método na fossa posterior.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 464,
+                  "start": 388
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Não há evidências de lesões focais detectáveis ao método na fossa posterior."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 514,
+              "char_start": 465,
+              "evidence_text": "O IV ventrículo é tópico e tem dimensões normais.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 514,
+                  "start": 465
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "O IV ventrículo é tópico e tem dimensões normais."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 567,
+              "char_start": 515,
+              "evidence_text": "Estruturas ósseas da calota craniana sem alterações.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 567,
+                  "start": 515
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Estruturas ósseas da calota craniana sem alterações."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 654,
+              "char_start": 579,
+              "evidence_text": "Tomografia computadorizada crânio-encefálica sem alterações significativas.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 654,
+                  "start": 579
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Tomografia computadorizada crânio-encefálica sem alterações significativas."
+          }
+        ],
+        "procedure_status_hint": "PERFORMED",
+        "raw_name": "TOMOGRAFIA COMPUTADORIZADA DO CRÂNIO",
+        "raw_temporal": null,
+        "result_status_hint": "FINAL",
+        "source_order": 1,
+        "source_ref": "H001-TC-CRANIO-20260728"
+      }
+    ],
+    "extraction_warnings": [],
+    "general_labs": [],
+    "microbiology": [],
+    "source_id": "H001-TC-CRANIO-20260728",
+    "troponins": [],
+    "unmapped": [],
+    "urinalysis": []
+  },
+  "prompt_version": "2.0b-prompt-003",
+  "provider": "DEEPSEEK",
+  "provider_response_content": "{\n  \"source_id\": \"H001-TC-CRANIO-20260728\",\n  \"diagnostic_studies\": [\n    {\n      \"raw_name\": \"TOMOGRAFIA COMPUTADORIZADA DO CRÂNIO\",\n      \"raw_temporal\": null,\n      \"procedure_status_hint\": \"PERFORMED\",\n      \"result_status_hint\": \"FINAL\",\n      \"findings\": [\n        {\n          \"raw_text\": \"O parênquima cerebral apresenta forma, posição, dimensões e densidade usuais.\",\n          \"evidence\": {\n            \"evidence_text\": \"O parênquima cerebral apresenta forma, posição, dimensões e densidade usuais.\"\n          }\n        },\n        {\n          \"raw_text\": \"Sulcos entre os giros corticais, cissuras de Sylvius, sistema ventricular supratentorial e cisternas da base de aspecto usual para a faixa etária.\",\n          \"evidence\": {\n            \"evidence_text\": \"Sulcos entre os giros corticais, cissuras de Sylvius, sistema ventricular supratentorial e cisternas da base de aspecto usual para a faixa etária.\"\n          }\n        },\n        {\n          \"raw_text\": \"Estruturas da linha média centradas.\",\n          \"evidence\": {\n            \"evidence_text\": \"Estruturas da linha média centradas.\"\n          }\n        },\n        {\n          \"raw_text\": \"Não há evidências de lesões focais detectáveis ao método na fossa posterior.\",\n          \"evidence\": {\n            \"evidence_text\": \"Não há evidências de lesões focais detectáveis ao método na fossa posterior.\"\n          }\n        },\n        {\n          \"raw_text\": \"O IV ventrículo é tópico e tem dimensões normais.\",\n          \"evidence\": {\n            \"evidence_text\": \"O IV ventrículo é tópico e tem dimensões normais.\"\n          }\n        },\n        {\n          \"raw_text\": \"Estruturas ósseas da calota craniana sem alterações.\",\n          \"evidence\": {\n            \"evidence_text\": \"Estruturas ósseas da calota craniana sem alterações.\"\n          }\n        },\n        {\n          \"raw_text\": \"Tomografia computadorizada crânio-encefálica sem alterações significativas.\",\n          \"evidence\": {\n            \"evidence_text\": \"Tomografia computadorizada crânio-encefálica sem alterações significativas.\"\n          }\n        }\n      ],\n      \"source_order\": 1,\n      \"evidence\": {\n        \"evidence_text\": \"TOMOGRAFIA COMPUTADORIZADA DO CRÂNIO\"\n      },\n      \"source_ref\": \"H001-TC-CRANIO-20260728\"\n    }\n  ],\n  \"extraction_warnings\": []\n}",
+  "run_id": "0cc703ea-1050-4a07-b597-4420db78f360",
+  "run_index": 1,
+  "schema_validation_status": "OK",
+  "source_id": "H001-TC-CRANIO-20260728",
+  "started_at": "2026-09-08T21:57:04.132087+00:00",
+  "status": "SUCCESS"
+}

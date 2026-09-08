@@ -1,0 +1,739 @@
+{
+  "completed_at": "2026-09-08T21:57:11.866583+00:00",
+  "config": {
+    "max_tokens": 16384,
+    "response_format": "json_object",
+    "temperature": 0,
+    "thinking": "disabled"
+  },
+  "error_code": null,
+  "evaluation_result": null,
+  "finish_reason": "stop",
+  "grounding_result": {
+    "accepted_count": 16,
+    "grounded_count": 16,
+    "localization_multiple_count": 3,
+    "localization_unique_count": 13,
+    "localization_unresolved_count": 0,
+    "records": [
+      {
+        "accepted": true,
+        "category": "diagnostic_study",
+        "label": "TOMOGRAFIA COMPUTADORIZADA DO ABDOME E PELVE",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            0,
+            44
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "TOMOGRAFIA COMPUTADORIZADA DO ABDOME E PELVE",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            134,
+            202
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "TOMOGRAFIA COMPUTADORIZADA DO ABDOME E PELVE",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            203,
+            273
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "TOMOGRAFIA COMPUTADORIZADA DO ABDOME E PELVE",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            274,
+            327
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "TOMOGRAFIA COMPUTADORIZADA DO ABDOME E PELVE",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            328,
+            404
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "TOMOGRAFIA COMPUTADORIZADA DO ABDOME E PELVE",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            405,
+            456
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "TOMOGRAFIA COMPUTADORIZADA DO ABDOME E PELVE",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            457,
+            529
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "TOMOGRAFIA COMPUTADORIZADA DO ABDOME E PELVE",
+        "localization_status": "MULTIPLE",
+        "spans": [
+          [
+            530,
+            607
+          ],
+          [
+            971,
+            1048
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "TOMOGRAFIA COMPUTADORIZADA DO ABDOME E PELVE",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            608,
+            662
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "TOMOGRAFIA COMPUTADORIZADA DO ABDOME E PELVE",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            663,
+            710
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "TOMOGRAFIA COMPUTADORIZADA DO ABDOME E PELVE",
+        "localization_status": "MULTIPLE",
+        "spans": [
+          [
+            711,
+            757
+          ],
+          [
+            1049,
+            1095
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "TOMOGRAFIA COMPUTADORIZADA DO ABDOME E PELVE",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            758,
+            795
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "TOMOGRAFIA COMPUTADORIZADA DO ABDOME E PELVE",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            796,
+            844
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "TOMOGRAFIA COMPUTADORIZADA DO ABDOME E PELVE",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            845,
+            865
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "TOMOGRAFIA COMPUTADORIZADA DO ABDOME E PELVE",
+        "localization_status": "MULTIPLE",
+        "spans": [
+          [
+            866,
+            900
+          ],
+          [
+            1096,
+            1130
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "TOMOGRAFIA COMPUTADORIZADA DO ABDOME E PELVE",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            901,
+            959
+          ]
+        ],
+        "support_status": "GROUNDED"
+      }
+    ],
+    "ungrounded_count": 0
+  },
+  "input_tokens": 4901,
+  "latency_ms": 4718.6269750000065,
+  "model": "deepseek-v4-flash",
+  "normalized_batch": {
+    "blood_gases": [],
+    "conflicts": [],
+    "diagnostic_studies": [
+      {
+        "findings": [
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-TC-ABDOME-PELVE-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Fígado de dimensões, contorno e coeficientes de atenuação habituais."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-TC-ABDOME-PELVE-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Não há sinais de dilatação das vias biliares intra ou extra-hepáticas."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-TC-ABDOME-PELVE-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Pâncreas com dimensões, contorno e densidade normais."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-TC-ABDOME-PELVE-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Baço de densidade homogênea e dimensões anatômicas. Diminuto baço acessório."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-TC-ABDOME-PELVE-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Adrenais de formas, densidades e dimensões normais."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-TC-ABDOME-PELVE-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Rins de contornos e dimensões normais, sem dilatação do sistema coletor."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-TC-ABDOME-PELVE-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Microcálculo no grupamento caliciano superior do rim direito, não obstrutivo."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-TC-ABDOME-PELVE-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Ausência de imagens compatíveis com linfonodomegalias."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-TC-ABDOME-PELVE-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Apêndice cecal individualizado, sem alterações."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-TC-ABDOME-PELVE-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Leve aumento do conteúdo aerofecal dos cólons."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-TC-ABDOME-PELVE-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Aorta de calibre e contornos normais."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-TC-ABDOME-PELVE-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Bexiga com boa capacidade e contornos regulares."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-TC-ABDOME-PELVE-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Flebolitos pélvicos."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-TC-ABDOME-PELVE-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Dispositivo metálico intrauterino."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-TC-ABDOME-PELVE-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Não há evidências de líquido livre na cavidade peritoneal."
+          }
+        ],
+        "ordered_at": null,
+        "performed_at": null,
+        "procedure_status": "PERFORMED",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-TC-ABDOME-PELVE-20260728:diagnostic_study:0-44",
+        "result_status": "FINAL",
+        "resulted_at": null,
+        "scheduled_at": null,
+        "source_refs": [
+          "H001-TC-ABDOME-PELVE-20260728"
+        ],
+        "study_id": "H001-TC-ABDOME-PELVE-20260728:diagnostic_study:1",
+        "study_name": "TOMOGRAFIA COMPUTADORIZADA DO ABDOME E PELVE"
+      }
+    ],
+    "laboratory_observations": [],
+    "microbiology_serology": [],
+    "source_id": "H001-TC-ABDOME-PELVE-20260728",
+    "troponins": [],
+    "unmapped": [],
+    "urinalysis": [],
+    "warnings": []
+  },
+  "output_tokens": 984,
+  "parsed_candidate": {
+    "blood_gases": [],
+    "diagnostic_studies": [
+      {
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 44,
+          "char_start": 0,
+          "evidence_text": "TOMOGRAFIA COMPUTADORIZADA DO ABDOME E PELVE",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 44,
+              "start": 0
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "findings": [
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 202,
+              "char_start": 134,
+              "evidence_text": "Fígado de dimensões, contorno e coeficientes de atenuação habituais.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 202,
+                  "start": 134
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Fígado de dimensões, contorno e coeficientes de atenuação habituais."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 273,
+              "char_start": 203,
+              "evidence_text": "Não há sinais de dilatação das vias biliares intra ou extra-hepáticas.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 273,
+                  "start": 203
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Não há sinais de dilatação das vias biliares intra ou extra-hepáticas."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 327,
+              "char_start": 274,
+              "evidence_text": "Pâncreas com dimensões, contorno e densidade normais.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 327,
+                  "start": 274
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Pâncreas com dimensões, contorno e densidade normais."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 404,
+              "char_start": 328,
+              "evidence_text": "Baço de densidade homogênea e dimensões anatômicas. Diminuto baço acessório.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 404,
+                  "start": 328
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Baço de densidade homogênea e dimensões anatômicas. Diminuto baço acessório."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 456,
+              "char_start": 405,
+              "evidence_text": "Adrenais de formas, densidades e dimensões normais.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 456,
+                  "start": 405
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Adrenais de formas, densidades e dimensões normais."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 529,
+              "char_start": 457,
+              "evidence_text": "Rins de contornos e dimensões normais, sem dilatação do sistema coletor.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 529,
+                  "start": 457
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Rins de contornos e dimensões normais, sem dilatação do sistema coletor."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 607,
+              "char_start": 530,
+              "evidence_text": "Microcálculo no grupamento caliciano superior do rim direito, não obstrutivo.",
+              "line": null,
+              "localization_status": "MULTIPLE",
+              "matching_spans": [
+                {
+                  "end": 607,
+                  "start": 530
+                },
+                {
+                  "end": 1048,
+                  "start": 971
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Microcálculo no grupamento caliciano superior do rim direito, não obstrutivo."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 662,
+              "char_start": 608,
+              "evidence_text": "Ausência de imagens compatíveis com linfonodomegalias.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 662,
+                  "start": 608
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Ausência de imagens compatíveis com linfonodomegalias."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 710,
+              "char_start": 663,
+              "evidence_text": "Apêndice cecal individualizado, sem alterações.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 710,
+                  "start": 663
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Apêndice cecal individualizado, sem alterações."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 757,
+              "char_start": 711,
+              "evidence_text": "Leve aumento do conteúdo aerofecal dos cólons.",
+              "line": null,
+              "localization_status": "MULTIPLE",
+              "matching_spans": [
+                {
+                  "end": 757,
+                  "start": 711
+                },
+                {
+                  "end": 1095,
+                  "start": 1049
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Leve aumento do conteúdo aerofecal dos cólons."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 795,
+              "char_start": 758,
+              "evidence_text": "Aorta de calibre e contornos normais.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 795,
+                  "start": 758
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Aorta de calibre e contornos normais."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 844,
+              "char_start": 796,
+              "evidence_text": "Bexiga com boa capacidade e contornos regulares.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 844,
+                  "start": 796
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Bexiga com boa capacidade e contornos regulares."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 865,
+              "char_start": 845,
+              "evidence_text": "Flebolitos pélvicos.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 865,
+                  "start": 845
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Flebolitos pélvicos."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 900,
+              "char_start": 866,
+              "evidence_text": "Dispositivo metálico intrauterino.",
+              "line": null,
+              "localization_status": "MULTIPLE",
+              "matching_spans": [
+                {
+                  "end": 900,
+                  "start": 866
+                },
+                {
+                  "end": 1130,
+                  "start": 1096
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Dispositivo metálico intrauterino."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 959,
+              "char_start": 901,
+              "evidence_text": "Não há evidências de líquido livre na cavidade peritoneal.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 959,
+                  "start": 901
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Não há evidências de líquido livre na cavidade peritoneal."
+          }
+        ],
+        "procedure_status_hint": "PERFORMED",
+        "raw_name": "TOMOGRAFIA COMPUTADORIZADA DO ABDOME E PELVE",
+        "raw_temporal": null,
+        "result_status_hint": "FINAL",
+        "source_order": 1,
+        "source_ref": "H001-TC-ABDOME-PELVE-20260728"
+      }
+    ],
+    "extraction_warnings": [],
+    "general_labs": [],
+    "microbiology": [],
+    "source_id": "H001-TC-ABDOME-PELVE-20260728",
+    "troponins": [],
+    "unmapped": [],
+    "urinalysis": []
+  },
+  "prompt_version": "2.0b-prompt-003",
+  "provider": "DEEPSEEK",
+  "provider_response_content": "{\n  \"source_id\": \"H001-TC-ABDOME-PELVE-20260728\",\n  \"diagnostic_studies\": [\n    {\n      \"raw_name\": \"TOMOGRAFIA COMPUTADORIZADA DO ABDOME E PELVE\",\n      \"raw_temporal\": null,\n      \"procedure_status_hint\": \"PERFORMED\",\n      \"result_status_hint\": \"FINAL\",\n      \"findings\": [\n        {\n          \"raw_text\": \"Fígado de dimensões, contorno e coeficientes de atenuação habituais.\",\n          \"evidence\": {\n            \"evidence_text\": \"Fígado de dimensões, contorno e coeficientes de atenuação habituais.\"\n          }\n        },\n        {\n          \"raw_text\": \"Não há sinais de dilatação das vias biliares intra ou extra-hepáticas.\",\n          \"evidence\": {\n            \"evidence_text\": \"Não há sinais de dilatação das vias biliares intra ou extra-hepáticas.\"\n          }\n        },\n        {\n          \"raw_text\": \"Pâncreas com dimensões, contorno e densidade normais.\",\n          \"evidence\": {\n            \"evidence_text\": \"Pâncreas com dimensões, contorno e densidade normais.\"\n          }\n        },\n        {\n          \"raw_text\": \"Baço de densidade homogênea e dimensões anatômicas. Diminuto baço acessório.\",\n          \"evidence\": {\n            \"evidence_text\": \"Baço de densidade homogênea e dimensões anatômicas. Diminuto baço acessório.\"\n          }\n        },\n        {\n          \"raw_text\": \"Adrenais de formas, densidades e dimensões normais.\",\n          \"evidence\": {\n            \"evidence_text\": \"Adrenais de formas, densidades e dimensões normais.\"\n          }\n        },\n        {\n          \"raw_text\": \"Rins de contornos e dimensões normais, sem dilatação do sistema coletor.\",\n          \"evidence\": {\n            \"evidence_text\": \"Rins de contornos e dimensões normais, sem dilatação do sistema coletor.\"\n          }\n        },\n        {\n          \"raw_text\": \"Microcálculo no grupamento caliciano superior do rim direito, não obstrutivo.\",\n          \"evidence\": {\n            \"evidence_text\": \"Microcálculo no grupamento caliciano superior do rim direito, não obstrutivo.\"\n          }\n        },\n        {\n          \"raw_text\": \"Ausência de imagens compatíveis com linfonodomegalias.\",\n          \"evidence\": {\n            \"evidence_text\": \"Ausência de imagens compatíveis com linfonodomegalias.\"\n          }\n        },\n        {\n          \"raw_text\": \"Apêndice cecal individualizado, sem alterações.\",\n          \"evidence\": {\n            \"evidence_text\": \"Apêndice cecal individualizado, sem alterações.\"\n          }\n        },\n        {\n          \"raw_text\": \"Leve aumento do conteúdo aerofecal dos cólons.\",\n          \"evidence\": {\n            \"evidence_text\": \"Leve aumento do conteúdo aerofecal dos cólons.\"\n          }\n        },\n        {\n          \"raw_text\": \"Aorta de calibre e contornos normais.\",\n          \"evidence\": {\n            \"evidence_text\": \"Aorta de calibre e contornos normais.\"\n          }\n        },\n        {\n          \"raw_text\": \"Bexiga com boa capacidade e contornos regulares.\",\n          \"evidence\": {\n            \"evidence_text\": \"Bexiga com boa capacidade e contornos regulares.\"\n          }\n        },\n        {\n          \"raw_text\": \"Flebolitos pélvicos.\",\n          \"evidence\": {\n            \"evidence_text\": \"Flebolitos pélvicos.\"\n          }\n        },\n        {\n          \"raw_text\": \"Dispositivo metálico intrauterino.\",\n          \"evidence\": {\n            \"evidence_text\": \"Dispositivo metálico intrauterino.\"\n          }\n        },\n        {\n          \"raw_text\": \"Não há evidências de líquido livre na cavidade peritoneal.\",\n          \"evidence\": {\n            \"evidence_text\": \"Não há evidências de líquido livre na cavidade peritoneal.\"\n          }\n        }\n      ],\n      \"source_order\": 1,\n      \"evidence\": {\n        \"evidence_text\": \"TOMOGRAFIA COMPUTADORIZADA DO ABDOME E PELVE\"\n      },\n      \"source_ref\": \"H001-TC-ABDOME-PELVE-20260728\"\n    }\n  ],\n  \"extraction_warnings\": []\n}",
+  "run_id": "f55b3d14-9754-4f2f-9c7d-c259998ef864",
+  "run_index": 1,
+  "schema_validation_status": "OK",
+  "source_id": "H001-TC-ABDOME-PELVE-20260728",
+  "started_at": "2026-09-08T21:57:07.147362+00:00",
+  "status": "SUCCESS"
+}

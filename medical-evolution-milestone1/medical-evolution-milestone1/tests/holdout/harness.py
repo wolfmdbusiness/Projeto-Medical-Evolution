@@ -108,6 +108,24 @@ def _normalize_label(label: str) -> str:
     return " ".join(label.strip().upper().split())
 
 
+def _contains_as_whole_word(haystack: str, needle: str) -> bool:
+    """Word-boundary containment, not a bare substring check (Milestone
+    2.0C.1, item 10). A naive `needle in haystack` lets an abbreviation
+    like "TP" match inside an unrelated analyte's own abbreviation --
+    "TP" is a literal substring of "Tempo (TTPa)" ("TTPa" contains "TP"
+    -- this is exactly the false-positive item 10 was written to rule
+    out) even though "TP" (Tempo de Protrombina) and "TTPa" (Tempo de
+    Tromboplastina Parcial Ativada) are two different analytes. Requiring
+    a non-word-character (or string edge) on both sides of the match
+    keeps abbreviations from bleeding into one another while still
+    matching a full word or phrase embedded in a longer name (e.g.
+    "SÓDIO" inside "SÓDIO SÉRICO")."""
+    if not needle:
+        return False
+    pattern = r"(?<!\w)" + re.escape(needle) + r"(?!\w)"
+    return re.search(pattern, haystack, re.UNICODE) is not None
+
+
 def _values_match(actual: Optional[str], expected: str) -> bool:
     if actual is None:
         return False
@@ -168,7 +186,8 @@ def _find_observation(
 
     substring = [
         obs for obs in items
-        if target in _normalize_label(obs.analyte.raw_name) or _normalize_label(obs.analyte.raw_name) in target
+        if _contains_as_whole_word(_normalize_label(obs.analyte.raw_name), target)
+        or _contains_as_whole_word(target, _normalize_label(obs.analyte.raw_name))
     ]
     if substring:
         return substring

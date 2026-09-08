@@ -1,0 +1,138 @@
+{
+  "completed_at": "2026-09-08T21:59:01.380550+00:00",
+  "config": {
+    "max_tokens": 16384,
+    "response_format": "json_object",
+    "temperature": 0,
+    "thinking": "disabled"
+  },
+  "error_code": null,
+  "evaluation_result": null,
+  "finish_reason": "stop",
+  "grounding_result": {
+    "accepted_count": 1,
+    "grounded_count": 1,
+    "localization_multiple_count": 0,
+    "localization_unique_count": 1,
+    "localization_unresolved_count": 0,
+    "records": [
+      {
+        "accepted": true,
+        "category": "diagnostic_study",
+        "label": "HOLTER",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            0,
+            13
+          ]
+        ],
+        "support_status": "GROUNDED"
+      }
+    ],
+    "ungrounded_count": 0
+  },
+  "input_tokens": 4594,
+  "latency_ms": 1930.03501000004,
+  "model": "deepseek-v4-flash",
+  "normalized_batch": {
+    "blood_gases": [],
+    "conflicts": [],
+    "diagnostic_studies": [
+      {
+        "findings": [],
+        "ordered_at": {
+          "normalized": "2026-07-24",
+          "period": "UNSPECIFIED",
+          "precision": "DATE",
+          "raw": "24/07",
+          "validation_status": "NORMALIZED"
+        },
+        "performed_at": null,
+        "procedure_status": "UNKNOWN",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-PENDING-HOLTER-20260724:diagnostic_study:0-13",
+        "result_status": "NOT_AVAILABLE",
+        "resulted_at": null,
+        "scheduled_at": null,
+        "source_refs": [
+          "H001-PENDING-HOLTER-20260724"
+        ],
+        "study_id": "H001-PENDING-HOLTER-20260724:diagnostic_study:1",
+        "study_name": "HOLTER"
+      }
+    ],
+    "laboratory_observations": [],
+    "microbiology_serology": [],
+    "source_id": "H001-PENDING-HOLTER-20260724",
+    "troponins": [],
+    "unmapped": [
+      ">> SOLICITADO (VERIFICAR SE REALIZADO)"
+    ],
+    "urinalysis": [],
+    "warnings": []
+  },
+  "output_tokens": 257,
+  "parsed_candidate": {
+    "blood_gases": [],
+    "diagnostic_studies": [
+      {
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 13,
+          "char_start": 0,
+          "evidence_text": "24/07: HOLTER",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 13,
+              "start": 0
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "findings": [],
+        "procedure_status_hint": "REQUESTED",
+        "raw_name": "HOLTER",
+        "raw_temporal": "24/07",
+        "result_status_hint": null,
+        "source_order": 1,
+        "source_ref": "H001-PENDING-HOLTER-20260724"
+      }
+    ],
+    "extraction_warnings": [],
+    "general_labs": [],
+    "microbiology": [],
+    "source_id": "H001-PENDING-HOLTER-20260724",
+    "troponins": [],
+    "unmapped": [
+      {
+        "evidence": {
+          "bounding_box": null,
+          "char_end": null,
+          "char_start": null,
+          "evidence_text": ">> SOLICITADO (VERIFICAR SE REALIZADO)",
+          "line": null,
+          "localization_status": null,
+          "matching_spans": [],
+          "page": null,
+          "support_status": null
+        },
+        "raw_text": ">> SOLICITADO (VERIFICAR SE REALIZADO)",
+        "source_order": 2,
+        "source_ref": "H001-PENDING-HOLTER-20260724"
+      }
+    ],
+    "urinalysis": []
+  },
+  "prompt_version": "2.0b-prompt-003",
+  "provider": "DEEPSEEK",
+  "provider_response_content": "{\n  \"source_id\": \"H001-PENDING-HOLTER-20260724\",\n  \"general_labs\": [],\n  \"urinalysis\": [],\n  \"blood_gases\": [],\n  \"troponins\": [],\n  \"microbiology\": [],\n  \"diagnostic_studies\": [\n    {\n      \"raw_name\": \"HOLTER\",\n      \"raw_temporal\": \"24/07\",\n      \"procedure_status_hint\": \"REQUESTED\",\n      \"result_status_hint\": null,\n      \"findings\": [],\n      \"source_order\": 1,\n      \"evidence\": {\n        \"evidence_text\": \"24/07: HOLTER\"\n      },\n      \"source_ref\": \"H001-PENDING-HOLTER-20260724\"\n    }\n  ],\n  \"unmapped\": [\n    {\n      \"raw_text\": \">> SOLICITADO (VERIFICAR SE REALIZADO)\",\n      \"evidence\": {\n        \"evidence_text\": \">> SOLICITADO (VERIFICAR SE REALIZADO)\"\n      },\n      \"source_ref\": \"H001-PENDING-HOLTER-20260724\",\n      \"source_order\": 2\n    }\n  ],\n  \"extraction_warnings\": []\n}",
+  "run_id": "28715512-f715-4e41-a326-b188b71f0623",
+  "run_index": 2,
+  "schema_validation_status": "OK",
+  "source_id": "H001-PENDING-HOLTER-20260724",
+  "started_at": "2026-09-08T21:58:59.450168+00:00",
+  "status": "SUCCESS"
+}

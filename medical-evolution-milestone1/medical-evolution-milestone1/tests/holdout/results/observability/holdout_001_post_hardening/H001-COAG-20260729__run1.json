@@ -1,0 +1,328 @@
+{
+  "completed_at": "2026-09-08T21:56:37.600697+00:00",
+  "config": {
+    "max_tokens": 16384,
+    "response_format": "json_object",
+    "temperature": 0,
+    "thinking": "disabled"
+  },
+  "error_code": null,
+  "evaluation_result": null,
+  "finish_reason": "stop",
+  "grounding_result": {
+    "accepted_count": 4,
+    "grounded_count": 4,
+    "localization_multiple_count": 0,
+    "localization_unique_count": 4,
+    "localization_unresolved_count": 0,
+    "records": [
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "Tempo de Atividade de Protrombina",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            178,
+            227
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "RNI",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            244,
+            252
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "Tempo (TTPa)",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            421,
+            448
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "Relação (Paciente/Normal)",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            463,
+            494
+          ]
+        ],
+        "support_status": "GROUNDED"
+      }
+    ],
+    "ungrounded_count": 0
+  },
+  "input_tokens": 4819,
+  "latency_ms": 3411.3925280000217,
+  "model": "deepseek-v4-flash",
+  "normalized_batch": {
+    "blood_gases": [],
+    "conflicts": [],
+    "diagnostic_studies": [],
+    "laboratory_observations": [
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "Tempo de Atividade de Protrombina"
+        },
+        "collection_datetime": "2026-07-29",
+        "differential": [],
+        "observation_id": "H001-COAG-20260729:general_lab:1",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-COAG-20260729:general_lab:178-227",
+        "reference_range": null,
+        "source_order": 1,
+        "source_refs": [
+          "H001-COAG-20260729"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "segundos"
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "12,90",
+          "normalized_numeric_value": 12.9,
+          "operator": null,
+          "raw_value": "12,90"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": "INR",
+          "display_name": "INR",
+          "raw_name": "RNI"
+        },
+        "collection_datetime": "2026-07-29",
+        "differential": [],
+        "observation_id": "H001-COAG-20260729:general_lab:2",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-COAG-20260729:general_lab:244-252",
+        "reference_range": null,
+        "source_order": 2,
+        "source_refs": [
+          "H001-COAG-20260729"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": null
+        },
+        "validation_status": "CONFIRMED",
+        "value": {
+          "display_value": "1,00",
+          "normalized_numeric_value": 1.0,
+          "operator": null,
+          "raw_value": "1,00"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "Tempo (TTPa)"
+        },
+        "collection_datetime": "2026-07-29",
+        "differential": [],
+        "observation_id": "H001-COAG-20260729:general_lab:3",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-COAG-20260729:general_lab:421-448",
+        "reference_range": null,
+        "source_order": 3,
+        "source_refs": [
+          "H001-COAG-20260729"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "segundos"
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "37,5",
+          "normalized_numeric_value": 37.5,
+          "operator": null,
+          "raw_value": "37,5"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "Relação (Paciente/Normal)"
+        },
+        "collection_datetime": "2026-07-29",
+        "differential": [],
+        "observation_id": "H001-COAG-20260729:general_lab:4",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-COAG-20260729:general_lab:463-494",
+        "reference_range": null,
+        "source_order": 4,
+        "source_refs": [
+          "H001-COAG-20260729"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": null
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "1,12",
+          "normalized_numeric_value": 1.12,
+          "operator": null,
+          "raw_value": "1,12"
+        }
+      }
+    ],
+    "microbiology_serology": [],
+    "source_id": "H001-COAG-20260729",
+    "troponins": [],
+    "unmapped": [],
+    "urinalysis": [],
+    "warnings": []
+  },
+  "output_tokens": 562,
+  "parsed_candidate": {
+    "blood_gases": [],
+    "diagnostic_studies": [],
+    "extraction_warnings": [],
+    "general_labs": [
+      {
+        "canonical_hint": "TAP",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 227,
+          "char_start": 178,
+          "evidence_text": "Tempo de Atividade de Protrombina: 12,90 segundos",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 227,
+              "start": 178
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "Tempo de Atividade de Protrombina",
+        "raw_reference_range": null,
+        "raw_temporal": "29/07/2026",
+        "raw_unit": "segundos",
+        "raw_value": "12,90",
+        "source_order": 1,
+        "source_ref": "H001-COAG-20260729"
+      },
+      {
+        "canonical_hint": "INR",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 252,
+          "char_start": 244,
+          "evidence_text": "RNI 1,00",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 252,
+              "start": 244
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "RNI",
+        "raw_reference_range": null,
+        "raw_temporal": "29/07/2026",
+        "raw_unit": null,
+        "raw_value": "1,00",
+        "source_order": 2,
+        "source_ref": "H001-COAG-20260729"
+      },
+      {
+        "canonical_hint": "TTPA",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 448,
+          "char_start": 421,
+          "evidence_text": "Tempo (TTPa): 37,5 segundos",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 448,
+              "start": 421
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "Tempo (TTPa)",
+        "raw_reference_range": null,
+        "raw_temporal": "29/07/2026",
+        "raw_unit": "segundos",
+        "raw_value": "37,5",
+        "source_order": 3,
+        "source_ref": "H001-COAG-20260729"
+      },
+      {
+        "canonical_hint": "Relação TTPA",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 494,
+          "char_start": 463,
+          "evidence_text": "Relação (Paciente/Normal): 1,12",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 494,
+              "start": 463
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "Relação (Paciente/Normal)",
+        "raw_reference_range": null,
+        "raw_temporal": "29/07/2026",
+        "raw_unit": null,
+        "raw_value": "1,12",
+        "source_order": 4,
+        "source_ref": "H001-COAG-20260729"
+      }
+    ],
+    "microbiology": [],
+    "source_id": "H001-COAG-20260729",
+    "troponins": [],
+    "unmapped": [],
+    "urinalysis": []
+  },
+  "prompt_version": "2.0b-prompt-003",
+  "provider": "DEEPSEEK",
+  "provider_response_content": "{\n  \"source_id\": \"H001-COAG-20260729\",\n  \"general_labs\": [\n    {\n      \"raw_name\": \"Tempo de Atividade de Protrombina\",\n      \"raw_value\": \"12,90\",\n      \"raw_unit\": \"segundos\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"29/07/2026\",\n      \"source_order\": 1,\n      \"evidence\": {\n        \"evidence_text\": \"Tempo de Atividade de Protrombina: 12,90 segundos\"\n      },\n      \"source_ref\": \"H001-COAG-20260729\",\n      \"canonical_hint\": \"TAP\"\n    },\n    {\n      \"raw_name\": \"RNI\",\n      \"raw_value\": \"1,00\",\n      \"raw_unit\": null,\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"29/07/2026\",\n      \"source_order\": 2,\n      \"evidence\": {\n        \"evidence_text\": \"RNI 1,00\"\n      },\n      \"source_ref\": \"H001-COAG-20260729\",\n      \"canonical_hint\": \"INR\"\n    },\n    {\n      \"raw_name\": \"Tempo (TTPa)\",\n      \"raw_value\": \"37,5\",\n      \"raw_unit\": \"segundos\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"29/07/2026\",\n      \"source_order\": 3,\n      \"evidence\": {\n        \"evidence_text\": \"Tempo (TTPa): 37,5 segundos\"\n      },\n      \"source_ref\": \"H001-COAG-20260729\",\n      \"canonical_hint\": \"TTPA\"\n    },\n    {\n      \"raw_name\": \"Relação (Paciente/Normal)\",\n      \"raw_value\": \"1,12\",\n      \"raw_unit\": null,\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"29/07/2026\",\n      \"source_order\": 4,\n      \"evidence\": {\n        \"evidence_text\": \"Relação (Paciente/Normal): 1,12\"\n      },\n      \"source_ref\": \"H001-COAG-20260729\",\n      \"canonical_hint\": \"Relação TTPA\"\n    }\n  ],\n  \"urinalysis\": [],\n  \"blood_gases\": [],\n  \"troponins\": [],\n  \"microbiology\": [],\n  \"diagnostic_studies\": [],\n  \"unmapped\": [],\n  \"extraction_warnings\": []\n}",
+  "run_id": "3f50bf5c-44ac-4b3c-a25c-3579885bf736",
+  "run_index": 1,
+  "schema_validation_status": "OK",
+  "source_id": "H001-COAG-20260729",
+  "started_at": "2026-09-08T21:56:34.188657+00:00",
+  "status": "SUCCESS"
+}

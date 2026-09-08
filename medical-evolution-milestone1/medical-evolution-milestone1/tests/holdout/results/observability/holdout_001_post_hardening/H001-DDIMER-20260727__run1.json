@@ -1,0 +1,131 @@
+{
+  "completed_at": "2026-09-08T21:55:51.611156+00:00",
+  "config": {
+    "max_tokens": 16384,
+    "response_format": "json_object",
+    "temperature": 0,
+    "thinking": "disabled"
+  },
+  "error_code": null,
+  "evaluation_result": null,
+  "finish_reason": "stop",
+  "grounding_result": {
+    "accepted_count": 1,
+    "grounded_count": 1,
+    "localization_multiple_count": 0,
+    "localization_unique_count": 1,
+    "localization_unresolved_count": 0,
+    "records": [
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "DÍMERO D",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            137,
+            155
+          ]
+        ],
+        "support_status": "GROUNDED"
+      }
+    ],
+    "ungrounded_count": 0
+  },
+  "input_tokens": 4684,
+  "latency_ms": 1916.5214310000351,
+  "model": "deepseek-v4-flash",
+  "normalized_batch": {
+    "blood_gases": [],
+    "conflicts": [],
+    "diagnostic_studies": [],
+    "laboratory_observations": [
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "DÍMERO D"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-DDIMER-20260727:general_lab:1",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-DDIMER-20260727:general_lab:137-155",
+        "reference_range": {
+          "lower": null,
+          "reference_raw": "Inferior a 0,5 mg/L",
+          "upper": null
+        },
+        "source_order": 1,
+        "source_refs": [
+          "H001-DDIMER-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "mg/L"
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "0,3",
+          "normalized_numeric_value": 0.3,
+          "operator": null,
+          "raw_value": "0,3"
+        }
+      }
+    ],
+    "microbiology_serology": [],
+    "source_id": "H001-DDIMER-20260727",
+    "troponins": [],
+    "unmapped": [],
+    "urinalysis": [],
+    "warnings": []
+  },
+  "output_tokens": 166,
+  "parsed_candidate": {
+    "blood_gases": [],
+    "diagnostic_studies": [],
+    "extraction_warnings": [],
+    "general_labs": [
+      {
+        "canonical_hint": "D-DIMER",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 155,
+          "char_start": 137,
+          "evidence_text": "RESULTADO 0,3 mg/L",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 155,
+              "start": 137
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "DÍMERO D",
+        "raw_reference_range": "Inferior a 0,5 mg/L",
+        "raw_temporal": "27/07/2026",
+        "raw_unit": "mg/L",
+        "raw_value": "0,3",
+        "source_order": 1,
+        "source_ref": "H001-DDIMER-20260727"
+      }
+    ],
+    "microbiology": [],
+    "source_id": "H001-DDIMER-20260727",
+    "troponins": [],
+    "unmapped": [],
+    "urinalysis": []
+  },
+  "prompt_version": "2.0b-prompt-003",
+  "provider": "DEEPSEEK",
+  "provider_response_content": "{\n  \"source_id\": \"H001-DDIMER-20260727\",\n  \"general_labs\": [\n    {\n      \"raw_name\": \"DÍMERO D\",\n      \"raw_value\": \"0,3\",\n      \"raw_unit\": \"mg/L\",\n      \"raw_reference_range\": \"Inferior a 0,5 mg/L\",\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 1,\n      \"evidence\": {\n        \"evidence_text\": \"RESULTADO 0,3 mg/L\"\n      },\n      \"source_ref\": \"H001-DDIMER-20260727\",\n      \"canonical_hint\": \"D-DIMER\"\n    }\n  ],\n  \"extraction_warnings\": []\n}",
+  "run_id": "9e46025c-5878-4605-b484-23c7c5a4115b",
+  "run_index": 1,
+  "schema_validation_status": "OK",
+  "source_id": "H001-DDIMER-20260727",
+  "started_at": "2026-09-08T21:55:49.694233+00:00",
+  "status": "SUCCESS"
+}

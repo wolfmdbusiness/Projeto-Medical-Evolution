@@ -184,6 +184,28 @@ def test_unique_value_fallback_never_guesses_when_ambiguous():
     assert score.missing_current == ["TP=12,90"]
 
 
+def test_tp_does_not_collide_with_ttpa_via_naive_substring():
+    # Found by the live HOLDOUT-001 post-hardening regression: "TP" is a
+    # literal character substring of "Tempo (TTPa)" (the "TTPa" token
+    # itself contains "TP"), so a naive `"TP" in raw_name_upper` check
+    # wrongly matched Tempo de Tromboplastina Parcial Ativada -- a
+    # completely different analyte from Tempo de Protrombina. Word-
+    # boundary matching (`_contains_as_whole_word`) must reject this, so
+    # the unique-value fallback (which correctly identifies the real TP
+    # observation) gets a chance to run instead.
+    candidate = ExamExtractionCandidate(source_id="SRC-1", general_labs=[
+        _cand("Tempo de Atividade de Protrombina", "12,70", "Tempo de Atividade de Protrombina: 12,70 segundos"),
+        _cand("Tempo (TTPa)", "39,1", "Tempo (TTPa): 39,1 segundos"),
+    ])
+    batch = NormalizedExamBatch(source_id="SRC-1", laboratory_observations=[
+        _obs("Tempo de Atividade de Protrombina", "12,70"),
+        _obs("Tempo (TTPa)", "39,1"),
+    ])
+    score = score_source("SRC-1", candidate, batch, {"must_capture_current_values": [["TP", "12,70"]]})
+    assert score.captured_current == 1
+    assert score.missing_current == []
+
+
 def test_canonical_id_based_match_takes_priority_over_raw_name_spelling():
     # "RNI" is an existing, unmodified production alias for canonical id
     # "INR" (exam_normalization/aliases.py) -- matching through

@@ -1,0 +1,1155 @@
+{
+  "completed_at": "2026-09-08T21:56:59.941571+00:00",
+  "config": {
+    "max_tokens": 16384,
+    "response_format": "json_object",
+    "temperature": 0,
+    "thinking": "disabled"
+  },
+  "error_code": null,
+  "evaluation_result": null,
+  "finish_reason": "stop",
+  "grounding_result": {
+    "accepted_count": 27,
+    "grounded_count": 27,
+    "localization_multiple_count": 0,
+    "localization_unique_count": 27,
+    "localization_unresolved_count": 0,
+    "records": [
+      {
+        "accepted": true,
+        "category": "diagnostic_study",
+        "label": "ECOCARDIOGRAMA BIDIMENSIONAL COM DOPPLER",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            0,
+            40
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "ECOCARDIOGRAMA BIDIMENSIONAL COM DOPPLER",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            60,
+            74
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "ECOCARDIOGRAMA BIDIMENSIONAL COM DOPPLER",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            75,
+            98
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "ECOCARDIOGRAMA BIDIMENSIONAL COM DOPPLER",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            99,
+            126
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "ECOCARDIOGRAMA BIDIMENSIONAL COM DOPPLER",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            127,
+            157
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "ECOCARDIOGRAMA BIDIMENSIONAL COM DOPPLER",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            158,
+            182
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "ECOCARDIOGRAMA BIDIMENSIONAL COM DOPPLER",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            183,
+            214
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "ECOCARDIOGRAMA BIDIMENSIONAL COM DOPPLER",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            215,
+            245
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "ECOCARDIOGRAMA BIDIMENSIONAL COM DOPPLER",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            246,
+            282
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "ECOCARDIOGRAMA BIDIMENSIONAL COM DOPPLER",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            283,
+            318
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "ECOCARDIOGRAMA BIDIMENSIONAL COM DOPPLER",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            319,
+            350
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "ECOCARDIOGRAMA BIDIMENSIONAL COM DOPPLER",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            351,
+            376
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "ECOCARDIOGRAMA BIDIMENSIONAL COM DOPPLER",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            377,
+            394
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "ECOCARDIOGRAMA BIDIMENSIONAL COM DOPPLER",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            395,
+            420
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "ECOCARDIOGRAMA BIDIMENSIONAL COM DOPPLER",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            454,
+            550
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "ECOCARDIOGRAMA BIDIMENSIONAL COM DOPPLER",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            551,
+            599
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "ECOCARDIOGRAMA BIDIMENSIONAL COM DOPPLER",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            600,
+            655
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "ECOCARDIOGRAMA BIDIMENSIONAL COM DOPPLER",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            656,
+            709
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "ECOCARDIOGRAMA BIDIMENSIONAL COM DOPPLER",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            710,
+            744
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "ECOCARDIOGRAMA BIDIMENSIONAL COM DOPPLER",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            745,
+            822
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "ECOCARDIOGRAMA BIDIMENSIONAL COM DOPPLER",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            823,
+            901
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "ECOCARDIOGRAMA BIDIMENSIONAL COM DOPPLER",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            902,
+            983
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "ECOCARDIOGRAMA BIDIMENSIONAL COM DOPPLER",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            984,
+            1063
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "ECOCARDIOGRAMA BIDIMENSIONAL COM DOPPLER",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            1064,
+            1141
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "ECOCARDIOGRAMA BIDIMENSIONAL COM DOPPLER",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            1142,
+            1212
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "ECOCARDIOGRAMA BIDIMENSIONAL COM DOPPLER",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            1213,
+            1280
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "diagnostic_study_finding",
+        "label": "ECOCARDIOGRAMA BIDIMENSIONAL COM DOPPLER",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            1310,
+            1339
+          ]
+        ],
+        "support_status": "GROUNDED"
+      }
+    ],
+    "ungrounded_count": 0
+  },
+  "input_tokens": 5012,
+  "latency_ms": 6437.769063999951,
+  "model": "deepseek-v4-flash",
+  "normalized_batch": {
+    "blood_gases": [],
+    "conflicts": [],
+    "diagnostic_studies": [
+      {
+        "findings": [
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-ECHO-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Aorta: 26.00mm"
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-ECHO-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Átrio Esquerdo: 26.00mm"
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-ECHO-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Ventrículo Direito: 25.00mm"
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-ECHO-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Septo Interventricular: 7.00mm"
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-ECHO-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Parede Posterior: 7.00mm"
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-ECHO-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "VE Diâmetro Diastólico: 41.00mm"
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-ECHO-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "VE Diâmetro Sistólico: 26.00mm"
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-ECHO-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "VE Volume Diastólico Final: 74.22 ml"
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-ECHO-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "VE Volume Sistólico Final: 24.61 ml"
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-ECHO-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Fração de Encurtamento: 36.59 %"
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-ECHO-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Fração de Ejeção: 66.85 %"
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-ECHO-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Massa VE: 81.09 g"
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-ECHO-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Índ. Massa VE: 48.20 g/m2"
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-ECHO-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Ventrículo esquerdo apresenta função sistólica conservada, sem alteração da contração segmentar."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-ECHO-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Função diastólica do ventrículo esquerdo normal."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-ECHO-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Átrio esquerdo com dimensão normal e volume preservado."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-ECHO-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Ventrículo direito apresenta função sistólica normal."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-ECHO-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Átrio direito com dimensão normal."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-ECHO-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "MITRAL: sem alterações anatômicas apresenta abertura conservada, sem refluxo."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-ECHO-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "AÓRTICA: sem alterações anatômicas apresenta abertura conservada, sem refluxo."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-ECHO-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "TRICÚSPIDE: sem alterações anatômicas apresenta abertura conservada, sem refluxo."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-ECHO-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "PULMONAR: sem alterações anatômicas apresenta abertura conservada, sem refluxo."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-ECHO-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Raiz da aorta, aorta ascendente e arco aórtico com diâmetros e fluxo normais."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-ECHO-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Pericárdio com aspecto ecocardiográfico normal, sem sinais de derrame."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-ECHO-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Veia cava inferior com calibre normal e colapsabilidade preservada."
+          },
+          {
+            "clinical_state": "PRESENT",
+            "source_refs": [
+              "H001-ECHO-20260728"
+            ],
+            "validation_status": "CONFIRMED",
+            "value": "Ecodopplercardiograma normal."
+          }
+        ],
+        "ordered_at": null,
+        "performed_at": null,
+        "procedure_status": "PERFORMED",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-ECHO-20260728:diagnostic_study:0-40",
+        "result_status": "FINAL",
+        "resulted_at": null,
+        "scheduled_at": null,
+        "source_refs": [
+          "H001-ECHO-20260728"
+        ],
+        "study_id": "H001-ECHO-20260728:diagnostic_study:1",
+        "study_name": "ECOCARDIOGRAMA BIDIMENSIONAL COM DOPPLER"
+      }
+    ],
+    "laboratory_observations": [],
+    "microbiology_serology": [],
+    "source_id": "H001-ECHO-20260728",
+    "troponins": [],
+    "unmapped": [],
+    "urinalysis": [],
+    "warnings": []
+  },
+  "output_tokens": 1543,
+  "parsed_candidate": {
+    "blood_gases": [],
+    "diagnostic_studies": [
+      {
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 40,
+          "char_start": 0,
+          "evidence_text": "ECOCARDIOGRAMA BIDIMENSIONAL COM DOPPLER",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 40,
+              "start": 0
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "findings": [
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 74,
+              "char_start": 60,
+              "evidence_text": "Aorta: 26.00mm",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 74,
+                  "start": 60
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Aorta: 26.00mm"
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 98,
+              "char_start": 75,
+              "evidence_text": "Átrio Esquerdo: 26.00mm",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 98,
+                  "start": 75
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Átrio Esquerdo: 26.00mm"
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 126,
+              "char_start": 99,
+              "evidence_text": "Ventrículo Direito: 25.00mm",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 126,
+                  "start": 99
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Ventrículo Direito: 25.00mm"
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 157,
+              "char_start": 127,
+              "evidence_text": "Septo Interventricular: 7.00mm",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 157,
+                  "start": 127
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Septo Interventricular: 7.00mm"
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 182,
+              "char_start": 158,
+              "evidence_text": "Parede Posterior: 7.00mm",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 182,
+                  "start": 158
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Parede Posterior: 7.00mm"
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 214,
+              "char_start": 183,
+              "evidence_text": "VE Diâmetro Diastólico: 41.00mm",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 214,
+                  "start": 183
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "VE Diâmetro Diastólico: 41.00mm"
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 245,
+              "char_start": 215,
+              "evidence_text": "VE Diâmetro Sistólico: 26.00mm",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 245,
+                  "start": 215
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "VE Diâmetro Sistólico: 26.00mm"
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 282,
+              "char_start": 246,
+              "evidence_text": "VE Volume Diastólico Final: 74.22 ml",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 282,
+                  "start": 246
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "VE Volume Diastólico Final: 74.22 ml"
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 318,
+              "char_start": 283,
+              "evidence_text": "VE Volume Sistólico Final: 24.61 ml",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 318,
+                  "start": 283
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "VE Volume Sistólico Final: 24.61 ml"
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 350,
+              "char_start": 319,
+              "evidence_text": "Fração de Encurtamento: 36.59 %",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 350,
+                  "start": 319
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Fração de Encurtamento: 36.59 %"
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 376,
+              "char_start": 351,
+              "evidence_text": "Fração de Ejeção: 66.85 %",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 376,
+                  "start": 351
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Fração de Ejeção: 66.85 %"
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 394,
+              "char_start": 377,
+              "evidence_text": "Massa VE: 81.09 g",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 394,
+                  "start": 377
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Massa VE: 81.09 g"
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 420,
+              "char_start": 395,
+              "evidence_text": "Índ. Massa VE: 48.20 g/m2",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 420,
+                  "start": 395
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Índ. Massa VE: 48.20 g/m2"
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 550,
+              "char_start": 454,
+              "evidence_text": "Ventrículo esquerdo apresenta função sistólica conservada, sem alteração da contração segmentar.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 550,
+                  "start": 454
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Ventrículo esquerdo apresenta função sistólica conservada, sem alteração da contração segmentar."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 599,
+              "char_start": 551,
+              "evidence_text": "Função diastólica do ventrículo esquerdo normal.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 599,
+                  "start": 551
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Função diastólica do ventrículo esquerdo normal."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 655,
+              "char_start": 600,
+              "evidence_text": "Átrio esquerdo com dimensão normal e volume preservado.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 655,
+                  "start": 600
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Átrio esquerdo com dimensão normal e volume preservado."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 709,
+              "char_start": 656,
+              "evidence_text": "Ventrículo direito apresenta função sistólica normal.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 709,
+                  "start": 656
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Ventrículo direito apresenta função sistólica normal."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 744,
+              "char_start": 710,
+              "evidence_text": "Átrio direito com dimensão normal.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 744,
+                  "start": 710
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Átrio direito com dimensão normal."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 822,
+              "char_start": 745,
+              "evidence_text": "MITRAL: sem alterações anatômicas apresenta abertura conservada, sem refluxo.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 822,
+                  "start": 745
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "MITRAL: sem alterações anatômicas apresenta abertura conservada, sem refluxo."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 901,
+              "char_start": 823,
+              "evidence_text": "AÓRTICA: sem alterações anatômicas apresenta abertura conservada, sem refluxo.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 901,
+                  "start": 823
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "AÓRTICA: sem alterações anatômicas apresenta abertura conservada, sem refluxo."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 983,
+              "char_start": 902,
+              "evidence_text": "TRICÚSPIDE: sem alterações anatômicas apresenta abertura conservada, sem refluxo.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 983,
+                  "start": 902
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "TRICÚSPIDE: sem alterações anatômicas apresenta abertura conservada, sem refluxo."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 1063,
+              "char_start": 984,
+              "evidence_text": "PULMONAR: sem alterações anatômicas apresenta abertura conservada, sem refluxo.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 1063,
+                  "start": 984
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "PULMONAR: sem alterações anatômicas apresenta abertura conservada, sem refluxo."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 1141,
+              "char_start": 1064,
+              "evidence_text": "Raiz da aorta, aorta ascendente e arco aórtico com diâmetros e fluxo normais.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 1141,
+                  "start": 1064
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Raiz da aorta, aorta ascendente e arco aórtico com diâmetros e fluxo normais."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 1212,
+              "char_start": 1142,
+              "evidence_text": "Pericárdio com aspecto ecocardiográfico normal, sem sinais de derrame.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 1212,
+                  "start": 1142
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Pericárdio com aspecto ecocardiográfico normal, sem sinais de derrame."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 1280,
+              "char_start": 1213,
+              "evidence_text": "Veia cava inferior com calibre normal e colapsabilidade preservada.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 1280,
+                  "start": 1213
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Veia cava inferior com calibre normal e colapsabilidade preservada."
+          },
+          {
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 1339,
+              "char_start": 1310,
+              "evidence_text": "Ecodopplercardiograma normal.",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 1339,
+                  "start": 1310
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_text": "Ecodopplercardiograma normal."
+          }
+        ],
+        "procedure_status_hint": "PERFORMED",
+        "raw_name": "ECOCARDIOGRAMA BIDIMENSIONAL COM DOPPLER",
+        "raw_temporal": null,
+        "result_status_hint": "FINAL",
+        "source_order": 1,
+        "source_ref": "H001-ECHO-20260728"
+      }
+    ],
+    "extraction_warnings": [],
+    "general_labs": [],
+    "microbiology": [],
+    "source_id": "H001-ECHO-20260728",
+    "troponins": [],
+    "unmapped": [],
+    "urinalysis": []
+  },
+  "prompt_version": "2.0b-prompt-003",
+  "provider": "DEEPSEEK",
+  "provider_response_content": "{\n  \"source_id\": \"H001-ECHO-20260728\",\n  \"diagnostic_studies\": [\n    {\n      \"raw_name\": \"ECOCARDIOGRAMA BIDIMENSIONAL COM DOPPLER\",\n      \"raw_temporal\": null,\n      \"procedure_status_hint\": \"PERFORMED\",\n      \"result_status_hint\": \"FINAL\",\n      \"findings\": [\n        {\n          \"raw_text\": \"Aorta: 26.00mm\",\n          \"evidence\": {\n            \"evidence_text\": \"Aorta: 26.00mm\"\n          }\n        },\n        {\n          \"raw_text\": \"Átrio Esquerdo: 26.00mm\",\n          \"evidence\": {\n            \"evidence_text\": \"Átrio Esquerdo: 26.00mm\"\n          }\n        },\n        {\n          \"raw_text\": \"Ventrículo Direito: 25.00mm\",\n          \"evidence\": {\n            \"evidence_text\": \"Ventrículo Direito: 25.00mm\"\n          }\n        },\n        {\n          \"raw_text\": \"Septo Interventricular: 7.00mm\",\n          \"evidence\": {\n            \"evidence_text\": \"Septo Interventricular: 7.00mm\"\n          }\n        },\n        {\n          \"raw_text\": \"Parede Posterior: 7.00mm\",\n          \"evidence\": {\n            \"evidence_text\": \"Parede Posterior: 7.00mm\"\n          }\n        },\n        {\n          \"raw_text\": \"VE Diâmetro Diastólico: 41.00mm\",\n          \"evidence\": {\n            \"evidence_text\": \"VE Diâmetro Diastólico: 41.00mm\"\n          }\n        },\n        {\n          \"raw_text\": \"VE Diâmetro Sistólico: 26.00mm\",\n          \"evidence\": {\n            \"evidence_text\": \"VE Diâmetro Sistólico: 26.00mm\"\n          }\n        },\n        {\n          \"raw_text\": \"VE Volume Diastólico Final: 74.22 ml\",\n          \"evidence\": {\n            \"evidence_text\": \"VE Volume Diastólico Final: 74.22 ml\"\n          }\n        },\n        {\n          \"raw_text\": \"VE Volume Sistólico Final: 24.61 ml\",\n          \"evidence\": {\n            \"evidence_text\": \"VE Volume Sistólico Final: 24.61 ml\"\n          }\n        },\n        {\n          \"raw_text\": \"Fração de Encurtamento: 36.59 %\",\n          \"evidence\": {\n            \"evidence_text\": \"Fração de Encurtamento: 36.59 %\"\n          }\n        },\n        {\n          \"raw_text\": \"Fração de Ejeção: 66.85 %\",\n          \"evidence\": {\n            \"evidence_text\": \"Fração de Ejeção: 66.85 %\"\n          }\n        },\n        {\n          \"raw_text\": \"Massa VE: 81.09 g\",\n          \"evidence\": {\n            \"evidence_text\": \"Massa VE: 81.09 g\"\n          }\n        },\n        {\n          \"raw_text\": \"Índ. Massa VE: 48.20 g/m2\",\n          \"evidence\": {\n            \"evidence_text\": \"Índ. Massa VE: 48.20 g/m2\"\n          }\n        },\n        {\n          \"raw_text\": \"Ventrículo esquerdo apresenta função sistólica conservada, sem alteração da contração segmentar.\",\n          \"evidence\": {\n            \"evidence_text\": \"Ventrículo esquerdo apresenta função sistólica conservada, sem alteração da contração segmentar.\"\n          }\n        },\n        {\n          \"raw_text\": \"Função diastólica do ventrículo esquerdo normal.\",\n          \"evidence\": {\n            \"evidence_text\": \"Função diastólica do ventrículo esquerdo normal.\"\n          }\n        },\n        {\n          \"raw_text\": \"Átrio esquerdo com dimensão normal e volume preservado.\",\n          \"evidence\": {\n            \"evidence_text\": \"Átrio esquerdo com dimensão normal e volume preservado.\"\n          }\n        },\n        {\n          \"raw_text\": \"Ventrículo direito apresenta função sistólica normal.\",\n          \"evidence\": {\n            \"evidence_text\": \"Ventrículo direito apresenta função sistólica normal.\"\n          }\n        },\n        {\n          \"raw_text\": \"Átrio direito com dimensão normal.\",\n          \"evidence\": {\n            \"evidence_text\": \"Átrio direito com dimensão normal.\"\n          }\n        },\n        {\n          \"raw_text\": \"MITRAL: sem alterações anatômicas apresenta abertura conservada, sem refluxo.\",\n          \"evidence\": {\n            \"evidence_text\": \"MITRAL: sem alterações anatômicas apresenta abertura conservada, sem refluxo.\"\n          }\n        },\n        {\n          \"raw_text\": \"AÓRTICA: sem alterações anatômicas apresenta abertura conservada, sem refluxo.\",\n          \"evidence\": {\n            \"evidence_text\": \"AÓRTICA: sem alterações anatômicas apresenta abertura conservada, sem refluxo.\"\n          }\n        },\n        {\n          \"raw_text\": \"TRICÚSPIDE: sem alterações anatômicas apresenta abertura conservada, sem refluxo.\",\n          \"evidence\": {\n            \"evidence_text\": \"TRICÚSPIDE: sem alterações anatômicas apresenta abertura conservada, sem refluxo.\"\n          }\n        },\n        {\n          \"raw_text\": \"PULMONAR: sem alterações anatômicas apresenta abertura conservada, sem refluxo.\",\n          \"evidence\": {\n            \"evidence_text\": \"PULMONAR: sem alterações anatômicas apresenta abertura conservada, sem refluxo.\"\n          }\n        },\n        {\n          \"raw_text\": \"Raiz da aorta, aorta ascendente e arco aórtico com diâmetros e fluxo normais.\",\n          \"evidence\": {\n            \"evidence_text\": \"Raiz da aorta, aorta ascendente e arco aórtico com diâmetros e fluxo normais.\"\n          }\n        },\n        {\n          \"raw_text\": \"Pericárdio com aspecto ecocardiográfico normal, sem sinais de derrame.\",\n          \"evidence\": {\n            \"evidence_text\": \"Pericárdio com aspecto ecocardiográfico normal, sem sinais de derrame.\"\n          }\n        },\n        {\n          \"raw_text\": \"Veia cava inferior com calibre normal e colapsabilidade preservada.\",\n          \"evidence\": {\n            \"evidence_text\": \"Veia cava inferior com calibre normal e colapsabilidade preservada.\"\n          }\n        },\n        {\n          \"raw_text\": \"Ecodopplercardiograma normal.\",\n          \"evidence\": {\n            \"evidence_text\": \"Ecodopplercardiograma normal.\"\n          }\n        }\n      ],\n      \"source_order\": 1,\n      \"evidence\": {\n        \"evidence_text\": \"ECOCARDIOGRAMA BIDIMENSIONAL COM DOPPLER\"\n      },\n      \"source_ref\": \"H001-ECHO-20260728\"\n    }\n  ],\n  \"extraction_warnings\": []\n}",
+  "run_id": "6c9702dc-b612-4b7d-9613-54170cecd831",
+  "run_index": 1,
+  "schema_validation_status": "OK",
+  "source_id": "H001-ECHO-20260728",
+  "started_at": "2026-09-08T21:56:53.503026+00:00",
+  "status": "SUCCESS"
+}

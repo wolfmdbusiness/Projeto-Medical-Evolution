@@ -1,0 +1,4200 @@
+{
+  "completed_at": "2026-09-08T21:58:06.050838+00:00",
+  "config": {
+    "max_tokens": 16384,
+    "response_format": "json_object",
+    "temperature": 0,
+    "thinking": "disabled"
+  },
+  "error_code": null,
+  "evaluation_result": null,
+  "finish_reason": "stop",
+  "grounding_result": {
+    "accepted_count": 62,
+    "grounded_count": 62,
+    "localization_multiple_count": 0,
+    "localization_unique_count": 62,
+    "localization_unresolved_count": 0,
+    "records": [
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "Hemácias",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            282,
+            303
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "Hemoglobina",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            304,
+            325
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "Hematócrito",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            326,
+            344
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "VCM",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            345,
+            356
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "HCM",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            357,
+            368
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "CHCM",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            369,
+            383
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "RDW",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            384,
+            394
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "Leucócitos",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            395,
+            418
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "Neutrófilos",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            428,
+            446
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "Eosinófilos",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            455,
+            472
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "Basófilos",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            479,
+            494
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "Linfócitos",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            501,
+            518
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "Monócitos",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            527,
+            542
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "PLAQUETAS",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            551,
+            572
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "VOL. PLAQ. MÉDIO",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            573,
+            596
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "Tempo de Atividade de Protrombina",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            665,
+            714
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "RNI",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            715,
+            723
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "Tempo (TTPa)",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            798,
+            825
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "Relação (Paciente/Normal)",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            826,
+            857
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "RESULTADO",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            916,
+            931
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "Resultado",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            1006,
+            1026
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "RESULTADO",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            1089,
+            1106
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "Resultado",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            1169,
+            1185
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "Resultado",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            1226,
+            1242
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "RESULTADO",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            1283,
+            1301
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "Resultado",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            1347,
+            1367
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "Taxa de Filtração Glomerular",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            1368,
+            1412
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "RESULTADO",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            1453,
+            1473
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "Resultado",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            1517,
+            1537
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "Resultado",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            1581,
+            1600
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "RESULTADO",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            1651,
+            1672
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "RESULTADO",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            1748,
+            1764
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "RESULTADO",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            1837,
+            1853
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "Bilirrubina Total",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            1916,
+            1943
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "Bilirrubina Direta",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            1944,
+            1972
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "general_lab",
+        "label": "Bilirrubina Indireta",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            1973,
+            2004
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "urinalysis",
+        "label": "COR",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            2063,
+            2086
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "urinalysis",
+        "label": "ASPECTO",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            2087,
+            2102
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "urinalysis",
+        "label": "DENSIDADE",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            2103,
+            2117
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "urinalysis",
+        "label": "pH",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            2118,
+            2124
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "urinalysis",
+        "label": "PROTEÍNA",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            2125,
+            2145
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "urinalysis",
+        "label": "GLICOSE",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            2146,
+            2161
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "urinalysis",
+        "label": "CORPOS CETÔNICOS",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            2162,
+            2186
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "urinalysis",
+        "label": "BILIRRUBINA",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            2187,
+            2210
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "urinalysis",
+        "label": "UROBILINOGENIO",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            2211,
+            2238
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "urinalysis",
+        "label": "HEMOGLOBINA",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            2239,
+            2258
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "urinalysis",
+        "label": "NITRITO",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            2259,
+            2275
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "urinalysis",
+        "label": "LEUCÓCITOS",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            2297,
+            2314
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "urinalysis",
+        "label": "HEMACIAS",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            2315,
+            2337
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "urinalysis",
+        "label": "CILINDROS",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            2338,
+            2355
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "urinalysis",
+        "label": "CELULAS EPITELIAIS",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            2356,
+            2386
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "urinalysis",
+        "label": "CRISTAIS",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            2387,
+            2404
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "urinalysis",
+        "label": "FILAMENTOS DE MUCO",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            2405,
+            2431
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "urinalysis",
+        "label": "BACTÉRIAS",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            2432,
+            2453
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "blood_gas",
+        "label": "VENOSO",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            64,
+            81
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "blood_gas_observation",
+        "label": "pH",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            132,
+            140
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "blood_gas_observation",
+        "label": "PCO2",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            141,
+            155
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "blood_gas_observation",
+        "label": "PO2",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            156,
+            169
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "blood_gas_observation",
+        "label": "SO2",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            170,
+            180
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "blood_gas_observation",
+        "label": "HCO3",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            181,
+            197
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "blood_gas_observation",
+        "label": "TCO2",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            198,
+            214
+          ]
+        ],
+        "support_status": "GROUNDED"
+      },
+      {
+        "accepted": true,
+        "category": "blood_gas_observation",
+        "label": "BE",
+        "localization_status": "UNIQUE",
+        "spans": [
+          [
+            215,
+            228
+          ]
+        ],
+        "support_status": "GROUNDED"
+      }
+    ],
+    "ungrounded_count": 0
+  },
+  "input_tokens": 5824,
+  "latency_ms": 26855.596193999987,
+  "model": "deepseek-v4-flash",
+  "normalized_batch": {
+    "blood_gases": [
+      {
+        "collection_datetime": "2026-07-27",
+        "gas_id": "H001-LAB-20260727:blood_gas:55",
+        "observations": [
+          {
+            "abnormal_flag": null,
+            "analyte": {
+              "canonical_id": "PH",
+              "display_name": "PH",
+              "raw_name": "pH"
+            },
+            "collection_datetime": "2026-07-27",
+            "differential": [],
+            "observation_id": "H001-LAB-20260727:blood_gas_observation:1",
+            "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:blood_gas_observation:132-140",
+            "reference_range": null,
+            "source_order": 1,
+            "source_refs": [
+              "H001-LAB-20260727"
+            ],
+            "unit": {
+              "normalized": null,
+              "raw": null
+            },
+            "validation_status": "CONFIRMED",
+            "value": {
+              "display_value": "7,350",
+              "normalized_numeric_value": 7.35,
+              "operator": null,
+              "raw_value": "7,350"
+            }
+          },
+          {
+            "abnormal_flag": null,
+            "analyte": {
+              "canonical_id": "PCO2",
+              "display_name": "PCO2",
+              "raw_name": "PCO2"
+            },
+            "collection_datetime": "2026-07-27",
+            "differential": [],
+            "observation_id": "H001-LAB-20260727:blood_gas_observation:2",
+            "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:blood_gas_observation:141-155",
+            "reference_range": null,
+            "source_order": 2,
+            "source_refs": [
+              "H001-LAB-20260727"
+            ],
+            "unit": {
+              "normalized": null,
+              "raw": "mmHg"
+            },
+            "validation_status": "CONFIRMED",
+            "value": {
+              "display_value": "51,0",
+              "normalized_numeric_value": 51.0,
+              "operator": null,
+              "raw_value": "51,0"
+            }
+          },
+          {
+            "abnormal_flag": null,
+            "analyte": {
+              "canonical_id": "PO2",
+              "display_name": "PO2",
+              "raw_name": "PO2"
+            },
+            "collection_datetime": "2026-07-27",
+            "differential": [],
+            "observation_id": "H001-LAB-20260727:blood_gas_observation:3",
+            "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:blood_gas_observation:156-169",
+            "reference_range": null,
+            "source_order": 3,
+            "source_refs": [
+              "H001-LAB-20260727"
+            ],
+            "unit": {
+              "normalized": null,
+              "raw": "mmHg"
+            },
+            "validation_status": "CONFIRMED",
+            "value": {
+              "display_value": "35,0",
+              "normalized_numeric_value": 35.0,
+              "operator": null,
+              "raw_value": "35,0"
+            }
+          },
+          {
+            "abnormal_flag": null,
+            "analyte": {
+              "canonical_id": null,
+              "display_name": null,
+              "raw_name": "SO2"
+            },
+            "collection_datetime": "2026-07-27",
+            "differential": [],
+            "observation_id": "H001-LAB-20260727:blood_gas_observation:4",
+            "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:blood_gas_observation:170-180",
+            "reference_range": null,
+            "source_order": 4,
+            "source_refs": [
+              "H001-LAB-20260727"
+            ],
+            "unit": {
+              "normalized": null,
+              "raw": "%"
+            },
+            "validation_status": "UNRESOLVED",
+            "value": {
+              "display_value": "64,0",
+              "normalized_numeric_value": 64.0,
+              "operator": null,
+              "raw_value": "64,0"
+            }
+          },
+          {
+            "abnormal_flag": null,
+            "analyte": {
+              "canonical_id": "HCO3",
+              "display_name": "HCO3",
+              "raw_name": "HCO3"
+            },
+            "collection_datetime": "2026-07-27",
+            "differential": [],
+            "observation_id": "H001-LAB-20260727:blood_gas_observation:5",
+            "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:blood_gas_observation:181-197",
+            "reference_range": null,
+            "source_order": 5,
+            "source_refs": [
+              "H001-LAB-20260727"
+            ],
+            "unit": {
+              "normalized": null,
+              "raw": "mmol/L"
+            },
+            "validation_status": "CONFIRMED",
+            "value": {
+              "display_value": "28,2",
+              "normalized_numeric_value": 28.2,
+              "operator": null,
+              "raw_value": "28,2"
+            }
+          },
+          {
+            "abnormal_flag": null,
+            "analyte": {
+              "canonical_id": null,
+              "display_name": null,
+              "raw_name": "TCO2"
+            },
+            "collection_datetime": "2026-07-27",
+            "differential": [],
+            "observation_id": "H001-LAB-20260727:blood_gas_observation:6",
+            "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:blood_gas_observation:198-214",
+            "reference_range": null,
+            "source_order": 6,
+            "source_refs": [
+              "H001-LAB-20260727"
+            ],
+            "unit": {
+              "normalized": null,
+              "raw": "mmol/L"
+            },
+            "validation_status": "UNRESOLVED",
+            "value": {
+              "display_value": "29,8",
+              "normalized_numeric_value": 29.8,
+              "operator": null,
+              "raw_value": "29,8"
+            }
+          },
+          {
+            "abnormal_flag": null,
+            "analyte": {
+              "canonical_id": "BE",
+              "display_name": "BE",
+              "raw_name": "BE"
+            },
+            "collection_datetime": "2026-07-27",
+            "differential": [],
+            "observation_id": "H001-LAB-20260727:blood_gas_observation:7",
+            "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:blood_gas_observation:215-228",
+            "reference_range": null,
+            "source_order": 7,
+            "source_refs": [
+              "H001-LAB-20260727"
+            ],
+            "unit": {
+              "normalized": null,
+              "raw": "mmol/L"
+            },
+            "validation_status": "CONFIRMED",
+            "value": {
+              "display_value": "1,8",
+              "normalized_numeric_value": 1.8,
+              "operator": null,
+              "raw_value": "1,8"
+            }
+          }
+        ],
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:blood_gas:64-81",
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "specimen_type": "VENOUS",
+        "validation_status": "CONFIRMED"
+      }
+    ],
+    "conflicts": [],
+    "diagnostic_studies": [],
+    "laboratory_observations": [
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "Hemácias"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:1",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:282-303",
+        "reference_range": null,
+        "source_order": 1,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "x106/uL"
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "3,93",
+          "normalized_numeric_value": 3.93,
+          "operator": null,
+          "raw_value": "3,93"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": "HEMOGLOBINA",
+          "display_name": "HEMOGLOBINA",
+          "raw_name": "Hemoglobina"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:2",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:304-325",
+        "reference_range": null,
+        "source_order": 2,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "g/dL"
+        },
+        "validation_status": "CONFIRMED",
+        "value": {
+          "display_value": "12,6",
+          "normalized_numeric_value": 12.6,
+          "operator": null,
+          "raw_value": "12,6"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "Hematócrito"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:3",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:326-344",
+        "reference_range": null,
+        "source_order": 3,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "%"
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "35,8",
+          "normalized_numeric_value": 35.8,
+          "operator": null,
+          "raw_value": "35,8"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": "VCM",
+          "display_name": "VCM",
+          "raw_name": "VCM"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:4",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:345-356",
+        "reference_range": null,
+        "source_order": 4,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "fL"
+        },
+        "validation_status": "CONFIRMED",
+        "value": {
+          "display_value": "91,1",
+          "normalized_numeric_value": 91.1,
+          "operator": null,
+          "raw_value": "91,1"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": "HCM",
+          "display_name": "HCM",
+          "raw_name": "HCM"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:5",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:357-368",
+        "reference_range": null,
+        "source_order": 5,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "pg"
+        },
+        "validation_status": "CONFIRMED",
+        "value": {
+          "display_value": "32,1",
+          "normalized_numeric_value": 32.1,
+          "operator": null,
+          "raw_value": "32,1"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "CHCM"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:6",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:369-383",
+        "reference_range": null,
+        "source_order": 6,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "g/dL"
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "35,2",
+          "normalized_numeric_value": 35.2,
+          "operator": null,
+          "raw_value": "35,2"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "RDW"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:7",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:384-394",
+        "reference_range": null,
+        "source_order": 7,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "%"
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "12,1",
+          "normalized_numeric_value": 12.1,
+          "operator": null,
+          "raw_value": "12,1"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": "LC",
+          "display_name": "LC",
+          "raw_name": "Leucócitos"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:8",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:395-418",
+        "reference_range": null,
+        "source_order": 8,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "x103/uL"
+        },
+        "validation_status": "CONFIRMED",
+        "value": {
+          "display_value": "13,3",
+          "normalized_numeric_value": 13.3,
+          "operator": null,
+          "raw_value": "13,3"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "Neutrófilos"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:9",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:428-446",
+        "reference_range": null,
+        "source_order": 9,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "%"
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "64,7",
+          "normalized_numeric_value": 64.7,
+          "operator": null,
+          "raw_value": "64,7"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "Eosinófilos"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:10",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:455-472",
+        "reference_range": null,
+        "source_order": 10,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "%"
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "0,5",
+          "normalized_numeric_value": 0.5,
+          "operator": null,
+          "raw_value": "0,5"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "Basófilos"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:11",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:479-494",
+        "reference_range": null,
+        "source_order": 11,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "%"
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "0,2",
+          "normalized_numeric_value": 0.2,
+          "operator": null,
+          "raw_value": "0,2"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "Linfócitos"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:12",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:501-518",
+        "reference_range": null,
+        "source_order": 12,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "%"
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "26,6",
+          "normalized_numeric_value": 26.6,
+          "operator": null,
+          "raw_value": "26,6"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "Monócitos"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:13",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:527-542",
+        "reference_range": null,
+        "source_order": 13,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "%"
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "8,0",
+          "normalized_numeric_value": 8.0,
+          "operator": null,
+          "raw_value": "8,0"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "PLAQUETAS"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:14",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:551-572",
+        "reference_range": null,
+        "source_order": 14,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "x103/uL"
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "309",
+          "normalized_numeric_value": 309.0,
+          "operator": null,
+          "raw_value": "309"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "VOL. PLAQ. MÉDIO"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:15",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:573-596",
+        "reference_range": null,
+        "source_order": 15,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "fL"
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "9,3",
+          "normalized_numeric_value": 9.3,
+          "operator": null,
+          "raw_value": "9,3"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "Tempo de Atividade de Protrombina"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:16",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:665-714",
+        "reference_range": null,
+        "source_order": 16,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "segundos"
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "13,30",
+          "normalized_numeric_value": 13.3,
+          "operator": null,
+          "raw_value": "13,30"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": "INR",
+          "display_name": "INR",
+          "raw_name": "RNI"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:17",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:715-723",
+        "reference_range": null,
+        "source_order": 17,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": null
+        },
+        "validation_status": "CONFIRMED",
+        "value": {
+          "display_value": "1,00",
+          "normalized_numeric_value": 1.0,
+          "operator": null,
+          "raw_value": "1,00"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "Tempo (TTPa)"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:18",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:798-825",
+        "reference_range": null,
+        "source_order": 18,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "segundos"
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "35,1",
+          "normalized_numeric_value": 35.1,
+          "operator": null,
+          "raw_value": "35,1"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "Relação (Paciente/Normal)"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:19",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:826-857",
+        "reference_range": null,
+        "source_order": 19,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": null
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "1,05",
+          "normalized_numeric_value": 1.05,
+          "operator": null,
+          "raw_value": "1,05"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "RESULTADO"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:20",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:916-931",
+        "reference_range": null,
+        "source_order": 20,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "mm"
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "21",
+          "normalized_numeric_value": 21.0,
+          "operator": null,
+          "raw_value": "21"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "Resultado"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:21",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:1006-1026",
+        "reference_range": null,
+        "source_order": 21,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "mg/dL"
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "0,13",
+          "normalized_numeric_value": 0.13,
+          "operator": null,
+          "raw_value": "0,13"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "RESULTADO"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:22",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:1089-1106",
+        "reference_range": null,
+        "source_order": 22,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "U/L"
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "192",
+          "normalized_numeric_value": 192.0,
+          "operator": null,
+          "raw_value": "192"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "Resultado"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:23",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:1169-1185",
+        "reference_range": null,
+        "source_order": 23,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "U/L"
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "66",
+          "normalized_numeric_value": 66.0,
+          "operator": null,
+          "raw_value": "66"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "Resultado"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:24",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:1226-1242",
+        "reference_range": null,
+        "source_order": 24,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "U/L"
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "10",
+          "normalized_numeric_value": 10.0,
+          "operator": null,
+          "raw_value": "10"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "RESULTADO"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:25",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:1283-1301",
+        "reference_range": null,
+        "source_order": 25,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "mg/dL"
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "43",
+          "normalized_numeric_value": 43.0,
+          "operator": null,
+          "raw_value": "43"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "Resultado"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:26",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:1347-1367",
+        "reference_range": null,
+        "source_order": 26,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "mg/dL"
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "1,07",
+          "normalized_numeric_value": 1.07,
+          "operator": null,
+          "raw_value": "1,07"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "Taxa de Filtração Glomerular"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:27",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:1368-1412",
+        "reference_range": null,
+        "source_order": 27,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "mL/min/1,73²"
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "63",
+          "normalized_numeric_value": 63.0,
+          "operator": null,
+          "raw_value": "63"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "RESULTADO"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:28",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:1453-1473",
+        "reference_range": null,
+        "source_order": 28,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "mmol/L"
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "142",
+          "normalized_numeric_value": 142.0,
+          "operator": null,
+          "raw_value": "142"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "Resultado"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:29",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:1517-1537",
+        "reference_range": null,
+        "source_order": 29,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "mmol/L"
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "4,7",
+          "normalized_numeric_value": 4.7,
+          "operator": null,
+          "raw_value": "4,7"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "Resultado"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:30",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:1581-1600",
+        "reference_range": null,
+        "source_order": 30,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "mg/dL"
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "2,1",
+          "normalized_numeric_value": 2.1,
+          "operator": null,
+          "raw_value": "2,1"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "RESULTADO"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:31",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:1651-1672",
+        "reference_range": null,
+        "source_order": 31,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "mmol/L"
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "1,32",
+          "normalized_numeric_value": 1.32,
+          "operator": null,
+          "raw_value": "1,32"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "RESULTADO"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:32",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:1748-1764",
+        "reference_range": null,
+        "source_order": 32,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "U/L"
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "16",
+          "normalized_numeric_value": 16.0,
+          "operator": null,
+          "raw_value": "16"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "RESULTADO"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:33",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:1837-1853",
+        "reference_range": null,
+        "source_order": 33,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "U/L"
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "13",
+          "normalized_numeric_value": 13.0,
+          "operator": null,
+          "raw_value": "13"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "Bilirrubina Total"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:34",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:1916-1943",
+        "reference_range": null,
+        "source_order": 34,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "mg/dL"
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "0,2",
+          "normalized_numeric_value": 0.2,
+          "operator": null,
+          "raw_value": "0,2"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "Bilirrubina Direta"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:35",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:1944-1972",
+        "reference_range": null,
+        "source_order": 35,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "mg/dL"
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "0,1",
+          "normalized_numeric_value": 0.1,
+          "operator": null,
+          "raw_value": "0,1"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "Bilirrubina Indireta"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:general_lab:36",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:general_lab:1973-2004",
+        "reference_range": null,
+        "source_order": 36,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": "mg/dL"
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "0,10",
+          "normalized_numeric_value": 0.1,
+          "operator": null,
+          "raw_value": "0,10"
+        }
+      }
+    ],
+    "microbiology_serology": [],
+    "source_id": "H001-LAB-20260727",
+    "troponins": [],
+    "unmapped": [],
+    "urinalysis": [
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": "COR",
+          "display_name": "COR",
+          "raw_name": "COR"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:urinalysis:37",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:urinalysis:2063-2086",
+        "reference_range": null,
+        "source_order": 37,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": null
+        },
+        "validation_status": "CONFIRMED",
+        "value": {
+          "display_value": "AMARELO(A) CLARO(A)",
+          "normalized_numeric_value": null,
+          "operator": null,
+          "raw_value": "AMARELO(A) CLARO(A)"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": "ASPECTO",
+          "display_name": "ASPECTO",
+          "raw_name": "ASPECTO"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:urinalysis:38",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:urinalysis:2087-2102",
+        "reference_range": null,
+        "source_order": 38,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": null
+        },
+        "validation_status": "CONFIRMED",
+        "value": {
+          "display_value": "LÍMPIDO",
+          "normalized_numeric_value": null,
+          "operator": null,
+          "raw_value": "LÍMPIDO"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": "DENSIDADE",
+          "display_name": "DENSIDADE",
+          "raw_name": "DENSIDADE"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:urinalysis:39",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:urinalysis:2103-2117",
+        "reference_range": null,
+        "source_order": 39,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": null
+        },
+        "validation_status": "CONFIRMED",
+        "value": {
+          "display_value": "1020",
+          "normalized_numeric_value": 1020.0,
+          "operator": null,
+          "raw_value": "1020"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": "PH",
+          "display_name": "PH",
+          "raw_name": "pH"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:urinalysis:40",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:urinalysis:2118-2124",
+        "reference_range": null,
+        "source_order": 40,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": null
+        },
+        "validation_status": "CONFIRMED",
+        "value": {
+          "display_value": "5,0",
+          "normalized_numeric_value": 5.0,
+          "operator": null,
+          "raw_value": "5,0"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "PROTEÍNA"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:urinalysis:41",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:urinalysis:2125-2145",
+        "reference_range": null,
+        "source_order": 41,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": null
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "PRESENTES +",
+          "normalized_numeric_value": null,
+          "operator": null,
+          "raw_value": "PRESENTES +"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": "GLICOSE",
+          "display_name": "GLICOSE",
+          "raw_name": "GLICOSE"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:urinalysis:42",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:urinalysis:2146-2161",
+        "reference_range": null,
+        "source_order": 42,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": null
+        },
+        "validation_status": "CONFIRMED",
+        "value": {
+          "display_value": "AUSENTE",
+          "normalized_numeric_value": null,
+          "operator": null,
+          "raw_value": "AUSENTE"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "CORPOS CETÔNICOS"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:urinalysis:43",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:urinalysis:2162-2186",
+        "reference_range": null,
+        "source_order": 43,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": null
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "AUSENTE",
+          "normalized_numeric_value": null,
+          "operator": null,
+          "raw_value": "AUSENTE"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": "BILIRRUBINA",
+          "display_name": "BILIRRUBINA",
+          "raw_name": "BILIRRUBINA"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:urinalysis:44",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:urinalysis:2187-2210",
+        "reference_range": null,
+        "source_order": 44,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": null
+        },
+        "validation_status": "CONFIRMED",
+        "value": {
+          "display_value": "PRESENTES +",
+          "normalized_numeric_value": null,
+          "operator": null,
+          "raw_value": "PRESENTES +"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": "UROBILINOGENIO",
+          "display_name": "UROBILINOGENIO",
+          "raw_name": "UROBILINOGENIO"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:urinalysis:45",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:urinalysis:2211-2238",
+        "reference_range": null,
+        "source_order": 45,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": null
+        },
+        "validation_status": "CONFIRMED",
+        "value": {
+          "display_value": "INFERIOR A 1",
+          "normalized_numeric_value": null,
+          "operator": null,
+          "raw_value": "INFERIOR A 1"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": "HEMOGLOBINA",
+          "display_name": "HEMOGLOBINA",
+          "raw_name": "HEMOGLOBINA"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:urinalysis:46",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:urinalysis:2239-2258",
+        "reference_range": null,
+        "source_order": 46,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": null
+        },
+        "validation_status": "CONFIRMED",
+        "value": {
+          "display_value": "AUSENTE",
+          "normalized_numeric_value": null,
+          "operator": null,
+          "raw_value": "AUSENTE"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "NITRITO"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:urinalysis:47",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:urinalysis:2259-2275",
+        "reference_range": null,
+        "source_order": 47,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": null
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "NEGATIVO",
+          "normalized_numeric_value": null,
+          "operator": null,
+          "raw_value": "NEGATIVO"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": "LC",
+          "display_name": "LC",
+          "raw_name": "LEUCÓCITOS"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:urinalysis:48",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:urinalysis:2297-2314",
+        "reference_range": null,
+        "source_order": 48,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": null
+        },
+        "validation_status": "CONFIRMED",
+        "value": {
+          "display_value": "42.000",
+          "normalized_numeric_value": 42.0,
+          "operator": null,
+          "raw_value": "42.000"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": "HEMACIAS",
+          "display_name": "HEMACIAS",
+          "raw_name": "HEMACIAS"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:urinalysis:49",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:urinalysis:2315-2337",
+        "reference_range": null,
+        "source_order": 49,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": null
+        },
+        "validation_status": "CONFIRMED",
+        "value": {
+          "display_value": "INFERIOR 8000",
+          "normalized_numeric_value": null,
+          "operator": null,
+          "raw_value": "INFERIOR 8000"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": "CILINDROS",
+          "display_name": "CILINDROS",
+          "raw_name": "CILINDROS"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:urinalysis:50",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:urinalysis:2338-2355",
+        "reference_range": null,
+        "source_order": 50,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": null
+        },
+        "validation_status": "CONFIRMED",
+        "value": {
+          "display_value": "AUSENTE",
+          "normalized_numeric_value": null,
+          "operator": null,
+          "raw_value": "AUSENTE"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "CELULAS EPITELIAIS"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:urinalysis:51",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:urinalysis:2356-2386",
+        "reference_range": null,
+        "source_order": 51,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": null
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "ALGUNS (AS)",
+          "normalized_numeric_value": null,
+          "operator": null,
+          "raw_value": "ALGUNS (AS)"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": "CRISTAIS",
+          "display_name": "CRISTAIS",
+          "raw_name": "CRISTAIS"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:urinalysis:52",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:urinalysis:2387-2404",
+        "reference_range": null,
+        "source_order": 52,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": null
+        },
+        "validation_status": "CONFIRMED",
+        "value": {
+          "display_value": "AUSENTES",
+          "normalized_numeric_value": null,
+          "operator": null,
+          "raw_value": "AUSENTES"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "FILAMENTOS DE MUCO"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:urinalysis:53",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:urinalysis:2405-2431",
+        "reference_range": null,
+        "source_order": 53,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": null
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "AUSENTE",
+          "normalized_numeric_value": null,
+          "operator": null,
+          "raw_value": "AUSENTE"
+        }
+      },
+      {
+        "abnormal_flag": null,
+        "analyte": {
+          "canonical_id": null,
+          "display_name": null,
+          "raw_name": "BACTÉRIAS"
+        },
+        "collection_datetime": "2026-07-27",
+        "differential": [],
+        "observation_id": "H001-LAB-20260727:urinalysis:54",
+        "processing_key": "MOD-EXAMES:2.0.0a1:H001-LAB-20260727:urinalysis:2432-2453",
+        "reference_range": null,
+        "source_order": 54,
+        "source_refs": [
+          "H001-LAB-20260727"
+        ],
+        "unit": {
+          "normalized": null,
+          "raw": null
+        },
+        "validation_status": "UNRESOLVED",
+        "value": {
+          "display_value": "PRESENTES +",
+          "normalized_numeric_value": null,
+          "operator": null,
+          "raw_value": "PRESENTES +"
+        }
+      }
+    ],
+    "warnings": []
+  },
+  "output_tokens": 7261,
+  "parsed_candidate": {
+    "blood_gases": [
+      {
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 81,
+          "char_start": 64,
+          "evidence_text": "GASOMETRIA VENOSA",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 81,
+              "start": 64
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "observations": [
+          {
+            "canonical_hint": "PH",
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 140,
+              "char_start": 132,
+              "evidence_text": "pH 7,350",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 140,
+                  "start": 132
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_name": "pH",
+            "raw_reference_range": null,
+            "raw_temporal": "27/07/2026",
+            "raw_unit": null,
+            "raw_value": "7,350",
+            "source_order": 1,
+            "source_ref": "H001-LAB-20260727"
+          },
+          {
+            "canonical_hint": "PCO2",
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 155,
+              "char_start": 141,
+              "evidence_text": "PCO2 51,0 mmHg",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 155,
+                  "start": 141
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_name": "PCO2",
+            "raw_reference_range": null,
+            "raw_temporal": "27/07/2026",
+            "raw_unit": "mmHg",
+            "raw_value": "51,0",
+            "source_order": 2,
+            "source_ref": "H001-LAB-20260727"
+          },
+          {
+            "canonical_hint": "PO2",
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 169,
+              "char_start": 156,
+              "evidence_text": "PO2 35,0 mmHg",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 169,
+                  "start": 156
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_name": "PO2",
+            "raw_reference_range": null,
+            "raw_temporal": "27/07/2026",
+            "raw_unit": "mmHg",
+            "raw_value": "35,0",
+            "source_order": 3,
+            "source_ref": "H001-LAB-20260727"
+          },
+          {
+            "canonical_hint": "SO2",
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 180,
+              "char_start": 170,
+              "evidence_text": "SO2 64,0 %",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 180,
+                  "start": 170
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_name": "SO2",
+            "raw_reference_range": null,
+            "raw_temporal": "27/07/2026",
+            "raw_unit": "%",
+            "raw_value": "64,0",
+            "source_order": 4,
+            "source_ref": "H001-LAB-20260727"
+          },
+          {
+            "canonical_hint": "BICARBONATE",
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 197,
+              "char_start": 181,
+              "evidence_text": "HCO3 28,2 mmol/L",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 197,
+                  "start": 181
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_name": "HCO3",
+            "raw_reference_range": null,
+            "raw_temporal": "27/07/2026",
+            "raw_unit": "mmol/L",
+            "raw_value": "28,2",
+            "source_order": 5,
+            "source_ref": "H001-LAB-20260727"
+          },
+          {
+            "canonical_hint": "TCO2",
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 214,
+              "char_start": 198,
+              "evidence_text": "TCO2 29,8 mmol/L",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 214,
+                  "start": 198
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_name": "TCO2",
+            "raw_reference_range": null,
+            "raw_temporal": "27/07/2026",
+            "raw_unit": "mmol/L",
+            "raw_value": "29,8",
+            "source_order": 6,
+            "source_ref": "H001-LAB-20260727"
+          },
+          {
+            "canonical_hint": "BE",
+            "evidence": {
+              "bounding_box": null,
+              "char_end": 228,
+              "char_start": 215,
+              "evidence_text": "BE 1,8 mmol/L",
+              "line": null,
+              "localization_status": "UNIQUE",
+              "matching_spans": [
+                {
+                  "end": 228,
+                  "start": 215
+                }
+              ],
+              "page": null,
+              "support_status": "GROUNDED"
+            },
+            "raw_name": "BE",
+            "raw_reference_range": null,
+            "raw_temporal": "27/07/2026",
+            "raw_unit": "mmol/L",
+            "raw_value": "1,8",
+            "source_order": 7,
+            "source_ref": "H001-LAB-20260727"
+          }
+        ],
+        "raw_specimen_type": "VENOSO",
+        "raw_temporal": "27/07/2026",
+        "source_order": 55,
+        "source_ref": "H001-LAB-20260727"
+      }
+    ],
+    "diagnostic_studies": [],
+    "extraction_warnings": [],
+    "general_labs": [
+      {
+        "canonical_hint": "RBC",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 303,
+          "char_start": 282,
+          "evidence_text": "Hemácias 3,93 x106/uL",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 303,
+              "start": 282
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "Hemácias",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": "x106/uL",
+        "raw_value": "3,93",
+        "source_order": 1,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "HGB",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 325,
+          "char_start": 304,
+          "evidence_text": "Hemoglobina 12,6 g/dL",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 325,
+              "start": 304
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "Hemoglobina",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": "g/dL",
+        "raw_value": "12,6",
+        "source_order": 2,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "HCT",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 344,
+          "char_start": 326,
+          "evidence_text": "Hematócrito 35,8 %",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 344,
+              "start": 326
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "Hematócrito",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": "%",
+        "raw_value": "35,8",
+        "source_order": 3,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "MCV",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 356,
+          "char_start": 345,
+          "evidence_text": "VCM 91,1 fL",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 356,
+              "start": 345
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "VCM",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": "fL",
+        "raw_value": "91,1",
+        "source_order": 4,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "MCH",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 368,
+          "char_start": 357,
+          "evidence_text": "HCM 32,1 pg",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 368,
+              "start": 357
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "HCM",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": "pg",
+        "raw_value": "32,1",
+        "source_order": 5,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "MCHC",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 383,
+          "char_start": 369,
+          "evidence_text": "CHCM 35,2 g/dL",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 383,
+              "start": 369
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "CHCM",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": "g/dL",
+        "raw_value": "35,2",
+        "source_order": 6,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "RDW",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 394,
+          "char_start": 384,
+          "evidence_text": "RDW 12,1 %",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 394,
+              "start": 384
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "RDW",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": "%",
+        "raw_value": "12,1",
+        "source_order": 7,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "WBC",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 418,
+          "char_start": 395,
+          "evidence_text": "Leucócitos 13,3 x103/uL",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 418,
+              "start": 395
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "Leucócitos",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": "x103/uL",
+        "raw_value": "13,3",
+        "source_order": 8,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "NEUT",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 446,
+          "char_start": 428,
+          "evidence_text": "Neutrófilos 64,7 %",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 446,
+              "start": 428
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "Neutrófilos",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": "%",
+        "raw_value": "64,7",
+        "source_order": 9,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "EOS",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 472,
+          "char_start": 455,
+          "evidence_text": "Eosinófilos 0,5 %",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 472,
+              "start": 455
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "Eosinófilos",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": "%",
+        "raw_value": "0,5",
+        "source_order": 10,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "BASO",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 494,
+          "char_start": 479,
+          "evidence_text": "Basófilos 0,2 %",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 494,
+              "start": 479
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "Basófilos",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": "%",
+        "raw_value": "0,2",
+        "source_order": 11,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "LYMPH",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 518,
+          "char_start": 501,
+          "evidence_text": "Linfócitos 26,6 %",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 518,
+              "start": 501
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "Linfócitos",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": "%",
+        "raw_value": "26,6",
+        "source_order": 12,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "MONO",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 542,
+          "char_start": 527,
+          "evidence_text": "Monócitos 8,0 %",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 542,
+              "start": 527
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "Monócitos",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": "%",
+        "raw_value": "8,0",
+        "source_order": 13,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "PLT",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 572,
+          "char_start": 551,
+          "evidence_text": "PLAQUETAS 309 x103/uL",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 572,
+              "start": 551
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "PLAQUETAS",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": "x103/uL",
+        "raw_value": "309",
+        "source_order": 14,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "MPV",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 596,
+          "char_start": 573,
+          "evidence_text": "VOL. PLAQ. MÉDIO 9,3 fL",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 596,
+              "start": 573
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "VOL. PLAQ. MÉDIO",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": "fL",
+        "raw_value": "9,3",
+        "source_order": 15,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "PT",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 714,
+          "char_start": 665,
+          "evidence_text": "Tempo de Atividade de Protrombina: 13,30 segundos",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 714,
+              "start": 665
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "Tempo de Atividade de Protrombina",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": "segundos",
+        "raw_value": "13,30",
+        "source_order": 16,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "INR",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 723,
+          "char_start": 715,
+          "evidence_text": "RNI 1,00",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 723,
+              "start": 715
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "RNI",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": null,
+        "raw_value": "1,00",
+        "source_order": 17,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "APTT",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 825,
+          "char_start": 798,
+          "evidence_text": "Tempo (TTPa): 35,1 segundos",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 825,
+              "start": 798
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "Tempo (TTPa)",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": "segundos",
+        "raw_value": "35,1",
+        "source_order": 18,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "APTT_RATIO",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 857,
+          "char_start": 826,
+          "evidence_text": "Relação (Paciente/Normal): 1,05",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 857,
+              "start": 826
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "Relação (Paciente/Normal)",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": null,
+        "raw_value": "1,05",
+        "source_order": 19,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "ESR",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 931,
+          "char_start": 916,
+          "evidence_text": "RESULTADO 21 mm",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 931,
+              "start": 916
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "RESULTADO",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": "mm",
+        "raw_value": "21",
+        "source_order": 20,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "CRP",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 1026,
+          "char_start": 1006,
+          "evidence_text": "Resultado 0,13 mg/dL",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 1026,
+              "start": 1006
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "Resultado",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": "mg/dL",
+        "raw_value": "0,13",
+        "source_order": 21,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "LDH",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 1106,
+          "char_start": 1089,
+          "evidence_text": "RESULTADO 192 U/L",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 1106,
+              "start": 1089
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "RESULTADO",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": "U/L",
+        "raw_value": "192",
+        "source_order": 22,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "CPK",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 1185,
+          "char_start": 1169,
+          "evidence_text": "Resultado 66 U/L",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 1185,
+              "start": 1169
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "Resultado",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": "U/L",
+        "raw_value": "66",
+        "source_order": 23,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "CKMB",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 1242,
+          "char_start": 1226,
+          "evidence_text": "Resultado 10 U/L",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 1242,
+              "start": 1226
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "Resultado",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": "U/L",
+        "raw_value": "10",
+        "source_order": 24,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "UREA",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 1301,
+          "char_start": 1283,
+          "evidence_text": "RESULTADO 43 mg/dL",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 1301,
+              "start": 1283
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "RESULTADO",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": "mg/dL",
+        "raw_value": "43",
+        "source_order": 25,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "CREATININE",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 1367,
+          "char_start": 1347,
+          "evidence_text": "Resultado 1,07 mg/dL",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 1367,
+              "start": 1347
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "Resultado",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": "mg/dL",
+        "raw_value": "1,07",
+        "source_order": 26,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "GFR",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 1412,
+          "char_start": 1368,
+          "evidence_text": "Taxa de Filtração Glomerular 63 mL/min/1,73²",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 1412,
+              "start": 1368
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "Taxa de Filtração Glomerular",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": "mL/min/1,73²",
+        "raw_value": "63",
+        "source_order": 27,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "SODIUM",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 1473,
+          "char_start": 1453,
+          "evidence_text": "RESULTADO 142 mmol/L",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 1473,
+              "start": 1453
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "RESULTADO",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": "mmol/L",
+        "raw_value": "142",
+        "source_order": 28,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "POTASSIUM",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 1537,
+          "char_start": 1517,
+          "evidence_text": "Resultado 4,7 mmol/L",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 1537,
+              "start": 1517
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "Resultado",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": "mmol/L",
+        "raw_value": "4,7",
+        "source_order": 29,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "MAGNESIUM",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 1600,
+          "char_start": 1581,
+          "evidence_text": "Resultado 2,1 mg/dL",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 1600,
+              "start": 1581
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "Resultado",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": "mg/dL",
+        "raw_value": "2,1",
+        "source_order": 30,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "CALCIUM_IONIZED",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 1672,
+          "char_start": 1651,
+          "evidence_text": "RESULTADO 1,32 mmol/L",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 1672,
+              "start": 1651
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "RESULTADO",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": "mmol/L",
+        "raw_value": "1,32",
+        "source_order": 31,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "AST",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 1764,
+          "char_start": 1748,
+          "evidence_text": "RESULTADO 16 U/L",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 1764,
+              "start": 1748
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "RESULTADO",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": "U/L",
+        "raw_value": "16",
+        "source_order": 32,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "ALT",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 1853,
+          "char_start": 1837,
+          "evidence_text": "RESULTADO 13 U/L",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 1853,
+              "start": 1837
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "RESULTADO",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": "U/L",
+        "raw_value": "13",
+        "source_order": 33,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "BILIRUBIN_TOTAL",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 1943,
+          "char_start": 1916,
+          "evidence_text": "Bilirrubina Total 0,2 mg/dL",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 1943,
+              "start": 1916
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "Bilirrubina Total",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": "mg/dL",
+        "raw_value": "0,2",
+        "source_order": 34,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "BILIRUBIN_DIRECT",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 1972,
+          "char_start": 1944,
+          "evidence_text": "Bilirrubina Direta 0,1 mg/dL",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 1972,
+              "start": 1944
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "Bilirrubina Direta",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": "mg/dL",
+        "raw_value": "0,1",
+        "source_order": 35,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "BILIRUBIN_INDIRECT",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 2004,
+          "char_start": 1973,
+          "evidence_text": "Bilirrubina Indireta 0,10 mg/dL",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 2004,
+              "start": 1973
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "Bilirrubina Indireta",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": "mg/dL",
+        "raw_value": "0,10",
+        "source_order": 36,
+        "source_ref": "H001-LAB-20260727"
+      }
+    ],
+    "microbiology": [],
+    "source_id": "H001-LAB-20260727",
+    "troponins": [],
+    "unmapped": [],
+    "urinalysis": [
+      {
+        "canonical_hint": "URINE_COLOR",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 2086,
+          "char_start": 2063,
+          "evidence_text": "COR AMARELO(A) CLARO(A)",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 2086,
+              "start": 2063
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "COR",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": null,
+        "raw_value": "AMARELO(A) CLARO(A)",
+        "source_order": 37,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "URINE_APPEARANCE",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 2102,
+          "char_start": 2087,
+          "evidence_text": "ASPECTO LÍMPIDO",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 2102,
+              "start": 2087
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "ASPECTO",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": null,
+        "raw_value": "LÍMPIDO",
+        "source_order": 38,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "URINE_SPECIFIC_GRAVITY",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 2117,
+          "char_start": 2103,
+          "evidence_text": "DENSIDADE 1020",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 2117,
+              "start": 2103
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "DENSIDADE",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": null,
+        "raw_value": "1020",
+        "source_order": 39,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "URINE_PH",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 2124,
+          "char_start": 2118,
+          "evidence_text": "pH 5,0",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 2124,
+              "start": 2118
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "pH",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": null,
+        "raw_value": "5,0",
+        "source_order": 40,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "URINE_PROTEIN",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 2145,
+          "char_start": 2125,
+          "evidence_text": "PROTEÍNA PRESENTES +",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 2145,
+              "start": 2125
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "PROTEÍNA",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": null,
+        "raw_value": "PRESENTES +",
+        "source_order": 41,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "URINE_GLUCOSE",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 2161,
+          "char_start": 2146,
+          "evidence_text": "GLICOSE AUSENTE",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 2161,
+              "start": 2146
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "GLICOSE",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": null,
+        "raw_value": "AUSENTE",
+        "source_order": 42,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "URINE_KETONES",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 2186,
+          "char_start": 2162,
+          "evidence_text": "CORPOS CETÔNICOS AUSENTE",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 2186,
+              "start": 2162
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "CORPOS CETÔNICOS",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": null,
+        "raw_value": "AUSENTE",
+        "source_order": 43,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "URINE_BILIRUBIN",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 2210,
+          "char_start": 2187,
+          "evidence_text": "BILIRRUBINA PRESENTES +",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 2210,
+              "start": 2187
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "BILIRRUBINA",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": null,
+        "raw_value": "PRESENTES +",
+        "source_order": 44,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "URINE_UROBILINOGEN",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 2238,
+          "char_start": 2211,
+          "evidence_text": "UROBILINOGENIO INFERIOR A 1",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 2238,
+              "start": 2211
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "UROBILINOGENIO",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": null,
+        "raw_value": "INFERIOR A 1",
+        "source_order": 45,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "URINE_HEMOGLOBIN",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 2258,
+          "char_start": 2239,
+          "evidence_text": "HEMOGLOBINA AUSENTE",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 2258,
+              "start": 2239
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "HEMOGLOBINA",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": null,
+        "raw_value": "AUSENTE",
+        "source_order": 46,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "URINE_NITRITE",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 2275,
+          "char_start": 2259,
+          "evidence_text": "NITRITO NEGATIVO",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 2275,
+              "start": 2259
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "NITRITO",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": null,
+        "raw_value": "NEGATIVO",
+        "source_order": 47,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "URINE_WBC",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 2314,
+          "char_start": 2297,
+          "evidence_text": "LEUCÓCITOS 42.000",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 2314,
+              "start": 2297
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "LEUCÓCITOS",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": null,
+        "raw_value": "42.000",
+        "source_order": 48,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "URINE_RBC",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 2337,
+          "char_start": 2315,
+          "evidence_text": "HEMACIAS INFERIOR 8000",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 2337,
+              "start": 2315
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "HEMACIAS",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": null,
+        "raw_value": "INFERIOR 8000",
+        "source_order": 49,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "URINE_CASTS",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 2355,
+          "char_start": 2338,
+          "evidence_text": "CILINDROS AUSENTE",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 2355,
+              "start": 2338
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "CILINDROS",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": null,
+        "raw_value": "AUSENTE",
+        "source_order": 50,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "URINE_EPITHELIAL_CELLS",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 2386,
+          "char_start": 2356,
+          "evidence_text": "CELULAS EPITELIAIS ALGUNS (AS)",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 2386,
+              "start": 2356
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "CELULAS EPITELIAIS",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": null,
+        "raw_value": "ALGUNS (AS)",
+        "source_order": 51,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "URINE_CRYSTALS",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 2404,
+          "char_start": 2387,
+          "evidence_text": "CRISTAIS AUSENTES",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 2404,
+              "start": 2387
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "CRISTAIS",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": null,
+        "raw_value": "AUSENTES",
+        "source_order": 52,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "URINE_MUCUS",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 2431,
+          "char_start": 2405,
+          "evidence_text": "FILAMENTOS DE MUCO AUSENTE",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 2431,
+              "start": 2405
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "FILAMENTOS DE MUCO",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": null,
+        "raw_value": "AUSENTE",
+        "source_order": 53,
+        "source_ref": "H001-LAB-20260727"
+      },
+      {
+        "canonical_hint": "URINE_BACTERIA",
+        "evidence": {
+          "bounding_box": null,
+          "char_end": 2453,
+          "char_start": 2432,
+          "evidence_text": "BACTÉRIAS PRESENTES +",
+          "line": null,
+          "localization_status": "UNIQUE",
+          "matching_spans": [
+            {
+              "end": 2453,
+              "start": 2432
+            }
+          ],
+          "page": null,
+          "support_status": "GROUNDED"
+        },
+        "raw_name": "BACTÉRIAS",
+        "raw_reference_range": null,
+        "raw_temporal": "27/07/2026",
+        "raw_unit": null,
+        "raw_value": "PRESENTES +",
+        "source_order": 54,
+        "source_ref": "H001-LAB-20260727"
+      }
+    ]
+  },
+  "prompt_version": "2.0b-prompt-003",
+  "provider": "DEEPSEEK",
+  "provider_response_content": "{\n  \"source_id\": \"H001-LAB-20260727\",\n  \"general_labs\": [\n    {\n      \"raw_name\": \"Hemácias\",\n      \"raw_value\": \"3,93\",\n      \"raw_unit\": \"x106/uL\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 1,\n      \"evidence\": {\n        \"evidence_text\": \"Hemácias 3,93 x106/uL\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"RBC\"\n    },\n    {\n      \"raw_name\": \"Hemoglobina\",\n      \"raw_value\": \"12,6\",\n      \"raw_unit\": \"g/dL\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 2,\n      \"evidence\": {\n        \"evidence_text\": \"Hemoglobina 12,6 g/dL\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"HGB\"\n    },\n    {\n      \"raw_name\": \"Hematócrito\",\n      \"raw_value\": \"35,8\",\n      \"raw_unit\": \"%\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 3,\n      \"evidence\": {\n        \"evidence_text\": \"Hematócrito 35,8 %\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"HCT\"\n    },\n    {\n      \"raw_name\": \"VCM\",\n      \"raw_value\": \"91,1\",\n      \"raw_unit\": \"fL\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 4,\n      \"evidence\": {\n        \"evidence_text\": \"VCM 91,1 fL\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"MCV\"\n    },\n    {\n      \"raw_name\": \"HCM\",\n      \"raw_value\": \"32,1\",\n      \"raw_unit\": \"pg\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 5,\n      \"evidence\": {\n        \"evidence_text\": \"HCM 32,1 pg\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"MCH\"\n    },\n    {\n      \"raw_name\": \"CHCM\",\n      \"raw_value\": \"35,2\",\n      \"raw_unit\": \"g/dL\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 6,\n      \"evidence\": {\n        \"evidence_text\": \"CHCM 35,2 g/dL\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"MCHC\"\n    },\n    {\n      \"raw_name\": \"RDW\",\n      \"raw_value\": \"12,1\",\n      \"raw_unit\": \"%\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 7,\n      \"evidence\": {\n        \"evidence_text\": \"RDW 12,1 %\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"RDW\"\n    },\n    {\n      \"raw_name\": \"Leucócitos\",\n      \"raw_value\": \"13,3\",\n      \"raw_unit\": \"x103/uL\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 8,\n      \"evidence\": {\n        \"evidence_text\": \"Leucócitos 13,3 x103/uL\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"WBC\"\n    },\n    {\n      \"raw_name\": \"Neutrófilos\",\n      \"raw_value\": \"64,7\",\n      \"raw_unit\": \"%\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 9,\n      \"evidence\": {\n        \"evidence_text\": \"Neutrófilos 64,7 %\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"NEUT\"\n    },\n    {\n      \"raw_name\": \"Eosinófilos\",\n      \"raw_value\": \"0,5\",\n      \"raw_unit\": \"%\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 10,\n      \"evidence\": {\n        \"evidence_text\": \"Eosinófilos 0,5 %\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"EOS\"\n    },\n    {\n      \"raw_name\": \"Basófilos\",\n      \"raw_value\": \"0,2\",\n      \"raw_unit\": \"%\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 11,\n      \"evidence\": {\n        \"evidence_text\": \"Basófilos 0,2 %\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"BASO\"\n    },\n    {\n      \"raw_name\": \"Linfócitos\",\n      \"raw_value\": \"26,6\",\n      \"raw_unit\": \"%\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 12,\n      \"evidence\": {\n        \"evidence_text\": \"Linfócitos 26,6 %\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"LYMPH\"\n    },\n    {\n      \"raw_name\": \"Monócitos\",\n      \"raw_value\": \"8,0\",\n      \"raw_unit\": \"%\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 13,\n      \"evidence\": {\n        \"evidence_text\": \"Monócitos 8,0 %\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"MONO\"\n    },\n    {\n      \"raw_name\": \"PLAQUETAS\",\n      \"raw_value\": \"309\",\n      \"raw_unit\": \"x103/uL\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 14,\n      \"evidence\": {\n        \"evidence_text\": \"PLAQUETAS 309 x103/uL\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"PLT\"\n    },\n    {\n      \"raw_name\": \"VOL. PLAQ. MÉDIO\",\n      \"raw_value\": \"9,3\",\n      \"raw_unit\": \"fL\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 15,\n      \"evidence\": {\n        \"evidence_text\": \"VOL. PLAQ. MÉDIO 9,3 fL\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"MPV\"\n    },\n    {\n      \"raw_name\": \"Tempo de Atividade de Protrombina\",\n      \"raw_value\": \"13,30\",\n      \"raw_unit\": \"segundos\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 16,\n      \"evidence\": {\n        \"evidence_text\": \"Tempo de Atividade de Protrombina: 13,30 segundos\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"PT\"\n    },\n    {\n      \"raw_name\": \"RNI\",\n      \"raw_value\": \"1,00\",\n      \"raw_unit\": null,\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 17,\n      \"evidence\": {\n        \"evidence_text\": \"RNI 1,00\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"INR\"\n    },\n    {\n      \"raw_name\": \"Tempo (TTPa)\",\n      \"raw_value\": \"35,1\",\n      \"raw_unit\": \"segundos\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 18,\n      \"evidence\": {\n        \"evidence_text\": \"Tempo (TTPa): 35,1 segundos\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"APTT\"\n    },\n    {\n      \"raw_name\": \"Relação (Paciente/Normal)\",\n      \"raw_value\": \"1,05\",\n      \"raw_unit\": null,\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 19,\n      \"evidence\": {\n        \"evidence_text\": \"Relação (Paciente/Normal): 1,05\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"APTT_RATIO\"\n    },\n    {\n      \"raw_name\": \"RESULTADO\",\n      \"raw_value\": \"21\",\n      \"raw_unit\": \"mm\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 20,\n      \"evidence\": {\n        \"evidence_text\": \"RESULTADO 21 mm\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"ESR\"\n    },\n    {\n      \"raw_name\": \"Resultado\",\n      \"raw_value\": \"0,13\",\n      \"raw_unit\": \"mg/dL\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 21,\n      \"evidence\": {\n        \"evidence_text\": \"Resultado 0,13 mg/dL\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"CRP\"\n    },\n    {\n      \"raw_name\": \"RESULTADO\",\n      \"raw_value\": \"192\",\n      \"raw_unit\": \"U/L\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 22,\n      \"evidence\": {\n        \"evidence_text\": \"RESULTADO 192 U/L\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"LDH\"\n    },\n    {\n      \"raw_name\": \"Resultado\",\n      \"raw_value\": \"66\",\n      \"raw_unit\": \"U/L\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 23,\n      \"evidence\": {\n        \"evidence_text\": \"Resultado 66 U/L\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"CPK\"\n    },\n    {\n      \"raw_name\": \"Resultado\",\n      \"raw_value\": \"10\",\n      \"raw_unit\": \"U/L\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 24,\n      \"evidence\": {\n        \"evidence_text\": \"Resultado 10 U/L\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"CKMB\"\n    },\n    {\n      \"raw_name\": \"RESULTADO\",\n      \"raw_value\": \"43\",\n      \"raw_unit\": \"mg/dL\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 25,\n      \"evidence\": {\n        \"evidence_text\": \"RESULTADO 43 mg/dL\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"UREA\"\n    },\n    {\n      \"raw_name\": \"Resultado\",\n      \"raw_value\": \"1,07\",\n      \"raw_unit\": \"mg/dL\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 26,\n      \"evidence\": {\n        \"evidence_text\": \"Resultado 1,07 mg/dL\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"CREATININE\"\n    },\n    {\n      \"raw_name\": \"Taxa de Filtração Glomerular\",\n      \"raw_value\": \"63\",\n      \"raw_unit\": \"mL/min/1,73²\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 27,\n      \"evidence\": {\n        \"evidence_text\": \"Taxa de Filtração Glomerular 63 mL/min/1,73²\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"GFR\"\n    },\n    {\n      \"raw_name\": \"RESULTADO\",\n      \"raw_value\": \"142\",\n      \"raw_unit\": \"mmol/L\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 28,\n      \"evidence\": {\n        \"evidence_text\": \"RESULTADO 142 mmol/L\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"SODIUM\"\n    },\n    {\n      \"raw_name\": \"Resultado\",\n      \"raw_value\": \"4,7\",\n      \"raw_unit\": \"mmol/L\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 29,\n      \"evidence\": {\n        \"evidence_text\": \"Resultado 4,7 mmol/L\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"POTASSIUM\"\n    },\n    {\n      \"raw_name\": \"Resultado\",\n      \"raw_value\": \"2,1\",\n      \"raw_unit\": \"mg/dL\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 30,\n      \"evidence\": {\n        \"evidence_text\": \"Resultado 2,1 mg/dL\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"MAGNESIUM\"\n    },\n    {\n      \"raw_name\": \"RESULTADO\",\n      \"raw_value\": \"1,32\",\n      \"raw_unit\": \"mmol/L\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 31,\n      \"evidence\": {\n        \"evidence_text\": \"RESULTADO 1,32 mmol/L\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"CALCIUM_IONIZED\"\n    },\n    {\n      \"raw_name\": \"RESULTADO\",\n      \"raw_value\": \"16\",\n      \"raw_unit\": \"U/L\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 32,\n      \"evidence\": {\n        \"evidence_text\": \"RESULTADO 16 U/L\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"AST\"\n    },\n    {\n      \"raw_name\": \"RESULTADO\",\n      \"raw_value\": \"13\",\n      \"raw_unit\": \"U/L\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 33,\n      \"evidence\": {\n        \"evidence_text\": \"RESULTADO 13 U/L\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"ALT\"\n    },\n    {\n      \"raw_name\": \"Bilirrubina Total\",\n      \"raw_value\": \"0,2\",\n      \"raw_unit\": \"mg/dL\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 34,\n      \"evidence\": {\n        \"evidence_text\": \"Bilirrubina Total 0,2 mg/dL\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"BILIRUBIN_TOTAL\"\n    },\n    {\n      \"raw_name\": \"Bilirrubina Direta\",\n      \"raw_value\": \"0,1\",\n      \"raw_unit\": \"mg/dL\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 35,\n      \"evidence\": {\n        \"evidence_text\": \"Bilirrubina Direta 0,1 mg/dL\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"BILIRUBIN_DIRECT\"\n    },\n    {\n      \"raw_name\": \"Bilirrubina Indireta\",\n      \"raw_value\": \"0,10\",\n      \"raw_unit\": \"mg/dL\",\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 36,\n      \"evidence\": {\n        \"evidence_text\": \"Bilirrubina Indireta 0,10 mg/dL\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"BILIRUBIN_INDIRECT\"\n    }\n  ],\n  \"urinalysis\": [\n    {\n      \"raw_name\": \"COR\",\n      \"raw_value\": \"AMARELO(A) CLARO(A)\",\n      \"raw_unit\": null,\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 37,\n      \"evidence\": {\n        \"evidence_text\": \"COR AMARELO(A) CLARO(A)\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"URINE_COLOR\"\n    },\n    {\n      \"raw_name\": \"ASPECTO\",\n      \"raw_value\": \"LÍMPIDO\",\n      \"raw_unit\": null,\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 38,\n      \"evidence\": {\n        \"evidence_text\": \"ASPECTO LÍMPIDO\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"URINE_APPEARANCE\"\n    },\n    {\n      \"raw_name\": \"DENSIDADE\",\n      \"raw_value\": \"1020\",\n      \"raw_unit\": null,\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 39,\n      \"evidence\": {\n        \"evidence_text\": \"DENSIDADE 1020\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"URINE_SPECIFIC_GRAVITY\"\n    },\n    {\n      \"raw_name\": \"pH\",\n      \"raw_value\": \"5,0\",\n      \"raw_unit\": null,\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 40,\n      \"evidence\": {\n        \"evidence_text\": \"pH 5,0\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"URINE_PH\"\n    },\n    {\n      \"raw_name\": \"PROTEÍNA\",\n      \"raw_value\": \"PRESENTES +\",\n      \"raw_unit\": null,\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 41,\n      \"evidence\": {\n        \"evidence_text\": \"PROTEÍNA PRESENTES +\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"URINE_PROTEIN\"\n    },\n    {\n      \"raw_name\": \"GLICOSE\",\n      \"raw_value\": \"AUSENTE\",\n      \"raw_unit\": null,\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 42,\n      \"evidence\": {\n        \"evidence_text\": \"GLICOSE AUSENTE\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"URINE_GLUCOSE\"\n    },\n    {\n      \"raw_name\": \"CORPOS CETÔNICOS\",\n      \"raw_value\": \"AUSENTE\",\n      \"raw_unit\": null,\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 43,\n      \"evidence\": {\n        \"evidence_text\": \"CORPOS CETÔNICOS AUSENTE\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"URINE_KETONES\"\n    },\n    {\n      \"raw_name\": \"BILIRRUBINA\",\n      \"raw_value\": \"PRESENTES +\",\n      \"raw_unit\": null,\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 44,\n      \"evidence\": {\n        \"evidence_text\": \"BILIRRUBINA PRESENTES +\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"URINE_BILIRUBIN\"\n    },\n    {\n      \"raw_name\": \"UROBILINOGENIO\",\n      \"raw_value\": \"INFERIOR A 1\",\n      \"raw_unit\": null,\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 45,\n      \"evidence\": {\n        \"evidence_text\": \"UROBILINOGENIO INFERIOR A 1\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"URINE_UROBILINOGEN\"\n    },\n    {\n      \"raw_name\": \"HEMOGLOBINA\",\n      \"raw_value\": \"AUSENTE\",\n      \"raw_unit\": null,\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 46,\n      \"evidence\": {\n        \"evidence_text\": \"HEMOGLOBINA AUSENTE\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"URINE_HEMOGLOBIN\"\n    },\n    {\n      \"raw_name\": \"NITRITO\",\n      \"raw_value\": \"NEGATIVO\",\n      \"raw_unit\": null,\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 47,\n      \"evidence\": {\n        \"evidence_text\": \"NITRITO NEGATIVO\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"URINE_NITRITE\"\n    },\n    {\n      \"raw_name\": \"LEUCÓCITOS\",\n      \"raw_value\": \"42.000\",\n      \"raw_unit\": null,\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 48,\n      \"evidence\": {\n        \"evidence_text\": \"LEUCÓCITOS 42.000\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"URINE_WBC\"\n    },\n    {\n      \"raw_name\": \"HEMACIAS\",\n      \"raw_value\": \"INFERIOR 8000\",\n      \"raw_unit\": null,\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 49,\n      \"evidence\": {\n        \"evidence_text\": \"HEMACIAS INFERIOR 8000\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"URINE_RBC\"\n    },\n    {\n      \"raw_name\": \"CILINDROS\",\n      \"raw_value\": \"AUSENTE\",\n      \"raw_unit\": null,\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 50,\n      \"evidence\": {\n        \"evidence_text\": \"CILINDROS AUSENTE\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"URINE_CASTS\"\n    },\n    {\n      \"raw_name\": \"CELULAS EPITELIAIS\",\n      \"raw_value\": \"ALGUNS (AS)\",\n      \"raw_unit\": null,\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 51,\n      \"evidence\": {\n        \"evidence_text\": \"CELULAS EPITELIAIS ALGUNS (AS)\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"URINE_EPITHELIAL_CELLS\"\n    },\n    {\n      \"raw_name\": \"CRISTAIS\",\n      \"raw_value\": \"AUSENTES\",\n      \"raw_unit\": null,\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 52,\n      \"evidence\": {\n        \"evidence_text\": \"CRISTAIS AUSENTES\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"URINE_CRYSTALS\"\n    },\n    {\n      \"raw_name\": \"FILAMENTOS DE MUCO\",\n      \"raw_value\": \"AUSENTE\",\n      \"raw_unit\": null,\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 53,\n      \"evidence\": {\n        \"evidence_text\": \"FILAMENTOS DE MUCO AUSENTE\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"URINE_MUCUS\"\n    },\n    {\n      \"raw_name\": \"BACTÉRIAS\",\n      \"raw_value\": \"PRESENTES +\",\n      \"raw_unit\": null,\n      \"raw_reference_range\": null,\n      \"raw_temporal\": \"27/07/2026\",\n      \"source_order\": 54,\n      \"evidence\": {\n        \"evidence_text\": \"BACTÉRIAS PRESENTES +\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\",\n      \"canonical_hint\": \"URINE_BACTERIA\"\n    }\n  ],\n  \"blood_gases\": [\n    {\n      \"raw_specimen_type\": \"VENOSO\",\n      \"raw_temporal\": \"27/07/2026\",\n      \"observations\": [\n        {\n          \"raw_name\": \"pH\",\n          \"raw_value\": \"7,350\",\n          \"raw_unit\": null,\n          \"raw_reference_range\": null,\n          \"raw_temporal\": \"27/07/2026\",\n          \"source_order\": 1,\n          \"evidence\": {\n            \"evidence_text\": \"pH 7,350\"\n          },\n          \"source_ref\": \"H001-LAB-20260727\",\n          \"canonical_hint\": \"PH\"\n        },\n        {\n          \"raw_name\": \"PCO2\",\n          \"raw_value\": \"51,0\",\n          \"raw_unit\": \"mmHg\",\n          \"raw_reference_range\": null,\n          \"raw_temporal\": \"27/07/2026\",\n          \"source_order\": 2,\n          \"evidence\": {\n            \"evidence_text\": \"PCO2 51,0 mmHg\"\n          },\n          \"source_ref\": \"H001-LAB-20260727\",\n          \"canonical_hint\": \"PCO2\"\n        },\n        {\n          \"raw_name\": \"PO2\",\n          \"raw_value\": \"35,0\",\n          \"raw_unit\": \"mmHg\",\n          \"raw_reference_range\": null,\n          \"raw_temporal\": \"27/07/2026\",\n          \"source_order\": 3,\n          \"evidence\": {\n            \"evidence_text\": \"PO2 35,0 mmHg\"\n          },\n          \"source_ref\": \"H001-LAB-20260727\",\n          \"canonical_hint\": \"PO2\"\n        },\n        {\n          \"raw_name\": \"SO2\",\n          \"raw_value\": \"64,0\",\n          \"raw_unit\": \"%\",\n          \"raw_reference_range\": null,\n          \"raw_temporal\": \"27/07/2026\",\n          \"source_order\": 4,\n          \"evidence\": {\n            \"evidence_text\": \"SO2 64,0 %\"\n          },\n          \"source_ref\": \"H001-LAB-20260727\",\n          \"canonical_hint\": \"SO2\"\n        },\n        {\n          \"raw_name\": \"HCO3\",\n          \"raw_value\": \"28,2\",\n          \"raw_unit\": \"mmol/L\",\n          \"raw_reference_range\": null,\n          \"raw_temporal\": \"27/07/2026\",\n          \"source_order\": 5,\n          \"evidence\": {\n            \"evidence_text\": \"HCO3 28,2 mmol/L\"\n          },\n          \"source_ref\": \"H001-LAB-20260727\",\n          \"canonical_hint\": \"BICARBONATE\"\n        },\n        {\n          \"raw_name\": \"TCO2\",\n          \"raw_value\": \"29,8\",\n          \"raw_unit\": \"mmol/L\",\n          \"raw_reference_range\": null,\n          \"raw_temporal\": \"27/07/2026\",\n          \"source_order\": 6,\n          \"evidence\": {\n            \"evidence_text\": \"TCO2 29,8 mmol/L\"\n          },\n          \"source_ref\": \"H001-LAB-20260727\",\n          \"canonical_hint\": \"TCO2\"\n        },\n        {\n          \"raw_name\": \"BE\",\n          \"raw_value\": \"1,8\",\n          \"raw_unit\": \"mmol/L\",\n          \"raw_reference_range\": null,\n          \"raw_temporal\": \"27/07/2026\",\n          \"source_order\": 7,\n          \"evidence\": {\n            \"evidence_text\": \"BE 1,8 mmol/L\"\n          },\n          \"source_ref\": \"H001-LAB-20260727\",\n          \"canonical_hint\": \"BE\"\n        }\n      ],\n      \"source_order\": 55,\n      \"evidence\": {\n        \"evidence_text\": \"GASOMETRIA VENOSA\"\n      },\n      \"source_ref\": \"H001-LAB-20260727\"\n    }\n  ],\n  \"troponins\": [],\n  \"microbiology\": [],\n  \"diagnostic_studies\": [],\n  \"unmapped\": [],\n  \"extraction_warnings\": []\n}",
+  "run_id": "3a5f037b-10cc-462f-8ca4-3d4bca26b241",
+  "run_index": 2,
+  "schema_validation_status": "OK",
+  "source_id": "H001-LAB-20260727",
+  "started_at": "2026-09-08T21:57:39.192521+00:00",
+  "status": "SUCCESS"
+}
